@@ -43,6 +43,7 @@ const footerSections = [
       { label: "vs. Geek Squad", href: "/about" },
       { label: "Official Google Site", href: OFFICIAL_SITE, external: true },
       { label: "Service Area Map", href: MAPS_URL, external: true },
+      { label: "Google Business Reviews", href: "https://share.google/1mtrJVk8Ya0PkjG76", external: true },
     ],
   },
 ];
@@ -87,16 +88,35 @@ export function Footer() {
               </div>
               <span className="font-bold text-lg">Trini System <span className="text-blue-400">LLC</span></span>
             </div>
+            {/* 8-year badge */}
+            <div className="flex items-center gap-2 mb-3">
+              <span className="bg-blue-900 text-blue-300 text-xs font-bold px-2.5 py-1 rounded-full border border-blue-700">
+                🏆 Est. 2016 — 8 Years in Business
+              </span>
+            </div>
             <p className="text-gray-400 text-sm leading-relaxed mb-4 max-w-xs">
-              Software tools and expert tech support for everyday people across USA & Canada. Printer repair, free PC optimizer, and more launching soon.
+              Expert remote tech support since 2016. Based in Corona, Queens, NY — serving all 50 states.
             </p>
-            <a href={PHONE_HREF} className="text-xl font-bold text-blue-400 hover:text-blue-300 transition-colors block mb-2">
-              📞 {PHONE}
+            {/* NAP — critical for local SEO, must match Google Business exactly */}
+            <address className="not-italic mb-4 space-y-1">
+              <a href={PHONE_HREF} className="text-xl font-bold text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-2">
+                📞 {PHONE}
+              </a>
+              <p className="text-xs text-gray-500">52-09 99th St Apt 8S, Corona, NY 11368</p>
+              <p className="text-xs text-gray-500">Available 24/7 · Remote & On-Site</p>
+            </address>
+            {/* Google rating link */}
+            <a
+              href="https://share.google/1mtrJVk8Ya0PkjG76"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 mb-3 text-yellow-400 hover:text-yellow-300 text-sm font-semibold transition-colors"
+            >
+              ⭐⭐⭐⭐⭐ 4.9 Google Rating ↗
             </a>
-            <p className="text-xs text-gray-500">Available 24/7 · Remote & On-Site</p>
             <a
               href={DOWNLOAD_URL}
-              className="inline-flex items-center gap-2 mt-4 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-semibold px-4 py-2.5 rounded-xl transition-colors"
+              className="inline-flex items-center gap-2 mt-2 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-semibold px-4 py-2.5 rounded-xl transition-colors"
             >
               ⬇ Download TriniCleaner — Free
             </a>
@@ -138,10 +158,10 @@ export function Footer() {
         {/* Bottom */}
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-gray-500 text-center md:text-left">
-            © 2025 Trini System LLC. Independent tech support — not affiliated with HP, Canon, Epson, Brother, Best Buy, or Geek Squad.
+            © 2016–2025 Trini System LLC · Corona, Queens, NY · Independent tech support — not affiliated with HP, Canon, Epson, Brother or Best Buy.
           </p>
           <div className="flex items-center gap-3">
-            {["24/7 Available", "USA & Canada", "All Brands"].map(b => (
+            {["24/7 Available", "Est. 2016", "All 50 States", "4.9★ Google"].map(b => (
               <span key={b} className="text-xs bg-gray-800 text-gray-400 px-3 py-1 rounded-full border border-gray-700">
                 {b}
               </span>

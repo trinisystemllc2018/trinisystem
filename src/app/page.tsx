@@ -4,6 +4,7 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { SmartProblemFinder } from "@/components/features/SmartProblemFinder";
 import { ReviewsCarousel, TrustSection } from "@/components/sections/ReviewsSection";
 import { StickyCTA } from "@/components/ui/Button";
+import { EightYearTrustBanner, GoogleReviewsSection } from "@/components/sections/GoogleTrustSection";
 import { BRANDS, SERVICES, DOWNLOAD_URL, PHONE_HREF, PHONE } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -210,11 +211,12 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <EightYearTrustBanner />
       <BrandsSection />
       <SmartProblemFinder />
       <ServicesGrid />
       <TrustSection />
-      <ReviewsCarousel />
+      <GoogleReviewsSection />
       <ComparisonSection />
       <DownloadCTASection />
       <StickyCTA />
