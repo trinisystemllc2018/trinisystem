@@ -16,6 +16,17 @@ export const MAPS_URL =
 export const OFFICIAL_SITE =
   "https://sites.google.com/view/trinisystemllc/Technical-Support-USA";
 
+// Social Media — used for SEO schema sameAs and footer links
+export const SOCIAL = {
+  facebook:  "https://www.facebook.com/Trinisystem/",
+  youtube:   "https://www.youtube.com/@trinisystemllc",   // update if different handle
+  tiktok:    "https://www.tiktok.com/@trinisystemllc",     // update if different handle
+  google:    "https://share.google/1mtrJVk8Ya0PkjG76",
+  yelp:      "https://www.yelp.com/biz/trini-system-new-york",
+};
+
+export const GOOGLE_LISTING = "https://share.google/1mtrJVk8Ya0PkjG76";
+
 export const BRANDS = [
   {
     name: "HP",

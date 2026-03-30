@@ -38,6 +38,13 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Trini System LLC — Printer Repair & PC Support",
     description: "Free TriniCleaner + expert printer repair. All 50 states.",
+    creator: "@trinisystemllc",
+    site: "@trinisystemllc",
+  },
+  // Facebook Open Graph — makes shares look professional with preview image
+  other: {
+    "fb:page_id": "Trinisystem",
+    "og:see_also": "https://www.facebook.com/Trinisystem/",
   },
   robots: { index: true, follow: true },
 };
@@ -134,9 +141,15 @@ const localBusinessSchema = {
     },
   ],
   "sameAs": [
-    "https://www.google.com/maps/place/HP+Canon+Epson+Printer+Help",
-    "https://sites.google.com/view/trinisystemllc/Technical-Support-USA",
+    // Google properties
     "https://share.google/1mtrJVk8Ya0PkjG76",
+    "https://sites.google.com/view/trinisystemllc/Technical-Support-USA",
+    // Social platforms — Google crawls these to verify entity
+    "https://www.facebook.com/Trinisystem/",
+    "https://www.youtube.com/@trinisystemllc",
+    "https://www.tiktok.com/@trinisystemllc",
+    // Directories
+    "https://www.yelp.com/biz/trini-system-new-york",
   ],
 };
 
