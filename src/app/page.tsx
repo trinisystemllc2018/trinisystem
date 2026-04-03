@@ -21,10 +21,10 @@ function BrandsSection() {
           All Major Printer Brands — Supported &amp; Repaired
         </p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          {BRANDS.map((b, i) => (
+          {BRANDS.map((b) => (
             <Link
               key={b.name}
-              href="/services"
+              href={b.href}
               className="group flex flex-col gap-4 p-6 rounded-3xl border-2 border-gray-100 hover:border-blue-200 bg-white hover:bg-blue-50/40 transition-all hover:-translate-y-1 hover:shadow-soft"
             >
               <div
