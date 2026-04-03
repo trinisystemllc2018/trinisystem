@@ -532,21 +532,25 @@ export function OneClickHelpMode() {
   const [active, setActive] = useState(false);
   const [step, setStep] = useState<"main" | "printer">("main");
 
-  const notifyAndGo = async (label: string, href: string) => {
-    try {
-      await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: "One-Click Help Lead",
-          email: "",
-          phone: "",
-          issue: label,
-          message: "Via One-Click Help Mode (Senior Mode)",
-        }),
-      });
-    } catch {}
-    window.location.href = href;
+  // Fire-and-forget lead capture — navigate immediately, don't await fetch
+  const notifyAndGo = (label: string, href: string) => {
+    fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: "One-Click Help Lead",
+        email: "",
+        phone: "",
+        issue: label,
+        message: "Via One-Click Help Mode (Senior Mode)",
+      }),
+    }).catch(() => {});
+    // Navigate instantly — don't wait for the API
+    if (href.startsWith("tel:") || href.startsWith("http")) {
+      window.location.href = href;
+    } else {
+      window.location.pathname = href;
+    }
   };
 
   if (active) {
@@ -569,9 +573,9 @@ export function OneClickHelpMode() {
                 {[
                   { icon: "🖨️", title: "My Printer Won't Work", sub: "HP, Canon, Epson, Brother", color: "from-blue-500 to-blue-700", action: () => setStep("printer") },
                   { icon: "🐌", title: "My Computer Is Slow", sub: "Free TriniCleaner download", color: "from-purple-500 to-purple-700", action: () => notifyAndGo("Computer Is Slow", DOWNLOAD_URL) },
-                  { icon: "🦠", title: "I Think I Have a Virus", sub: "Remote removal — same day", color: "from-red-500 to-red-700", action: () => notifyAndGo("Virus Help", PHONE_HREF) },
-                  { icon: "🗺️", title: "Update My GPS Maps", sub: "Garmin, all models", color: "from-teal-500 to-teal-700", action: () => notifyAndGo("GPS Map Update", PHONE_HREF) },
-                  { icon: "📱", title: "Set Up My New Device", sub: "Tablet, phone, computer", color: "from-orange-500 to-orange-700", action: () => notifyAndGo("New Device Setup", PHONE_HREF) },
+                  { icon: "🦠", title: "I Think I Have a Virus", sub: "Remote removal — same day", color: "from-red-500 to-red-700", action: () => notifyAndGo("Virus Help", "/fix") },
+                  { icon: "🗺️", title: "Update My GPS Maps", sub: "Garmin, all models", color: "from-teal-500 to-teal-700", action: () => notifyAndGo("GPS Map Update", "/fix") },
+                  { icon: "📱", title: "Set Up My New Device", sub: "Tablet, phone, computer", color: "from-orange-500 to-orange-700", action: () => notifyAndGo("New Device Setup", "/contact") },
                   { icon: "🔒", title: "I Was Scammed Online", sub: "Urgent — call us now", color: "from-gray-700 to-gray-900", action: () => notifyAndGo("Scam Alert", PHONE_HREF) },
                 ].map(item => (
                   <button key={item.title} onClick={item.action}
@@ -595,16 +599,19 @@ export function OneClickHelpMode() {
                 <button onClick={() => setStep("main")} className="text-blue-600 text-lg mb-4 flex items-center gap-1 mx-auto">← Back</button>
                 <div className="text-7xl mb-4">🖨️</div>
                 <h1 className="text-4xl font-black text-gray-900 mb-2">What brand is your printer?</h1>
+                <p className="text-xl text-gray-500 mb-2">We&apos;ll take you to the right repair page.</p>
               </div>
               <div className="grid grid-cols-2 gap-4 w-full max-w-xl">
                 {[
-                  { name: "HP", color: "bg-blue-600" },
-                  { name: "Canon", color: "bg-red-600" },
-                  { name: "Epson", color: "bg-sky-600" },
-                  { name: "Brother", color: "bg-indigo-600" },
+                  { name: "HP",      color: "bg-blue-600",   href: "/hp-printer-repair" },
+                  { name: "Canon",   color: "bg-red-600",    href: "/canon-printer-repair" },
+                  { name: "Epson",   color: "bg-sky-600",    href: "/epson-printer-repair" },
+                  { name: "Brother", color: "bg-indigo-600", href: "/fix" },
                 ].map(b => (
-                  <button key={b.name} onClick={() => notifyAndGo(`Printer — ${b.name}`, PHONE_HREF)}
-                    className={`${b.color} text-white text-3xl font-black py-8 rounded-3xl shadow-lg hover:opacity-90 transition-all`}>
+                  <button key={b.name} onClick={async () => {
+                    await notifyAndGo(`Printer — ${b.name}`, b.href);
+                  }}
+                    className={`${b.color} text-white text-3xl font-black py-8 rounded-3xl shadow-lg hover:opacity-90 transition-all active:scale-95`}>
                     {b.name}
                   </button>
                 ))}
