@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { TechER } from "@/components/features/TechER";
 import { StickyCTA } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
@@ -87,6 +88,14 @@ export default function VirusRemovalPage() {
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
 
+      {/* ── FULL-SCREEN FIRST FOLD: Interactive Virus Diagnostic Tool ── */}
+      <div className="bg-gradient-to-r from-rose-700 to-red-800 text-white py-3 text-center text-sm font-semibold">
+        🛡️ Virus & Malware Removal — Remote Same Day · No Fix = No Fee ·{" "}
+        <a href={PHONE_HREF} className="underline font-bold">Call {PHONE}</a>
+      </div>
+      <TechER initialCategory="virus" pageTrending={["Pop-up ads everywhere","Computer acting strange","I was scammed online","Browser hijacked","Files locked by ransomware","Antivirus found threats"]} />
+
+      {/* ── ORIGINAL PAGE CONTENT BELOW ── */}
       {/* Urgent top banner */}
       <div className="bg-red-700 text-white py-3 text-center text-sm font-semibold">
         🦠 Virus / Malware Removal — Remote Same Day · No Fix = No Fee ·{" "}

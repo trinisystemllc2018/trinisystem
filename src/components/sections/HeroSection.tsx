@@ -1,35 +1,178 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { PHONE, PHONE_HREF } from "@/lib/utils";
 
+/* ─────────────────────────────────────────────────────────────
+   HOME HERO — Search-first, bright animated category cards
+   Heading: "Tech Problem? Search Solution Below"
+───────────────────────────────────────────────────────────── */
+
 const CATEGORIES = [
-  { id: "printer", emoji: "🖨️", label: "Printer",           sub: "HP · Canon · Epson · Brother",    href: "/fix?cat=printer",  keywords: ["printer","hp","canon","epson","brother","offline","ink","paper","not printing"] },
-  { id: "gps",     emoji: "🗺️", label: "GPS",               sub: "Garmin · TomTom · Magellan",       href: "/fix?cat=gps",      keywords: ["gps","garmin","tomtom","magellan","maps","navigation","update"] },
-  { id: "computer",emoji: "💻", label: "Computer",          sub: "Dell · HP · Lenovo · Gateway",     href: "/fix?cat=computer", keywords: ["computer","pc","laptop","windows","slow","dell","lenovo","gateway","freeze","crash"] },
-  { id: "virus",   emoji: "🛡️", label: "Virus & Security",  sub: "Norton · McAfee · Avast · AVG",    href: "/fix?cat=virus",    keywords: ["virus","malware","norton","mcafee","avast","avg","malwarebytes","ccleaner","security","scam","hacked"] },
+  {
+    id: "printer",
+    label: "Printer",
+    sub: "HP · Canon · Epson · Brother",
+    href: "/fix?cat=printer",
+    bg: "from-blue-500 to-blue-700",
+    glow: "rgba(59,130,246,0.6)",
+    icon: "🖨️",
+    keywords: ["printer","hp","canon","epson","brother","offline","ink","paper","cartridge","not printing","error"],
+    anim: "printer",
+  },
+  {
+    id: "gps",
+    label: "GPS",
+    sub: "Garmin · TomTom · Magellan",
+    href: "/gps-help",
+    bg: "from-teal-500 to-emerald-600",
+    glow: "rgba(20,184,166,0.6)",
+    icon: "🗺️",
+    keywords: ["gps","garmin","tomtom","magellan","maps","navigation","update","signal","satellite"],
+    anim: "gps",
+  },
+  {
+    id: "computer",
+    label: "Computer",
+    sub: "Dell · HP · Lenovo · Gateway",
+    href: "/computer-help",
+    bg: "from-violet-500 to-purple-700",
+    glow: "rgba(139,92,246,0.6)",
+    icon: "💻",
+    keywords: ["computer","pc","laptop","windows","slow","dell","lenovo","gateway","freeze","crash","boot"],
+    anim: "computer",
+  },
+  {
+    id: "virus",
+    label: "Virus Removal",
+    sub: "Norton · McAfee · Avast · AVG",
+    href: "/virus-removal",
+    bg: "from-rose-500 to-red-700",
+    glow: "rgba(239,68,68,0.6)",
+    icon: "🛡️",
+    keywords: ["virus","malware","norton","mcafee","avast","avg","malwarebytes","ccleaner","security","scam","hacked","pop"],
+    anim: "virus",
+  },
 ];
 
-const SEARCH_HINTS = [
-  "HP DeskJet 4155e offline...", "Garmin map won't update...",
-  "Dell laptop running slow...", "I think I have a virus...",
-  "Canon printer error B200...", "Epson EcoTank ink error...",
-  "TomTom GPS not turning on...", "McAfee keeps popping up...",
+const HINTS = [
+  "HP DeskJet 4155e offline...",
+  "Garmin map won't update...",
+  "Dell laptop running slow...",
+  "I think I have a virus...",
+  "Canon printer error B200...",
+  "Epson EcoTank ink error...",
+  "TomTom GPS not turning on...",
+  "McAfee keeps popping up...",
+  "Brother printer not found...",
+  "Windows 11 running slow...",
 ];
+
+/* ── Printer animation ── */
+function PrinterAnim() {
+  return (
+    <div className="flex flex-col items-center gap-1 mt-3 mb-1">
+      <motion.div
+        animate={{ y: [0, -4, 0] }}
+        transition={{ duration: 0.9, repeat: Infinity, ease: "easeInOut" }}
+        className="w-14 h-10 bg-white/20 rounded-lg border-2 border-white/40 flex items-end justify-center pb-1 shadow-lg"
+      >
+        <div className="w-10 h-1.5 bg-white/60 rounded" />
+      </motion.div>
+      <motion.div
+        initial={{ scaleX: 0, opacity: 0 }}
+        animate={{ scaleX: [0, 1, 1, 0], opacity: [0, 1, 1, 0] }}
+        transition={{ duration: 1.8, repeat: Infinity, repeatDelay: 0.4, ease: "easeInOut" }}
+        style={{ originX: 0 }}
+        className="w-10 h-2 bg-white/80 rounded shadow-sm"
+      />
+    </div>
+  );
+}
+
+/* ── GPS animation ── */
+function GpsAnim() {
+  return (
+    <div className="flex items-center justify-center mt-3 mb-1">
+      <div className="relative">
+        <div className="w-10 h-14 bg-white/20 rounded-xl border-2 border-white/40 flex items-center justify-center shadow-lg">
+          <span className="text-lg">📍</span>
+        </div>
+        {[0, 1, 2].map(i => (
+          <motion.div
+            key={i}
+            className="absolute inset-0 rounded-xl border-2 border-white/60"
+            animate={{ scale: [1, 2.2], opacity: [0.6, 0] }}
+            transition={{ duration: 1.6, repeat: Infinity, delay: i * 0.52, ease: "easeOut" }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ── Computer animation ── */
+function ComputerAnim() {
+  return (
+    <div className="flex flex-col items-center gap-0.5 mt-3 mb-1">
+      <div className="w-16 h-10 bg-white/20 rounded-lg border-2 border-white/40 flex items-center justify-center overflow-hidden shadow-lg">
+        <motion.div
+          animate={{ x: ["-120%", "120%"] }}
+          transition={{ duration: 1.4, repeat: Infinity, ease: "linear" }}
+          className="w-6 h-1 bg-white/80 rounded-full blur-[1px]"
+        />
+      </div>
+      <div className="w-18 h-1 bg-white/30 rounded-full w-16" />
+      <div className="w-10 h-1.5 bg-white/20 rounded-full" />
+    </div>
+  );
+}
+
+/* ── Shield / Virus animation ── */
+function VirusAnim() {
+  return (
+    <div className="flex items-center justify-center mt-3 mb-1">
+      <div className="relative">
+        <motion.div
+          animate={{ scale: [1, 1.12, 1], rotate: [0, 5, -5, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="text-4xl select-none"
+        >
+          🛡️
+        </motion.div>
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+          className="absolute inset-0 rounded-full border-2 border-dashed border-white/40 scale-150"
+        />
+      </div>
+    </div>
+  );
+}
+
+const ANIMS: Record<string, React.FC> = {
+  printer:  PrinterAnim,
+  gps:      GpsAnim,
+  computer: ComputerAnim,
+  virus:    VirusAnim,
+};
 
 export function HeroSection() {
   const router = useRouter();
-  const [query, setQuery] = useState("");
-  const [hint, setHint] = useState(0);
+  const [query, setQuery]   = useState("");
+  const [hint, setHint]     = useState(0);
   const [focused, setFocused] = useState(false);
   const [matched, setMatched] = useState<typeof CATEGORIES[0] | null>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
+  /* rotate placeholder hints */
   useEffect(() => {
-    const t = setInterval(() => setHint(h => (h + 1) % SEARCH_HINTS.length), 2800);
+    const t = setInterval(() => setHint(h => (h + 1) % HINTS.length), 2600);
     return () => clearInterval(t);
   }, []);
 
+  /* live keyword match */
   useEffect(() => {
     if (!query.trim()) { setMatched(null); return; }
     const q = query.toLowerCase();
@@ -37,6 +180,7 @@ export function HeroSection() {
   }, [query]);
 
   const go = (href: string) => router.push(href);
+
   const handleSearch = () => {
     if (matched) { go(matched.href); return; }
     if (query.trim()) { go(`/fix?q=${encodeURIComponent(query)}`); return; }
@@ -44,85 +188,188 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-[92vh] flex flex-col items-center justify-center overflow-hidden bg-gray-950 px-4">
-      {/* Grid bg */}
-      <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "linear-gradient(#60a5fa 1px,transparent 1px),linear-gradient(90deg,#60a5fa 1px,transparent 1px)", backgroundSize: "48px 48px" }} />
-      {/* Glow blobs */}
-      <motion.div animate={{ scale:[1,1.15,1], opacity:[0.3,0.5,0.3] }} transition={{ duration:6, repeat:Infinity }} className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl pointer-events-none" />
-      <motion.div animate={{ scale:[1,1.2,1], opacity:[0.2,0.4,0.2] }} transition={{ duration:8, repeat:Infinity, delay:2 }} className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-violet-600/20 rounded-full blur-3xl pointer-events-none" />
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-4 py-16" style={{ background: "linear-gradient(135deg,#0f172a 0%,#1e1b4b 40%,#0f172a 100%)" }}>
 
-      <div className="relative z-10 w-full max-w-3xl mx-auto text-center">
-        {/* Eyebrow */}
-        <motion.div initial={{ opacity:0, y:-16 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.5 }} className="inline-flex items-center gap-2 bg-white/10 border border-white/20 backdrop-blur rounded-full px-4 py-1.5 mb-8">
-          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-          <span className="text-white/80 text-xs font-semibold tracking-widest uppercase">Technician Available Now · {PHONE}</span>
+      {/* Animated grid */}
+      <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "linear-gradient(#818cf8 1px,transparent 1px),linear-gradient(90deg,#818cf8 1px,transparent 1px)", backgroundSize: "56px 56px" }} />
+
+      {/* Breathing glow orbs */}
+      <motion.div animate={{ scale: [1,1.3,1], opacity: [0.15,0.35,0.15] }} transition={{ duration: 7, repeat: Infinity }} className="absolute top-20 left-10 w-[500px] h-[500px] rounded-full pointer-events-none" style={{ background: "radial-gradient(circle,#3b82f6 0%,transparent 70%)", filter: "blur(60px)" }} />
+      <motion.div animate={{ scale: [1,1.2,1], opacity: [0.1,0.25,0.1] }} transition={{ duration: 9, repeat: Infinity, delay: 3 }} className="absolute bottom-20 right-10 w-[400px] h-[400px] rounded-full pointer-events-none" style={{ background: "radial-gradient(circle,#8b5cf6 0%,transparent 70%)", filter: "blur(60px)" }} />
+      <motion.div animate={{ scale: [1,1.4,1], opacity: [0.08,0.2,0.08] }} transition={{ duration: 11, repeat: Infinity, delay: 5 }} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full pointer-events-none" style={{ background: "radial-gradient(ellipse,#06b6d4 0%,transparent 70%)", filter: "blur(80px)" }} />
+
+      <div className="relative z-10 w-full max-w-4xl mx-auto text-center">
+
+        {/* Live indicator */}
+        <motion.div initial={{ opacity:0, y:-20 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.6 }} className="inline-flex items-center gap-2 bg-white/8 border border-white/15 backdrop-blur-sm rounded-full px-5 py-2 mb-10">
+          <span className="relative flex h-2.5 w-2.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400" />
+          </span>
+          <span className="text-white/70 text-xs font-semibold tracking-widest uppercase">Technician Available Now · {PHONE}</span>
         </motion.div>
 
-        {/* Headline */}
-        <motion.h1 initial={{ opacity:0, y:20 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.6, delay:0.1 }} className="text-5xl md:text-7xl font-black text-white leading-[1.02] tracking-tight mb-4">
-          Fix Your<span className="block bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent">Tech Problem</span>Right Now.
+        {/* Main heading */}
+        <motion.h1
+          initial={{ opacity:0, y:30 }}
+          animate={{ opacity:1, y:0 }}
+          transition={{ duration:0.7, delay:0.1, ease:[0.16,1,0.3,1] }}
+          className="font-black text-white leading-[1.0] tracking-tight mb-4"
+          style={{ fontSize: "clamp(2.8rem, 7vw, 5.5rem)" }}
+        >
+          Tech Problem?
+          <span className="block" style={{ background: "linear-gradient(90deg,#60a5fa,#34d399,#a78bfa,#60a5fa)", backgroundSize: "200% auto", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "shimmerText 4s linear infinite" }}>
+            Search Solution Below
+          </span>
         </motion.h1>
-        <motion.p initial={{ opacity:0 }} animate={{ opacity:1 }} transition={{ delay:0.3 }} className="text-white/50 text-lg mb-10">
-          Search your problem below — or pick a category to start your fix
+
+        <motion.p initial={{ opacity:0 }} animate={{ opacity:1 }} transition={{ delay:0.35 }} className="text-white/45 text-lg md:text-xl mb-10 max-w-xl mx-auto">
+          Type your problem or tap a category — we'll walk you through the fix
         </motion.p>
 
-        {/* Search */}
-        <motion.div initial={{ opacity:0, y:20 }} animate={{ opacity:1, y:0 }} transition={{ delay:0.4 }} className="relative mb-4">
-          <div className={`flex items-center bg-white rounded-2xl shadow-2xl transition-all duration-300 ${focused ? "ring-4 ring-blue-500/40" : ""}`}>
-            <span className="pl-5 text-2xl shrink-0">🔍</span>
-            <div className="relative flex-1">
-              <input type="text" value={query} onChange={e => setQuery(e.target.value)}
-                onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
+        {/* ── SEARCH BAR ── */}
+        <motion.div initial={{ opacity:0, y:20 }} animate={{ opacity:1, y:0 }} transition={{ delay:0.45 }} className="mb-10">
+          <div
+            className="flex items-center bg-white rounded-2xl shadow-2xl transition-all duration-300"
+            style={{ boxShadow: focused ? "0 0 0 4px rgba(99,102,241,0.35), 0 20px 60px rgba(0,0,0,0.4)" : "0 20px 60px rgba(0,0,0,0.35)" }}
+          >
+            <span className="pl-5 text-2xl shrink-0 select-none">🔍</span>
+            <div className="relative flex-1 min-w-0">
+              <input
+                ref={inputRef}
+                type="text"
+                value={query}
+                onChange={e => setQuery(e.target.value)}
+                onFocus={() => setFocused(true)}
+                onBlur={() => setFocused(false)}
                 onKeyDown={e => e.key === "Enter" && handleSearch()}
-                className="w-full px-4 py-5 text-lg text-gray-900 font-medium bg-transparent outline-none" placeholder=" " />
-              {!query && (
+                className="w-full px-4 py-5 text-base md:text-lg text-gray-900 font-semibold bg-transparent outline-none"
+                style={{ caretColor: "#2563eb" }}
+                placeholder=" "
+                autoComplete="off"
+              />
+              {/* Animated placeholder */}
+              {!query && !focused && (
                 <div className="absolute inset-0 flex items-center px-4 pointer-events-none">
                   <AnimatePresence mode="wait">
-                    <motion.span key={hint} initial={{ opacity:0, y:6 }} animate={{ opacity:1, y:0 }} exit={{ opacity:0, y:-6 }} transition={{ duration:0.4 }} className="text-gray-400 text-base font-medium">
-                      {SEARCH_HINTS[hint]}
+                    <motion.span
+                      key={hint}
+                      initial={{ opacity:0, y:5 }}
+                      animate={{ opacity:1, y:0 }}
+                      exit={{ opacity:0, y:-5 }}
+                      transition={{ duration:0.35 }}
+                      className="text-gray-400 text-base font-medium truncate"
+                    >
+                      {HINTS[hint]}
                     </motion.span>
                   </AnimatePresence>
                 </div>
               )}
             </div>
-            {matched && (
-              <motion.div initial={{ opacity:0, scale:0.8 }} animate={{ opacity:1, scale:1 }} className="px-3 py-1.5 mx-2 rounded-xl bg-blue-600 text-white text-xs font-bold whitespace-nowrap">
-                {matched.emoji} {matched.label}
-              </motion.div>
-            )}
-            <button onClick={handleSearch} className="m-2 bg-blue-600 hover:bg-blue-700 active:scale-95 text-white font-black px-6 py-3 rounded-xl transition-all shrink-0 text-base">
+            {/* Live match badge */}
+            <AnimatePresence>
+              {matched && (
+                <motion.div
+                  initial={{ opacity:0, scale:0.7, x:10 }}
+                  animate={{ opacity:1, scale:1, x:0 }}
+                  exit={{ opacity:0, scale:0.7 }}
+                  className="flex items-center gap-1.5 mx-2 px-3 py-1.5 rounded-xl text-white text-xs font-black whitespace-nowrap"
+                  style={{ background: matched.bg.includes("blue") ? "#2563eb" : matched.bg.includes("teal") ? "#0d9488" : matched.bg.includes("violet") ? "#7c3aed" : "#dc2626" }}
+                >
+                  {matched.icon} {matched.label}
+                </motion.div>
+              )}
+            </AnimatePresence>
+            <button
+              onClick={handleSearch}
+              className="m-2 text-white font-black px-5 md:px-7 py-3 md:py-3.5 rounded-xl transition-all active:scale-95 text-sm md:text-base shrink-0"
+              style={{ background: "linear-gradient(135deg,#2563eb,#4f46e5)", boxShadow: "0 4px 15px rgba(79,70,229,0.5)" }}
+            >
               Fix It →
             </button>
           </div>
+          {/* Search hint chips */}
+          <div className="flex flex-wrap gap-2 justify-center mt-4">
+            {["Printer offline","GPS map update","Slow computer","Virus removal","HP error code","Garmin not working"].map(chip => (
+              <button
+                key={chip}
+                onClick={() => { setQuery(chip); inputRef.current?.focus(); }}
+                className="text-xs text-white/50 hover:text-white/90 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/25 px-3 py-1.5 rounded-full transition-all"
+              >
+                {chip}
+              </button>
+            ))}
+          </div>
         </motion.div>
 
-        {/* Category tiles */}
-        <motion.div initial={{ opacity:0, y:24 }} animate={{ opacity:1, y:0 }} transition={{ delay:0.5 }} className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8">
-          {CATEGORIES.map((cat, i) => (
-            <motion.button key={cat.id} onClick={() => go(cat.href)}
-              initial={{ opacity:0, y:20 }} animate={{ opacity:1, y:0 }} transition={{ delay:0.55 + i * 0.07 }}
-              whileHover={{ y:-4, scale:1.03 }} whileTap={{ scale:0.97 }}
-              className="group relative border-2 rounded-2xl p-4 text-left transition-all duration-200 bg-white/5 border-white/10 hover:bg-white/12 hover:border-white/30 backdrop-blur">
-              <div className="text-4xl mb-2">{cat.emoji}</div>
-              <p className="font-black text-white text-lg leading-tight">{cat.label}</p>
-              <p className="text-white/40 text-xs mt-1 leading-snug">{cat.sub}</p>
-              <div className="absolute top-3 right-3 text-white/20 group-hover:text-white/60 transition-colors text-sm">→</div>
-            </motion.button>
-          ))}
+        {/* ── 4 BRIGHT CATEGORY CARDS ── */}
+        <motion.div
+          initial={{ opacity:0, y:30 }}
+          animate={{ opacity:1, y:0 }}
+          transition={{ delay:0.6, duration:0.6 }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-4"
+        >
+          {CATEGORIES.map((cat, i) => {
+            const AnimComp = ANIMS[cat.anim];
+            return (
+              <motion.button
+                key={cat.id}
+                onClick={() => go(cat.href)}
+                initial={{ opacity:0, y:24 }}
+                animate={{ opacity:1, y:0 }}
+                transition={{ delay: 0.65 + i * 0.08 }}
+                whileHover={{ y:-6, scale:1.04 }}
+                whileTap={{ scale:0.96 }}
+                className="group relative overflow-hidden rounded-3xl p-5 text-left flex flex-col"
+                style={{
+                  background: `linear-gradient(135deg,${cat.bg.includes("blue") ? "#2563eb,#1d4ed8" : cat.bg.includes("teal") ? "#0d9488,#059669" : cat.bg.includes("violet") ? "#7c3aed,#6d28d9" : "#dc2626,#b91c1c"})`,
+                  boxShadow: `0 8px 32px ${cat.glow}, 0 2px 8px rgba(0,0,0,0.3)`,
+                  minHeight: "180px",
+                }}
+              >
+                {/* Shimmer overlay on hover */}
+                <motion.div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{ background: "linear-gradient(135deg,rgba(255,255,255,0.1) 0%,rgba(255,255,255,0.05) 50%,rgba(255,255,255,0) 100%)" }}
+                />
+                {/* Corner glow */}
+                <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full opacity-20" style={{ background: "radial-gradient(circle,white,transparent)" }} />
+
+                {/* Category animation */}
+                <div className="flex justify-center">
+                  <AnimComp />
+                </div>
+
+                {/* Label */}
+                <p className="font-black text-white text-xl md:text-2xl mt-2 leading-tight">{cat.label}</p>
+                <p className="text-white/60 text-xs mt-1 leading-snug">{cat.sub}</p>
+
+                {/* Arrow */}
+                <div className="mt-auto pt-3 flex items-center gap-1 text-white/70 group-hover:text-white text-sm font-semibold transition-colors">
+                  <span>Fix it now</span>
+                  <motion.span animate={{ x: [0, 4, 0] }} transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}>→</motion.span>
+                </div>
+              </motion.button>
+            );
+          })}
         </motion.div>
 
-        {/* Trust row */}
-        <motion.div initial={{ opacity:0 }} animate={{ opacity:1 }} transition={{ delay:0.85 }} className="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-8 text-white/30 text-sm">
-          {["⚡ Under 15 min", "🛡️ No fix = no fee", "🌎 All 50 states", "⭐ 4.9 rating", `📞 ${PHONE}`].map(b => (
+        {/* Trust strip */}
+        <motion.div initial={{ opacity:0 }} animate={{ opacity:1 }} transition={{ delay:1.0 }} className="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-10 text-white/25 text-sm">
+          {["⚡ Avg response < 15 min","🛡️ No fix = no fee","🌎 All 50 US states","⭐ 4.9 Google rating",`📞 ${PHONE}`].map(b => (
             <span key={b} className="font-medium">{b}</span>
           ))}
         </motion.div>
       </div>
 
-      <motion.div animate={{ y:[0,8,0] }} transition={{ duration:2, repeat:Infinity }} className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/20 text-xs flex flex-col items-center gap-1">
-        <span>scroll</span>
-        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path d="M19 9l-7 7-7-7"/></svg>
+      {/* Scroll cue */}
+      <motion.div animate={{ y:[0,10,0] }} transition={{ duration:2.2, repeat:Infinity }} className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-white/20">
+        <span className="text-xs font-medium uppercase tracking-widest">scroll down</span>
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path d="M19 9l-7 7-7-7"/></svg>
       </motion.div>
+
+      {/* shimmer text keyframe */}
+      <style>{`@keyframes shimmerText{0%{background-position:0% center}100%{background-position:200% center}}`}</style>
     </section>
   );
 }
