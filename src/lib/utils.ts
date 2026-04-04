@@ -1,100 +1,128 @@
-/* ═══════════════════════════════════════════════════════════════
-   TRINI SYSTEM LLC — Core Constants & Data
-   lib/utils.ts — single source of truth for all shared data
-═══════════════════════════════════════════════════════════════ */
-
-// ── cn utility (clsx + tailwind-merge) ───────────────────────
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-// ── Contact / NAP ─────────────────────────────────────────────
-export const PHONE          = "347-953-1531";
-export const PHONE_HREF     = "tel:+13479531531";
-export const SUPPORT_FORM   = "https://trinisystemllc.com/contact";
-export const MAPS_URL       = "https://maps.google.com/?q=Trini+System+LLC+Corona+NY";
-export const OFFICIAL_SITE  = "https://trinisystem.vercel.app";
-export const DOWNLOAD_URL   = "https://trinisystem.vercel.app/downloads";
+export const PHONE = "347-953-1531";
+export const PHONE_HREF = "tel:+13479531531";
+export const DOWNLOAD_URL =
+  "https://github.com/trinisystemllc2018/trini-system-app/releases/download/v1.0.0/TriniCleaner_Setup.exe";
+export const SUPPORT_FORM =
+  "https://docs.google.com/forms/d/e/1FAIpQLSdhnfaKTFVw0E2fdA7wgtGFgmJp54q_xpfyF1wENld0anRohA/viewform?usp=header";
+export const MAPS_URL =
+  "https://www.google.com/maps/d/edit?mid=1SayLATqOp73r1ccSEmewrShz2WM7dlQ&usp=sharing";
+export const OFFICIAL_SITE =
+  "https://sites.google.com/view/trinisystemllc/Technical-Support-USA";
 
-// ── Brand data (services page + home brands section) ──────────
+// Social Media — used for SEO schema sameAs and footer links
+export const SOCIAL = {
+  facebook:  "https://www.facebook.com/Trinisystem/",
+  youtube:   "https://www.youtube.com/@trinisystemllc",   // update if different handle
+  tiktok:    "https://www.tiktok.com/@trinisystemllc",     // update if different handle
+  google:    "https://share.google/1mtrJVk8Ya0PkjG76",
+  yelp:      "https://www.yelp.com/biz/trini-system-new-york",
+};
+
+export const GOOGLE_LISTING = "https://share.google/1mtrJVk8Ya0PkjG76";
+
 export const BRANDS = [
   {
     name: "HP",
-    color: "#185FA5",
-    bgColor: "#E6F1FB",
+    color: "#0096D6",
+    bgColor: "#e8f4fd",
     href: "/hp-printer-repair",
-    models: [
-      "DeskJet 4155e", "DeskJet 2755e", "DeskJet 3755",
-      "ENVY 6055e", "ENVY 6455e", "OfficeJet Pro 9015e", "LaserJet M404n",
-    ],
-    issues: [
-      "Printer offline fix",
-      "WiFi setup & reconnect",
-      "Error code OXc19a0035",
-      "Cartridge not recognized",
-      "Windows 11 driver fix",
-    ],
+    models: ["DeskJet 4155e", "DeskJet 2755e", "OfficeJet Pro 9015e", "LaserJet M404n", "ENVY 6055e"],
+    issues: ["Printer offline", "WiFi not connecting", "Error codes 49/79", "Paper jam", "OXc19a0035"],
+    slug: "hp",
   },
   {
     name: "Canon",
     color: "#CC0000",
-    bgColor: "#FDE8E8",
+    bgColor: "#fde8e8",
     href: "/canon-printer-repair",
-    models: [
-      "PIXMA MX922", "PIXMA TR4520", "PIXMA TR4722",
-      "PIXMA MG3620", "imageCLASS MF644Cdw",
-    ],
-    issues: [
-      "Error B200 fix",
-      "Error 5100 / 5B00",
-      "WiFi disconnect repair",
-      "Scan not working",
-      "Windows 11 driver",
-    ],
+    models: ["PIXMA MX922", "PIXMA TR4520", "PIXMA MG3620", "imageCLASS MF644Cdw", "MAXIFY MB5420"],
+    issues: ["Error B200", "Error E03/E04", "Not printing", "Wireless setup", "Driver install"],
+    slug: "canon",
   },
   {
     name: "Epson",
-    color: "#0057A8",
-    bgColor: "#E6F0FB",
+    color: "#007AB8",
+    bgColor: "#e8f4fb",
     href: "/epson-printer-repair",
-    models: [
-      "EcoTank ET-2720", "EcoTank ET-4760", "EcoTank ET-3850", "WorkForce WF-7720",
-    ],
-    issues: [
-      "Ink system error reset",
-      "Nozzle clog & head cleaning",
-      "WiFi connection drops",
-      "Scan to PC missing",
-      "Firmware update failed",
-    ],
+    models: ["EcoTank ET-2720", "EcoTank ET-4760", "WorkForce WF-7720", "Expression XP-7100"],
+    issues: ["Ink system error", "Nozzle clog", "WiFi setup", "Ink reset", "Print head clean"],
+    slug: "epson",
   },
   {
     name: "Brother",
-    color: "#4D4D9D",
-    bgColor: "#EEEEFC",
-    href: "/services",
-    models: [
-      "MFC-L2710DW", "MFC-J995DW", "HL-L2350DW", "HL-L3270CDW", "DCP-L2550DW",
-    ],
-    issues: [
-      "Windows 11 driver fix",
-      "Scan to PC not working",
-      "Drum error replace",
-      "AirPrint iPhone setup",
-      "Fax not sending",
-    ],
+    color: "#004B9C",
+    bgColor: "#e8eef8",
+    href: "/fix",
+    models: ["MFC-L2710DW", "MFC-J995DW", "HL-L2350DW", "HL-L3270CDW", "DCP-L2550DW"],
+    issues: ["Driver unavailable", "AirPrint not working", "Toner error", "Windows 11 fix", "Mopria setup"],
+    slug: "brother",
   },
 ];
 
-// ── Services grid (home + nav) — ALL pages linked correctly ───
+export const REVIEWS = [
+  {
+    name: "Corey Hawkins",
+    location: "New York, NY",
+    stars: 5,
+    text: "James was incredibly patient and made everything easy. My HP DeskJet was offline for weeks and they fixed it in 20 minutes. Absolutely the best tech support experience I've ever had.",
+    device: "HP DeskJet 4155e",
+  },
+  {
+    name: "Leslie Park",
+    location: "Dallas, TX",
+    stars: 5,
+    text: "Very helpful in finding and resolving my Canon PIXMA B200 error. Quick, simple, and effective. I was ready to buy a new printer — they saved me $200!",
+    device: "Canon PIXMA MX922",
+  },
+  {
+    name: "Mary Steil",
+    location: "Chicago, IL",
+    stars: 5,
+    text: "Things got complicated with my Epson EcoTank but James was outstanding throughout. Fixed the ink error and even helped me reconnect it to my new router. Truly above and beyond!",
+    device: "Epson EcoTank ET-2720",
+  },
+  {
+    name: "Mark Starrett",
+    location: "Phoenix, AZ",
+    stars: 5,
+    text: "They went above and beyond to get my Garmin GPS updated correctly. Professional, reliable, and MUCH cheaper than Best Buy. Will use them every time.",
+    device: "Garmin DriveSmart 65",
+  },
+  {
+    name: "Patricia Walsh",
+    location: "Miami, FL",
+    stars: 5,
+    text: "TriniCleaner made my old laptop run like new again. I was about to buy a new computer but it's completely fast now. So grateful for this free tool!",
+    device: "Windows 11 Laptop",
+  },
+  {
+    name: "Robert Chen",
+    location: "Seattle, WA",
+    stars: 5,
+    text: "Brother printer stopped printing after Windows 11 update. Trini System fixed the driver issue in under 30 minutes while I watched. Amazing remote support!",
+    device: "Brother MFC-L2710DW",
+  },
+];
+
+export const STATS = [
+  { value: 5000, suffix: "+", label: "Devices Fixed" },
+  { value: 24,   suffix: "/7", label: "Support Available" },
+  { value: 50,   suffix: " States", label: "Nationwide Coverage" },
+  { value: 4.9,  suffix: "★", label: "Average Rating", isDecimal: true },
+];
+
 export const SERVICES = [
   {
     icon: "🖨️",
-    title: "HP Printer Repair",
-    description:
-      "Fix any HP DeskJet, ENVY, OfficeJet or LaserJet issue remotely. Offline errors, WiFi drops, error codes — fixed same day.",
+    title: "HP Printer Repair & Setup",
+    description: "HP DeskJet, ENVY, OfficeJet, LaserJet — offline errors, WiFi setup, driver install, error codes. Fixed remotely.",
     href: "/hp-printer-repair",
     color: "blue",
     popular: true,
@@ -102,8 +130,7 @@ export const SERVICES = [
   {
     icon: "🔴",
     title: "Canon Printer Repair",
-    description:
-      "Canon PIXMA B200, 5100, WiFi and scan problems solved. We fix Canon imageCLASS and PIXMA models every day.",
+    description: "Canon PIXMA B200, 5100, WiFi and scan problems solved. We fix Canon imageCLASS and PIXMA models every day.",
     href: "/canon-printer-repair",
     color: "red",
     popular: false,
@@ -111,137 +138,33 @@ export const SERVICES = [
   {
     icon: "🔵",
     title: "Epson Printer Repair",
-    description:
-      "EcoTank ink errors, nozzle clogs, WorkForce scan issues. Our Epson specialists fix it without replacing hardware.",
+    description: "EcoTank ink errors, nozzle clogs, WorkForce scan issues. Our Epson specialists fix it without replacing hardware.",
     href: "/epson-printer-repair",
     color: "blue",
     popular: false,
   },
   {
-    icon: "🔧",
-    title: "Fix Any Problem — All Brands",
-    description:
-      "HP, Canon, Epson, Brother, Garmin, PC. Use our free interactive diagnostic tool to find your exact fix in minutes.",
-    href: "/fix",
+    icon: "⚡",
+    title: "TriniCleaner — Free Download",
+    description: "Free Windows optimizer. Removes junk files, fixes registry errors, speeds up boot time. 100% free, no subscription.",
+    href: "/products",
     color: "green",
     popular: false,
   },
   {
-    icon: "💻",
-    title: "PC Repair & Speed Fix",
-    description:
-      "Windows 10/11 slow, crashes, viruses, driver issues. Free TriniCleaner download or full remote cleanup.",
-    href: "/services",
-    color: "purple",
+    icon: "🦠",
+    title: "Virus & Malware Removal",
+    description: "Remote virus, spyware, and ransomware removal while you watch. No data loss. Starts at $49. Same-day service.",
+    href: "/virus-removal",
+    color: "red",
     popular: false,
   },
   {
     icon: "🗺️",
     title: "Garmin GPS Updates",
-    description:
-      "DriveSmart, nüvi, RV GPS — map updates, software fixes, screen repair. Done remotely while you watch.",
-    href: "/services",
+    description: "Map & firmware updates for all Garmin models — nuvi, DriveSmart, RV series. Remote update while you watch.",
+    href: "/fix",
     color: "teal",
     popular: false,
-  },
-  {
-    icon: "🇪🇸",
-    title: "Soporte en Español",
-    description:
-      "Reparación de impresoras HP, Canon, Epson y Brother en español. Servicio remoto — disponible ahora mismo.",
-    href: "/reparacion-impresoras",
-    color: "orange",
-    popular: false,
-  },
-];
-
-// ── Reviews data (used by ReviewsSection) ────────────────────
-export const REVIEWS = [
-  {
-    name: "Corey Hawkins",
-    rating: 5,
-    date: "2024-11-12",
-    text: "James was incredibly patient and made everything easy. My HP DeskJet was offline for weeks and they fixed it in 20 minutes. Absolutely the best tech support experience I've ever had.",
-    service: "HP Printer Repair",
-    source: "Google",
-  },
-  {
-    name: "Leslie Park",
-    rating: 5,
-    date: "2024-10-28",
-    text: "Very helpful in finding and resolving my Canon PIXMA B200 error. Quick, simple, and effective. I was ready to buy a new printer — they saved me $200!",
-    service: "Canon Printer Repair",
-    source: "Google",
-  },
-  {
-    name: "Mark Starrett",
-    rating: 5,
-    date: "2024-09-15",
-    text: "They went above and beyond to get my Garmin GPS updated correctly. Professional, reliable, and MUCH cheaper than Best Buy.",
-    service: "Garmin GPS Update",
-    source: "Google",
-  },
-  {
-    name: "Diane Morales",
-    rating: 5,
-    date: "2024-12-03",
-    text: "My Epson EcoTank kept showing ink errors even though I just refilled it. Trini System reset it remotely in 10 minutes. So grateful!",
-    service: "Epson Printer Repair",
-    source: "Yelp",
-  },
-  {
-    name: "Robert Chen",
-    rating: 5,
-    date: "2024-08-20",
-    text: "Windows 11 was running so slow I could barely use it. After TriniCleaner and a remote tune-up session, it boots in under 30 seconds. Night and day difference.",
-    service: "PC Speed Fix",
-    source: "Google",
-  },
-  {
-    name: "Patricia Williams",
-    rating: 5,
-    date: "2024-11-30",
-    text: "Called about my Brother MFC printer not scanning. James walked me through every step and stayed on the call until it worked. Extremely patient with seniors like me.",
-    service: "Brother Printer Repair",
-    source: "Google",
-  },
-];
-
-// ── Social links (used by SocialProofSection) ─────────────────
-export const SOCIAL = [
-  {
-    platform: "Facebook",
-    label: "Follow on Facebook",
-    href: "https://www.facebook.com/Trinisystem/",
-    icon: "facebook",
-    followers: "1.2K",
-  },
-  {
-    platform: "YouTube",
-    label: "Watch on YouTube",
-    href: "https://www.youtube.com/@trinisystemllc",
-    icon: "youtube",
-    followers: "800+",
-  },
-  {
-    platform: "TikTok",
-    label: "Follow on TikTok",
-    href: "https://www.tiktok.com/@trinisystemllc",
-    icon: "tiktok",
-    followers: "500+",
-  },
-  {
-    platform: "Google",
-    label: "Leave a Google Review",
-    href: "https://share.google/1mtrJVk8Ya0PkjG76",
-    icon: "google",
-    followers: "47 reviews",
-  },
-  {
-    platform: "Yelp",
-    label: "Find us on Yelp",
-    href: "https://www.yelp.com/biz/trini-system-new-york",
-    icon: "yelp",
-    followers: "4.9 ★",
   },
 ];

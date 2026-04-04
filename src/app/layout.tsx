@@ -160,20 +160,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Bing Webmaster verification */}
         <meta name="msvalidate.01" content="FB3B439D2D61A515B724444ADBA619BD" />
 
-        {/* hreflang: Spanish alternate page for Bing/Google bilingual SEO */}
-        <link rel="alternate" hrefLang="es" href={`${BASE_URL}/reparacion-impresoras`} />
-        <link rel="alternate" hrefLang="en" href={BASE_URL} />
-        <link rel="alternate" hrefLang="x-default" href={BASE_URL} />
-
-        {/* hreflang — English default + Spanish alternate */}
-        <link rel="alternate" hrefLang="en" href="https://trinisystem.vercel.app" />
-        <link rel="alternate" hrefLang="es" href="https://trinisystem.vercel.app/reparacion-impresoras" />
-        <link rel="alternate" hrefLang="x-default" href="https://trinisystem.vercel.app" />
-
-        {/* LLM / AI discovery — helps ChatGPT, Perplexity, Copilot cite this site */}
-        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-        <meta name="description" content="Expert remote printer repair for HP, Canon, Epson, Brother. PC repair, GPS updates. All 50 US states. Call 347-953-1531. No fix = no fee." />
-
         {/* LocalBusiness JSON-LD — connects website to Google Business listing */}
         <script
           type="application/ld+json"
