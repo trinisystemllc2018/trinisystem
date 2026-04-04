@@ -3,6 +3,13 @@
    lib/utils.ts — single source of truth for all shared data
 ═══════════════════════════════════════════════════════════════ */
 
+// ── cn utility (clsx + tailwind-merge) ───────────────────────
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+
 // ── Contact / NAP ─────────────────────────────────────────────
 export const PHONE          = "347-953-1531";
 export const PHONE_HREF     = "tel:+13479531531";
@@ -145,5 +152,96 @@ export const SERVICES = [
     href: "/reparacion-impresoras",
     color: "orange",
     popular: false,
+  },
+];
+
+// ── Reviews data (used by ReviewsSection) ────────────────────
+export const REVIEWS = [
+  {
+    name: "Corey Hawkins",
+    rating: 5,
+    date: "2024-11-12",
+    text: "James was incredibly patient and made everything easy. My HP DeskJet was offline for weeks and they fixed it in 20 minutes. Absolutely the best tech support experience I've ever had.",
+    service: "HP Printer Repair",
+    source: "Google",
+  },
+  {
+    name: "Leslie Park",
+    rating: 5,
+    date: "2024-10-28",
+    text: "Very helpful in finding and resolving my Canon PIXMA B200 error. Quick, simple, and effective. I was ready to buy a new printer — they saved me $200!",
+    service: "Canon Printer Repair",
+    source: "Google",
+  },
+  {
+    name: "Mark Starrett",
+    rating: 5,
+    date: "2024-09-15",
+    text: "They went above and beyond to get my Garmin GPS updated correctly. Professional, reliable, and MUCH cheaper than Best Buy.",
+    service: "Garmin GPS Update",
+    source: "Google",
+  },
+  {
+    name: "Diane Morales",
+    rating: 5,
+    date: "2024-12-03",
+    text: "My Epson EcoTank kept showing ink errors even though I just refilled it. Trini System reset it remotely in 10 minutes. So grateful!",
+    service: "Epson Printer Repair",
+    source: "Yelp",
+  },
+  {
+    name: "Robert Chen",
+    rating: 5,
+    date: "2024-08-20",
+    text: "Windows 11 was running so slow I could barely use it. After TriniCleaner and a remote tune-up session, it boots in under 30 seconds. Night and day difference.",
+    service: "PC Speed Fix",
+    source: "Google",
+  },
+  {
+    name: "Patricia Williams",
+    rating: 5,
+    date: "2024-11-30",
+    text: "Called about my Brother MFC printer not scanning. James walked me through every step and stayed on the call until it worked. Extremely patient with seniors like me.",
+    service: "Brother Printer Repair",
+    source: "Google",
+  },
+];
+
+// ── Social links (used by SocialProofSection) ─────────────────
+export const SOCIAL = [
+  {
+    platform: "Facebook",
+    label: "Follow on Facebook",
+    href: "https://www.facebook.com/Trinisystem/",
+    icon: "facebook",
+    followers: "1.2K",
+  },
+  {
+    platform: "YouTube",
+    label: "Watch on YouTube",
+    href: "https://www.youtube.com/@trinisystemllc",
+    icon: "youtube",
+    followers: "800+",
+  },
+  {
+    platform: "TikTok",
+    label: "Follow on TikTok",
+    href: "https://www.tiktok.com/@trinisystemllc",
+    icon: "tiktok",
+    followers: "500+",
+  },
+  {
+    platform: "Google",
+    label: "Leave a Google Review",
+    href: "https://share.google/1mtrJVk8Ya0PkjG76",
+    icon: "google",
+    followers: "47 reviews",
+  },
+  {
+    platform: "Yelp",
+    label: "Find us on Yelp",
+    href: "https://www.yelp.com/biz/trini-system-new-york",
+    icon: "yelp",
+    followers: "4.9 ★",
   },
 ];
