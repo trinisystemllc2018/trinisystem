@@ -10,11 +10,11 @@ const BASE_URL = "https://trinisystem.vercel.app";
 
 export const metadata: Metadata = {
   title: {
-    default: "Trini System LLC — Printer Repair & PC Support USA",
+    default: "Fix Printer, GPS & PC Problems | Trini System LLC — 347-953-1531",
     template: "%s | Trini System LLC",
   },
   description:
-    "Expert printer repair & PC optimization for HP, Canon, Epson, Brother. Free TriniCleaner download. Remote support across all 50 states. Call 347-953-1531.",
+    "Is your printer offline? GPS not updating? PC slow? Real technicians fix it remotely in minutes. HP, Canon, Epson, Brother. Free diagnosis. No fix = no fee. Call 347-953-1531.",
   keywords: [
     "printer repair USA", "HP printer offline fix", "Canon printer not printing",
     "Epson printer error", "Brother printer setup", "free computer cleaner",
@@ -45,6 +45,12 @@ export const metadata: Metadata = {
   other: {
     "fb:page_id": "Trinisystem",
     "og:see_also": "https://www.facebook.com/Trinisystem/",
+    // LLM SEO — helps Bing Copilot, ChatGPT, Perplexity identify the business entity
+    "application-name": "Trini System LLC Tech Support",
+    "category": "Printer Repair, PC Support, GPS Update, Tech Support",
+    "coverage": "Nationwide USA",
+    "rating": "4.9 stars — 47 Google reviews",
+    "reply-to": "trinisystemllc@gmail.com",
   },
   robots: { index: true, follow: true },
 };

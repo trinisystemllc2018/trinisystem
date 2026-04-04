@@ -1,23 +1,48 @@
 import { MetadataRoute } from "next";
+import { PRINTER_BRANDS, PRINTER_PROBLEMS, GARMIN_MODELS } from "@/lib/seo-data";
 
-const BASE_URL = "https://trinisystem.vercel.app";
+const BASE = "https://trinisystem.vercel.app";
+const NOW  = new Date();
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    { url: BASE_URL,                              lastModified: "2025-06-01", changeFrequency: "weekly",  priority: 1.0  },
-    { url: `${BASE_URL}/services`,                lastModified: "2025-06-01", changeFrequency: "weekly",  priority: 0.9  },
-    { url: `${BASE_URL}/hp-printer-repair`,       lastModified: "2025-06-01", changeFrequency: "weekly",  priority: 0.95 },
-    { url: `${BASE_URL}/canon-printer-repair`,    lastModified: "2025-06-01", changeFrequency: "weekly",  priority: 0.95 },
-    { url: `${BASE_URL}/epson-printer-repair`,    lastModified: "2025-06-01", changeFrequency: "weekly",  priority: 0.95 },
-    { url: `${BASE_URL}/fix`,                     lastModified: "2025-06-01", changeFrequency: "weekly",  priority: 0.95 },
-    { url: `${BASE_URL}/reparacion-impresoras`,   lastModified: "2025-06-01", changeFrequency: "weekly",  priority: 0.9  },
-    { url: `${BASE_URL}/virus-removal`,           lastModified: "2025-06-01", changeFrequency: "weekly",  priority: 0.9  },
-    { url: `${BASE_URL}/comparison`,              lastModified: "2025-06-01", changeFrequency: "monthly", priority: 0.85 },
-    { url: `${BASE_URL}/about`,                   lastModified: "2025-06-01", changeFrequency: "monthly", priority: 0.8  },
-    { url: `${BASE_URL}/products`,                lastModified: "2025-05-01", changeFrequency: "weekly",  priority: 0.9  },
-    { url: `${BASE_URL}/tools`,                   lastModified: "2025-05-01", changeFrequency: "weekly",  priority: 0.8  },
-    { url: `${BASE_URL}/guides`,                  lastModified: "2025-05-01", changeFrequency: "weekly",  priority: 0.8  },
-    { url: `${BASE_URL}/downloads`,               lastModified: "2025-04-01", changeFrequency: "monthly", priority: 0.7  },
-    { url: `${BASE_URL}/contact`,                 lastModified: "2025-04-01", changeFrequency: "monthly", priority: 0.7  },
+  const static_pages: MetadataRoute.Sitemap = [
+    { url: BASE,                              lastModified: NOW, changeFrequency: "weekly",  priority: 1.0  },
+    { url: `${BASE}/fix`,                     lastModified: NOW, changeFrequency: "weekly",  priority: 0.95 },
+    { url: `${BASE}/hp-printer-repair`,       lastModified: NOW, changeFrequency: "weekly",  priority: 0.95 },
+    { url: `${BASE}/canon-printer-repair`,    lastModified: NOW, changeFrequency: "weekly",  priority: 0.95 },
+    { url: `${BASE}/epson-printer-repair`,    lastModified: NOW, changeFrequency: "weekly",  priority: 0.95 },
+    { url: `${BASE}/reparacion-impresoras`,   lastModified: NOW, changeFrequency: "weekly",  priority: 0.90 },
+    { url: `${BASE}/virus-removal`,           lastModified: NOW, changeFrequency: "weekly",  priority: 0.90 },
+    { url: `${BASE}/services`,                lastModified: NOW, changeFrequency: "weekly",  priority: 0.90 },
+    { url: `${BASE}/products`,                lastModified: NOW, changeFrequency: "weekly",  priority: 0.85 },
+    { url: `${BASE}/tools`,                   lastModified: NOW, changeFrequency: "weekly",  priority: 0.80 },
+    { url: `${BASE}/guides`,                  lastModified: NOW, changeFrequency: "weekly",  priority: 0.80 },
+    { url: `${BASE}/comparison`,              lastModified: NOW, changeFrequency: "monthly", priority: 0.80 },
+    { url: `${BASE}/about`,                   lastModified: NOW, changeFrequency: "monthly", priority: 0.75 },
+    { url: `${BASE}/contact`,                 lastModified: NOW, changeFrequency: "monthly", priority: 0.70 },
+    { url: `${BASE}/downloads`,               lastModified: NOW, changeFrequency: "monthly", priority: 0.65 },
   ];
+
+  // Programmatic: /fix-printer/[brand]/[problem]
+  const printer_pages: MetadataRoute.Sitemap = [];
+  for (const brand of Object.keys(PRINTER_BRANDS)) {
+    for (const problem of Object.keys(PRINTER_PROBLEMS)) {
+      printer_pages.push({
+        url: `${BASE}/fix-printer/${brand}/${problem}`,
+        lastModified: NOW,
+        changeFrequency: "weekly",
+        priority: 0.88,
+      });
+    }
+  }
+
+  // Programmatic: /garmin-update/[model]
+  const garmin_pages: MetadataRoute.Sitemap = Object.keys(GARMIN_MODELS).map(model => ({
+    url: `${BASE}/garmin-update/${model}`,
+    lastModified: NOW,
+    changeFrequency: "monthly",
+    priority: 0.85,
+  }));
+
+  return [...static_pages, ...printer_pages, ...garmin_pages];
 }
