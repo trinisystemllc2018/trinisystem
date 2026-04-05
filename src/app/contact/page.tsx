@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { PHONE, PHONE_HREF, SUPPORT_FORM, MAPS_URL, OFFICIAL_SITE, DOWNLOAD_URL } from "@/lib/utils";
+import { PHONE, PHONE_HREF, MAPS_URL, OFFICIAL_SITE, DOWNLOAD_URL } from "@/lib/utils";
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", issue: "", message: "" });
@@ -63,8 +63,8 @@ export default function ContactPage() {
                   action: { label: PHONE, href: PHONE_HREF }, badge: "24/7", color: "blue",
                 },
                 {
-                  icon: "📋", title: "Support Request Form", sub: "Describe your issue and we'll call you back",
-                  action: { label: "Open Request Form", href: SUPPORT_FORM }, badge: "< 30 min", color: "purple",
+                  icon: "📞", title: "Request a Callback", sub: "Enter your name and number — we call you back",
+                  action: { label: "Request Callback", href: "/contact#form" }, badge: "< 5 min", color: "purple",
                 },
                 {
                   icon: "🗺️", title: "Service Area Map", sub: "See if we cover on-site visits in your area",

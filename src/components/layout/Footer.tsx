@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PHONE, PHONE_HREF, DOWNLOAD_URL, SUPPORT_FORM, MAPS_URL, OFFICIAL_SITE, SOCIAL } from "@/lib/utils";
+import { PHONE, PHONE_HREF, DOWNLOAD_URL, MAPS_URL, OFFICIAL_SITE, SOCIAL } from "@/lib/utils";
 
 const footerSections = [
   {

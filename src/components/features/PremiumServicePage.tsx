@@ -3,6 +3,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import Link from "next/link";
 import { PHONE, PHONE_HREF } from "@/lib/utils";
+import { CallbackButton } from "@/components/ui/CallbackModal";
 
 /* ═══════════════════════════════════════════════════════════════
    PREMIUM SERVICE PAGE — Interactive Diagnostic Wizard
@@ -772,10 +773,9 @@ export default function PremiumServicePage(props: PremiumServicePageProps) {
               <motion.a href={props.ctaPrimaryHref} whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}
                 className="flex items-center justify-center gap-3 bg-white text-gray-900 font-black text-lg px-10 py-5 rounded-2xl shadow-2xl"
               >📞 {props.ctaPrimaryLabel}</motion.a>
-              <motion.a href="https://discord.gg/trinisystem" target="_blank" rel="noopener noreferrer"
-                whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}
-                className="flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-base px-10 py-5 rounded-2xl"
-              >💬 Join Discord — Free Help</motion.a>
+              <CallbackButton
+                className="flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-base px-10 py-5 rounded-2xl transition-all"
+              >📞 Request Callback — Free</CallbackButton>
             </div>
             <p className="text-white/25 text-xs mt-6 tracking-wide">No fix = no fee · All 50 US states · Available 24/7</p>
           </FadeIn>

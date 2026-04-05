@@ -1,7 +1,8 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { PHONE_HREF, PHONE, SUPPORT_FORM } from "@/lib/utils";
+import { PHONE_HREF, PHONE } from "@/lib/utils";
+import { CallbackButton } from "@/components/ui/CallbackModal";
 
 export function FloatingSupport() {
   const [open, setOpen] = useState(false);
@@ -51,19 +52,16 @@ export function FloatingSupport() {
                 <svg className="ml-auto w-4 h-4 text-blue-400 group-hover:translate-x-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
 
-              <a
-                href={SUPPORT_FORM}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 p-3 rounded-2xl bg-gray-50 hover:bg-gray-100 transition-colors group"
+              <CallbackButton
+                className="flex items-center gap-3 p-3 rounded-2xl bg-gray-50 hover:bg-gray-100 transition-colors group w-full text-left"
               >
-                <span className="text-xl">📋</span>
+                <span className="text-xl">📞</span>
                 <div>
-                  <p className="text-sm font-semibold text-gray-700">Request Support</p>
-                  <p className="text-xs text-gray-500">Fill out our quick form</p>
+                  <p className="text-sm font-semibold text-gray-700">Request Callback</p>
+                  <p className="text-xs text-gray-500">We call you in under 5 min</p>
                 </div>
                 <svg className="ml-auto w-4 h-4 text-gray-400 group-hover:translate-x-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
+              </CallbackButton>
 
               <a
                 href="/products"
