@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { TechER } from "@/components/features/TechER";
+import PremiumServicePage from "@/components/features/PremiumServicePage";
 import { StickyCTA } from "@/components/ui/Button";
 import { PHONE, PHONE_HREF } from "@/lib/utils";
 
@@ -42,19 +41,6 @@ const schemas = [
   },
 ];
 
-const GPS_BRANDS = [
-  { name: "Garmin", color: "#007cc2", models: ["DriveSmart 65", "DriveSmart 55", "Nuvi 2797LMT", "Drive 52", "RV 890", "Overlander"], href: "#tool" },
-  { name: "TomTom", color: "#e63946", models: ["GO 520", "GO 620", "GO Discover", "Via 1525M", "Start 55"], href: "#tool" },
-  { name: "Magellan", color: "#2a7f4f", models: ["RoadMate 6630", "RoadMate 9400-LM", "Maestro 4250"], href: "#tool" },
-];
-
-const REVIEWS = [
-  { name: "Frank D.", stars: 5, text: "My Garmin Nuvi hadn't been updated in 5 years. Trini System connected remotely and updated all the maps in one session. No more wrong turns!", loc: "Chicago, IL" },
-  { name: "Patricia L.", stars: 5, text: "Garmin Express kept giving errors and I couldn't figure it out. Tech logged in, fixed the software issue, and maps downloaded perfectly. Very patient.", loc: "Miami, FL" },
-  { name: "James R.", stars: 5, text: "GPS couldn't find satellites. Called Trini System and they walked me through the reset process. Fixed in 20 minutes.", loc: "Atlanta, GA" },
-  { name: "Susan K.", stars: 5, text: "Had my TomTom GO updated with help from Trini System. They did everything remotely — I just had to plug in the USB cable.", loc: "Denver, CO" },
-];
-
 export default function GpsHelpPage() {
   return (
     <>
@@ -62,184 +48,77 @@ export default function GpsHelpPage() {
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
 
-      {/* ── HERO ── */}
-      <section className="relative overflow-hidden" style={{ background: "linear-gradient(135deg,#022a14 0%,#053d20 40%,#064d28 100%)" }}>
-        <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "linear-gradient(rgba(110,231,183,0.8) 1px,transparent 1px),linear-gradient(90deg,rgba(110,231,183,0.8) 1px,transparent 1px)", backgroundSize: "48px 48px" }} />
-        {/* Animated satellite rings */}
-        <div className="absolute right-10 top-8 opacity-20 pointer-events-none hidden lg:block">
-          {[80, 120, 160].map((r) => (
-            <div key={r} className="absolute rounded-full border border-emerald-400 -translate-x-1/2 -translate-y-1/2" style={{ width: r, height: r }} />
-          ))}
-          <div className="w-4 h-4 rounded-full bg-emerald-400 absolute -translate-x-1/2 -translate-y-1/2" />
-        </div>
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-16 md:py-20">
-          <div className="text-center">
-            <div className="inline-flex items-center gap-2 bg-white/10 text-white/80 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-6 border border-white/15 backdrop-blur-sm">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              GPS & Navigation Support
-            </div>
-            <h1 className="font-black text-white tracking-tight leading-[0.95] mb-5" style={{ fontSize: "clamp(2.6rem,6vw,5rem)" }}>
-              GPS Not Working?<br />
-              <span style={{ background: "linear-gradient(90deg,#6ee7b7,#34d399)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-                Maps & Signal Fixed Fast
-              </span>
-            </h1>
-            <p className="text-white/55 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
-              Garmin, TomTom, Magellan — map updates, satellite signal fixes, Garmin Express errors. Remote help available 24/7.
-            </p>
-            <div className="flex flex-wrap justify-center gap-6 mb-8">
-              {[["5,000+","GPS Devices Updated"],["100%","Update Success Rate"],["30–90 min","Map Download Time"],["$49","With Tech Help"]].map(([n, l]) => (
-                <div key={l} className="text-center">
-                  <p className="text-2xl font-black text-white">{n}</p>
-                  <p className="text-xs text-white/40 font-semibold uppercase tracking-widest">{l}</p>
-                </div>
-              ))}
-            </div>
-            <div className="flex flex-wrap gap-2 justify-center">
-              {["Garmin DriveSmart update","Garmin Express errors","Nuvi maps outdated","TomTom won't update","No satellite signal","GPS frozen"].map((t) => (
-                <span key={t} className="text-xs bg-white/8 text-white/55 border border-white/12 px-3 py-1.5 rounded-full font-medium">🔥 {t}</span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── DIAGNOSTIC TOOL ── */}
-      <section id="tool" className="bg-gradient-to-b from-slate-50 to-white py-12 md:py-16">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-8">
-            <p className="text-xs font-bold uppercase tracking-widest text-emerald-600 mb-2">Free Diagnostic</p>
-            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-3">What&apos;s the Problem?</h2>
-            <p className="text-gray-500">Select your GPS brand and get an instant step-by-step fix</p>
-          </div>
-          <TechER category="gps" pageTrending={["Garmin DriveSmart 65 update","Garmin Nuvi map update","Garmin Express not working","GPS no satellite signal"]} />
-        </div>
-      </section>
-
-      {/* ── GPS MODEL GUIDE (Programmatic SEO) ── */}
-      <section className="py-16 md:py-20 bg-white border-t border-gray-100">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-10">
-            <p className="text-xs font-bold uppercase tracking-widest text-emerald-600 mb-2">All Major GPS Brands</p>
-            <h2 className="text-3xl md:text-4xl font-black text-gray-900">Popular Models We Support</h2>
-          </div>
-          <div className="grid sm:grid-cols-3 gap-6">
-            {GPS_BRANDS.map((b) => (
-              <div key={b.name} className="bg-white rounded-3xl p-6 border-2 border-gray-100 hover:border-emerald-200 transition-all hover:-translate-y-1 hover:shadow-lg">
-                <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-white text-xl font-black mb-4"
-                  style={{ background: b.color }}>
-                  {b.name[0]}
-                </div>
-                <h3 className="font-black text-gray-900 text-xl mb-3">{b.name} GPS</h3>
-                <div className="space-y-1.5 mb-5">
-                  {b.models.map((m) => (
-                    <div key={m} className="flex items-center gap-2 text-sm text-gray-600">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
-                      {m}
-                    </div>
-                  ))}
-                </div>
-                <a href="#tool" className="text-sm text-emerald-600 font-bold hover:underline">Fix this device →</a>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── GARMIN EXPRESS GUIDE ── */}
-      <section className="py-16 md:py-20 bg-slate-50 border-t border-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-10">
-            <p className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-2">Step-by-Step Guide</p>
-            <h2 className="text-3xl font-black text-gray-900">How to Update Garmin GPS Maps</h2>
-            <p className="text-gray-500 mt-2">Works for DriveSmart, Nuvi, Drive, and RV series</p>
-          </div>
-          <div className="space-y-4">
-            {[
-              { step: "1", icon: "⬇", title: "Download Garmin Express", detail: "Visit garmin.com/express on your PC or Mac. Click Download for Windows (or Mac). Run the installer — it takes about 3 minutes." },
-              { step: "2", icon: "🔌", title: "Connect your Garmin via USB", detail: "Use the micro-USB cable that came with your GPS. Connect one end to your Garmin, the other to your computer. Garmin Express will detect it automatically within 30 seconds." },
-              { step: "3", icon: "👤", title: "Sign in to Garmin account", detail: "Sign in or create a free account at connect.garmin.com. This links your device and activates your map subscriptions. New accounts are free." },
-              { step: "4", icon: "🗺️", title: "Add and download map updates", detail: "Click 'Add Map Updates'. You'll see which maps are available. Free lifetime updates apply to eligible devices. Click Install and let it run — map downloads take 30–90 minutes." },
-              { step: "5", icon: "✅", title: "Eject and test", detail: "Click the eject icon in Garmin Express before unplugging. Power on your Garmin — it will install the new maps on first startup. Takes about 10 minutes." },
-            ].map((s) => (
-              <div key={s.step} className="flex gap-5 bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
-                <div className="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-black text-sm shrink-0">
-                  {s.step}
-                </div>
-                <div>
-                  <p className="font-black text-gray-900 mb-1">{s.icon} {s.title}</p>
-                  <p className="text-gray-500 text-sm leading-relaxed">{s.detail}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="mt-8 p-5 bg-amber-50 border border-amber-200 rounded-2xl">
-            <p className="font-bold text-amber-800 mb-1">⚠️ Having trouble with Garmin Express?</p>
-            <p className="text-amber-700 text-sm">If Garmin Express shows errors, won&apos;t detect your device, or the update keeps failing — call Trini System. We fix Garmin Express errors remotely in 20 minutes. <a href={PHONE_HREF} className="font-black underline">Call {PHONE}</a></p>
-          </div>
-        </div>
-      </section>
-
-      {/* ── REVIEWS ── */}
-      <section className="py-16 bg-white border-t border-gray-100">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-10">
-            <div className="text-3xl mb-2">⭐⭐⭐⭐⭐</div>
-            <h2 className="text-2xl md:text-3xl font-black text-gray-900">4.9 Stars · 1,000+ GPS Devices Updated</h2>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {REVIEWS.map((r) => (
-              <div key={r.name} className="bg-gray-50 rounded-2xl p-5 border border-gray-100">
-                <div className="text-amber-400 mb-3 text-sm">{"⭐".repeat(r.stars)}</div>
-                <p className="text-gray-700 text-sm leading-relaxed mb-3">&ldquo;{r.text}&rdquo;</p>
-                <p className="font-bold text-gray-900 text-sm">{r.name}</p>
-                <p className="text-xs text-gray-400">{r.loc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── FAQ ── */}
-      <section className="py-16 md:py-20 bg-slate-50 border-t border-gray-100">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6">
-          <h2 className="text-2xl md:text-3xl font-black text-gray-900 text-center mb-10">GPS Help — FAQ</h2>
-          <div className="space-y-4">
-            {[
-              { q: "How do I update my Garmin GPS maps?", a: "Download Garmin Express from garmin.com/express. Connect your GPS via USB. Sign in with a Garmin account. Click 'Add Map Updates' and let the download run (30–90 min). Trini System does Garmin map updates remotely if you need help — call 347-953-1531." },
-              { q: "Why is Garmin Express not working?", a: "Garmin Express errors are usually caused by an outdated version, USB connection issues, or firewall blocking. Uninstall Garmin Express completely, download the fresh version, and try a different USB port. Trini System fixes Garmin Express errors remotely in 20 minutes." },
-              { q: "Why won't my GPS find satellites?", a: "Stale satellite almanac data is the most common cause. Hold the power button for 10 seconds to reset, go outside to an open sky area, leave it stationary for 10–15 minutes. Also update the satellite data in Garmin Express." },
-              { q: "Are Garmin map updates free?", a: "Most newer Garmin devices include one free lifetime map update. Garmin Express itself is always free. Trini System can check if your device qualifies and handle the entire update process remotely." },
-              { q: "How do I update a TomTom GPS?", a: "TomTom devices update via MyDrive Connect on PC/Mac — download it at tomtom.com/getstarted. Connect via USB and sign in to your TomTom account to see available updates. Trini System assists with TomTom updates remotely." },
-            ].map((faq) => (
-              <details key={faq.q} className="group bg-white rounded-2xl border border-gray-100 overflow-hidden">
-                <summary className="flex items-center justify-between p-5 cursor-pointer font-bold text-gray-900 list-none">
-                  {faq.q}
-                  <svg className="w-5 h-5 text-gray-400 shrink-0 group-open:rotate-180 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M19 9l-7 7-7-7"/></svg>
-                </summary>
-                <div className="px-5 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4">{faq.a}</div>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── CTA ── */}
-      <section className="py-14 bg-gradient-to-r from-emerald-700 to-teal-800 text-white text-center">
-        <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-black mb-4">GPS still not updating?</h2>
-          <p className="text-emerald-200 text-lg mb-8">We&apos;ll connect remotely and do the entire Garmin update for you while you watch.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href={PHONE_HREF} className="flex items-center justify-center gap-2 bg-white text-emerald-700 font-black text-lg px-8 py-4 rounded-2xl hover:bg-emerald-50 transition-all shadow-xl">
-              📞 Call {PHONE}
-            </a>
-            <a href="https://discord.gg/trinisystem" target="_blank" rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-base px-8 py-4 rounded-2xl transition-all">
-              💬 Join Discord — Free GPS Help
-            </a>
-          </div>
-        </div>
-      </section>
+      <PremiumServicePage
+        category="gps"
+        badgeText="GPS & Navigation Support"
+        heroTitle="GPS Not Working?"
+        heroHighlight="Maps & Signal Fixed Fast"
+        heroSub="Garmin, TomTom, Magellan — map updates, satellite signal fixes, Garmin Express errors. Remote help available 24/7."
+        heroGradient="linear-gradient(135deg,#022a14 0%,#053d20 40%,#064d28 100%)"
+        accentColor="emerald"
+        accentHex="#10b981"
+        glowColor="rgba(16,185,129,0.4)"
+        stats={[
+          { value: "5,000+", label: "GPS Devices Updated" },
+          { value: "100%", label: "Update Success Rate" },
+          { value: "30–90 min", label: "Map Download Time" },
+          { value: "$49", label: "With Tech Help" },
+        ]}
+        trending={[
+          { label: "Garmin DriveSmart update" },
+          { label: "Garmin Express errors" },
+          { label: "Nuvi maps outdated" },
+          { label: "TomTom won't update" },
+          { label: "No satellite signal" },
+          { label: "GPS frozen" },
+        ]}
+        brandSectionTitle="What Brand Is Your GPS?"
+        brandSectionSub="Select your device brand to get a tailored fix guide"
+        brands={[
+          { name: "Garmin", icon: "🗺️", sub: "DriveSmart · Nuvi · Drive · RV", color: "#007cc2", models: ["DriveSmart 65", "DriveSmart 55", "Nuvi 2797LMT", "Drive 52", "RV 890", "Overlander"] },
+          { name: "TomTom", icon: "🧭", sub: "GO · Via · Start series", color: "#e63946", models: ["GO 520", "GO 620", "GO Discover", "Via 1525M", "Start 55"] },
+          { name: "Magellan", icon: "📍", sub: "RoadMate · Maestro series", color: "#2a7f4f", models: ["RoadMate 6630", "RoadMate 9400-LM", "Maestro 4250"] },
+          { name: "Other / Not Sure", icon: "🤷", sub: "Rand McNally · Cobra · Others", color: "#6b7280", models: ["Rand McNally TND", "Cobra 6500", "Other brands"] },
+        ]}
+        stepsSectionTitle="15-Step GPS Fix & Update Guide"
+        stepsSectionSub="Complete guide for Garmin, TomTom & Magellan — works for map updates and signal issues"
+        steps={[
+          { icon: "🔋", title: "Charge your GPS to at least 50%", detail: "Map updates can take 30–90 minutes. If your GPS dies mid-update, it can corrupt the firmware. Plug it into a wall charger first." },
+          { icon: "⬇️", title: "Download Garmin Express (or MyDrive Connect)", detail: "Garmin: garmin.com/express. TomTom: tomtom.com/getstarted. Magellan: magellanGPS.com/content-manager. Download the latest version." },
+          { icon: "💻", title: "Install the update software on your computer", detail: "Run the downloaded installer. Follow all prompts. Allow it through your firewall if asked. Restart your computer if prompted." },
+          { icon: "🔌", title: "Connect your GPS via USB cable", detail: "Use the micro-USB or mini-USB cable that came with your device. Connect directly to your computer — don't use a USB hub. The device should show 'USB Mode' or 'Connected'." },
+          { icon: "👤", title: "Sign in or create a free account", detail: "Garmin: sign in at connect.garmin.com. TomTom: use your TomTom account. Creating an account is free and activates your device." },
+          { icon: "🔍", title: "Let the software detect your device", detail: "Wait 30–60 seconds for the software to recognize your GPS. If it doesn't detect, try a different USB port. Avoid USB 3.0 (blue) ports — use USB 2.0 (black)." },
+          { icon: "🗺️", title: "Check for available map updates", detail: "Click 'Updates' or 'Map Updates'. The software shows which maps are available for your device. Free lifetime maps apply to eligible devices." },
+          { icon: "📥", title: "Download the map update", detail: "Click 'Install' or 'Download'. Map files are large (2–8 GB). This takes 30–90 minutes depending on your internet speed. Don't disconnect during download." },
+          { icon: "⏳", title: "Wait for installation to complete", detail: "After download, the software installs maps to your GPS device. The progress bar must reach 100%. Don't unplug. This step takes 10–30 minutes." },
+          { icon: "📡", title: "Update satellite data (EPO/almanac)", detail: "In Garmin Express: check for 'Satellite Data' updates. This pre-loads satellite positions so your GPS locks on faster when you drive." },
+          { icon: "🔄", title: "Update device firmware", detail: "Check for firmware/software updates separately from map updates. Firmware fixes bugs and improves GPS accuracy. Install if available." },
+          { icon: "⏏️", title: "Safely eject the device", detail: "Click the eject icon in Garmin Express (or safely remove hardware in Windows). Never just yank the USB cable — this can corrupt map data." },
+          { icon: "🔌", title: "Disconnect and restart the GPS", detail: "Unplug USB, then power cycle the GPS (hold power 10 seconds, then turn back on). The device will process new maps on first boot — takes 5–10 min." },
+          { icon: "📡", title: "Acquire satellite signal outdoors", detail: "Take the GPS outside to open sky. Place it on a flat surface. Wait 5–15 minutes for it to lock onto satellites. First lock after update takes longest." },
+          { icon: "✅", title: "Test navigation — verify maps work", detail: "Enter a destination and start navigation. Verify the map looks updated (new roads, correct addresses). If maps look old, call us at 347-953-1531." },
+        ]}
+        reviewsTitle="4.9 Stars · 5,000+ GPS Devices Updated"
+        reviews={[
+          { name: "Frank D.", stars: 5, text: "My Garmin Nuvi hadn't been updated in 5 years. Trini System connected remotely and updated all the maps in one session. No more wrong turns!", loc: "Chicago, IL" },
+          { name: "Patricia L.", stars: 5, text: "Garmin Express kept giving errors and I couldn't figure it out. Tech logged in, fixed the software issue, and maps downloaded perfectly.", loc: "Miami, FL" },
+          { name: "James R.", stars: 5, text: "GPS couldn't find satellites. Called Trini System and they walked me through the reset process. Fixed in 20 minutes.", loc: "Atlanta, GA" },
+          { name: "Susan K.", stars: 5, text: "Had my TomTom GO updated with help from Trini System. They did everything remotely — I just had to plug in the USB cable.", loc: "Denver, CO" },
+        ]}
+        faqTitle="GPS Help — FAQ"
+        faqs={[
+          { q: "How do I update my Garmin GPS maps?", a: "Download Garmin Express from garmin.com/express. Connect via USB. Sign in with a Garmin account. Click 'Add Map Updates' and let it download (30–90 min). We do Garmin map updates remotely if you need help — call 347-953-1531." },
+          { q: "Why is Garmin Express not working?", a: "Usually caused by outdated version, USB issues, or firewall blocking. Uninstall completely, download fresh from garmin.com/express, try a different USB port. We fix Garmin Express errors remotely in 20 minutes." },
+          { q: "Why won't my GPS find satellites?", a: "Stale satellite almanac data is the most common cause. Hold power 10 seconds to reset, go outside to open sky, wait 10–15 min. Also update satellite data in Garmin Express." },
+          { q: "Are Garmin map updates free?", a: "Most newer Garmin devices include one free lifetime map update. Garmin Express itself is always free. We can check if your device qualifies and handle the entire update remotely." },
+          { q: "How do I update a TomTom GPS?", a: "TomTom devices update via MyDrive Connect — download at tomtom.com/getstarted. Connect via USB, sign in to your TomTom account, and available updates appear automatically." },
+        ]}
+        ctaTitle="GPS still not updating?"
+        ctaSub="We connect remotely and do the entire update for you while you watch."
+        ctaPrimaryLabel={`Call ${PHONE}`}
+        ctaPrimaryHref={PHONE_HREF}
+      />
 
       <StickyCTA />
     </>

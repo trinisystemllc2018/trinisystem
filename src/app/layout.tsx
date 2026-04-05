@@ -21,18 +21,34 @@ export const metadata: Metadata = {
     "make computer faster", "Windows 11 slow", "virus removal", "tech support USA",
     "HP DeskJet 4155e setup", "HP DeskJet 2755e setup", "Garmin GPS update",
     "TriniCleaner", "Trini System LLC", "printer repair Corona NY",
-    "tech support Queens NY", "senior tech support New York",
+    "tech support Queens NY", "remote printer repair",
   ],
   authors: [{ name: "Trini System LLC" }],
   creator: "Trini System LLC",
+  publisher: "Trini System LLC",
   metadataBase: new URL(BASE_URL),
+  alternates: {
+    canonical: "/",
+    languages: {
+      "en-US": "/",
+      "es-US": "/reparacion-impresoras",
+    },
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: BASE_URL,
     title: "Trini System LLC — Printer Repair & PC Support USA",
-    description: "Expert printer repair & free PC optimizer. HP, Canon, Epson, Brother. Call 347-953-1531.",
+    description: "Expert printer repair & free PC optimizer. HP, Canon, Epson, Brother. All 50 US states. Call 347-953-1531.",
     siteName: "Trini System LLC",
+    images: [
+      {
+        url: `${BASE_URL}/og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: "Trini System LLC — Printer Repair & PC Support",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -40,31 +56,51 @@ export const metadata: Metadata = {
     description: "Free TriniCleaner + expert printer repair. All 50 states.",
     creator: "@trinisystemllc",
     site: "@trinisystemllc",
+    images: [`${BASE_URL}/og-image.png`],
   },
-  // Facebook Open Graph — makes shares look professional with preview image
   other: {
     "fb:page_id": "Trinisystem",
     "og:see_also": "https://www.facebook.com/Trinisystem/",
-    // LLM SEO — helps Bing Copilot, ChatGPT, Perplexity identify the business entity
+    // LLM SEO — helps Bing Copilot, ChatGPT, Perplexity, Google AI Overview
     "application-name": "Trini System LLC Tech Support",
     "category": "Printer Repair, PC Support, GPS Update, Tech Support",
     "coverage": "Nationwide USA",
     "rating": "4.9 stars — 47 Google reviews",
     "reply-to": "trinisystemllc@gmail.com",
+    // Bing-specific
+    "geo.region": "US-NY",
+    "geo.placename": "Corona, Queens, New York",
+    "geo.position": "40.7459;-73.8618",
+    "ICBM": "40.7459, -73.8618",
   },
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large" as any,
+    "max-snippet": -1,
+    "max-video-preview": -1,
+  },
+  verification: {
+    other: {
+      "msvalidate.01": ["FB3B439D2D61A515B724444ADBA619BD"],
+    },
+  },
 };
 
-// ── LocalBusiness JSON-LD Schema ──────────────────────────────
-// This is the #1 SEO signal to connect your Google Business listing
-// to your website. Google uses this to verify NAP consistency.
+/* ══════════════════════════════════════════════════════
+   JSON-LD SCHEMAS — Multiple schemas for rich results
+   1. LocalBusiness (Google Business connection + NAP)
+   2. WebSite (sitelinks search box)
+   3. Organization (Bing entity recognition)
+══════════════════════════════════════════════════════ */
+
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "@id": `${BASE_URL}/#business`,
   "name": "Trini System LLC",
-  "alternateName": "HP Canon Epson Printer Help | Trini System LLC",
-  "description": "Expert remote printer repair & PC support for HP, Canon, Epson, Brother. Free TriniCleaner download. Serving all 50 states. Based in Corona, Queens, NY.",
+  "alternateName": ["Trini System", "TriniSystem", "Trini System LLC Tech Support"],
+  "description": "Expert remote printer repair & PC support for HP, Canon, Epson, Brother. Free TriniCleaner download. Serving all 50 states from Corona, Queens, NY.",
   "url": BASE_URL,
   "telephone": "+13479531531",
   "email": "trinisystemllc@gmail.com",
@@ -72,8 +108,13 @@ const localBusinessSchema = {
   "priceRange": "$$",
   "currenciesAccepted": "USD",
   "paymentAccepted": "Cash, Credit Card, PayPal, Zelle",
-  "image": `${BASE_URL}/logo.png`,
-  "logo": `${BASE_URL}/logo.png`,
+  "image": `${BASE_URL}/og-image.png`,
+  "logo": {
+    "@type": "ImageObject",
+    "url": `${BASE_URL}/logo.png`,
+    "width": 512,
+    "height": 512,
+  },
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "52-09 99th St Apt 8S",
@@ -89,7 +130,7 @@ const localBusinessSchema = {
   },
   "areaServed": [
     { "@type": "Country", "name": "United States" },
-    { "@type": "State", "name": "New York" },
+    { "@type": "AdministrativeArea", "name": "New York" },
     { "@type": "City", "name": "Corona" },
     { "@type": "City", "name": "Queens" },
   ],
@@ -109,14 +150,14 @@ const localBusinessSchema = {
     "@type": "OfferCatalog",
     "name": "Tech Support Services",
     "itemListElement": [
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "HP Printer Repair & Setup" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Canon Printer Repair" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Epson Printer Repair" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Brother Printer Repair" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Garmin GPS Map Update" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "PC Virus Removal" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Windows 10/11 Repair" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "TriniCleaner PC Optimizer (Free)" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "HP Printer Repair & Setup", "@id": `${BASE_URL}/hp-printer-repair` } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Canon Printer Repair", "@id": `${BASE_URL}/canon-printer-repair` } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Epson Printer Repair", "@id": `${BASE_URL}/epson-printer-repair` } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Printer Support & Diagnosis", "@id": `${BASE_URL}/printer-support` } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "GPS Map Update Help", "@id": `${BASE_URL}/gps-help` } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Computer Repair & Optimization", "@id": `${BASE_URL}/computer-help` } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Virus & Malware Removal", "@id": `${BASE_URL}/virus-removal` } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "TriniCleaner PC Optimizer (Free)", "@id": `${BASE_URL}/products` } },
     ],
   },
   "aggregateRating": {
@@ -130,46 +171,94 @@ const localBusinessSchema = {
     {
       "@type": "Review",
       "author": { "@type": "Person", "name": "Corey Hawkins" },
-      "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+      "datePublished": "2024-08-15",
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
       "reviewBody": "James was incredibly patient and made everything easy. My HP DeskJet was offline for weeks and they fixed it in 20 minutes. Absolutely the best tech support experience I've ever had.",
     },
     {
       "@type": "Review",
       "author": { "@type": "Person", "name": "Leslie Park" },
-      "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+      "datePublished": "2024-07-22",
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
       "reviewBody": "Very helpful in finding and resolving my Canon PIXMA B200 error. Quick, simple, and effective. I was ready to buy a new printer — they saved me $200!",
     },
     {
       "@type": "Review",
       "author": { "@type": "Person", "name": "Mark Starrett" },
-      "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+      "datePublished": "2024-06-10",
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
       "reviewBody": "They went above and beyond to get my Garmin GPS updated correctly. Professional, reliable, and MUCH cheaper than Best Buy.",
     },
   ],
   "sameAs": [
-    // Google properties
     "https://share.google/1mtrJVk8Ya0PkjG76",
     "https://sites.google.com/view/trinisystemllc/Technical-Support-USA",
-    // Social platforms — Google crawls these to verify entity
     "https://www.facebook.com/Trinisystem/",
     "https://www.youtube.com/@trinisystemllc",
     "https://www.tiktok.com/@trinisystemllc",
-    // Directories
     "https://www.yelp.com/biz/trini-system-new-york",
   ],
 };
 
+// WebSite schema — enables sitelinks search box in Google
+const webSiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${BASE_URL}/#website`,
+  "name": "Trini System LLC",
+  "url": BASE_URL,
+  "publisher": { "@id": `${BASE_URL}/#business` },
+  "inLanguage": ["en-US", "es-US"],
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": `${BASE_URL}/printer-support?q={search_term_string}`,
+    },
+    "query-input": "required name=search_term_string",
+  },
+};
+
+// Organization schema — Bing Copilot and AI assistants use this to identify entities
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": `${BASE_URL}/#organization`,
+  "name": "Trini System LLC",
+  "url": BASE_URL,
+  "logo": `${BASE_URL}/logo.png`,
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+13479531531",
+    "contactType": "customer support",
+    "areaServed": "US",
+    "availableLanguage": ["English", "Spanish"],
+    "hoursAvailable": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "00:00",
+      "closes": "23:59",
+    },
+  },
+  "sameAs": localBusinessSchema.sameAs,
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" dir="ltr">
       <head>
-        {/* Bing Webmaster verification */}
-        <meta name="msvalidate.01" content="FB3B439D2D61A515B724444ADBA619BD" />
-
-        {/* LocalBusiness JSON-LD — connects website to Google Business listing */}
+        {/* JSON-LD Schemas */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
 
         {/* Google Tag Manager */}

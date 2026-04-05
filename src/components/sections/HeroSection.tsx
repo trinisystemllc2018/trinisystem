@@ -14,7 +14,7 @@ const CATEGORIES = [
     id: "printer",
     label: "Printer",
     sub: "HP · Canon · Epson · Brother",
-    href: "/fix?cat=printer",
+    href: "/printer-support",
     bg: "from-blue-500 to-blue-700",
     glow: "rgba(59,130,246,0.6)",
     icon: "🖨️",
@@ -183,8 +183,8 @@ export function HeroSection() {
 
   const handleSearch = () => {
     if (matched) { go(matched.href); return; }
-    if (query.trim()) { go(`/fix?q=${encodeURIComponent(query)}`); return; }
-    go("/fix");
+    if (query.trim()) { go(`/printer-support?q=${encodeURIComponent(query)}`); return; }
+    go("/printer-support");
   };
 
   return (

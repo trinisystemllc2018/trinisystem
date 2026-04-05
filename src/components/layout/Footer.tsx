@@ -26,12 +26,12 @@ const footerSections = [
   {
     title: "Tech Services",
     links: [
-      { label: "PC & Windows Repair",      href: "/fix" },
+      { label: "Printer Support",            href: "/printer-support" },
       { label: "Virus & Malware Removal",  href: "/virus-removal" },
       { label: "Garmin GPS Map Update",    href: "/garmin-update/drivesmart-65" },
       { label: "Home Office Setup",        href: "/services" },
       { label: "Printer WiFi Setup",       href: "/fix-printer/hp/wifi-setup" },
-      { label: "Interactive Fix Tool",     href: "/fix" },
+      { label: "Interactive Fix Tool",     href: "/printer-support" },
     ],
   },
   {

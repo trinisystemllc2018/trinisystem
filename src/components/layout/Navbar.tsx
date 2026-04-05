@@ -8,7 +8,7 @@ import { useScrollProgress } from "@/hooks/useAnimations";
 
 const navLinks = [
   { href: "/",              label: "Home" },
-  { href: "/fix",           label: "Fix My Tech ⚡" },
+  { href: "/printer-support", label: "Fix My Tech ⚡" },
   { href: "/services",      label: "Services" },
   { href: "/products",      label: "Free Cleaner" },
   { href: "/guides",        label: "Guides" },

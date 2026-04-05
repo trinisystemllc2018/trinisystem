@@ -59,7 +59,7 @@ export const BRANDS = [
     name: "Brother",
     color: "#004B9C",
     bgColor: "#e8eef8",
-    href: "/fix",
+    href: "/printer-support",
     models: ["MFC-L2710DW", "MFC-J995DW", "HL-L2350DW", "HL-L3270CDW", "DCP-L2550DW"],
     issues: ["Driver unavailable", "AirPrint not working", "Toner error", "Windows 11 fix", "Mopria setup"],
     slug: "brother",
@@ -163,8 +163,9 @@ export const SERVICES = [
     icon: "🗺️",
     title: "Garmin GPS Updates",
     description: "Map & firmware updates for all Garmin models — nuvi, DriveSmart, RV series. Remote update while you watch.",
-    href: "/fix",
+    href: "/gps-help",
     color: "teal",
     popular: false,
   },
 ];
+

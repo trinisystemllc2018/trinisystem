@@ -41,7 +41,7 @@ const CATS: Cat[] = [
     id: "printer",
     label: "Printer",
     sub: "HP · Canon · Epson · Brother",
-    href: "/fix?cat=printer",
+    href: "/printer-support",
     from: "#3b82f6",
     to: "#1d4ed8",
     glow: "59,130,246",
@@ -417,8 +417,8 @@ function HomeHero() {
 
   const handleSearch = () => {
     if (matched) { go(matched.href); return; }
-    if (query.trim()) { go(`/fix?q=${encodeURIComponent(query)}`); return; }
-    go("/fix");
+    if (query.trim()) { go(`/printer-support?q=${encodeURIComponent(query)}`); return; }
+    go("/printer-support");
   };
 
   return (
