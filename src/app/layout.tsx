@@ -73,6 +73,12 @@ export const metadata: Metadata = {
     "geo.position": "40.7459;-73.8618",
     "ICBM": "40.7459, -73.8618",
   },
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/favicon.svg",
+  },
   robots: {
     index: true,
     follow: true,
