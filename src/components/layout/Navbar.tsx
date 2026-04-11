@@ -50,9 +50,13 @@ export function Navbar() {
           <div className="flex items-center justify-between h-18 py-3">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2.5 group">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center text-white font-black text-sm shadow-brand group-hover:shadow-glow transition-all duration-300">
-                TS
-              </div>
+              <img
+                src="/logo.svg"
+                alt="Trini System LLC logo"
+                width={36}
+                height={36}
+                className="rounded-xl shadow-brand group-hover:shadow-glow transition-all duration-300"
+              />
               <div>
                 <span className="font-bold text-gray-900 text-base leading-tight block">
                   Trini System
