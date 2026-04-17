@@ -45,6 +45,11 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://trinisystem.vercel.app/sitemap.xml",
+    // Submit multiple sitemaps for faster indexing
+    sitemap: [
+      "https://trinisystem.vercel.app/sitemap.xml",
+      // Google Search Console also accepts: submit via GSC dashboard
+      // Bing Webmaster: submit at bing.com/webmaster
+    ],
   };
 }

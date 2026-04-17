@@ -13,10 +13,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/computer-help`,               lastModified: NOW, changeFrequency: "weekly",  priority: 0.95 },
     { url: `${BASE}/virus-removal`,               lastModified: NOW, changeFrequency: "weekly",  priority: 0.95 },
 
-    // Brand-specific service pages
-    { url: `${BASE}/hp-printer-repair`,           lastModified: NOW, changeFrequency: "weekly",  priority: 0.92 },
+    // Brand-specific service pages — high commercial intent
+    { url: `${BASE}/hp-printer-repair`,           lastModified: NOW, changeFrequency: "weekly",  priority: 0.98 },
+    { url: `${BASE}/epson-printer-repair`,        lastModified: NOW, changeFrequency: "weekly",  priority: 0.98 },
     { url: `${BASE}/canon-printer-repair`,        lastModified: NOW, changeFrequency: "weekly",  priority: 0.92 },
-    { url: `${BASE}/epson-printer-repair`,        lastModified: NOW, changeFrequency: "weekly",  priority: 0.92 },
 
     // Spanish page
     { url: `${BASE}/reparacion-impresoras`,       lastModified: NOW, changeFrequency: "weekly",  priority: 0.88 },
@@ -28,6 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/guides`,                      lastModified: NOW, changeFrequency: "weekly",  priority: 0.80 },
     { url: `${BASE}/comparison`,                  lastModified: NOW, changeFrequency: "monthly", priority: 0.78 },
     { url: `${BASE}/downloads`,                   lastModified: NOW, changeFrequency: "monthly", priority: 0.75 },
+    { url: `${BASE}/fix`,                         lastModified: NOW, changeFrequency: "weekly",  priority: 0.82 },
 
     // Info pages
     { url: `${BASE}/about`,                       lastModified: NOW, changeFrequency: "monthly", priority: 0.70 },
