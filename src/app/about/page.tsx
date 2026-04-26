@@ -3,8 +3,9 @@ import Link from "next/link";
 import { StickyCTA } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "About Trini System LLC — 8 Years of Remote Tech Support | Corona, NY",
-  description: "Learn about Trini System LLC — remote tech support since 2016. Based in Corona, Queens, NY. Serving all 50 states. HP, Canon, Epson, Brother printer repair + PC support. Call 347-953-1531.",
+  title: "About Us — Trini System LLC, Corona NY",
+  description: "Trini System LLC — remote tech support since 2016 from Corona, Queens NY. Serving all 50 states. HP, Canon, Epson, Brother repair. Call 347-953-1531.",
+  alternates: { canonical: "https://trinisystem.vercel.app/about" },
   keywords: [
     "trini system llc","tech support company new york","printer repair queens ny",
     "remote tech support company","about trini system","corona ny tech support",

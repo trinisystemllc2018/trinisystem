@@ -4,9 +4,9 @@ import { StickyCTA } from "@/components/ui/Button";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Epson Printer Repair Near Me — EcoTank, WorkForce Fixed in 15 Min | Trini System LLC",
+  title: "Epson Printer Repair Near Me — EcoTank Fixed",
   description:
-    "Epson printer repair near me — remote service, all 50 states. Fix EcoTank ET-2720, ET-4760, WorkForce WF-7720 ink errors, nozzle clogs, offline issues. From $49. No fix = no fee. Call 347-953-1531.",
+    "Epson printer repair — fix EcoTank ET-2720, ET-4760, WorkForce WF-7720 ink errors, nozzle clogs, offline issues remotely. From $49. Call 347-953-1531.",
   keywords: [
     "epson printer repair",
     "epson printer repair near me",
@@ -349,6 +349,21 @@ export default function EpsonPrinterRepairPage() {
             4.9-star Google rating based on 47+ verified reviews. Epson® is a registered trademark of Seiko Epson Corporation.
             Trini System LLC is an independent repair provider, not affiliated with or endorsed by Epson.
           </p>
+        </div>
+      </section>
+
+      {/* RELATED PAGES — Internal Link Sculpting */}
+      <section aria-label="Related Epson Services" className="bg-gray-50 py-12 border-t border-gray-200">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h3 className="text-xl font-black text-gray-900 mb-6">Related Epson Resources</h3>
+          <div className="flex flex-wrap justify-center gap-3">
+            <Link href="/epson-service-nyc" className="text-sm bg-white border border-blue-200 text-blue-700 font-bold px-5 py-3 rounded-xl hover:bg-blue-50 transition-colors">Epson Service NYC</Link>
+            <Link href="/epson-plotters" className="text-sm bg-white border border-blue-200 text-blue-700 font-bold px-5 py-3 rounded-xl hover:bg-blue-50 transition-colors">Epson Plotters & SureColor</Link>
+            <Link href="/printer-repair-near-me" className="text-sm bg-white border border-blue-200 text-blue-700 font-bold px-5 py-3 rounded-xl hover:bg-blue-50 transition-colors">Printer Repair Near Me</Link>
+            <Link href="/fix-printer/epson/not-printing" className="text-sm bg-white border border-blue-200 text-blue-700 font-bold px-5 py-3 rounded-xl hover:bg-blue-50 transition-colors">Epson Not Printing Fix</Link>
+            <Link href="/fix-printer/epson/error-code" className="text-sm bg-white border border-blue-200 text-blue-700 font-bold px-5 py-3 rounded-xl hover:bg-blue-50 transition-colors">Epson Error Code Fix</Link>
+            <Link href="/printer-support" className="text-sm bg-white border border-blue-200 text-blue-700 font-bold px-5 py-3 rounded-xl hover:bg-blue-50 transition-colors">All Printer Support</Link>
+          </div>
         </div>
       </section>
 

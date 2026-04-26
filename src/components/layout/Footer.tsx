@@ -3,17 +3,19 @@ import { PHONE, PHONE_HREF, DOWNLOAD_URL, MAPS_URL, OFFICIAL_SITE, SOCIAL } from
 
 const footerSections = [
   {
-    title: "Software",
+    title: "Brand Repair",
     links: [
-      { label: "TriniCleaner — Free Download", href: "/products" },
-      { label: "PC Speed Optimizer", href: "/products" },
-      { label: "Registry Cleaner Free", href: "/products" },
-      { label: "Junk File Remover", href: "/products" },
-      { label: "Download Center", href: "/downloads" },
+      { label: "HP Printer Repair",          href: "/hp-printer-repair" },
+      { label: "Canon Printer Repair",       href: "/canon-printer-repair" },
+      { label: "Epson Printer Repair",       href: "/epson-printer-repair" },
+      { label: "Printer Repair Near Me",     href: "/printer-repair-near-me" },
+      { label: "HP Printer Service",         href: "/hp-printer-service" },
+      { label: "Epson Service NYC",          href: "/epson-service-nyc" },
+      { label: "Epson Plotters & SureColor", href: "/epson-plotters" },
     ],
   },
   {
-    title: "Printer Fixes",
+    title: "Common Fixes",
     links: [
       { label: "HP Printer Offline Fix",       href: "/fix-printer/hp/offline" },
       { label: "HP Printer Not Printing",      href: "/fix-printer/hp/not-printing" },
@@ -28,10 +30,10 @@ const footerSections = [
     links: [
       { label: "Printer Support",            href: "/printer-support" },
       { label: "Virus & Malware Removal",  href: "/virus-removal" },
-      { label: "Garmin GPS Map Update",    href: "/garmin-update/drivesmart-65" },
-      { label: "Home Office Setup",        href: "/services" },
-      { label: "Printer WiFi Setup",       href: "/fix-printer/hp/wifi-setup" },
-      { label: "Interactive Fix Tool",     href: "/printer-support" },
+      { label: "Slow Computer Help",       href: "/computer-help" },
+      { label: "GPS Help & Updates",       href: "/gps-help" },
+      { label: "TriniCleaner Free Download", href: "/products" },
+      { label: "Reparación en Español",    href: "/reparacion-impresoras" },
     ],
   },
   {
@@ -40,7 +42,7 @@ const footerSections = [
       { label: "About Us", href: "/about" },
       { label: "Contact & Book", href: "/contact" },
       { label: "Step-by-Step Guides", href: "/guides" },
-      { label: "vs. Geek Squad", href: "/about" },
+      { label: "vs. Geek Squad", href: "/comparison" },
       { label: "Official Google Site", href: OFFICIAL_SITE, external: true },
       { label: "Service Area Map", href: MAPS_URL, external: true },
       { label: "Google Business Reviews", href: "https://share.google/1mtrJVk8Ya0PkjG76", external: true },

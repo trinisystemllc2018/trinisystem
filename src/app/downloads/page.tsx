@@ -3,8 +3,9 @@ import { DOWNLOAD_URL, PHONE_HREF } from "@/lib/utils";
 import { StickyCTA } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "Free Downloads — TriniCleaner PC Optimizer & Tools",
-  description: "Download TriniCleaner free — the Windows PC optimizer that removes junk files, fixes registry errors, and speeds up your computer. No subscription ever.",
+  title: "Free Downloads — TriniCleaner PC Optimizer",
+  description: "Download TriniCleaner free — Windows PC optimizer that removes junk files, fixes registry errors, and speeds up your computer. No subscription ever.",
+  alternates: { canonical: "https://trinisystem.vercel.app/downloads" },
 };
 
 export default function DownloadsPage() {

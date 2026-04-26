@@ -3,8 +3,9 @@ import Link from "next/link";
 import { StickyCTA } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "Trini System vs Geek Squad — Honest Comparison 2025 | Trini System LLC",
-  description: "Compare Trini System LLC vs Geek Squad: price, wait time, remote vs in-store, availability, and more. Remote tech support from $49 — no appointment needed. Call 347-953-1531.",
+  title: "Trini System vs Geek Squad — Compare 2026",
+  description: "Compare Trini System vs Geek Squad: price, wait time, remote vs in-store. Remote tech support from $49 — no appointment needed. Call 347-953-1531.",
+  alternates: { canonical: "https://trinisystem.vercel.app/comparison" },
   keywords: [
     "trini system vs geek squad","geek squad alternative","cheap tech support","geek squad price comparison",
     "remote tech support vs geek squad","best tech support company","geek squad review alternative",

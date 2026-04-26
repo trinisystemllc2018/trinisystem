@@ -5,8 +5,9 @@ import { StickyCTA } from "@/components/ui/Button";
 import { PHONE, PHONE_HREF } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Fix Printer Online — HP, Canon, Epson, Brother | Free Instant Diagnosis",
-  description: "Fix your printer in minutes — HP offline, Canon B200, Epson ink error, Brother driver issue. Free step-by-step diagnosis tool. Remote tech support from $49. Call 347-953-1531.",
+  title: "Fix My Printer — Free Diagnostic Tool",
+  description: "Free interactive printer diagnostic — HP, Canon, Epson, Brother. Get an instant fix or call 347-953-1531 for remote tech support from $49.",
+  alternates: { canonical: "https://trinisystem.vercel.app/fix" },
   keywords: [
     "fix printer online","hp printer offline fix","canon printer error b200","epson printer not printing",
     "brother printer driver windows 11","printer repair near me","remote printer repair","hp deskjet offline",

@@ -4,8 +4,16 @@ import { StickyCTA } from "@/components/ui/Button";
 import { PHONE, PHONE_HREF } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "GPS Help & Map Updates — Garmin, TomTom, Magellan | Free Remote Fix",
-  description: "Fix your GPS device — Garmin map updates, satellite signal issues, Garmin Express errors, TomTom updates. Free step-by-step guide + remote support. Call 347-953-1531.",
+  title: "GPS Help — Garmin, TomTom, Magellan Updates",
+  description:
+    "Fix your GPS — Garmin map updates, satellite signal issues, Garmin Express errors, TomTom updates. Free guide + remote support. Call 347-953-1531.",
+  alternates: { canonical: "https://trinisystem.vercel.app/gps-help" },
+  openGraph: {
+    title: "GPS Help — Garmin, TomTom, Magellan Updates | Trini System",
+    description: "Fix your GPS — map updates, satellite issues, Garmin Express errors. Free guide + remote support. Call 347-953-1531.",
+    url: "https://trinisystem.vercel.app/gps-help",
+    type: "website",
+  },
   keywords: [
     "garmin gps update","garmin map update free","garmin express not working","tomtom map update",
     "gps not finding satellites","garmin drivesmart update","garmin nuvi update","magellan gps update",

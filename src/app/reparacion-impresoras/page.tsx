@@ -3,8 +3,9 @@ import { TechER } from "@/components/features/TechER";
 import { StickyCTA } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "Reparación de Impresoras Cerca de Mí — HP, Canon, Epson | Trini System LLC",
-  description: "Reparación de impresoras HP, Canon, Epson, Brother. Servicio técnico remoto en español. Impresoras offline, errores de tinta, configuración WiFi. Llame: 347-953-1531.",
+  title: "Reparación de Impresoras — HP, Canon, Epson",
+  description: "Reparación de impresoras HP, Canon, Epson, Brother. Servicio técnico remoto en español. Errores de tinta, configuración WiFi. Llame: 347-953-1531.",
+  alternates: { canonical: "https://trinisystem.vercel.app/reparacion-impresoras" },
   keywords: [
     "reparacion de impresoras cerca de mi","impresoras epson","impresoras hp","impresoras canon",
     "servicio tecnico impresoras","reparacion impresoras new york","impresora no imprime",

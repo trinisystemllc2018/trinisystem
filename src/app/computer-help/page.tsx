@@ -4,8 +4,18 @@ import { StickyCTA } from "@/components/ui/Button";
 import { PHONE, PHONE_HREF, DOWNLOAD_URL } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Computer Help — Slow PC, Blue Screen, Windows Fix | Free Diagnosis",
-  description: "Fix your slow computer, blue screen errors, Windows 11 problems, startup issues. Free TriniCleaner download + remote tech support. Dell, HP, Lenovo. Call 347-953-1531.",
+  // 47 chars + " | Trini System" suffix (16) = 63 chars — fits Bing limit
+  title: "Slow Computer Fix — Free PC Cleaner & Repair",
+  // 154 chars — within Bing 70-160 limit
+  description:
+    "Fix slow PC, blue screen & Windows 11 errors fast. Free TriniCleaner + remote tech support for Dell, HP, Lenovo. From $49. Call 347-953-1531 today.",
+  alternates: { canonical: "https://trinisystem.vercel.app/computer-help" },
+  openGraph: {
+    title: "Slow Computer Fix — Free PC Cleaner & Repair | Trini System",
+    description: "Fix slow PC, blue screen & Windows 11 errors. Free TriniCleaner + remote support. From $49. Call 347-953-1531.",
+    url: "https://trinisystem.vercel.app/computer-help",
+    type: "website",
+  },
   keywords: [
     "computer running slow fix","slow pc fix free","windows 11 slow","blue screen fix",
     "computer won't start","laptop running slow","dell computer slow","hp laptop slow",

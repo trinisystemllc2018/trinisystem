@@ -6,8 +6,9 @@ import { LiveStatusDashboard } from "@/components/features/LiveStatusDashboard";
 import { StickyCTA } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "Interactive Tech Tools — Printer Setup, Compatibility Checker & More",
-  description: "Free interactive tools: Smart Problem Finder, Printer Setup Simulator, Device Compatibility Checker, and PC Cleaner Demo. Fix your tech problems faster.",
+  title: "Free Tech Tools — Printer Setup & Diagnostics",
+  description: "Free interactive tools: Smart Problem Finder, Printer Setup Simulator, Device Compatibility Checker, and PC Cleaner Demo. Fix tech issues faster.",
+  alternates: { canonical: "https://trinisystem.vercel.app/tools" },
 };
 
 export default function ToolsPage() {

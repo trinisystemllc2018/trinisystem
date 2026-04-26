@@ -10,11 +10,13 @@ const BASE_URL = "https://trinisystem.vercel.app";
 
 export const metadata: Metadata = {
   title: {
-    default: "Fix Printer, GPS & PC Problems | Trini System LLC — 347-953-1531",
-    template: "%s | Trini System LLC",
+    // Default title for HOMEPAGE only — 50 chars, fits Bing/Google SERP
+    default: "Printer Repair & PC Support USA | Trini System LLC",
+    // Template appends suffix to child pages — keep child titles ≤ 45 chars
+    template: "%s | Trini System",
   },
   description:
-    "Is your printer offline? GPS not updating? PC slow? Real technicians fix it remotely in minutes. HP, Canon, Epson, Brother. Free diagnosis. No fix = no fee. Call 347-953-1531.",
+    "Printer offline? PC slow? GPS not updating? Real technicians fix HP, Canon, Epson & Brother printers remotely in minutes. Free diagnosis. Call 347-953-1531.",
   keywords: [
     "printer repair USA", "HP printer offline fix", "Canon printer not printing",
     "Epson printer error", "Brother printer setup", "free computer cleaner",
@@ -28,10 +30,12 @@ export const metadata: Metadata = {
   publisher: "Trini System LLC",
   metadataBase: new URL(BASE_URL),
   alternates: {
-    canonical: "/",
+    // Layout canonical is HOMEPAGE only — every child page MUST override this
+    // by setting its own `alternates.canonical` in its own metadata export.
+    canonical: BASE_URL,
     languages: {
-      "en-US": "/",
-      "es-US": "/reparacion-impresoras",
+      "en-US": BASE_URL,
+      "es-US": `${BASE_URL}/reparacion-impresoras`,
     },
   },
   openGraph: {
@@ -249,6 +253,24 @@ const organizationSchema = {
   "sameAs": localBusinessSchema.sameAs,
 };
 
+// Speakable schema — flags content for Google Assistant / Bing voice answers
+// Helps with "Hey Google, find a printer repair near me" voice queries
+const speakableSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${BASE_URL}/#speakable`,
+  "url": BASE_URL,
+  "name": "Trini System LLC — Printer & PC Repair",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": ["h1", "h2", ".speakable-summary"],
+    "xpath": [
+      "/html/head/title",
+      "/html/head/meta[@name='description']/@content",
+    ],
+  },
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" dir="ltr">
@@ -265,6 +287,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }}
         />
 
         {/* Google Tag Manager */}

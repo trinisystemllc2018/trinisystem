@@ -13,9 +13,14 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const model = GARMIN_MODELS[params.model as GarminKey];
   if (!model) return {};
-  const title = `Garmin ${model.name} Map Update — Step by Step | Trini System LLC`;
-  const description = `How to update maps on Garmin ${model.name}. Free Garmin Express tutorial. If stuck, call 347-953-1531 — we update your GPS remotely while you watch.`;
-  return { title, description,
+  const title = `Garmin ${model.name} Map Update Guide`;
+  const description = `Update maps on Garmin ${model.name} step-by-step with Garmin Express. Free guide. Call 347-953-1531 — we update your GPS remotely.`;
+  const url = `https://trinisystem.vercel.app/garmin-update/${params.model}`;
+  return {
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: { title: `${title} | Trini System`, description, url },
     keywords: [`garmin ${model.name.toLowerCase()} update`, "garmin map update", "garmin gps update", "garmin express help"],
   };
 }

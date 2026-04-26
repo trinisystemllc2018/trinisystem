@@ -4,8 +4,9 @@ import { PHONE_HREF } from "@/lib/utils";
 import { StickyCTA } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "Printer Setup & Repair Guides — HP, Canon, Epson, Brother Step-by-Step",
-  description: "Free step-by-step guides for HP DeskJet 4155e setup, Canon PIXMA WiFi setup, Epson EcoTank ink reset, Brother driver install, and Windows PC repair.",
+  title: "Printer Setup & Repair Guides — Step by Step",
+  description: "Free step-by-step guides for HP DeskJet 4155e setup, Canon PIXMA WiFi, Epson EcoTank ink reset, Brother driver install, and Windows PC repair.",
+  alternates: { canonical: "https://trinisystem.vercel.app/guides" },
 };
 
 const GUIDES = [

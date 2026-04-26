@@ -1,11 +1,20 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import PremiumServicePage from "@/components/features/PremiumServicePage";
 import { StickyCTA } from "@/components/ui/Button";
 import { PHONE, PHONE_HREF } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Fix Printer Online — HP, Canon, Epson, Brother | Free Instant Diagnosis",
-  description: "Fix your printer in minutes — HP offline, Canon B200, Epson ink error, Brother driver issue. Free step-by-step diagnosis tool. Remote tech support from $49. Call 347-953-1531.",
+  title: "Fix Printer Online — HP, Canon, Epson, Brother",
+  description:
+    "Fix your printer fast — HP offline, Canon B200, Epson ink error, Brother driver. Free step-by-step guide. Remote tech from $49. Call 347-953-1531.",
+  alternates: { canonical: "https://trinisystem.vercel.app/printer-support" },
+  openGraph: {
+    title: "Fix Printer Online — HP, Canon, Epson, Brother | Trini System",
+    description: "Fix your printer in minutes. Free diagnosis. Remote tech from $49. Call 347-953-1531.",
+    url: "https://trinisystem.vercel.app/printer-support",
+    type: "website",
+  },
   keywords: [
     "fix printer online","hp printer offline fix","canon printer error b200","epson printer not printing",
     "brother printer driver windows 11","printer repair near me","remote printer repair","hp deskjet offline",
@@ -130,6 +139,22 @@ export default function FixPage() {
         ctaPrimaryLabel={`Call ${PHONE}`}
         ctaPrimaryHref={PHONE_HREF}
       />
+
+      {/* RELATED PAGES — Internal Link Sculpting */}
+      <section aria-label="Related Printer Services" className="bg-gray-50 py-12 border-t border-gray-200">
+        <div className="max-w-5xl mx-auto px-4 text-center">
+          <h3 className="text-xl font-black text-gray-900 mb-6">Browse by Brand & Service</h3>
+          <div className="flex flex-wrap justify-center gap-3">
+            <Link href="/hp-printer-repair" className="text-sm bg-white border border-blue-200 text-blue-700 font-bold px-5 py-3 rounded-xl hover:bg-blue-50 transition-colors">HP Printer Repair</Link>
+            <Link href="/canon-printer-repair" className="text-sm bg-white border border-red-200 text-red-700 font-bold px-5 py-3 rounded-xl hover:bg-red-50 transition-colors">Canon Printer Repair</Link>
+            <Link href="/epson-printer-repair" className="text-sm bg-white border border-blue-200 text-blue-700 font-bold px-5 py-3 rounded-xl hover:bg-blue-50 transition-colors">Epson Printer Repair</Link>
+            <Link href="/printer-repair-near-me" className="text-sm bg-white border border-emerald-200 text-emerald-700 font-bold px-5 py-3 rounded-xl hover:bg-emerald-50 transition-colors">Printer Repair Near Me</Link>
+            <Link href="/hp-printer-service" className="text-sm bg-white border border-blue-200 text-blue-700 font-bold px-5 py-3 rounded-xl hover:bg-blue-50 transition-colors">HP Printer Service</Link>
+            <Link href="/epson-service-nyc" className="text-sm bg-white border border-blue-200 text-blue-700 font-bold px-5 py-3 rounded-xl hover:bg-blue-50 transition-colors">Epson Service NYC</Link>
+            <Link href="/epson-plotters" className="text-sm bg-white border border-cyan-200 text-cyan-700 font-bold px-5 py-3 rounded-xl hover:bg-cyan-50 transition-colors">Epson Plotters</Link>
+          </div>
+        </div>
+      </section>
 
       <StickyCTA />
     </>

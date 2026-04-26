@@ -34,14 +34,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const problem = PRINTER_PROBLEMS[params.problem as ProblemKey];
   if (!brand || !problem) return {};
 
-  const title = `${brand.name} Printer ${problem.title} — Fix It Now | Trini System LLC`;
-  const description = `Fix ${brand.name} printer ${problem.title.toLowerCase()} in minutes. ${problem.summary.slice(0, 100)}... Call 347-953-1531 for free remote help.`;
+  // Keep title compact - 50ish chars before " | Trini System" (16 char) suffix
+  const title = `${brand.name} ${problem.title} — Fix It Fast`;
+  const description = `Fix ${brand.name} printer ${problem.title.toLowerCase()} fast. ${problem.summary.slice(0, 90)}... Call 347-953-1531 free.`;
+  const url = `https://trinisystem.vercel.app/fix-printer/${params.brand}/${params.problem}`;
 
   return {
     title,
     description,
     keywords: [...problem.searchTerms, `${brand.name} printer repair`, `${brand.name} ${problem.slug}`, "printer repair near me"],
-    openGraph: { title, description, url: `https://trinisystem.vercel.app/fix-printer/${params.brand}/${params.problem}` },
+    alternates: { canonical: url },
+    openGraph: { title: `${title} | Trini System`, description, url },
   };
 }
 

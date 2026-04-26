@@ -45,11 +45,12 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    // Submit multiple sitemaps for faster indexing
+    // Submit BOTH sitemaps for redundancy. If Next.js dynamic sitemap fails
+    // to render (as Google reported in webmaster console), the static fallback
+    // is served directly from /public — bulletproof.
     sitemap: [
       "https://trinisystem.vercel.app/sitemap.xml",
-      // Google Search Console also accepts: submit via GSC dashboard
-      // Bing Webmaster: submit at bing.com/webmaster
+      "https://trinisystem.vercel.app/sitemap-static.xml",
     ],
   };
 }

@@ -4,8 +4,9 @@ import { BRANDS, PHONE_HREF, PHONE } from "@/lib/utils";
 import { StickyCTA } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "Printer Repair & Tech Services — HP, Canon, Epson, Brother | Trini System",
-  description: "Expert remote printer repair for HP DeskJet 4155e, Canon PIXMA, Epson EcoTank, Brother MFC. PC repair, GPS updates, antivirus setup. Call 347-953-1531.",
+  title: "Tech Services — HP, Canon, Epson, Brother Repair",
+  description: "Expert remote printer repair for HP, Canon, Epson, Brother. PC repair, GPS updates, virus removal. From $49. All 50 states. Call 347-953-1531.",
+  alternates: { canonical: "https://trinisystem.vercel.app/services" },
   keywords: ["HP printer repair", "Canon printer support", "Epson printer fix", "Brother printer setup", "printer offline fix", "tech support USA"],
 };
 

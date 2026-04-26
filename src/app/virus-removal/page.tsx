@@ -4,8 +4,16 @@ import { StickyCTA } from "@/components/ui/Button";
 import { PHONE, PHONE_HREF } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Virus & Malware Removal — Remote Same Day Fix | Trini System LLC",
-  description: "Professional virus, malware, ransomware, spyware removal. Remote service — we clean your PC while you watch. No data loss. All 50 states. From $49. Call 347-953-1531.",
+  title: "Virus & Malware Removal — Same Day Remote Fix",
+  description:
+    "Pro virus, malware, ransomware & spyware removal. Remote service — we clean your PC while you watch. No data loss. From $49. Call 347-953-1531.",
+  alternates: { canonical: "https://trinisystem.vercel.app/virus-removal" },
+  openGraph: {
+    title: "Virus & Malware Removal — Same Day Remote Fix | Trini System",
+    description: "Pro virus, malware & ransomware removal. Remote service. No data loss. From $49. Call 347-953-1531.",
+    url: "https://trinisystem.vercel.app/virus-removal",
+    type: "website",
+  },
   keywords: [
     "virus removal near me","malware removal service","computer virus removal","remove virus from pc",
     "ransomware removal","spyware removal","virus removal cost","online virus removal",
