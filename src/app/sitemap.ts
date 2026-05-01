@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next";
 import { PRINTER_BRANDS, PRINTER_PROBLEMS, GARMIN_MODELS } from "@/lib/seo-data";
+import { ALL_GARMIN_SLUGS } from "@/lib/garmin-data";
 
 const BASE = "https://trinisystem.vercel.app";
 const NOW  = new Date();
@@ -56,5 +57,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.82,
   }));
 
-  return [...static_pages, ...printer_pages, ...garmin_pages];
+  // New Garmin SEO pages — Garmin hub + dynamic /garmin/[slug] (DriveSmart + 3 problem pages)
+  const garmin_seo_pages: MetadataRoute.Sitemap = [
+    { url: `${BASE}/garmin-gps-help`,                  lastModified: NOW, changeFrequency: "weekly", priority: 0.92 },
+    ...ALL_GARMIN_SLUGS.map((slug) => ({
+      url: `${BASE}/garmin/${slug}`,
+      lastModified: NOW,
+      changeFrequency: "weekly" as const,
+      priority: 0.88,
+    })),
+  ];
+
+  return [...static_pages, ...printer_pages, ...garmin_pages, ...garmin_seo_pages];
 }

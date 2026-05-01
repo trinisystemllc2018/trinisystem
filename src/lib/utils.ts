@@ -195,9 +195,9 @@ export const SERVICES = [
     icon: "🗺️",
     title: "Garmin GPS Updates",
     description: "Map & firmware updates for all Garmin models — nuvi, DriveSmart, RV series. Remote update while you watch.",
-    href: "/gps-help",
+    href: "/garmin-gps-help",
     color: "teal",
-    popular: false,
+    popular: true,
   },
 ];
 

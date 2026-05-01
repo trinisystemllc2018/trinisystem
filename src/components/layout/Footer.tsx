@@ -15,6 +15,21 @@ const footerSections = [
     ],
   },
   {
+    title: "Garmin GPS Help",
+    links: [
+      { label: "Garmin GPS Help Hub",          href: "/garmin-gps-help" },
+      { label: "DriveSmart Update",            href: "/garmin/drivesmart-update" },
+      { label: "Forerunner Update",            href: "/garmin/forerunner-update" },
+      { label: "Fenix Update",                 href: "/garmin/fenix-update" },
+      { label: "Zumo Motorcycle Update",       href: "/garmin/zumo-update" },
+      { label: "eTrex Update",                 href: "/garmin/etrex-update" },
+      { label: "Garmin Express Not Working",   href: "/garmin/express-not-working" },
+      { label: "Won't Acquire Satellites",     href: "/garmin/wont-acquire-satellites" },
+      { label: "Map Update Failed",            href: "/garmin/map-update-failed" },
+      { label: "WiFi Sync Not Working",        href: "/garmin/wifi-sync-not-working" },
+    ],
+  },
+  {
     title: "Common Fixes",
     links: [
       { label: "HP Printer Offline Fix",       href: "/fix-printer/hp/offline" },
