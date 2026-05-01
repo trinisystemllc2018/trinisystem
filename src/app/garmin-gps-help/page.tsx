@@ -42,8 +42,8 @@ const CATEGORIES = [
       "DriveSmart, Drive, Nuvi, DriveAssist, DriveLuxe, RV / Camper. Most cars in the US still use Garmin auto units — we update and repair every model.",
     pages: [
       { label: "Garmin DriveSmart Update (55, 65, 76, 86)", href: "/garmin/drivesmart-update", popular: true },
-      { label: "Garmin Drive 50 Update", href: "/garmin-update/drivesmart-65" },
-      { label: "Garmin Nuvi 1450 Update", href: "/garmin-update/nuvi-2597" },
+      { label: "Garmin Drive 50 Update", href: "/garmin/drive-50-update" },
+      { label: "Garmin Nuvi 2597 Update", href: "/garmin/nuvi-2597-update" },
       { label: "Garmin RV 770 / 780 / 890", href: "/garmin-update/rv-890" },
     ],
   },
@@ -55,8 +55,8 @@ const CATEGORIES = [
       "eTrex, GPSMAP, Oregon, Montana series — used by hikers, hunters, geocachers, and SAR teams. Topographic map updates require special handling.",
     pages: [
       { label: "Garmin eTrex Update (10/20/22x/30/32x/SE/Solar)", href: "/garmin/etrex-update", popular: true },
-      { label: "Garmin GPSMAP 64/65/66 Help", href: "#coming-soon" },
-      { label: "Garmin Oregon Update", href: "#coming-soon" },
+      { label: "Garmin GPSMAP 64/65/66/67 Update", href: "/garmin/gpsmap-update", popular: true },
+      { label: "Garmin Oregon 700/750 Update", href: "/garmin/oregon-update" },
     ],
   },
   {
@@ -69,8 +69,8 @@ const CATEGORIES = [
       { label: "Garmin Forerunner Update (245/255/955/965)", href: "/garmin/forerunner-update", popular: true },
       { label: "Garmin Fenix Update (5/6/7/8)", href: "/garmin/fenix-update", popular: true },
       { label: "Garmin Watch WiFi Sync Not Working", href: "/garmin/wifi-sync-not-working", popular: true },
-      { label: "Garmin Venu Sync Issues", href: "#coming-soon" },
-      { label: "Garmin Vivoactive Setup", href: "#coming-soon" },
+      { label: "Garmin Venu Update (2/3/3S)", href: "/garmin/venu-update", popular: true },
+      { label: "Garmin Connect App Not Working", href: "/garmin/connect-app-not-working", popular: true },
     ],
   },
   {
@@ -81,7 +81,7 @@ const CATEGORIES = [
       "Zumo motorcycle GPS and Dezl truck navigators — specialized for routing and ELD integration. Underserved market with high commercial intent.",
     pages: [
       { label: "Garmin Zumo Update (XT/XT2/595/396)", href: "/garmin/zumo-update", popular: true },
-      { label: "Garmin Dezl Truck GPS", href: "#coming-soon" },
+      { label: "Garmin Dezl Truck Update (OTR700/800/1000)", href: "/garmin/dezl-update", popular: true },
     ],
   },
   {
@@ -91,10 +91,10 @@ const CATEGORIES = [
     description:
       "Garmin nav systems built into Honda, Toyota, Lexus, Aston Martin, Jeep, Harley-Davidson Boom Box. Updates require dealer-equivalent process.",
     pages: [
-      { label: "Honda Garmin Navigation Update", href: "#coming-soon" },
-      { label: "Jeep Wrangler RHB 430N Update", href: "#coming-soon" },
-      { label: "Aston Martin Sat Nav Update", href: "#coming-soon" },
-      { label: "Toyota / Lexus Garmin Update", href: "#coming-soon" },
+      { label: "Honda Garmin Navigation Update", href: "/garmin/honda-navigation-update" },
+      { label: "Jeep Wrangler RHB 430N Update", href: "/garmin/jeep-rhb-430n-update" },
+      { label: "Garmin Bluetooth Pairing Failed", href: "/garmin/bluetooth-pairing-failed" },
+      { label: "Garmin Battery Drain Fast", href: "/garmin/battery-drain-fast" },
     ],
   },
   {
