@@ -102,6 +102,44 @@ const KW: Record<string, string> = {
     "virus malware norton mcafee avast avg malwarebytes ccleaner security scam hacked ransomware popup",
 };
 
+// SMART ROUTING — specific queries jump straight to the matching SEO page.
+// Each entry: keywords (array of trigger words/phrases) + target href
+// Order matters — most specific matches first.
+const SMART_ROUTES: { keywords: string[]; href: string }[] = [
+  // Garmin model-specific (most specific first)
+  { keywords: ["nuvi 2597", "nuvi 2598", "nuvi 2599", "nuvi 1450", "nuvi"], href: "/garmin/nuvi-2597-update" },
+  { keywords: ["drive 50", "drive 51", "drive 52", "drive 60", "drive 61"], href: "/garmin/drive-50-update" },
+  { keywords: ["drivesmart 55", "drivesmart 65", "drivesmart 76", "drivesmart 86", "drivesmart"], href: "/garmin/drivesmart-update" },
+  { keywords: ["forerunner 245", "forerunner 255", "forerunner 265", "forerunner 955", "forerunner 965", "forerunner"], href: "/garmin/forerunner-update" },
+  { keywords: ["fenix 5", "fenix 6", "fenix 7", "fenix 8", "fenix", "epix"], href: "/garmin/fenix-update" },
+  { keywords: ["venu 2", "venu 3", "venu sq", "venu"], href: "/garmin/venu-update" },
+  { keywords: ["zumo xt", "zumo 595", "zumo 396", "zumo", "motorcycle gps"], href: "/garmin/zumo-update" },
+  { keywords: ["dezl otr", "dezl 580", "dezl 780", "dezl", "truck gps", "trucker gps"], href: "/garmin/dezl-update" },
+  { keywords: ["etrex 10", "etrex 20", "etrex 22", "etrex 30", "etrex 32", "etrex se", "etrex solar", "etrex"], href: "/garmin/etrex-update" },
+  { keywords: ["oregon 700", "oregon 750", "oregon 750t", "oregon"], href: "/garmin/oregon-update" },
+  { keywords: ["gpsmap 64", "gpsmap 65", "gpsmap 66", "gpsmap 67", "gpsmap"], href: "/garmin/gpsmap-update" },
+  { keywords: ["honda garmin", "honda navigation", "honda nav", "civic garmin", "crv garmin", "pilot garmin", "accord garmin"], href: "/garmin/honda-navigation-update" },
+  { keywords: ["jeep rhb", "rhb 430n", "wrangler garmin", "wrangler nav", "jeep nav", "jeep cherokee garmin"], href: "/garmin/jeep-rhb-430n-update" },
+  // Garmin problems (specific first)
+  { keywords: ["garmin express not", "express won't", "express not working", "express crashing", "garmin express"], href: "/garmin/express-not-working" },
+  { keywords: ["acquire satellite", "satellite signal", "won't find satellite", "no gps signal", "gps not working"], href: "/garmin/wont-acquire-satellites" },
+  { keywords: ["map update failed", "garmin update failed", "stuck at 39", "map cannot be read", "garmin bricked", "garmin recovery"], href: "/garmin/map-update-failed" },
+  { keywords: ["wifi sync", "wifi not working", "wifi won't connect", "garmin wifi"], href: "/garmin/wifi-sync-not-working" },
+  { keywords: ["connect app", "garmin connect not", "connect won't sync", "connect crashing", "connect app crash"], href: "/garmin/connect-app-not-working" },
+  { keywords: ["bluetooth pairing", "won't pair", "bluetooth not working", "bluetooth disconnect", "garmin bluetooth"], href: "/garmin/bluetooth-pairing-failed" },
+  { keywords: ["battery drain", "battery dying", "battery life", "battery fast", "battery problem"], href: "/garmin/battery-drain-fast" },
+  // Garmin general (catch-all for Garmin queries)
+  { keywords: ["garmin", "gps map update"], href: "/garmin-gps-help" },
+  // Printer brand-specific
+  { keywords: ["hp printer service", "hp support", "hp printer phone"], href: "/hp-printer-service" },
+  { keywords: ["hp printer repair", "hp deskjet", "hp envy", "hp officejet", "hp laserjet"], href: "/hp-printer-repair" },
+  { keywords: ["epson plotter", "epson surecolor", "epson wide format", "wide format printer", "plotter"], href: "/epson-plotters" },
+  { keywords: ["epson nyc", "epson new york", "epson manhattan", "epson queens", "epson brooklyn"], href: "/epson-service-nyc" },
+  { keywords: ["epson", "ecotank", "workforce"], href: "/epson-printer-repair" },
+  { keywords: ["canon", "pixma", "imageclass", "b200"], href: "/canon-printer-repair" },
+  { keywords: ["printer near me", "printer repair near", "local printer"], href: "/printer-repair-near-me" },
+];
+
 const NOISE_SVG =
   "data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E";
 
@@ -416,6 +454,15 @@ function HomeHero() {
   const matched = CATS.find((c) => c.id === matchId) ?? null;
 
   const handleSearch = () => {
+    // SMART ROUTING: check specific page matches first
+    if (query.trim()) {
+      const q = query.toLowerCase();
+      const smartMatch = SMART_ROUTES.find((route) =>
+        route.keywords.some((kw) => q.includes(kw))
+      );
+      if (smartMatch) { go(smartMatch.href); return; }
+    }
+    // Fall back to category match
     if (matched) { go(matched.href); return; }
     if (query.trim()) { go(`/printer-support?q=${encodeURIComponent(query)}`); return; }
     go("/printer-support");
