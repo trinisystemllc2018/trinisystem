@@ -1597,6 +1597,22 @@ export const batteryDrainFast: GarminProblemPage = {
 
 // Registry exported below after all entries
 
+
+
+
+
+
+
+
+
+
+
+// All slugs combined — used by sitemap generator
+
+// ───────────────────────────────────────────────────────────────────
+// REGISTRY EXPORTS
+// ───────────────────────────────────────────────────────────────────
+
 export const GARMIN_SERIES: Record<string, GarminSeries> = {
   [drivesmart.slug]: drivesmart,
   [forerunner.slug]: forerunner,
@@ -1623,26 +1639,6 @@ export const GARMIN_PROBLEMS: Record<string, GarminProblemPage> = {
   [batteryDrainFast.slug]: batteryDrainFast,
 };
 
-
-export const GARMIN_SERIES: Record<string, GarminSeries> = {
-  [drivesmart.slug]: drivesmart,
-  [forerunner.slug]: forerunner,
-  [fenix.slug]: fenix,
-  [zumo.slug]: zumo,
-  [etrex.slug]: etrex,
-  [venu.slug]: venu,
-  [dezl.slug]: dezl,
-};
-
-export const GARMIN_PROBLEMS: Record<string, GarminProblemPage> = {
-  [expressNotWorking.slug]: expressNotWorking,
-  [wontAcquireSatellites.slug]: wontAcquireSatellites,
-  [mapUpdateFailed.slug]: mapUpdateFailed,
-  [wifiSyncNotWorking.slug]: wifiSyncNotWorking,
-};
-
-
-// All slugs combined — used by sitemap generator
 export const ALL_GARMIN_SLUGS = [
   ...Object.keys(GARMIN_SERIES),
   ...Object.keys(GARMIN_PROBLEMS),
