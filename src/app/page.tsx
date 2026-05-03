@@ -6,37 +6,27 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { PHONE, PHONE_HREF } from "@/lib/utils";
 
-/* ════════════════════════════════════════════════════════════════════
-   HOMEPAGE — Wonderland-inspired 3D scroll landing.
-
-   Layout:
-     - Full-screen 3D Canvas (TriniLanding3D, dynamically imported, no SSR)
-     - HUD overlay above the canvas:
-         - Top-left: brand mark
-         - Left sidebar: numbered nav (1 HOME / 2 SERVICES / ... / 7 CONTACT)
-         - Bottom-left: status bar (LIVE / NYC time)
-         - Top-right: phone CTA
-         - Bottom-center: search box (powers /how-to redirects)
-         - Top-center: scroll progress hint
-
-   For SEO: a hidden <SemanticContent /> block ships real HTML inside
-   the page so Google/Bing crawlers see content even though canvas is
-   JS-driven. Schema markup lives in layout.tsx.
-═════════════════════════════════════════════════════════════════════ */
-
 const Scene3D = dynamic(() => import("@/components/3d/TriniLanding3D"), {
   ssr: false,
   loading: () => <LoadingFallback />,
 });
 
+const QUICK_TOPICS = [
+  { label: "Printer offline",  href: "/printer-support" },
+  { label: "Slow PC",          href: "/computer-help" },
+  { label: "Garmin update",    href: "/how-to/garmin-express" },
+  { label: "Gmail login",      href: "/how-to/gmail-help" },
+  { label: "Facebook hacked",  href: "/how-to/facebook-help" },
+  { label: "Virus removal",    href: "/virus-removal" },
+];
+
 const NAV_LINKS = [
-  { num: "1", label: "HOME",       href: "/" },
-  { num: "2", label: "SERVICES",   href: "/services" },
-  { num: "3", label: "PRINTERS",   href: "/printer-support" },
-  { num: "4", label: "GUIDES",     href: "/how-to" },
-  { num: "5", label: "PRODUCTS",   href: "/products" },
-  { num: "6", label: "ABOUT",      href: "/about" },
-  { num: "7", label: "CONTACT",    href: "/contact" },
+  { label: "SERVICES", href: "/services" },
+  { label: "PRINTERS", href: "/printer-support" },
+  { label: "GUIDES",   href: "/how-to" },
+  { label: "PRODUCTS", href: "/products" },
+  { label: "ABOUT",    href: "/about" },
+  { label: "CONTACT",  href: "/contact" },
 ];
 
 export default function Home() {
@@ -47,21 +37,15 @@ export default function Home() {
 
   useEffect(() => {
     document.body.setAttribute("data-page", "home");
-    return () => {
-      document.body.removeAttribute("data-page");
-    };
+    return () => { document.body.removeAttribute("data-page"); };
   }, []);
 
   useEffect(() => {
     const update = () => {
       const now = new Date();
-      const formatter = new Intl.DateTimeFormat("en-US", {
-        timeZone: "America/New_York",
-        hour: "2-digit",
-        minute: "2-digit",
-        hour12: false,
-      });
-      setTime(formatter.format(now));
+      setTime(new Intl.DateTimeFormat("en-US", {
+        timeZone: "America/New_York", hour: "2-digit", minute: "2-digit", hour12: false,
+      }).format(now));
     };
     update();
     const id = setInterval(update, 30000);
@@ -72,19 +56,19 @@ export default function Home() {
     e.preventDefault();
     const q = searchQuery.trim().toLowerCase();
     if (!q) return;
-    if (q.includes("printer") || q.includes("hp") || q.includes("canon") || q.includes("epson")) {
+    if (q.includes("printer") || q.includes("hp") || q.includes("canon") || q.includes("epson") || q.includes("brother")) {
       router.push("/printer-support");
-    } else if (q.includes("virus") || q.includes("malware")) {
+    } else if (q.includes("virus") || q.includes("malware") || q.includes("popup")) {
       router.push("/virus-removal");
-    } else if (q.includes("garmin") || q.includes("nuvi") || q.includes("dezl")) {
+    } else if (q.includes("garmin") || q.includes("nuvi") || q.includes("dezl") || q.includes("drivesmart")) {
       router.push("/how-to/garmin-express");
     } else if (q.includes("gmail")) {
       router.push("/how-to/gmail-help");
-    } else if (q.includes("facebook")) {
+    } else if (q.includes("facebook") || q.includes("fb")) {
       router.push("/how-to/facebook-help");
     } else if (q.includes("gps") || q.includes("map")) {
       router.push("/gps-help");
-    } else if (q.includes("computer") || q.includes("slow") || q.includes("pc")) {
+    } else if (q.includes("computer") || q.includes("slow") || q.includes("pc") || q.includes("windows")) {
       router.push("/computer-help");
     } else {
       router.push("/how-to");
@@ -92,168 +76,201 @@ export default function Home() {
   };
 
   return (
-    <main className="relative w-full h-screen overflow-hidden bg-black text-white">
-      {/* 3D scene */}
+    <main className="relative w-full h-screen overflow-hidden text-white" style={{ backgroundColor: "#1a0f08" }}>
       {animationOn ? <Scene3D /> : <StaticFallback />}
 
-      {/* ─── HUD OVERLAY ────────────────────────────────────────────── */}
+      {/* Vignette overlay for HUD readability */}
+      <div className="fixed inset-0 z-10 pointer-events-none bg-gradient-to-b from-black/30 via-transparent to-black/55" />
 
-      {/* Top-left: brand mark */}
+      {/* TOP-LEFT BRAND */}
       <div className="fixed top-6 left-6 z-30 pointer-events-none">
-        <div className="text-2xl md:text-3xl font-black tracking-tight">TRINI SYSTEM</div>
-        <div className="text-xs text-white/60 mt-1 leading-tight">
-          SENIOR-FRIENDLY TECH SUPPORT<br />
-          NYC | EST. 2024 | PHONE-FIRST
+        <div className="text-3xl md:text-4xl font-black tracking-tight leading-none text-white">
+          TRINI<span className="text-amber-400">.</span>SYSTEM
+        </div>
+        <div className="text-[11px] text-amber-200/70 mt-1.5 font-mono tracking-widest">
+          THE WORKSHOP — SENIOR TECH HELP
+        </div>
+        <div className="text-[11px] text-white/40 font-mono tracking-widest">
+          NYC · EST 2024 · ALL 50 STATES
         </div>
       </div>
 
-      {/* Left sidebar: numbered nav */}
-      <nav className="fixed top-32 left-6 z-30 hidden md:block">
-        <ul className="space-y-2">
-          {NAV_LINKS.map((link) => (
-            <li key={link.num}>
-              <Link
-                href={link.href}
-                className="group flex items-center gap-3 text-sm font-mono tracking-wider text-white/70 hover:text-white transition-colors"
-              >
-                <span className="w-6 h-6 flex items-center justify-center rounded-full border border-white/30 text-xs group-hover:border-white group-hover:bg-white/10">
-                  {link.num}
-                </span>
-                <span className="font-semibold">{link.label}</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
+      {/* TOP CENTER NAV */}
+      <nav className="fixed top-7 left-1/2 -translate-x-1/2 z-30 hidden lg:flex gap-7">
+        {NAV_LINKS.map((link) => (
+          <Link
+            key={link.label}
+            href={link.href}
+            className="text-xs font-mono tracking-widest text-white/65 hover:text-amber-300 transition-colors"
+          >
+            {link.label}
+          </Link>
+        ))}
       </nav>
 
-      {/* Bottom-left: status bar */}
-      <div className="fixed bottom-6 left-6 z-30 text-xs font-mono text-white/60 pointer-events-auto">
-        <div>
+      {/* TOP-RIGHT PHONE CTA */}
+      <a
+        href={PHONE_HREF}
+        className="fixed top-6 right-6 z-30 group flex items-center gap-3 px-6 py-3.5 rounded-full bg-amber-400 text-black font-bold text-base md:text-lg shadow-[0_0_40px_rgba(251,191,36,0.6)] hover:shadow-[0_0_60px_rgba(251,191,36,0.9)] hover:scale-105 transition-all"
+      >
+        <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse"></span>
+        <span>📞 {PHONE}</span>
+        <span className="hidden md:inline text-xs font-mono opacity-70 border-l border-black/30 pl-3 ml-1">
+          FREE FIRST CALL
+        </span>
+      </a>
+
+      {/* HEADLINE */}
+      <div className="fixed top-28 left-1/2 -translate-x-1/2 z-30 text-center pointer-events-none px-4 max-w-3xl">
+        <h1 className="text-3xl md:text-5xl font-black tracking-tight text-white leading-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.8)]">
+          Your tech, on the bench.
+        </h1>
+        <p className="text-base md:text-lg text-white/80 mt-3 font-light">
+          Click any device below — or tell us what's broken.
+        </p>
+        <div className="mt-3 text-[10px] font-mono tracking-[0.4em] text-amber-300/80">
+          ↓ POINT · CLICK · GET HELP ↓
+        </div>
+      </div>
+
+      {/* STICKY-NOTE SEARCH (bottom-center) */}
+      <div className="fixed bottom-24 md:bottom-28 left-1/2 -translate-x-1/2 z-30 w-full max-w-3xl px-4">
+        <form onSubmit={handleSearch} className="relative">
+          <div className="absolute inset-0 bg-amber-400/25 blur-3xl rounded-full pointer-events-none"></div>
+          <div className="relative">
+            {/* Tape strips */}
+            <div className="absolute -top-2 left-8 w-12 h-4 bg-amber-200/40 rotate-[-4deg] rounded-sm pointer-events-none"></div>
+            <div className="absolute -top-2 right-8 w-12 h-4 bg-amber-200/40 rotate-[3deg] rounded-sm pointer-events-none"></div>
+
+            <div className="flex items-center gap-2 bg-[#fff8e7] rounded-lg p-2 border-2 border-amber-200/60 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)]">
+              <div className="px-4 text-amber-700 text-2xl">🔍</div>
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="What's broken? — printer offline, gmail login, slow PC, garmin update…"
+                className="flex-1 bg-transparent text-stone-800 placeholder:text-stone-500 text-base md:text-lg focus:outline-none py-3 font-medium"
+                autoComplete="off"
+              />
+              <button
+                type="submit"
+                className="px-6 md:px-8 py-3 md:py-3.5 rounded-md bg-stone-800 text-amber-300 font-bold text-sm md:text-base hover:bg-stone-900 transition-colors shadow-lg"
+              >
+                FIX IT →
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <div className="flex flex-wrap gap-2 justify-center mt-4">
+          <span className="text-[10px] font-mono tracking-widest text-white/55 self-center mr-2">QUICK FIXES:</span>
+          {QUICK_TOPICS.map((t) => (
+            <Link
+              key={t.label}
+              href={t.href}
+              className="px-3 py-1.5 rounded-full bg-white/8 hover:bg-amber-400/20 border border-white/15 text-xs text-white/85 hover:text-amber-200 transition-all backdrop-blur-md"
+            >
+              {t.label}
+            </Link>
+          ))}
+        </div>
+      </div>
+
+      {/* BOTTOM-LEFT STATUS */}
+      <div className="fixed bottom-6 left-6 z-30 text-[11px] font-mono tracking-wider">
+        <div className="flex items-center gap-2 text-white/65">
+          <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+          <span>OPEN · NEW YORK {time}</span>
+        </div>
+        <div className="mt-1.5 text-white/45">
           ANIMATION{" "}
           <button
             onClick={() => setAnimationOn(true)}
-            className={animationOn ? "text-white font-bold" : "hover:text-white/80"}
-          >
-            ON
-          </button>{" "}
-          /{" "}
+            className={animationOn ? "text-amber-400 font-bold" : "hover:text-white/70 underline"}
+          >ON</button>{" "}/{" "}
           <button
             onClick={() => setAnimationOn(false)}
-            className={!animationOn ? "text-white font-bold" : "hover:text-white/80"}
-          >
-            OFF
-          </button>
+            className={!animationOn ? "text-amber-400 font-bold" : "hover:text-white/70 underline"}
+          >OFF</button>
         </div>
-        <div className="mt-1">NEW YORK EST {time}</div>
       </div>
 
-      {/* Top-right: phone CTA */}
-      <a
-        href={PHONE_HREF}
-        className="fixed top-6 right-6 z-30 px-5 py-3 rounded-full bg-amber-500 text-black font-bold text-base md:text-lg shadow-[0_0_30px_rgba(245,158,11,0.5)] hover:shadow-[0_0_50px_rgba(245,158,11,0.8)] transition-shadow"
-      >
-        📞 {PHONE}
-      </a>
-
-      {/* Top-center: scroll hint */}
-      <div className="fixed top-6 left-1/2 -translate-x-1/2 z-30 hidden lg:block text-xs font-mono text-white/50 tracking-widest pointer-events-none">
-        SCROLL TO ENTER ↓
+      {/* BOTTOM-CENTER MICRO TRUST STRIP */}
+      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-30 hidden md:flex gap-6 text-[11px] font-mono tracking-wider text-white/55">
+        <span>★★★★★ 4.9 / 5 · 47 REVIEWS</span>
+        <span className="opacity-50">·</span>
+        <span>20+ YEARS</span>
+        <span className="opacity-50">·</span>
+        <span>NEVER ASKS FOR PASSWORDS</span>
       </div>
 
-      {/* Bottom-center: search */}
-      <form
-        onSubmit={handleSearch}
-        className="fixed bottom-6 left-1/2 -translate-x-1/2 z-30 w-full max-w-md px-4"
-      >
-        <div className="relative">
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="What do you need help with? (e.g. printer offline, gmail login)"
-            className="w-full px-5 py-3.5 pr-14 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white placeholder:text-white/40 text-sm focus:outline-none focus:border-amber-400 focus:bg-black/80 transition-all"
-          />
-          <button
-            type="submit"
-            className="absolute right-1.5 top-1.5 w-10 h-10 rounded-full bg-amber-500 text-black flex items-center justify-center hover:bg-amber-400 transition-colors"
-            aria-label="Search"
-          >
-            →
-          </button>
-        </div>
-      </form>
-
-      {/* Bottom-right: skip link to indexed pages */}
+      {/* BOTTOM-RIGHT SKIP */}
       <Link
         href="/services"
-        className="fixed bottom-6 right-6 z-30 hidden md:block text-xs font-mono text-white/50 hover:text-white tracking-widest"
+        className="fixed bottom-6 right-6 z-30 hidden lg:flex items-center gap-2 text-[11px] font-mono tracking-widest text-white/45 hover:text-white transition-colors"
       >
-        SKIP TO TEXT VERSION →
+        <span>SKIP TO TEXT VERSION</span><span>→</span>
       </Link>
 
-      {/* SEO content for crawlers (hidden visually) */}
       <SemanticContent />
     </main>
   );
 }
 
-/* ════════════════════════════════════════════════════════════════════
-   LOADING FALLBACK
-═════════════════════════════════════════════════════════════════════ */
-
 function LoadingFallback() {
   return (
-    <div className="fixed inset-0 bg-black flex flex-col items-center justify-center z-10">
-      <div className="text-3xl font-black tracking-tight mb-4 text-white">TRINI SYSTEM</div>
-      <div className="text-sm text-white/60 font-mono mb-8">Loading 3D experience...</div>
-      <div className="w-48 h-1 bg-white/10 rounded-full overflow-hidden">
-        <div className="h-full bg-amber-500 animate-pulse" style={{ width: "60%" }} />
+    <div className="fixed inset-0 flex flex-col items-center justify-center z-10" style={{ backgroundColor: "#1a0f08" }}>
+      <div className="text-4xl md:text-5xl font-black tracking-tight mb-2 text-white">
+        TRINI<span className="text-amber-400">.</span>SYSTEM
       </div>
-      <a href="tel:+13479531531" className="mt-12 text-sm text-amber-400 font-bold">
-        Or call 347-953-1531 now
+      <div className="text-xs text-amber-200/70 font-mono tracking-widest text-center mb-10">
+        OPENING THE WORKSHOP...
+      </div>
+      <div className="w-64 h-px bg-white/10 overflow-hidden">
+        <div className="h-full bg-gradient-to-r from-transparent via-amber-400 to-transparent animate-pulse"></div>
+      </div>
+      <a href="tel:+13479531531" className="mt-12 text-sm text-amber-400 font-bold hover:underline">
+        Or call 347-953-1531 now →
       </a>
     </div>
   );
 }
 
-/* ════════════════════════════════════════════════════════════════════
-   STATIC FALLBACK (when animation is off — same content as text version)
-═════════════════════════════════════════════════════════════════════ */
-
 const SERVICE_CARDS = [
-  { title: "PRINTER HELP",       sub: "HP · Canon · Epson · Brother",  href: "/printer-support",       color: "from-blue-500 to-blue-700" },
-  { title: "COMPUTER HELP",      sub: "Slow PC · Windows fix",         href: "/computer-help",         color: "from-violet-500 to-violet-700" },
-  { title: "GPS HELP",           sub: "Maps · Updates · Routing",      href: "/gps-help",              color: "from-emerald-500 to-emerald-700" },
-  { title: "VIRUS REMOVAL",      sub: "Malware · Pop-ups · Speed",     href: "/virus-removal",         color: "from-red-500 to-red-700" },
-  { title: "GARMIN GPS",         sub: "Nuvi · DriveSmart · Watch",     href: "/garmin-gps-help",       color: "from-sky-500 to-sky-700" },
-  { title: "GMAIL HELP",         sub: "Login · Recovery · Setup",      href: "/how-to/gmail-help",     color: "from-blue-500 to-blue-700" },
-  { title: "FACEBOOK HELP",      sub: "Hacked · Recovery · Privacy",   href: "/how-to/facebook-help",  color: "from-blue-600 to-blue-800" },
-  { title: "GARMIN APPS",        sub: "Express · Connect · Pilot",     href: "/how-to/garmin-express", color: "from-cyan-600 to-cyan-800" },
-  { title: "HOW-TO GUIDES",      sub: "All step-by-step help",         href: "/how-to",                color: "from-amber-500 to-amber-700" },
-  { title: "FREE PC CLEANER",    sub: "TriniCleaner download",         href: "/products",              color: "from-teal-500 to-teal-700" },
+  { title: "PRINTER HELP", sub: "HP · Canon · Epson · Brother", href: "/printer-support", grad: "from-blue-500 to-blue-700", icon: "🖨" },
+  { title: "COMPUTER HELP", sub: "Slow PC · Windows fix", href: "/computer-help", grad: "from-violet-500 to-violet-700", icon: "💻" },
+  { title: "GPS HELP", sub: "Maps · Updates · Routing", href: "/gps-help", grad: "from-emerald-500 to-emerald-700", icon: "📍" },
+  { title: "VIRUS REMOVAL", sub: "Malware · Pop-ups · Speed", href: "/virus-removal", grad: "from-red-500 to-red-700", icon: "🛡" },
+  { title: "GARMIN GPS", sub: "Nuvi · DriveSmart · Watch", href: "/garmin-gps-help", grad: "from-sky-500 to-sky-700", icon: "⌚" },
+  { title: "GMAIL HELP", sub: "Login · Recovery · Setup", href: "/how-to/gmail-help", grad: "from-blue-500 to-blue-700", icon: "✉" },
+  { title: "FACEBOOK HELP", sub: "Hacked · Recovery · Privacy", href: "/how-to/facebook-help", grad: "from-blue-600 to-blue-800", icon: "ƒ" },
+  { title: "GARMIN APPS", sub: "Express · Connect · Pilot", href: "/how-to/garmin-express", grad: "from-cyan-600 to-cyan-800", icon: "🧭" },
+  { title: "HOW-TO GUIDES", sub: "All step-by-step help", href: "/how-to", grad: "from-amber-500 to-amber-700", icon: "📖" },
+  { title: "FREE PC CLEANER", sub: "TriniCleaner download", href: "/products", grad: "from-teal-500 to-teal-700", icon: "⚡" },
 ];
 
 function StaticFallback() {
   return (
-    <div className="absolute inset-0 overflow-y-auto bg-gradient-to-b from-gray-900 via-black to-gray-900">
+    <div className="absolute inset-0 overflow-y-auto" style={{ backgroundColor: "#1a0f08" }}>
       <div className="max-w-5xl mx-auto px-6 pt-32 pb-12">
-        <h1 className="text-5xl md:text-7xl font-black tracking-tight mb-4">
-          Senior-friendly tech help. Real people.
+        <h1 className="text-5xl md:text-7xl font-black tracking-tight mb-4 text-white">
+          Your tech, on the bench.<br />
+          <span className="text-amber-400">Real people fix it.</span>
         </h1>
         <p className="text-xl text-white/70 mb-10 max-w-2xl">
           Free guides for printers, computers, GPS, Gmail, Facebook, and Garmin. Or call a real person — under 15 minutes free.
         </p>
-
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
           {SERVICE_CARDS.map((card) => (
             <Link
               key={card.title}
               href={card.href}
-              className={`block rounded-2xl p-6 bg-gradient-to-br ${card.color} hover:scale-[1.02] transition-transform`}
+              className={`block rounded-2xl p-6 bg-gradient-to-br ${card.grad} hover:scale-[1.02] transition-transform`}
             >
+              <div className="text-4xl mb-3">{card.icon}</div>
               <div className="text-2xl font-black mb-1">{card.title}</div>
               <div className="text-sm text-white/80">{card.sub}</div>
-              <div className="text-xs mt-3 font-mono text-white/60">Open →</div>
+              <div className="text-xs mt-3 font-mono text-white/60">OPEN →</div>
             </Link>
           ))}
         </div>
@@ -262,20 +279,11 @@ function StaticFallback() {
   );
 }
 
-/* ════════════════════════════════════════════════════════════════════
-   SEMANTIC CONTENT — hidden visually but visible to crawlers
-═════════════════════════════════════════════════════════════════════ */
-
 function SemanticContent() {
   return (
     <div className="sr-only" aria-hidden="false">
       <h1>Trini System — Senior-Friendly Tech Support USA</h1>
-      <p>
-        Trini System provides senior-friendly tech support across all 50 US states. Real
-        technicians fix HP, Canon, Epson, and Brother printers remotely in minutes. We help
-        seniors with slow computers, virus removal, Garmin GPS map updates, Gmail login
-        problems, Facebook account recovery, and more. Free phone support under 15 minutes.
-      </p>
+      <p>Trini System provides senior-friendly tech support across all 50 US states. Real technicians fix HP, Canon, Epson, and Brother printers remotely in minutes. We help seniors with slow computers, virus removal, Garmin GPS map updates, Gmail login problems, Facebook account recovery, and more. Free phone support under 15 minutes.</p>
       <h2>Services</h2>
       <ul>
         <li><a href="/printer-support">Printer help — HP, Canon, Epson, Brother</a></li>
@@ -289,9 +297,7 @@ function SemanticContent() {
         <li><a href="/how-to">All how-to guides</a></li>
         <li><a href="/products">Free PC Cleaner — TriniCleaner download</a></li>
       </ul>
-      <p>
-        Call <a href="tel:+13479531531">347-953-1531</a> for free senior tech support.
-      </p>
+      <p>Call <a href="tel:+13479531531">347-953-1531</a> for free senior tech support.</p>
     </div>
   );
 }
