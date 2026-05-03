@@ -103,7 +103,7 @@ function ClusterSection({
   color: string;
   letter: string;
   slugs: string[];
-  pages: Record<string, { h1: string; heroIntro: string; category: string; estimatedTime: string }>;
+  pages: Record<string, unknown>;
 }) {
   return (
     <section className="mb-14">
@@ -121,8 +121,13 @@ function ClusterSection({
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {slugs.map((slug) => {
-          const p = pages[slug];
-          if (!p) return null;
+          const pRaw = pages[slug];
+          if (!pRaw) return null;
+          const p = pRaw as Record<string, unknown>;
+          const cat = (p.category as string) ?? "";
+          const time = (p.estimatedTime as string) ?? "";
+          const h1 = (p.h1 as string) ?? (p.metaTitle as string) ?? slug;
+          const intro = (p.heroIntro as string) ?? (p.tldrAnswer as string) ?? "";
           return (
             <Link
               key={slug}
@@ -134,10 +139,10 @@ function ClusterSection({
                 className="text-xs font-bold uppercase tracking-wide mb-2"
                 style={{ color }}
               >
-                {p.category} · {p.estimatedTime}
+                {cat} · {time}
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">{p.h1}</h3>
-              <p className="text-sm text-gray-600">{p.heroIntro.slice(0, 110)}…</p>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">{h1}</h3>
+              <p className="text-sm text-gray-600">{intro.slice(0, 110)}…</p>
             </Link>
           );
         })}

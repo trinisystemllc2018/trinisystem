@@ -126,13 +126,53 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default function HelpPage({ params }: Props) {
   const found = findPage(params.slug);
   if (!found) return notFound();
-  const { page, brand } = found;
+  const { brand } = found;
   const theme = brandTheme(brand);
+
+  // Normalize page to a permissive shape — different cluster data files
+  // (Gmail older, Facebook newer, Garmin newest) have slightly different
+  // field sets. Cast through `unknown` then provide safe fallbacks.
+  const raw = found.page as unknown as Record<string, unknown>;
+  const page = {
+    slug: (raw.slug as string) ?? params.slug,
+    pageType: (raw.pageType as "hub" | "guide") ?? (
+      params.slug === "gmail-help" || params.slug === "facebook-help" || params.slug === "garmin-express"
+        ? "hub"
+        : "guide"
+    ),
+    category: (raw.category as string) ?? "",
+    metaTitle: (raw.metaTitle as string) ?? "Trini System Help",
+    metaDescription: (raw.metaDescription as string) ?? "",
+    primaryKeywords: Array.isArray(raw.primaryKeywords)
+      ? (raw.primaryKeywords as string[])
+      : typeof raw.primaryKeywords === "string"
+      ? [(raw.primaryKeywords as string)]
+      : [],
+    h1: (raw.h1 as string) ?? (raw.metaTitle as string) ?? "",
+    heroIntro: (raw.heroIntro as string) ?? (raw.tldrAnswer as string) ?? "",
+    tldrAnswer: (raw.tldrAnswer as string) ?? "",
+    estimatedTime: (raw.estimatedTime as string) ?? "",
+    difficultyLabel: (raw.difficultyLabel as string) ?? "",
+    lastUpdated: (raw.lastUpdated as string) ?? "2026-05-03",
+    reviewedBy: (raw.reviewedBy as string) ?? "Trini System Senior Support Team",
+    walkthrough: Array.isArray(raw.walkthrough) ? (raw.walkthrough as unknown[]) : [],
+    textSteps: Array.isArray(raw.textSteps)
+      ? (raw.textSteps as Array<{ step?: number; title: string; detail: string; warning?: string }>)
+      : [],
+    whatIfNotWork: Array.isArray(raw.whatIfNotWork)
+      ? (raw.whatIfNotWork as Array<{ problem: string; cause?: string; fix: string }>)
+      : [],
+    faqs: Array.isArray(raw.faqs) ? (raw.faqs as Array<{ q: string; a: string }>) : [],
+    relatedSlugs: Array.isArray(raw.relatedSlugs) ? (raw.relatedSlugs as string[]) : [],
+    toolsRequired: Array.isArray(raw.toolsRequired) ? (raw.toolsRequired as string[]) : [],
+    appName: (raw.appName as string | undefined) ?? undefined,
+    appOperatingSystem: (raw.appOperatingSystem as string | undefined) ?? undefined,
+  };
 
   const url = `${SITE}/how-to/${params.slug}`;
 
-  // Garmin pages have a SoftwareApplication schema; cast for type safety.
-  const garminPage = brand === "garmin" ? (page as GarminPage) : null;
+  // Garmin pages have a SoftwareApplication schema — use the optional appName.
+  const garminPage = brand === "garmin" ? page : null;
 
   // ─── SCHEMA STACK ────────────────────────────────────────────────
   const schemas: Record<string, unknown>[] = [
@@ -185,7 +225,7 @@ export default function HelpPage({ params }: Props) {
         position: i + 1,
         name: s.title,
         text: s.detail,
-        url: `${url}#step-${s.step}`,
+        url: `${url}#step-${s.step ?? i + 1}`,
       })),
     });
   }
@@ -282,7 +322,7 @@ export default function HelpPage({ params }: Props) {
             className="inline-block px-3 py-1 rounded-full text-sm font-semibold mb-3"
             style={{ backgroundColor: theme.primary + "20", color: theme.primaryDark }}
           >
-            {theme.brandName} · {(page as GmailPage).category} · {page.difficultyLabel} · {page.estimatedTime}
+            {theme.brandName} · {page.category} · {page.difficultyLabel} · {page.estimatedTime}
           </div>
           <h1 id="hero-h1" className="text-3xl md:text-5xl font-bold leading-tight mb-4" style={{ color: theme.text }}>
             {page.h1}
@@ -324,8 +364,13 @@ export default function HelpPage({ params }: Props) {
               {theme.siblingSlugs
                 .filter((s) => s !== params.slug)
                 .map((s) => {
-                  const sibling = lookupSibling(s);
-                  if (!sibling) return null;
+                  const siblingRaw = lookupSibling(s);
+                  if (!siblingRaw) return null;
+                  const sib = siblingRaw as unknown as Record<string, unknown>;
+                  const sibCategory = (sib.category as string) ?? "";
+                  const sibTime = (sib.estimatedTime as string) ?? "";
+                  const sibH1 = (sib.h1 as string) ?? (sib.metaTitle as string) ?? s;
+                  const sibIntro = (sib.heroIntro as string) ?? (sib.tldrAnswer as string) ?? "";
                   return (
                     <Link
                       key={s}
@@ -334,13 +379,13 @@ export default function HelpPage({ params }: Props) {
                       style={{ backgroundColor: theme.bgCard, border: `2px solid ${theme.border}` }}
                     >
                       <div className="text-xs font-semibold uppercase mb-2" style={{ color: theme.primary }}>
-                        {(sibling as GmailPage).category} · {sibling.estimatedTime}
+                        {sibCategory} · {sibTime}
                       </div>
                       <h3 className="text-lg font-bold mb-2" style={{ color: theme.text }}>
-                        {sibling.h1}
+                        {sibH1}
                       </h3>
                       <p className="text-sm" style={{ color: theme.textSecondary }}>
-                        {sibling.heroIntro.slice(0, 110)}…
+                        {sibIntro.slice(0, 110)}…
                       </p>
                     </Link>
                   );
@@ -375,10 +420,12 @@ export default function HelpPage({ params }: Props) {
               Step-by-step instructions
             </h2>
             <ol className="space-y-6">
-              {page.textSteps.map((s) => (
+              {page.textSteps.map((s, i) => {
+                const stepNum = s.step ?? i + 1;
+                return (
                 <li
-                  key={s.step}
-                  id={`step-${s.step}`}
+                  key={stepNum}
+                  id={`step-${stepNum}`}
                   className="rounded-xl p-5"
                   style={{ backgroundColor: theme.bgCard, border: `1px solid ${theme.border}` }}
                 >
@@ -387,7 +434,7 @@ export default function HelpPage({ params }: Props) {
                       className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold text-white text-lg"
                       style={{ backgroundColor: theme.primary }}
                     >
-                      {s.step}
+                      {stepNum}
                     </div>
                     <div className="flex-1">
                       <h3 className="text-xl font-bold mb-2" style={{ color: theme.text }}>
@@ -407,7 +454,8 @@ export default function HelpPage({ params }: Props) {
                     </div>
                   </div>
                 </li>
-              ))}
+                );
+              })}
             </ol>
           </section>
         )}
@@ -428,9 +476,11 @@ export default function HelpPage({ params }: Props) {
                   <h3 className="text-lg font-bold mb-2" style={{ color: theme.primaryDark }}>
                     Problem: {w.problem}
                   </h3>
-                  <p className="text-base mb-2" style={{ color: theme.textSecondary }}>
-                    <strong>Likely cause:</strong> {w.cause}
-                  </p>
+                  {w.cause && (
+                    <p className="text-base mb-2" style={{ color: theme.textSecondary }}>
+                      <strong>Likely cause:</strong> {w.cause}
+                    </p>
+                  )}
                   <p className="text-base" style={{ color: theme.text }}>
                     <strong>How to fix:</strong> {w.fix}
                   </p>
@@ -473,8 +523,12 @@ export default function HelpPage({ params }: Props) {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {page.relatedSlugs.map((s) => {
-                const r = lookupSibling(s);
-                if (!r) return null;
+                const rRaw = lookupSibling(s);
+                if (!rRaw) return null;
+                const r = rRaw as unknown as Record<string, unknown>;
+                const rH1 = (r.h1 as string) ?? (r.metaTitle as string) ?? s;
+                const rTime = (r.estimatedTime as string) ?? "";
+                const rDiff = (r.difficultyLabel as string) ?? "";
                 return (
                   <Link
                     key={s}
@@ -483,10 +537,10 @@ export default function HelpPage({ params }: Props) {
                     style={{ backgroundColor: theme.bgCard, border: `1px solid ${theme.border}` }}
                   >
                     <div className="font-bold" style={{ color: theme.primary }}>
-                      {r.h1}
+                      {rH1}
                     </div>
                     <div className="text-sm mt-1" style={{ color: theme.textSecondary }}>
-                      {r.estimatedTime} · {r.difficultyLabel}
+                      {rTime} · {rDiff}
                     </div>
                   </Link>
                 );
