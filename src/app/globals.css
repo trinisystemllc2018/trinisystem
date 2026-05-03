@@ -196,3 +196,24 @@ body {
 @media print {
   .no-print { display: none !important; }
 }
+
+
+/* ════════════════════════════════════════════════════════════════════
+   3D HOMEPAGE OVERRIDES
+   Set on <body> from page.tsx via useEffect on the homepage only.
+═════════════════════════════════════════════════════════════════════ */
+body[data-page="home"] {
+  background-color: #0a0a0a !important;
+  overflow: hidden;
+}
+body[data-page="home"] header,
+body[data-page="home"] footer {
+  display: none !important;
+}
+body[data-page="home"] > div.fixed[class*="bottom-6"][class*="right-6"] {
+  display: none !important;
+}
+body[data-page="home"] > main {
+  min-height: 0 !important;
+  height: 100vh !important;
+}

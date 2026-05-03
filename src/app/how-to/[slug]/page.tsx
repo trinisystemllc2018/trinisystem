@@ -3,35 +3,30 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import VisualWalkthrough from "@/components/features/VisualWalkthrough";
 import FacebookWalkthrough from "@/components/features/FacebookWalkthrough";
+import GarminWalkthrough from "@/components/features/GarminWalkthrough";
 import { GMAIL_PAGES, ALL_GMAIL_SLUGS, type GmailPage } from "@/lib/gmail-data";
 import { FACEBOOK_PAGES, ALL_FACEBOOK_SLUGS, FB_THEME, type FacebookPage } from "@/lib/facebook-data";
+import { GARMIN_APPS_PAGES, ALL_GARMIN_APPS_SLUGS, GARMIN_THEME, type GarminPage } from "@/lib/garmin-apps-data";
 
 /* ═══════════════════════════════════════════════════════════════════
    /how-to/[slug] — Senior help cluster (multi-brand)
 
-   Handles all Gmail (12) AND Facebook (12) pages from one template.
-   Looks up slug in GMAIL_PAGES first, falls back to FACEBOOK_PAGES.
-   Brand theme switches accordingly: Gmail (Google blue #1a73e8)
-   vs Facebook (Meta blue #1877F2).
-
-   SEO + AEO architecture:
-   - generateStaticParams pre-renders all 24 pages at build time
-   - Multi-schema stacking: Article + HowTo + FAQPage + BreadcrumbList
-     + WebPage(speakable) + Service
-   - AI citation: TL;DR in first 60 words
-   - Senior UX: 18px+ body, sticky phone CTA, named author
+   Handles Gmail (12), Facebook (12), and Garmin Apps (14) — 38 pages
+   total — from one template. findPage() looks up the slug in each
+   cluster's data file. Brand theme switches per cluster.
 ═══════════════════════════════════════════════════════════════════ */
 
 const SITE = "https://trinisystem.vercel.app";
 const PHONE = "+13479531531";
 const PHONE_DISPLAY = "347-953-1531";
 
-type Brand = "gmail" | "facebook";
-type AnyPage = GmailPage | FacebookPage;
+type Brand = "gmail" | "facebook" | "garmin";
+type AnyPage = GmailPage | FacebookPage | GarminPage;
 
 function findPage(slug: string): { page: AnyPage; brand: Brand } | null {
   if (GMAIL_PAGES[slug]) return { page: GMAIL_PAGES[slug], brand: "gmail" };
   if (FACEBOOK_PAGES[slug]) return { page: FACEBOOK_PAGES[slug], brand: "facebook" };
+  if (GARMIN_APPS_PAGES[slug]) return { page: GARMIN_APPS_PAGES[slug], brand: "garmin" };
   return null;
 }
 
@@ -47,6 +42,21 @@ function brandTheme(brand: Brand) {
       textSecondary: FB_THEME.textSecondary,
       border: FB_THEME.border,
       brandName: "Facebook",
+      siblingSlugs: ALL_FACEBOOK_SLUGS,
+    };
+  }
+  if (brand === "garmin") {
+    return {
+      primary: GARMIN_THEME.primary,
+      primaryHover: GARMIN_THEME.primaryHover,
+      primaryDark: GARMIN_THEME.primaryDark,
+      bgPage: GARMIN_THEME.bgPage,
+      bgCard: GARMIN_THEME.bgCard,
+      text: GARMIN_THEME.text,
+      textSecondary: GARMIN_THEME.textSecondary,
+      border: GARMIN_THEME.border,
+      brandName: "Garmin",
+      siblingSlugs: ALL_GARMIN_APPS_SLUGS,
     };
   }
   return {
@@ -59,14 +69,19 @@ function brandTheme(brand: Brand) {
     textSecondary: "#6b7280",
     border: "#e5e7eb",
     brandName: "Gmail",
+    siblingSlugs: ALL_GMAIL_SLUGS,
   };
+}
+
+function lookupSibling(slug: string): AnyPage | undefined {
+  return GMAIL_PAGES[slug] || FACEBOOK_PAGES[slug] || GARMIN_APPS_PAGES[slug];
 }
 
 type Props = { params: { slug: string } };
 
-// Pre-render EVERY Gmail and Facebook page at build time
+// Pre-render every Gmail, Facebook, and Garmin page at build time
 export function generateStaticParams() {
-  return [...ALL_GMAIL_SLUGS, ...ALL_FACEBOOK_SLUGS].map((slug) => ({ slug }));
+  return [...ALL_GMAIL_SLUGS, ...ALL_FACEBOOK_SLUGS, ...ALL_GARMIN_APPS_SLUGS].map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -115,10 +130,12 @@ export default function HelpPage({ params }: Props) {
   const theme = brandTheme(brand);
 
   const url = `${SITE}/how-to/${params.slug}`;
-  const today = new Date().toISOString().split("T")[0];
+
+  // Garmin pages have a SoftwareApplication schema; cast for type safety.
+  const garminPage = brand === "garmin" ? (page as GarminPage) : null;
 
   // ─── SCHEMA STACK ────────────────────────────────────────────────
-  const schemas = [
+  const schemas: Record<string, unknown>[] = [
     // 1. BreadcrumbList
     {
       "@context": "https://schema.org",
@@ -152,74 +169,86 @@ export default function HelpPage({ params }: Props) {
         audienceType: "Seniors",
       },
     },
-    // 3. HowTo (only for guide pages with steps)
-    ...(page.pageType === "guide" && page.textSteps.length > 0
-      ? [
-          {
-            "@context": "https://schema.org",
-            "@type": "HowTo",
-            name: page.h1,
-            description: page.tldrAnswer,
-            totalTime: page.estimatedTime,
-            tool: page.toolsRequired.map((t) => ({ "@type": "HowToTool", name: t })),
-            step: page.textSteps.map((s, i) => ({
-              "@type": "HowToStep",
-              position: i + 1,
-              name: s.title,
-              text: s.detail,
-              url: `${url}#step-${s.step}`,
-            })),
-          },
-        ]
-      : []),
-    // 4. FAQPage
-    ...(page.faqs.length > 0
-      ? [
-          {
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: page.faqs.map((f) => ({
-              "@type": "Question",
-              name: f.q,
-              acceptedAnswer: { "@type": "Answer", text: f.a },
-            })),
-          },
-        ]
-      : []),
-    // 5. WebPage with speakable spec (for voice assistants / AI)
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "@id": url,
-      name: page.metaTitle,
-      description: page.metaDescription,
-      speakable: {
-        "@type": "SpeakableSpecification",
-        cssSelector: ["#tldr-answer", "#hero-h1"],
-      },
-      inLanguage: "en-US",
-      isPartOf: { "@type": "WebSite", name: "Trini System", url: SITE },
-    },
-    // 6. Service
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      name: `${theme.brandName} Help for Seniors`,
-      provider: {
-        "@type": "Organization",
-        name: "Trini System",
-        telephone: PHONE,
-        url: SITE,
-      },
-      areaServed: { "@type": "Country", name: "United States" },
-      serviceType: `${theme.brandName} technical support`,
-      audience: { "@type": "PeopleAudience", audienceType: "Seniors", suggestedMinAge: 55 },
-    },
   ];
+
+  // 3. HowTo (only guide pages with steps)
+  if (page.pageType === "guide" && page.textSteps.length > 0) {
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: page.h1,
+      description: page.tldrAnswer,
+      totalTime: page.estimatedTime,
+      tool: page.toolsRequired.map((t) => ({ "@type": "HowToTool", name: t })),
+      step: page.textSteps.map((s, i) => ({
+        "@type": "HowToStep",
+        position: i + 1,
+        name: s.title,
+        text: s.detail,
+        url: `${url}#step-${s.step}`,
+      })),
+    });
+  }
+
+  // 4. FAQPage
+  if (page.faqs.length > 0) {
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: page.faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    });
+  }
+
+  // 5. WebPage with speakable
+  schemas.push({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": url,
+    name: page.metaTitle,
+    description: page.metaDescription,
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["#tldr-answer", "#hero-h1"],
+    },
+    inLanguage: "en-US",
+    isPartOf: { "@type": "WebSite", name: "Trini System", url: SITE },
+  });
+
+  // 6. Service
+  schemas.push({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: `${theme.brandName} Help for Seniors`,
+    provider: {
+      "@type": "Organization",
+      name: "Trini System",
+      telephone: PHONE,
+      url: SITE,
+    },
+    areaServed: { "@type": "Country", name: "United States" },
+    serviceType: `${theme.brandName} technical support`,
+    audience: { "@type": "PeopleAudience", audienceType: "Seniors", suggestedMinAge: 55 },
+  });
+
+  // 7. SoftwareApplication (Garmin pages with appName)
+  if (garminPage && garminPage.appName) {
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      name: garminPage.appName,
+      operatingSystem: garminPage.appOperatingSystem || "Windows, macOS",
+      applicationCategory: "UtilitiesApplication",
+      offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+      author: { "@type": "Organization", name: "Garmin International" },
+    });
+  }
 
   return (
     <main style={{ backgroundColor: theme.bgPage, color: theme.text }} className="min-h-screen">
-      {/* JSON-LD schemas */}
       {schemas.map((s, i) => (
         <script
           key={i}
@@ -253,7 +282,7 @@ export default function HelpPage({ params }: Props) {
             className="inline-block px-3 py-1 rounded-full text-sm font-semibold mb-3"
             style={{ backgroundColor: theme.primary + "20", color: theme.primaryDark }}
           >
-            {theme.brandName} · {page.category} · {page.difficultyLabel} · {page.estimatedTime}
+            {theme.brandName} · {(page as GmailPage).category} · {page.difficultyLabel} · {page.estimatedTime}
           </div>
           <h1 id="hero-h1" className="text-3xl md:text-5xl font-bold leading-tight mb-4" style={{ color: theme.text }}>
             {page.h1}
@@ -292,10 +321,11 @@ export default function HelpPage({ params }: Props) {
               Pick the {theme.brandName} guide you need
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {(brand === "gmail" ? ALL_GMAIL_SLUGS : ALL_FACEBOOK_SLUGS)
+              {theme.siblingSlugs
                 .filter((s) => s !== params.slug)
                 .map((s) => {
-                  const sibling = brand === "gmail" ? GMAIL_PAGES[s] : FACEBOOK_PAGES[s];
+                  const sibling = lookupSibling(s);
+                  if (!sibling) return null;
                   return (
                     <Link
                       key={s}
@@ -304,7 +334,7 @@ export default function HelpPage({ params }: Props) {
                       style={{ backgroundColor: theme.bgCard, border: `2px solid ${theme.border}` }}
                     >
                       <div className="text-xs font-semibold uppercase mb-2" style={{ color: theme.primary }}>
-                        {sibling.category} · {sibling.estimatedTime}
+                        {(sibling as GmailPage).category} · {sibling.estimatedTime}
                       </div>
                       <h3 className="text-lg font-bold mb-2" style={{ color: theme.text }}>
                         {sibling.h1}
@@ -319,24 +349,26 @@ export default function HelpPage({ params }: Props) {
           </section>
         )}
 
-        {/* WALKTHROUGH (only guides) */}
+        {/* WALKTHROUGH (only guides with screens) */}
         {page.pageType === "guide" && page.walkthrough.length > 0 && (
           <section className="mb-10">
             <h2 className="text-2xl md:text-3xl font-bold mb-2" style={{ color: theme.text }}>
               Step-by-step practice mode
             </h2>
             <p className="text-lg mb-4" style={{ color: theme.textSecondary }}>
-              Click through each step to practice. The screens look like real {theme.brandName} but nothing you click here changes your real account.
+              Click through each step to practice. The screens look like the real {theme.brandName} app — but nothing here changes anything in your real account or device.
             </p>
             {brand === "facebook" ? (
-              <FacebookWalkthrough screens={page.walkthrough as any} />
+              <FacebookWalkthrough screens={page.walkthrough as never} />
+            ) : brand === "garmin" ? (
+              <GarminWalkthrough screens={page.walkthrough as never} />
             ) : (
-              <VisualWalkthrough screens={page.walkthrough as any} />
+              <VisualWalkthrough screens={page.walkthrough as never} />
             )}
           </section>
         )}
 
-        {/* TEXT STEPS (numbered, large text, accessible) */}
+        {/* TEXT STEPS */}
         {page.textSteps.length > 0 && (
           <section className="mb-10">
             <h2 className="text-2xl md:text-3xl font-bold mb-6" style={{ color: theme.text }}>
@@ -441,7 +473,7 @@ export default function HelpPage({ params }: Props) {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {page.relatedSlugs.map((s) => {
-                const r = GMAIL_PAGES[s] || FACEBOOK_PAGES[s];
+                const r = lookupSibling(s);
                 if (!r) return null;
                 return (
                   <Link
@@ -481,7 +513,7 @@ export default function HelpPage({ params }: Props) {
           </a>
         </section>
 
-        {/* AUTHOR / E-E-A-T BLOCK */}
+        {/* AUTHOR / E-E-A-T */}
         <footer
           className="text-sm border-t pt-6"
           style={{ color: theme.textSecondary, borderColor: theme.border }}
@@ -489,12 +521,13 @@ export default function HelpPage({ params }: Props) {
           <p className="mb-2">
             <strong style={{ color: theme.text }}>About this guide:</strong> Reviewed and verified by{" "}
             {page.reviewedBy} on {page.lastUpdated}. We update each guide every 90 days because{" "}
-            {theme.brandName} changes its interface frequently.
+            {theme.brandName} changes its software regularly.
           </p>
           <p>
             <strong style={{ color: theme.text }}>Honesty note:</strong> Trini System is independent — we
-            are not affiliated with, endorsed by, or operated by {theme.brandName === "Gmail" ? "Google" : "Meta"}.
-            We help seniors understand official {theme.brandName} steps. We never log in to your account.
+            are not affiliated with, endorsed by, or operated by{" "}
+            {theme.brandName === "Gmail" ? "Google" : theme.brandName === "Facebook" ? "Meta" : "Garmin"}.
+            We help seniors understand official {theme.brandName} steps. We never log into your account or device.
           </p>
         </footer>
       </article>

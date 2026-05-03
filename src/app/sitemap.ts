@@ -3,6 +3,7 @@ import { PRINTER_BRANDS, PRINTER_PROBLEMS, GARMIN_MODELS } from "@/lib/seo-data"
 import { ALL_GARMIN_SLUGS } from "@/lib/garmin-data";
 import { ALL_GMAIL_SLUGS } from "@/lib/gmail-data";
 import { ALL_FACEBOOK_SLUGS } from "@/lib/facebook-data";
+import { ALL_GARMIN_APPS_SLUGS } from "@/lib/garmin-apps-data";
 
 const BASE = "https://trinisystem.vercel.app";
 const NOW = new Date();
@@ -30,7 +31,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/contact`, lastModified: NOW, changeFrequency: "monthly", priority: 0.70 },
   ];
 
-  // Printer programmatic
   const printer_pages: MetadataRoute.Sitemap = [];
   for (const brand of Object.keys(PRINTER_BRANDS)) {
     for (const problem of Object.keys(PRINTER_PROBLEMS)) {
@@ -43,7 +43,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  // Garmin programmatic
   const garmin_pages: MetadataRoute.Sitemap = Object.keys(GARMIN_MODELS).map((model) => ({
     url: `${BASE}/garmin-update/${model}`,
     lastModified: NOW,
@@ -61,7 +60,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ];
 
-  // GMAIL CLUSTER — hub gets max priority, long-tail pages get high priority
+  // GMAIL CLUSTER
   const gmail_pages: MetadataRoute.Sitemap = ALL_GMAIL_SLUGS.map((slug) => ({
     url: `${BASE}/how-to/${slug}`,
     lastModified: NOW,
@@ -69,12 +68,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: slug === "gmail-help" ? 0.95 : 0.88,
   }));
 
-  // FACEBOOK CLUSTER — same priority pattern
+  // FACEBOOK CLUSTER
   const facebook_pages: MetadataRoute.Sitemap = ALL_FACEBOOK_SLUGS.map((slug) => ({
     url: `${BASE}/how-to/${slug}`,
     lastModified: NOW,
     changeFrequency: "weekly" as const,
     priority: slug === "facebook-help" ? 0.95 : 0.88,
+  }));
+
+  // GARMIN APPS CLUSTER (NEW)
+  const garmin_apps_pages: MetadataRoute.Sitemap = ALL_GARMIN_APPS_SLUGS.map((slug) => ({
+    url: `${BASE}/how-to/${slug}`,
+    lastModified: NOW,
+    changeFrequency: "weekly" as const,
+    priority: slug === "garmin-express" ? 0.95 : 0.88,
   }));
 
   return [
@@ -84,5 +91,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...garmin_seo_pages,
     ...gmail_pages,
     ...facebook_pages,
+    ...garmin_apps_pages,
   ];
 }
