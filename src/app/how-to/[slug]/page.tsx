@@ -2,40 +2,77 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import VisualWalkthrough from "@/components/features/VisualWalkthrough";
+import FacebookWalkthrough from "@/components/features/FacebookWalkthrough";
 import { GMAIL_PAGES, ALL_GMAIL_SLUGS, type GmailPage } from "@/lib/gmail-data";
+import { FACEBOOK_PAGES, ALL_FACEBOOK_SLUGS, FB_THEME, type FacebookPage } from "@/lib/facebook-data";
 
 /* ═══════════════════════════════════════════════════════════════════
-   /how-to/[slug] — Senior help cluster (Gmail v1)
+   /how-to/[slug] — Senior help cluster (multi-brand)
 
-   This route handles all 12 Gmail pages from a single template.
-   Future brands (Yahoo, Outlook, Facebook, etc.) will follow the same
-   data file → dynamic route pattern, dramatically scaling the
-   senior-help vertical without writing new templates.
+   Handles all Gmail (12) AND Facebook (12) pages from one template.
+   Looks up slug in GMAIL_PAGES first, falls back to FACEBOOK_PAGES.
+   Brand theme switches accordingly: Gmail (Google blue #1a73e8)
+   vs Facebook (Meta blue #1877F2).
 
-   SEO features:
+   SEO + AEO architecture:
+   - generateStaticParams pre-renders all 24 pages at build time
    - Multi-schema stacking: Article + HowTo + FAQPage + BreadcrumbList
-     + WebPage + Organization (mirrors /garmin/[slug] pattern)
-   - generateStaticParams pre-renders ALL pages at build time
-   - Per-page <title>, description, and canonical
-   - Heavy internal linking via relatedSlugs
-   - AI-citation-optimized: TL;DR in first 60 words, declarative answers
-   - Senior UX: 18px+ body, 30px+ headings, sticky phone CTA
+     + WebPage(speakable) + Service
+   - AI citation: TL;DR in first 60 words
+   - Senior UX: 18px+ body, sticky phone CTA, named author
 ═══════════════════════════════════════════════════════════════════ */
 
 const SITE = "https://trinisystem.vercel.app";
 const PHONE = "+13479531531";
 const PHONE_DISPLAY = "347-953-1531";
 
+type Brand = "gmail" | "facebook";
+type AnyPage = GmailPage | FacebookPage;
+
+function findPage(slug: string): { page: AnyPage; brand: Brand } | null {
+  if (GMAIL_PAGES[slug]) return { page: GMAIL_PAGES[slug], brand: "gmail" };
+  if (FACEBOOK_PAGES[slug]) return { page: FACEBOOK_PAGES[slug], brand: "facebook" };
+  return null;
+}
+
+function brandTheme(brand: Brand) {
+  if (brand === "facebook") {
+    return {
+      primary: FB_THEME.primary,
+      primaryHover: FB_THEME.primaryHover,
+      primaryDark: FB_THEME.primaryDark,
+      bgPage: FB_THEME.bgPage,
+      bgCard: FB_THEME.bgCard,
+      text: FB_THEME.text,
+      textSecondary: FB_THEME.textSecondary,
+      border: FB_THEME.border,
+      brandName: "Facebook",
+    };
+  }
+  return {
+    primary: "#1a73e8",
+    primaryHover: "#1557b0",
+    primaryDark: "#0d47a1",
+    bgPage: "#f8fafc",
+    bgCard: "#ffffff",
+    text: "#1f2937",
+    textSecondary: "#6b7280",
+    border: "#e5e7eb",
+    brandName: "Gmail",
+  };
+}
+
 type Props = { params: { slug: string } };
 
-// Pre-render every page at build time = fastest TTFB for SEO
+// Pre-render EVERY Gmail and Facebook page at build time
 export function generateStaticParams() {
-  return ALL_GMAIL_SLUGS.map((slug) => ({ slug }));
+  return [...ALL_GMAIL_SLUGS, ...ALL_FACEBOOK_SLUGS].map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const page = GMAIL_PAGES[params.slug];
-  if (!page) return {};
+  const found = findPage(params.slug);
+  if (!found) return {};
+  const { page } = found;
 
   const url = `${SITE}/how-to/${params.slug}`;
 
@@ -71,17 +108,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function GmailHelpPage({ params }: Props) {
-  const page = GMAIL_PAGES[params.slug];
-  if (!page) return notFound();
+export default function HelpPage({ params }: Props) {
+  const found = findPage(params.slug);
+  if (!found) return notFound();
+  const { page, brand } = found;
+  const theme = brandTheme(brand);
 
   const url = `${SITE}/how-to/${params.slug}`;
   const today = new Date().toISOString().split("T")[0];
 
   // ─── SCHEMA STACK ────────────────────────────────────────────────
-  // Each schema is independently validated and serves a distinct AI/SEO purpose
   const schemas = [
-    // 1. BreadcrumbList — Google sitelinks + AI navigation
+    // 1. BreadcrumbList
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -91,298 +129,375 @@ export default function GmailHelpPage({ params }: Props) {
         { "@type": "ListItem", position: 3, name: page.h1, item: url },
       ],
     },
-    // 2. Article — main page schema for editorial-style ranking
+    // 2. Article
     {
       "@context": "https://schema.org",
       "@type": "Article",
       headline: page.metaTitle,
       description: page.metaDescription,
       image: `${SITE}/logo.svg`,
-      datePublished: today,
-      dateModified: today,
-      author: {
-        "@type": "Organization",
-        name: "Trini System",
-        url: SITE,
-      },
+      datePublished: page.lastUpdated,
+      dateModified: page.lastUpdated,
+      author: { "@type": "Organization", name: "Trini System", url: SITE },
       publisher: {
         "@type": "Organization",
-        name: "Trini System LLC",
+        name: "Trini System",
         logo: { "@type": "ImageObject", url: `${SITE}/logo.svg` },
       },
       mainEntityOfPage: { "@type": "WebPage", "@id": url },
+      about: { "@type": "Thing", name: theme.brandName },
+      audience: {
+        "@type": "PeopleAudience",
+        suggestedMinAge: 55,
+        audienceType: "Seniors",
+      },
     },
-    // 3. HowTo — qualifies for HowTo rich result on Google
-    {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      name: page.h1,
-      description: page.tldrAnswer,
-      totalTime: `PT${page.estimatedTime.replace(/\D/g, "") || "5"}M`,
-      step: page.textSteps.map((s, i) => ({
-        "@type": "HowToStep",
-        position: i + 1,
-        name: s.title,
-        text: s.detail,
-      })),
-    },
-    // 4. FAQPage — qualifies for FAQ rich result on Google + AI citation gold
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: page.faqs.map((f) => ({
-        "@type": "Question",
-        name: f.q,
-        acceptedAnswer: { "@type": "Answer", text: f.a },
-      })),
-    },
-    // 5. WebPage with speakable — voice search / Alexa / Google Assistant
+    // 3. HowTo (only for guide pages with steps)
+    ...(page.pageType === "guide" && page.textSteps.length > 0
+      ? [
+          {
+            "@context": "https://schema.org",
+            "@type": "HowTo",
+            name: page.h1,
+            description: page.tldrAnswer,
+            totalTime: page.estimatedTime,
+            tool: page.toolsRequired.map((t) => ({ "@type": "HowToTool", name: t })),
+            step: page.textSteps.map((s, i) => ({
+              "@type": "HowToStep",
+              position: i + 1,
+              name: s.title,
+              text: s.detail,
+              url: `${url}#step-${s.step}`,
+            })),
+          },
+        ]
+      : []),
+    // 4. FAQPage
+    ...(page.faqs.length > 0
+      ? [
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: page.faqs.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+          },
+        ]
+      : []),
+    // 5. WebPage with speakable spec (for voice assistants / AI)
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      "@id": `${url}#webpage`,
-      url,
+      "@id": url,
       name: page.metaTitle,
       description: page.metaDescription,
-      isPartOf: { "@id": `${SITE}#website` },
       speakable: {
         "@type": "SpeakableSpecification",
-        cssSelector: [".tldr-answer", "h1", ".faq-answer"],
+        cssSelector: ["#tldr-answer", "#hero-h1"],
       },
-      potentialAction: [
-        {
-          "@type": "ReadAction",
-          target: [url],
-        },
-      ],
+      inLanguage: "en-US",
+      isPartOf: { "@type": "WebSite", name: "Trini System", url: SITE },
     },
-    // 6. Service offering — converts informational → commercial intent
+    // 6. Service
     {
       "@context": "https://schema.org",
       "@type": "Service",
-      name: "Senior Tech Help — Phone Support",
-      description: "Free phone help for seniors with Gmail, email, and account problems.",
+      name: `${theme.brandName} Help for Seniors`,
       provider: {
-        "@type": "LocalBusiness",
-        name: "Trini System LLC",
+        "@type": "Organization",
+        name: "Trini System",
         telephone: PHONE,
-        address: { "@type": "PostalAddress", addressCountry: "US" },
+        url: SITE,
       },
       areaServed: { "@type": "Country", name: "United States" },
-      audience: { "@type": "PeopleAudience", suggestedMinAge: 60 },
-      offers: {
-        "@type": "Offer",
-        price: "0",
-        priceCurrency: "USD",
-        description: "Free initial consultation by phone",
-      },
+      serviceType: `${theme.brandName} technical support`,
+      audience: { "@type": "PeopleAudience", audienceType: "Seniors", suggestedMinAge: 55 },
     },
   ];
 
   return (
-    <div className="bg-white">
-      {/* SCHEMA INJECTION — multi-schema stacking for max AEO coverage */}
-      {schemas.map((schema, i) => (
+    <main style={{ backgroundColor: theme.bgPage, color: theme.text }} className="min-h-screen">
+      {/* JSON-LD schemas */}
+      {schemas.map((s, i) => (
         <script
           key={i}
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }}
         />
       ))}
 
-      {/* ═══════════════════════ STICKY PHONE CTA — top of every page ═══════════════════════ */}
-      <div className="bg-emerald-600 text-white py-3 px-4 sticky top-0 z-40 shadow-md">
-        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
-          <div className="font-semibold text-base">
-            🆘 Stuck? Call Trini System — free help in under 15 minutes
+      {/* TOP STICKY PHONE CTA */}
+      <div
+        className="sticky top-0 z-40 px-4 py-2 text-white text-center font-bold text-base md:text-lg"
+        style={{ backgroundColor: theme.primary }}
+      >
+        Stuck? Call a real person free —{" "}
+        <a href={`tel:${PHONE}`} className="underline">
+          {PHONE_DISPLAY}
+        </a>
+      </div>
+
+      <article className="max-w-4xl mx-auto px-4 md:px-6 py-8 md:py-12">
+        {/* BREADCRUMBS */}
+        <nav className="text-sm mb-6" style={{ color: theme.textSecondary }}>
+          <Link href="/" className="hover:underline">Home</Link> <span className="mx-2">›</span>
+          <Link href="/how-to" className="hover:underline">How-To Guides</Link> <span className="mx-2">›</span>
+          <span style={{ color: theme.text }}>{page.h1}</span>
+        </nav>
+
+        {/* HERO */}
+        <header className="mb-8">
+          <div
+            className="inline-block px-3 py-1 rounded-full text-sm font-semibold mb-3"
+            style={{ backgroundColor: theme.primary + "20", color: theme.primaryDark }}
+          >
+            {theme.brandName} · {page.category} · {page.difficultyLabel} · {page.estimatedTime}
           </div>
+          <h1 id="hero-h1" className="text-3xl md:text-5xl font-bold leading-tight mb-4" style={{ color: theme.text }}>
+            {page.h1}
+          </h1>
+          <p className="text-xl md:text-2xl leading-relaxed" style={{ color: theme.textSecondary }}>
+            {page.heroIntro}
+          </p>
+          <div className="mt-4 flex flex-wrap gap-3 text-sm" style={{ color: theme.textSecondary }}>
+            <span>📅 Last updated: <strong style={{ color: theme.text }}>{page.lastUpdated}</strong></span>
+            <span>·</span>
+            <span>✍️ Reviewed by: <strong style={{ color: theme.text }}>{page.reviewedBy}</strong></span>
+          </div>
+        </header>
+
+        {/* TLDR / AI CITATION BLOCK */}
+        <section
+          id="tldr-answer"
+          className="rounded-2xl p-6 mb-10 border-l-4"
+          style={{
+            backgroundColor: theme.primary + "10",
+            borderColor: theme.primary,
+          }}
+        >
+          <div className="text-sm font-bold uppercase tracking-wide mb-2" style={{ color: theme.primaryDark }}>
+            Quick answer
+          </div>
+          <p className="text-lg md:text-xl leading-relaxed" style={{ color: theme.text }}>
+            {page.tldrAnswer}
+          </p>
+        </section>
+
+        {/* HUB PAGE: card grid linking to all sibling guides */}
+        {page.pageType === "hub" && (
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6" style={{ color: theme.text }}>
+              Pick the {theme.brandName} guide you need
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {(brand === "gmail" ? ALL_GMAIL_SLUGS : ALL_FACEBOOK_SLUGS)
+                .filter((s) => s !== params.slug)
+                .map((s) => {
+                  const sibling = brand === "gmail" ? GMAIL_PAGES[s] : FACEBOOK_PAGES[s];
+                  return (
+                    <Link
+                      key={s}
+                      href={`/how-to/${s}`}
+                      className="block rounded-xl p-5 transition-all hover:shadow-lg"
+                      style={{ backgroundColor: theme.bgCard, border: `2px solid ${theme.border}` }}
+                    >
+                      <div className="text-xs font-semibold uppercase mb-2" style={{ color: theme.primary }}>
+                        {sibling.category} · {sibling.estimatedTime}
+                      </div>
+                      <h3 className="text-lg font-bold mb-2" style={{ color: theme.text }}>
+                        {sibling.h1}
+                      </h3>
+                      <p className="text-sm" style={{ color: theme.textSecondary }}>
+                        {sibling.heroIntro.slice(0, 110)}…
+                      </p>
+                    </Link>
+                  );
+                })}
+            </div>
+          </section>
+        )}
+
+        {/* WALKTHROUGH (only guides) */}
+        {page.pageType === "guide" && page.walkthrough.length > 0 && (
+          <section className="mb-10">
+            <h2 className="text-2xl md:text-3xl font-bold mb-2" style={{ color: theme.text }}>
+              Step-by-step practice mode
+            </h2>
+            <p className="text-lg mb-4" style={{ color: theme.textSecondary }}>
+              Click through each step to practice. The screens look like real {theme.brandName} but nothing you click here changes your real account.
+            </p>
+            {brand === "facebook" ? (
+              <FacebookWalkthrough screens={page.walkthrough as any} />
+            ) : (
+              <VisualWalkthrough screens={page.walkthrough as any} />
+            )}
+          </section>
+        )}
+
+        {/* TEXT STEPS (numbered, large text, accessible) */}
+        {page.textSteps.length > 0 && (
+          <section className="mb-10">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6" style={{ color: theme.text }}>
+              Step-by-step instructions
+            </h2>
+            <ol className="space-y-6">
+              {page.textSteps.map((s) => (
+                <li
+                  key={s.step}
+                  id={`step-${s.step}`}
+                  className="rounded-xl p-5"
+                  style={{ backgroundColor: theme.bgCard, border: `1px solid ${theme.border}` }}
+                >
+                  <div className="flex items-start gap-4">
+                    <div
+                      className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold text-white text-lg"
+                      style={{ backgroundColor: theme.primary }}
+                    >
+                      {s.step}
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold mb-2" style={{ color: theme.text }}>
+                        {s.title}
+                      </h3>
+                      <p className="text-lg leading-relaxed" style={{ color: theme.text }}>
+                        {s.detail}
+                      </p>
+                      {s.warning && (
+                        <div
+                          className="mt-3 p-3 rounded-lg text-base"
+                          style={{ backgroundColor: "#FEF3C7", color: "#78350F", borderLeft: "4px solid #F59E0B" }}
+                        >
+                          ⚠ <strong>Important:</strong> {s.warning}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </section>
+        )}
+
+        {/* WHAT IF NOT WORKING */}
+        {page.whatIfNotWork.length > 0 && (
+          <section className="mb-10">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6" style={{ color: theme.text }}>
+              What if it's not working?
+            </h2>
+            <div className="space-y-4">
+              {page.whatIfNotWork.map((w, i) => (
+                <div
+                  key={i}
+                  className="rounded-xl p-5"
+                  style={{ backgroundColor: theme.bgCard, border: `1px solid ${theme.border}` }}
+                >
+                  <h3 className="text-lg font-bold mb-2" style={{ color: theme.primaryDark }}>
+                    Problem: {w.problem}
+                  </h3>
+                  <p className="text-base mb-2" style={{ color: theme.textSecondary }}>
+                    <strong>Likely cause:</strong> {w.cause}
+                  </p>
+                  <p className="text-base" style={{ color: theme.text }}>
+                    <strong>How to fix:</strong> {w.fix}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* FAQ */}
+        {page.faqs.length > 0 && (
+          <section className="mb-10">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6" style={{ color: theme.text }}>
+              Frequently asked questions
+            </h2>
+            <div className="space-y-4">
+              {page.faqs.map((f, i) => (
+                <details
+                  key={i}
+                  className="rounded-xl p-5"
+                  style={{ backgroundColor: theme.bgCard, border: `1px solid ${theme.border}` }}
+                >
+                  <summary className="text-lg font-bold cursor-pointer" style={{ color: theme.text }}>
+                    {f.q}
+                  </summary>
+                  <p className="text-base mt-3 leading-relaxed" style={{ color: theme.text }}>
+                    {f.a}
+                  </p>
+                </details>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* RELATED GUIDES */}
+        {page.relatedSlugs.length > 0 && (
+          <section className="mb-10">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6" style={{ color: theme.text }}>
+              Related guides
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {page.relatedSlugs.map((s) => {
+                const r = GMAIL_PAGES[s] || FACEBOOK_PAGES[s];
+                if (!r) return null;
+                return (
+                  <Link
+                    key={s}
+                    href={`/how-to/${s}`}
+                    className="block rounded-xl p-4 transition-all hover:shadow-md"
+                    style={{ backgroundColor: theme.bgCard, border: `1px solid ${theme.border}` }}
+                  >
+                    <div className="font-bold" style={{ color: theme.primary }}>
+                      {r.h1}
+                    </div>
+                    <div className="text-sm mt-1" style={{ color: theme.textSecondary }}>
+                      {r.estimatedTime} · {r.difficultyLabel}
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </section>
+        )}
+
+        {/* BOTTOM CTA */}
+        <section
+          className="rounded-2xl p-6 md:p-8 text-center mb-8"
+          style={{ backgroundColor: theme.primary, color: "white" }}
+        >
+          <h2 className="text-2xl md:text-3xl font-bold mb-3">Still stuck? Call a real person.</h2>
+          <p className="text-lg mb-5 opacity-95">
+            We answer in under 15 minutes. We never ask for your password. Help is free for under-15-minute calls.
+          </p>
           <a
-            href={`tel:${PHONE.replace(/\D/g, "")}`}
-            className="bg-white text-emerald-700 hover:bg-emerald-50 font-bold px-5 py-2 rounded-xl whitespace-nowrap transition"
+            href={`tel:${PHONE}`}
+            className="inline-block px-8 py-4 rounded-full text-xl md:text-2xl font-bold bg-white"
+            style={{ color: theme.primary }}
           >
             📞 {PHONE_DISPLAY}
           </a>
-        </div>
-      </div>
-
-      {/* ═══════════════════════ BREADCRUMBS ═══════════════════════ */}
-      <nav className="max-w-4xl mx-auto px-4 pt-6 text-sm" aria-label="Breadcrumb">
-        <ol className="flex flex-wrap items-center gap-2 text-gray-600">
-          <li><Link href="/" className="hover:text-blue-600 underline">Home</Link></li>
-          <li>›</li>
-          <li><Link href="/how-to" className="hover:text-blue-600 underline">How-To Guides</Link></li>
-          <li>›</li>
-          <li className="font-semibold text-gray-900">{page.h1}</li>
-        </ol>
-      </nav>
-
-      {/* ═══════════════════════ HERO + TLDR ═══════════════════════ */}
-      <header className="max-w-4xl mx-auto px-4 pt-8 pb-4">
-        <div className="flex flex-wrap gap-2 mb-4 text-sm">
-          <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-medium">
-            Gmail Help
-          </span>
-          <span className="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full font-medium">
-            ⏱ {page.estimatedTime}
-          </span>
-          <span className="bg-amber-100 text-amber-800 px-3 py-1 rounded-full font-medium">
-            Difficulty: {page.difficultyLabel}
-          </span>
-          <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full font-medium">
-            Updated: {today}
-          </span>
-        </div>
-
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4">
-          {page.h1}
-        </h1>
-
-        {/* TL;DR — first 60 words, AI-citation sweet spot */}
-        <div className="tldr-answer bg-blue-50 border-l-4 border-blue-500 p-5 rounded-r-2xl my-6">
-          <div className="text-sm font-bold text-blue-700 uppercase tracking-wide mb-2">
-            Quick answer
-          </div>
-          <p className="text-lg md:text-xl text-gray-800 leading-relaxed">{page.tldrAnswer}</p>
-        </div>
-
-        {/* Big CTA — practice tour */}
-        <div className="flex flex-col sm:flex-row gap-3 mt-6">
-          <a
-            href="#walkthrough"
-            className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg py-4 px-6 rounded-2xl text-center transition shadow-lg"
-          >
-            👇 Practice it visually (free)
-          </a>
-          <a
-            href={`tel:${PHONE.replace(/\D/g, "")}`}
-            className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-lg py-4 px-6 rounded-2xl text-center transition shadow-lg"
-          >
-            📞 Get help by phone — free
-          </a>
-        </div>
-      </header>
-
-      {/* ═══════════════════════ VISUAL WALKTHROUGH ═══════════════════════ */}
-      <section id="walkthrough" className="max-w-4xl mx-auto px-4">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2 mt-6">
-          Practice it first — see exactly where to click
-        </h2>
-        <p className="text-lg text-gray-700 mb-2">
-          Below is a safe practice version of {page.h1.replace(/^How to /i, "").replace(/^I /i, "")}. Click through it as many times as you want — nothing happens to your real Gmail.
-        </p>
-        <VisualWalkthrough screens={page.walkthrough} />
-      </section>
-
-      {/* ═══════════════════════ TEXT STEPS ═══════════════════════ */}
-      <section className="max-w-4xl mx-auto px-4 my-10">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
-          Step-by-step instructions (read at your pace)
-        </h2>
-        <ol className="space-y-5">
-          {page.textSteps.map((step, i) => (
-            <li key={i} className="flex gap-4 bg-gray-50 rounded-2xl p-5 border border-gray-200">
-              <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg">
-                {i + 1}
-              </div>
-              <div>
-                <h3 className="font-bold text-xl text-gray-900 mb-1">{step.title}</h3>
-                <p className="text-lg text-gray-700 leading-relaxed">{step.detail}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
-      </section>
-
-      {/* ═══════════════════════ "WHAT IF IT DIDN'T WORK" ═══════════════════════ */}
-      <section className="max-w-4xl mx-auto px-4 my-10">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
-          What if these steps didn't work?
-        </h2>
-        <p className="text-lg text-gray-700 mb-6">
-          Here are the most common problems and how to fix them.
-        </p>
-        <div className="space-y-4">
-          {page.whatIfNotWork.map((item, i) => (
-            <div key={i} className="bg-amber-50 border-l-4 border-amber-500 rounded-r-2xl p-5">
-              <h3 className="font-bold text-lg text-amber-900 mb-2">❓ {item.problem}</h3>
-              <p className="text-lg text-gray-800 leading-relaxed">{item.fix}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ═══════════════════════ FAQ — schema-backed ═══════════════════════ */}
-      <section className="max-w-4xl mx-auto px-4 my-10">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
-          Common questions about {page.primaryQuery}
-        </h2>
-        <div className="space-y-4">
-          {page.faqs.map((faq, i) => (
-            <details
-              key={i}
-              className="bg-white border-2 border-gray-200 rounded-2xl p-5 group hover:border-blue-300 transition"
-              open={i < 3}
-            >
-              <summary className="font-bold text-lg text-gray-900 cursor-pointer list-none flex justify-between items-start gap-3">
-                <span>{faq.q}</span>
-                <span className="text-blue-500 text-2xl group-open:rotate-45 transition flex-shrink-0">+</span>
-              </summary>
-              <p className="faq-answer text-lg text-gray-700 leading-relaxed mt-3">{faq.a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
-
-      {/* ═══════════════════════ RELATED PAGES — internal linking ═══════════════════════ */}
-      {page.relatedSlugs.length > 0 && (
-        <section className="max-w-4xl mx-auto px-4 my-10">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
-            Related Gmail help guides
-          </h2>
-          <div className="grid sm:grid-cols-2 gap-4">
-            {page.relatedSlugs.map((slug) => {
-              const related = GMAIL_PAGES[slug];
-              if (!related) return null;
-              return (
-                <Link
-                  key={slug}
-                  href={`/how-to/${slug}`}
-                  className="block bg-white border-2 border-gray-200 hover:border-blue-400 rounded-2xl p-5 transition hover:shadow-lg group"
-                >
-                  <div className="text-sm text-blue-600 font-medium mb-1">→ Gmail Help</div>
-                  <h3 className="font-bold text-lg text-gray-900 group-hover:text-blue-700 transition">
-                    {related.h1}
-                  </h3>
-                  <p className="text-gray-600 text-sm mt-2 line-clamp-2">
-                    {related.metaDescription}
-                  </p>
-                </Link>
-              );
-            })}
-          </div>
         </section>
-      )}
 
-      {/* ═══════════════════════ FINAL PHONE CTA ═══════════════════════ */}
-      <section className="bg-gradient-to-br from-emerald-600 to-emerald-700 text-white py-12 px-4 my-12">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-3">
-            Still confused? We're here to help — really.
-          </h2>
-          <p className="text-xl mb-6 text-emerald-50">
-            A real person at Trini System will walk you through it on the phone. No fees, no upsells, no judgment. We talk to seniors all day, every day.
+        {/* AUTHOR / E-E-A-T BLOCK */}
+        <footer
+          className="text-sm border-t pt-6"
+          style={{ color: theme.textSecondary, borderColor: theme.border }}
+        >
+          <p className="mb-2">
+            <strong style={{ color: theme.text }}>About this guide:</strong> Reviewed and verified by{" "}
+            {page.reviewedBy} on {page.lastUpdated}. We update each guide every 90 days because{" "}
+            {theme.brandName} changes its interface frequently.
           </p>
-          <a
-            href={`tel:${PHONE.replace(/\D/g, "")}`}
-            className="inline-block bg-white text-emerald-700 font-bold text-2xl px-8 py-5 rounded-2xl hover:bg-emerald-50 transition shadow-2xl"
-          >
-            📞 Call {PHONE_DISPLAY}
-          </a>
-          <p className="text-sm text-emerald-100 mt-4">
-            Average response time: under 15 minutes • English & Spanish
+          <p>
+            <strong style={{ color: theme.text }}>Honesty note:</strong> Trini System is independent — we
+            are not affiliated with, endorsed by, or operated by {theme.brandName === "Gmail" ? "Google" : "Meta"}.
+            We help seniors understand official {theme.brandName} steps. We never log in to your account.
           </p>
-        </div>
-      </section>
-    </div>
+        </footer>
+      </article>
+    </main>
   );
 }
