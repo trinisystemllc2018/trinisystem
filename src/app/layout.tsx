@@ -1,10 +1,19 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { FloatingSupport } from "@/components/ui/FloatingSupport";
-import { ExitIntentPopup } from "@/components/ui/ExitIntentPopup";
+import { DeferredFloating } from "@/components/ui/DeferredFloating";
+
+// Self-host font — removes the render-blocking Google Fonts request
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+  preload: true,
+  fallback: ["system-ui", "-apple-system", "Segoe UI", "Arial", "sans-serif"],
+});
 
 const BASE_URL = "https://trinisystem.vercel.app";
 
@@ -273,11 +282,9 @@ const speakableSchema = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" dir="ltr">
+    <html lang="en" dir="ltr" className={inter.variable}>
       <head>
-        {/* Preconnect to critical origins */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* DNS prefetch for analytics — non-blocking */}
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         {/* Viewport meta for performance */}
@@ -300,10 +307,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }}
         />
 
-        {/* Google Tag Manager */}
+        {/* Google Tag Manager — deferred to lazyOnload (fires after page is idle, doesn't block LCP) */}
         <Script
           id="gtm-script"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -326,8 +333,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />
-        <FloatingSupport />
-        <ExitIntentPopup />
+        <DeferredFloating />
       </body>
     </html>
   );

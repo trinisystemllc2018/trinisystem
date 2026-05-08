@@ -19,7 +19,7 @@
   --ts-green:   #10b981;
   --ts-red:     #ef4444;
   --ts-purple:  #8b5cf6;
-  --font-body:  "Inter", system-ui, sans-serif;
+  --font-body:  var(--font-inter), system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -247,3 +247,99 @@ body {
   gap: 2.5rem;
 }
 .animate-marquee:hover { animation-play-state: paused; }
+
+/* ════════════════════════════════════════════════════════
+   HERO ORBS — pure CSS decoration, animation only on desktop
+   (mobile gets static positioning for better LCP/TBT)
+════════════════════════════════════════════════════════ */
+.hero-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(60px);
+  pointer-events: none;
+  will-change: auto;
+}
+.hero-orb-1 {
+  top: 5rem;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  opacity: 0.18;
+  background: radial-gradient(circle, #3b82f6, transparent 70%);
+}
+.hero-orb-2 {
+  bottom: 5rem;
+  right: -5%;
+  width: 400px;
+  height: 400px;
+  opacity: 0.13;
+  background: radial-gradient(circle, #f59e0b, transparent 70%);
+}
+.hero-orb-3 {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 300px;
+  opacity: 0.08;
+  background: radial-gradient(ellipse, #8b5cf6, transparent 70%);
+  filter: blur(80px);
+}
+@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+  .hero-orb-1 { animation: float 8s ease-in-out infinite; }
+  .hero-orb-2 { animation: float 10s ease-in-out infinite reverse; }
+  .hero-orb-3 { animation: float 12s ease-in-out infinite 3s; }
+}
+
+/* ════════════════════════════════════════════════════════
+   SERVICE CARDS — CSS-only 3D tilt (replaces JS handlers).
+   Uses CSS variables --card-color and --card-glow set per-card.
+════════════════════════════════════════════════════════ */
+.service-card {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  transition: transform 0.25s ease-out, box-shadow 0.25s ease;
+  transform-style: preserve-3d;
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .service-card:hover {
+    transform: perspective(800px) rotateX(-4deg) rotateY(4deg) scale(1.04) translateZ(0);
+    box-shadow: 0 20px 60px var(--card-glow, rgba(0, 0, 0, 0.4)),
+                0 0 0 1px rgba(255, 255, 255, 0.08);
+  }
+}
+.service-card-glow {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  border-radius: inherit;
+  background: radial-gradient(circle at 50% 0%, var(--card-glow, transparent) 0%, transparent 65%);
+}
+.service-card:hover .service-card-glow { opacity: 1; }
+.service-card-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  border-radius: 1rem 1rem 0 0;
+  background: linear-gradient(90deg, transparent, var(--card-color, #fff), transparent);
+}
+.service-card-icon {
+  transition: transform 0.2s ease;
+}
+.service-card:hover .service-card-icon { transform: scale(1.12); }
+.service-card-arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+.service-card:hover .service-card-arrow { transform: translateX(6px); }
+
+/* ════════════════════════════════════════════════════════
+   PERFORMANCE — disable expensive animations on low-power devices
+════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  .hero-orb-1, .hero-orb-2, .hero-orb-3 { animation: none !important; }
+  .animate-marquee { animation: none !important; }
+}
