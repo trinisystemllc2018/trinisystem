@@ -4,13 +4,6 @@ import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-/* ════════════════════════════════════════════════════════════════
-   HERO SEARCH ISLAND
-   Tiny client component — only the search box hydrates immediately.
-   Everything else on the page stays as a static server-rendered shell
-   so the LCP element (headline) is in the HTML on first paint.
-═══════════════════════════════════════════════════════════════════ */
-
 const SEARCH_MAP: [string[], string][] = [
   [["printer","hp","canon","epson","brother","offline","ink","jam","not printing","cartridge"], "/printer-support"],
   [["virus","malware","popup","pop-up","spyware","scam","hacked","slow"],                       "/virus-removal"],
@@ -66,18 +59,18 @@ export function HeroSearchIsland() {
 
   return (
     <div className="w-full max-w-3xl mx-auto">
-      <p className="text-white/60 text-sm font-mono tracking-widest text-center mb-4 uppercase">
-        ↓ Type your problem or tap a quick fix below ↓
+      <p className="text-white/40 text-xs font-mono tracking-widest text-center mb-4 uppercase">
+        ↓ Type your problem or tap a quick fix ↓
       </p>
 
       <form onSubmit={e => { e.preventDefault(); submit(query); }} role="search">
         <div
           className="relative flex items-center rounded-2xl overflow-hidden transition-all duration-300"
           style={{
-            background: focused ? "#fff" : "#f1f5f9",
+            background: focused ? "#ffffff" : "#f8fafc",
             boxShadow: focused
-              ? "0 0 0 3px rgba(245,158,11,0.5), 0 20px 60px rgba(0,0,0,0.4)"
-              : "0 20px 60px rgba(0,0,0,0.3)",
+              ? "0 0 0 3px rgba(245,158,11,0.5), 0 0 0 1px rgba(245,158,11,0.8), 0 24px 60px rgba(0,0,0,0.5)"
+              : "0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.1)",
           }}
         >
           <span className="pl-5 text-2xl shrink-0 select-none" aria-hidden>🔍</span>
@@ -105,7 +98,10 @@ export function HeroSearchIsland() {
           <button
             type="submit"
             className="m-2 px-6 md:px-8 py-3.5 rounded-xl text-white font-black text-sm md:text-base btn-glow shrink-0 transition-all hover:scale-105 active:scale-95"
-            style={{ background: "linear-gradient(135deg, #f59e0b, #d97706)", boxShadow: "0 4px 20px rgba(245,158,11,0.5)" }}
+            style={{
+              background: "linear-gradient(135deg, #f59e0b, #d97706)",
+              boxShadow: "0 4px 20px rgba(245,158,11,0.5), inset 0 1px 0 rgba(255,255,255,0.2)",
+            }}
           >
             FIX IT →
           </button>
@@ -117,7 +113,23 @@ export function HeroSearchIsland() {
           <Link
             key={q.label}
             href={q.href}
-            className="px-4 py-2.5 rounded-full border border-white/15 text-sm text-white/80 hover:text-white hover:bg-amber-400/20 hover:border-amber-400/40 transition-all backdrop-blur-sm font-medium"
+            className="px-4 py-2.5 rounded-full text-sm font-medium transition-all hover:scale-105"
+            style={{
+              background: "rgba(255,255,255,0.06)",
+              border: "1px solid rgba(255,255,255,0.12)",
+              color: "rgba(255,255,255,0.7)",
+              backdropFilter: "blur(8px)",
+            }}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLElement).style.background = "rgba(245,158,11,0.15)";
+              (e.currentTarget as HTMLElement).style.borderColor = "rgba(245,158,11,0.4)";
+              (e.currentTarget as HTMLElement).style.color = "#fbbf24";
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.06)";
+              (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.12)";
+              (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.7)";
+            }}
           >
             {q.label}
           </Link>

@@ -65,6 +65,7 @@ export default function Home() {
         <div className="hero-orb hero-orb-1" aria-hidden="true" />
         <div className="hero-orb hero-orb-2" aria-hidden="true" />
         <div className="hero-orb hero-orb-3" aria-hidden="true" />
+        <div className="hero-orb hero-orb-4" aria-hidden="true" />
 
         <div className="relative z-10 flex-1 flex flex-col justify-center max-w-6xl mx-auto w-full px-4 pt-10 pb-16">
 
