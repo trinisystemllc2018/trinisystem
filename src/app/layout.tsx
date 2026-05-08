@@ -275,6 +275,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" dir="ltr">
       <head>
+        {/* Preconnect to critical origins */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        {/* Viewport meta for performance */}
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         {/* JSON-LD Schemas */}
         <script
           type="application/ld+json"
@@ -296,7 +303,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Google Tag Manager */}
         <Script
           id="gtm-script"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
