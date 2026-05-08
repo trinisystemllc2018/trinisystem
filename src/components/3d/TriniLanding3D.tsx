@@ -34,9 +34,13 @@ const DEVICES: Device[] = [
   { id: "router",  label: "Wi-Fi & Internet",  sub: "All guides & how-tos",         href: "/how-to",            glow: "#10b981", pos: [-1.0,  0.25, 2.0] },
 ];
 
-const benchMat = new THREE.MeshStandardMaterial({ color: "#8b5a2b", roughness: 0.85, metalness: 0.05 });
-const grainMat = new THREE.MeshStandardMaterial({ color: "#5a3818", roughness: 1 });
-const wallMat  = new THREE.MeshStandardMaterial({ color: "#2a1810", roughness: 1 });
+/* ── Lazy material factory — avoids SSR crash (THREE uses browser APIs) ── */
+let _benchMat: THREE.MeshStandardMaterial | null = null;
+let _grainMat: THREE.MeshStandardMaterial | null = null;
+let _wallMat:  THREE.MeshStandardMaterial | null = null;
+function getBenchMat() { return _benchMat ??= new THREE.MeshStandardMaterial({ color: "#8b5a2b", roughness: 0.85, metalness: 0.05 }); }
+function getGrainMat() { return _grainMat ??= new THREE.MeshStandardMaterial({ color: "#5a3818", roughness: 1 }); }
+function getWallMat()  { return _wallMat  ??= new THREE.MeshStandardMaterial({ color: "#2a1810", roughness: 1 }); }
 
 /* ── Props interfaces ── */
 interface DeviceMeshProps {
@@ -306,17 +310,17 @@ function SceneContent({ onHover, onLeave, onClick }: SceneProps) {
       {/* Bench surface */}
       <mesh receiveShadow position={[0, 0, 0]}>
         <boxGeometry args={[14, 0.2, 8]} />
-        <primitive object={benchMat} />
+        <primitive object={getBenchMat()} />
       </mesh>
       {[0,1,2,3,4,5,6,7].map(i => (
         <mesh key={i} position={[0, 0.105, -3.5 + i]}>
           <boxGeometry args={[14, 0.005, 0.04]} />
-          <primitive object={grainMat} />
+          <primitive object={getGrainMat()} />
         </mesh>
       ))}
       <mesh position={[0, 4, -6]} receiveShadow>
         <planeGeometry args={[24, 12]} />
-        <primitive object={wallMat} />
+        <primitive object={getWallMat()} />
       </mesh>
 
       <DeskLamp position={[-5, 0, -2]} />

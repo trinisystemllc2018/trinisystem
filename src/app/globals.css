@@ -2,15 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ── Custom Properties ── */
+/* ════════════════════════════════════════════════════════
+   TRINI SYSTEM — Global CSS
+   Dark + bright theme. Zero WebGL. Pure CSS animations.
+   Target: 90+ PageSpeed mobile.
+════════════════════════════════════════════════════════ */
+
 :root {
-  --font-inter: "Inter", system-ui, sans-serif;
-  --brand-gradient: linear-gradient(135deg, #2563eb 0%, #1d4ed8 60%, #1e40af 100%);
-  --hero-gradient: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 50%, #e0f2fe 100%);
-  --card-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.06);
+  --ts-dark:    #0a0f1e;
+  --ts-darker:  #060a14;
+  --ts-navy:    #0f1f3d;
+  --ts-amber:   #f59e0b;
+  --ts-amber-b: #fbbf24;
+  --ts-blue:    #3b82f6;
+  --ts-cyan:    #06b6d4;
+  --ts-green:   #10b981;
+  --ts-red:     #ef4444;
+  --ts-purple:  #8b5cf6;
+  --font-body:  "Inter", system-ui, sans-serif;
 }
 
-/* ── Base Resets ── */
 *, *::before, *::after { box-sizing: border-box; }
 
 html {
@@ -19,106 +30,203 @@ html {
 }
 
 body {
-  font-family: var(--font-inter);
-  line-height: 1.6;
-  color: #111827;
+  font-family: var(--font-body);
   background: #ffffff;
+  color: #111827;
   overflow-x: hidden;
-}
-
-/* ── Typography Accessibility (seniors) ── */
-@layer base {
-  h1 { @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight; }
-  h2 { @apply text-3xl md:text-4xl font-bold tracking-tight leading-tight; }
-  h3 { @apply text-xl md:text-2xl font-semibold; }
-  p  { @apply text-base md:text-lg leading-relaxed; }
+  line-height: 1.6;
 }
 
 /* ── Scrollbar ── */
-::-webkit-scrollbar       { width: 8px; }
-::-webkit-scrollbar-track { background: #f1f5f9; }
-::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: #64748b; }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0a0f1e; }
+::-webkit-scrollbar-thumb { background: #f59e0b; border-radius: 3px; }
 
-/* ── Focus States (accessibility) ── */
+/* ── Focus ── */
 :focus-visible {
-  outline: 3px solid #2563eb;
+  outline: 3px solid #f59e0b;
   outline-offset: 3px;
   border-radius: 4px;
 }
 
-/* ── Selection ── */
-::selection { background: #bfdbfe; color: #1e3a8a; }
+::selection { background: #fbbf24; color: #0a0f1e; }
 
-/* ── Animations ── */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-16px); }
-}
-@keyframes float-slow {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50%       { transform: translateY(-12px) rotate(2deg); }
-}
-@keyframes pulse-ring {
-  0%   { transform: scale(0.8); opacity: 1; }
-  100% { transform: scale(2); opacity: 0; }
-}
-@keyframes slideInUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes slideInLeft {
-  from { opacity: 0; transform: translateX(-40px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-@keyframes scaleIn {
-  from { opacity: 0; transform: scale(0.9); }
-  to   { opacity: 1; transform: scale(1); }
-}
-@keyframes bounce-soft {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-8px); }
-}
-@keyframes shimmer {
-  0%   { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-@keyframes shimmerText {
-  0%   { background-position: 0% center; }
-  100% { background-position: 200% center; }
-}
-
-/* ── Card 3D perspective ── */
-.perspective-card {
-  perspective: 800px;
-  transform-style: preserve-3d;
-}
-
-/* ── Text gradient utility ── */
+/* ── Text gradient utilities ── */
 .text-gradient {
-  background: var(--brand-gradient);
+  background: linear-gradient(135deg, #3b82f6, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.text-gradient-gold {
+  background: linear-gradient(135deg, #f59e0b, #fbbf24, #f59e0b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.text-gradient-trust {
+  background: linear-gradient(135deg, #10b981, #06b6d4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 /* ── Shadow utilities ── */
-.shadow-brand {
-  box-shadow: 0 8px 32px rgba(37, 99, 235, 0.35);
+.shadow-brand   { box-shadow: 0 8px 32px rgba(59,130,246,0.35); }
+.shadow-amber   { box-shadow: 0 8px 32px rgba(245,158,11,0.4); }
+.shadow-soft    { box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.06); }
+.shadow-soft-xl { box-shadow: 0 20px 60px -10px rgba(0,0,0,0.12), 0 8px 20px -5px rgba(0,0,0,0.08); }
+
+/* ════════════════════════════════════════════════════════
+   CSS KEYFRAME ANIMATIONS — all page transitions
+════════════════════════════════════════════════════════ */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
-.shadow-soft {
-  box-shadow: var(--card-shadow);
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(-24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(245,158,11,0.4); }
+  50%       { box-shadow: 0 0 0 12px rgba(245,158,11,0); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes scanLine {
+  0%   { top: 0%; opacity: 0.6; }
+  100% { top: 100%; opacity: 0; }
+}
+@keyframes orbitDot {
+  from { transform: rotate(0deg) translateX(60px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(60px) rotate(-360deg); }
+}
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes bounceArrow {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(6px); }
+}
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50%       { background-position: 100% 50%; }
+}
+@keyframes cardTiltIn {
+  from { opacity: 0; transform: perspective(600px) rotateY(-8deg) translateY(20px); }
+  to   { opacity: 1; transform: perspective(600px) rotateY(0deg) translateY(0); }
+}
+@keyframes typewriter {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+@keyframes ripple {
+  0%   { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 
-/* ── PERFORMANCE: Contain layout for 3D scene overlay ── */
-[data-page="home"] > * {
-  contain: layout style;
+/* ── Animation utility classes ── */
+.animate-fade-up       { animation: fadeUp 0.6s ease-out both; }
+.animate-fade-in       { animation: fadeIn 0.5s ease-out both; }
+.animate-scale-in      { animation: scaleIn 0.5s ease-out both; }
+.animate-float         { animation: float 4s ease-in-out infinite; }
+.animate-pulse-glow    { animation: pulseGlow 2s ease-in-out infinite; }
+.animate-shimmer       { background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.12) 50%, transparent 100%); background-size: 200% 100%; animation: shimmer 2s linear infinite; }
+.animate-bounce-arrow  { animation: bounceArrow 1.5s ease-in-out infinite; }
+.animate-gradient      { background-size: 200% 200%; animation: gradientShift 4s ease infinite; }
+.animate-spin-slow     { animation: spin 8s linear infinite; }
+.animate-count-up      { animation: countUp 0.6s ease-out both; }
+
+/* Stagger delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+.delay-700 { animation-delay: 0.7s; }
+.delay-800 { animation-delay: 0.8s; }
+
+/* ── Scroll-triggered reveal (IntersectionObserver sets this) ── */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-left { opacity: 0; transform: translateX(-28px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+/* ── Card 3D tilt (CSS hover, no JS) ── */
+.card-3d {
+  transition: transform 0.15s ease-out, box-shadow 0.2s ease;
+  transform-style: preserve-3d;
 }
-[data-page="home"] .fixed {
-  will-change: auto;
+.card-3d:hover {
+  transform: perspective(700px) rotateX(-3deg) rotateY(3deg) scale(1.02);
 }
 
-/* ── Reduce motion ── */
+/* ── Glow button animation ── */
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+}
+.btn-glow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+.btn-glow:hover::after { transform: translateX(100%); }
+
+/* ── Senior-focused large touch targets ── */
+.touch-target { min-height: 48px; min-width: 48px; }
+
+/* ── Gradient backgrounds ── */
+.bg-hero {
+  background: linear-gradient(135deg, #0a0f1e 0%, #0f1f3d 40%, #0a1628 70%, #0d1117 100%);
+}
+.bg-section-dark {
+  background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+}
+.bg-grid {
+  background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* ── Typography ── */
+@layer base {
+  h1 { @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight; }
+  h2 { @apply text-3xl md:text-4xl font-bold tracking-tight; }
+  h3 { @apply text-xl md:text-2xl font-semibold; }
+  p  { @apply text-base md:text-lg leading-relaxed; }
+}
+
+/* ── Reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -126,3 +234,16 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ── Marquee for trust ticker ── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+  white-space: nowrap;
+  display: inline-flex;
+  gap: 2.5rem;
+}
+.animate-marquee:hover { animation-play-state: paused; }

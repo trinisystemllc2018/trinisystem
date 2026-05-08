@@ -1,103 +1,113 @@
 "use client";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { PHONE_HREF, PHONE } from "@/lib/utils";
+import Link from "next/link";
+import { PHONE_HREF, PHONE, DOWNLOAD_URL } from "@/lib/utils";
 import { CallbackButton } from "@/components/ui/CallbackModal";
 
+/* Pure CSS transitions — no framer-motion = faster load */
 export function FloatingSupport() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 no-print flex flex-col items-end gap-3">
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.8, y: 20 }}
-            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="bg-white rounded-3xl shadow-soft-xl border border-gray-100 p-5 w-72"
-          >
-            {/* Header */}
-            <div className="flex items-center gap-3 mb-4">
-              <div className="relative">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 flex items-center justify-center text-white font-bold text-sm">
-                  TS
-                </div>
-                <div className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-white" />
-              </div>
-              <div>
-                <p className="font-semibold text-gray-900 text-sm">Trini System Support</p>
-                <p className="text-xs text-emerald-600 font-medium flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block" />
-                  Online — responding fast
-                </p>
-              </div>
-            </div>
-
-            <p className="text-sm text-gray-600 mb-4 leading-relaxed">
-              👋 Hi! Need help with your printer, PC, or want to download TriniCleaner?
-            </p>
-
-            <div className="space-y-2">
-              <a
-                href={PHONE_HREF}
-                className="flex items-center gap-3 p-3 rounded-2xl bg-blue-50 hover:bg-blue-100 transition-colors group"
-              >
-                <span className="text-xl">📞</span>
-                <div>
-                  <p className="text-sm font-semibold text-blue-700">Call Now</p>
-                  <p className="text-xs text-blue-500">{PHONE} — 24/7</p>
-                </div>
-                <svg className="ml-auto w-4 h-4 text-blue-400 group-hover:translate-x-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-
-              <CallbackButton
-                className="flex items-center gap-3 p-3 rounded-2xl bg-gray-50 hover:bg-gray-100 transition-colors group w-full text-left"
-              >
-                <span className="text-xl">📞</span>
-                <div>
-                  <p className="text-sm font-semibold text-gray-700">Request Callback</p>
-                  <p className="text-xs text-gray-500">We call you in under 5 min</p>
-                </div>
-                <svg className="ml-auto w-4 h-4 text-gray-400 group-hover:translate-x-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </CallbackButton>
-
-              <a
-                href="/products"
-                className="flex items-center gap-3 p-3 rounded-2xl bg-emerald-50 hover:bg-emerald-100 transition-colors group"
-              >
-                <span className="text-xl">⚡</span>
-                <div>
-                  <p className="text-sm font-semibold text-emerald-700">Free PC Cleaner</p>
-                  <p className="text-xs text-emerald-500">Download TriniCleaner free</p>
-                </div>
-                <svg className="ml-auto w-4 h-4 text-emerald-400 group-hover:translate-x-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Main Button */}
-      <motion.button
-        onClick={() => setOpen(o => !o)}
-        whileHover={{ scale: 1.08 }}
-        whileTap={{ scale: 0.94 }}
-        className="relative w-16 h-16 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-soft-xl flex items-center justify-center border-4 border-white focus:outline-none focus:ring-4 focus:ring-blue-300"
-        aria-label="Open support chat"
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+      {/* Panel */}
+      <div
+        className="w-72 rounded-3xl overflow-hidden"
+        style={{
+          background: "#0f172a",
+          border: "1px solid rgba(255,255,255,0.1)",
+          boxShadow: "0 20px 60px rgba(0,0,0,0.5)",
+          opacity: open ? 1 : 0,
+          transform: open ? "scale(1) translateY(0)" : "scale(0.9) translateY(16px)",
+          pointerEvents: open ? "auto" : "none",
+          transition: "opacity 0.25s ease, transform 0.25s ease",
+          transformOrigin: "bottom right",
+        }}
       >
-        {/* Pulse ring */}
-        <span className="absolute inset-0 rounded-full bg-blue-500 animate-ping opacity-20" />
+        {/* Header */}
+        <div className="px-5 py-4 flex items-center gap-3"
+          style={{ background: "linear-gradient(135deg, #1e3a8a, #1d4ed8)" }}>
+          <div className="relative">
+            <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white font-black text-sm">TS</div>
+            <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-green-400 border-2 border-blue-900" />
+          </div>
+          <div>
+            <p className="font-bold text-white text-sm">Trini System Support</p>
+            <p className="text-blue-200 text-xs flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block" />
+              Online · Responding fast
+            </p>
+          </div>
+        </div>
 
-        <AnimatePresence mode="wait">
-          {open ? (
-            <motion.svg key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }} className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 6L6 18M6 6l12 12"/></motion.svg>
-          ) : (
-            <motion.span key="chat" initial={{ scale: 0.7, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.7, opacity: 0 }} transition={{ duration: 0.2 }} className="text-2xl">💬</motion.span>
-          )}
-        </AnimatePresence>
-      </motion.button>
+        <div className="p-4 space-y-2">
+          <p className="text-white/60 text-sm px-1 pb-2">👋 Need help with your printer, PC, or GPS?</p>
+
+          <a href={PHONE_HREF}
+            className="flex items-center gap-3 p-3 rounded-2xl group transition-colors"
+            style={{ background: "rgba(59,130,246,0.15)", border: "1px solid rgba(59,130,246,0.3)" }}>
+            <span className="text-2xl">📞</span>
+            <div className="flex-1">
+              <p className="text-sm font-bold text-blue-300">Call Now — Free</p>
+              <p className="text-xs text-blue-400/70">{PHONE} · 24/7</p>
+            </div>
+            <span className="text-blue-400 group-hover:translate-x-1 transition-transform">→</span>
+          </a>
+
+          <CallbackButton className="flex items-center gap-3 p-3 rounded-2xl w-full text-left group transition-colors"
+            style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)" } as any}>
+            <span className="text-2xl">📅</span>
+            <div className="flex-1">
+              <p className="text-sm font-bold text-white">Request Callback</p>
+              <p className="text-xs text-white/40">We call you in under 5 min</p>
+            </div>
+            <span className="text-white/40 group-hover:translate-x-1 transition-transform">→</span>
+          </CallbackButton>
+
+          <a href={DOWNLOAD_URL} target="_blank" rel="noopener noreferrer"
+            className="flex items-center gap-3 p-3 rounded-2xl group transition-colors"
+            style={{ background: "rgba(16,185,129,0.15)", border: "1px solid rgba(16,185,129,0.3)" }}>
+            <span className="text-2xl">⚡</span>
+            <div className="flex-1">
+              <p className="text-sm font-bold text-emerald-300">Free PC Cleaner</p>
+              <p className="text-xs text-emerald-400/70">TriniCleaner · Windows</p>
+            </div>
+            <span className="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+          </a>
+
+          <Link href="/how-to"
+            className="flex items-center gap-3 p-3 rounded-2xl group transition-colors"
+            style={{ background: "rgba(245,158,11,0.15)", border: "1px solid rgba(245,158,11,0.3)" }}>
+            <span className="text-2xl">📖</span>
+            <div className="flex-1">
+              <p className="text-sm font-bold text-amber-300">Free Guides</p>
+              <p className="text-xs text-amber-400/70">Gmail · Facebook · Garmin</p>
+            </div>
+            <span className="text-amber-400 group-hover:translate-x-1 transition-transform">→</span>
+          </Link>
+        </div>
+      </div>
+
+      {/* Toggle button */}
+      <button
+        onClick={() => setOpen(o => !o)}
+        className="relative w-16 h-16 rounded-full text-white flex items-center justify-center border-4 border-white/10 transition-all hover:scale-110 active:scale-95 focus:outline-none"
+        style={{
+          background: open
+            ? "linear-gradient(135deg, #dc2626, #b91c1c)"
+            : "linear-gradient(135deg, #2563eb, #1d4ed8)",
+          boxShadow: open
+            ? "0 0 0 0 transparent"
+            : "0 0 40px rgba(37,99,235,0.5), 0 8px 32px rgba(0,0,0,0.4)",
+        }}
+        aria-label={open ? "Close support menu" : "Open support menu"}
+      >
+        {/* Pulse ring when closed */}
+        {!open && <span className="absolute inset-0 rounded-full bg-blue-500 animate-ping opacity-20" />}
+        <span className="text-2xl transition-transform duration-200" style={{ transform: open ? "rotate(45deg)" : "rotate(0)" }}>
+          {open ? "✕" : "💬"}
+        </span>
+      </button>
     </div>
   );
 }
