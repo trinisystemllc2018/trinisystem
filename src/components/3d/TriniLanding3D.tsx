@@ -1,38 +1,70 @@
 "use client";
 
 import { useRef, useState, useCallback, useEffect } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, ThreeEvent } from "@react-three/fiber";
 import { Float, ContactShadows, Environment } from "@react-three/drei";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import * as THREE from "three";
 import { useRouter } from "next/navigation";
 
 /*
-  PERFORMANCE-OPTIMIZED 3D LANDING — key changes vs original:
-  1. dpr capped [1, 1.5] — was [1, 2] — halves pixel fill on Retina
+  PERFORMANCE-OPTIMIZED 3D LANDING
+  1. dpr capped [1, 1.5] — halves pixel fill on Retina
   2. Removed Sparkles (40 draw calls/frame), drei/Text (1MB font atlas)
   3. CSS vignette replaces postprocessing Vignette (zero GPU)
   4. HTML overlay labels instead of 3D Text objects
-  5. ContactShadows opacity/blur tightened
-  6. Reduced polygon counts on all geometries
-  7. gl.stencil=false — saves framebuffer memory
+  5. Reduced polygon counts on all geometries
+  6. gl.stencil=false — saves framebuffer memory
 */
 
-const DEVICES = [
-  { id: "printer",  label: "Printer Help",        sub: "HP · Canon · Epson · Brother", href: "/printer-support",   glow: "#3b82f6", pos: [-3.0,  0.4, -0.5] },
-  { id: "laptop",   label: "Computer Help",        sub: "Slow PC · Windows fix",        href: "/computer-help",     glow: "#8b5cf6", pos: [ 0.0,  0.3,  0.5] },
-  { id: "phone",    label: "Email & Apps Help",    sub: "Gmail · Facebook",             href: "/how-to/gmail-help", glow: "#1a73e8", pos: [ 2.5,  0.15, 1.3] },
-  { id: "garmin",   label: "Garmin GPS Help",      sub: "Maps · Updates · DriveSmart",  href: "/garmin-gps-help",   glow: "#0070BB", pos: [ 3.6,  0.2, -0.7] },
-  { id: "router",   label: "Wi-Fi & Internet",     sub: "All guides & how-tos",         href: "/how-to",            glow: "#10b981", pos: [-1.0,  0.25, 2.0] },
+type Device = {
+  id: string;
+  label: string;
+  sub: string;
+  href: string;
+  glow: string;
+  pos: [number, number, number];
+};
+
+const DEVICES: Device[] = [
+  { id: "printer", label: "Printer Help",      sub: "HP · Canon · Epson · Brother", href: "/printer-support",   glow: "#3b82f6", pos: [-3.0,  0.4, -0.5] },
+  { id: "laptop",  label: "Computer Help",     sub: "Slow PC · Windows fix",        href: "/computer-help",     glow: "#8b5cf6", pos: [ 0.0,  0.3,  0.5] },
+  { id: "phone",   label: "Email & Apps Help", sub: "Gmail · Facebook",             href: "/how-to/gmail-help", glow: "#1a73e8", pos: [ 2.5,  0.15, 1.3] },
+  { id: "garmin",  label: "Garmin GPS Help",   sub: "Maps · Updates · DriveSmart",  href: "/garmin-gps-help",   glow: "#0070BB", pos: [ 3.6,  0.2, -0.7] },
+  { id: "router",  label: "Wi-Fi & Internet",  sub: "All guides & how-tos",         href: "/how-to",            glow: "#10b981", pos: [-1.0,  0.25, 2.0] },
 ];
 
 const benchMat = new THREE.MeshStandardMaterial({ color: "#8b5a2b", roughness: 0.85, metalness: 0.05 });
 const grainMat = new THREE.MeshStandardMaterial({ color: "#5a3818", roughness: 1 });
 const wallMat  = new THREE.MeshStandardMaterial({ color: "#2a1810", roughness: 1 });
 
-function DeviceMesh({ device, onHover, onLeave, onClick }) {
-  const groupRef = useRef(null);
-  const glowRef  = useRef(null);
+/* ── Props interfaces ── */
+interface DeviceMeshProps {
+  device: Device;
+  onHover: (id: string, pos: { x: number; y: number }) => void;
+  onLeave: () => void;
+  onClick: (href: string) => void;
+}
+
+interface SceneProps {
+  onHover: (id: string, pos: { x: number; y: number }) => void;
+  onLeave: () => void;
+  onClick: (href: string) => void;
+}
+
+interface HoverLabelProps {
+  device: Device | null;
+  pos: { x: number; y: number };
+}
+
+interface PositionProps {
+  position: [number, number, number];
+}
+
+/* ── Device mesh ── */
+function DeviceMesh({ device, onHover, onLeave, onClick }: DeviceMeshProps) {
+  const groupRef = useRef<THREE.Group>(null);
+  const glowRef  = useRef<THREE.MeshBasicMaterial>(null);
   const [hovered, setHovered] = useState(false);
   const baseY = device.pos[1];
 
@@ -50,8 +82,8 @@ function DeviceMesh({ device, onHover, onLeave, onClick }) {
     <group
       ref={groupRef}
       position={device.pos}
-      onClick={(e) => { e.stopPropagation(); onClick(device.href); }}
-      onPointerOver={(e) => {
+      onClick={(e: ThreeEvent<MouseEvent>) => { e.stopPropagation(); onClick(device.href); }}
+      onPointerOver={(e: ThreeEvent<PointerEvent>) => {
         e.stopPropagation();
         setHovered(true);
         document.body.style.cursor = "pointer";
@@ -76,6 +108,7 @@ function DeviceMesh({ device, onHover, onLeave, onClick }) {
   );
 }
 
+/* ── Device geometries ── */
 function PrinterGeom() {
   return (
     <group>
@@ -127,7 +160,6 @@ function LaptopGeom() {
           <planeGeometry args={[2.0, 1.25]} />
           <meshStandardMaterial color="#1e3a8a" emissive="#3b82f6" emissiveIntensity={0.7} toneMapped={false} />
         </mesh>
-        {/* Simple grid lines on screen as CSS */}
       </group>
     </group>
   );
@@ -164,7 +196,7 @@ function GarminGeom() {
 }
 
 function RouterLed() {
-  const ref = useRef(null);
+  const ref = useRef<THREE.MeshBasicMaterial>(null);
   useFrame(({ clock }) => {
     if (ref.current) ref.current.color.setHex(Math.sin(clock.elapsedTime * 3.5) > 0 ? 0x00ff88 : 0x003311);
   });
@@ -183,18 +215,21 @@ function RouterGeom() {
         <boxGeometry args={[1.4, 0.3, 0.7]} />
         <meshStandardMaterial color="#1f2937" metalness={0.4} roughness={0.5} />
       </mesh>
-      {[[-0.5, 0.15], [0.5, -0.15]].map(([x, rot], i) => (
-        <mesh key={i} position={[x, 0.65, -0.25]} rotation={[0, 0, rot]}>
-          <cylinderGeometry args={[0.04, 0.04, 0.7, 6]} />
-          <meshStandardMaterial color="#1a1a1a" />
-        </mesh>
-      ))}
+      <mesh position={[-0.5, 0.65, -0.25]} rotation={[0, 0, 0.15]}>
+        <cylinderGeometry args={[0.04, 0.04, 0.7, 6]} />
+        <meshStandardMaterial color="#1a1a1a" />
+      </mesh>
+      <mesh position={[0.5, 0.65, -0.25]} rotation={[0, 0, -0.15]}>
+        <cylinderGeometry args={[0.04, 0.04, 0.7, 6]} />
+        <meshStandardMaterial color="#1a1a1a" />
+      </mesh>
       <RouterLed />
     </group>
   );
 }
 
-function DeskLamp({ position }) {
+/* ── Decorations ── */
+function DeskLamp({ position }: PositionProps) {
   return (
     <group position={position}>
       <mesh position={[0, 0.15, 0]}>
@@ -219,7 +254,7 @@ function DeskLamp({ position }) {
   );
 }
 
-function CoffeeMug({ position }) {
+function CoffeeMug({ position }: PositionProps) {
   return (
     <group position={position}>
       <mesh castShadow position={[0, 0.4, 0]}>
@@ -244,7 +279,7 @@ function CoffeeMug({ position }) {
   );
 }
 
-function Notebook({ position }) {
+function Notebook({ position }: PositionProps) {
   return (
     <group position={position} rotation={[0, 0.3, 0]}>
       <mesh castShadow position={[0, 0.05, 0]}>
@@ -259,14 +294,16 @@ function Notebook({ position }) {
   );
 }
 
-function SceneContent({ onHover, onLeave, onClick }) {
+/* ── Full scene content ── */
+function SceneContent({ onHover, onLeave, onClick }: SceneProps) {
   return (
     <>
-      <pointLight position={[-3, 5, 2]} intensity={2.5} distance={14} color="#ffc77a" castShadow shadow-mapSize={[512, 512]} />
+      <pointLight position={[-3, 5, 2]} intensity={2.5} distance={14} color="#ffc77a" castShadow />
       <pointLight position={[3, 4, -2]} intensity={1.2} distance={12} color="#ffd9a8" />
       <directionalLight position={[5, 6, 5]} intensity={0.4} color="#88aaff" />
       <ambientLight intensity={0.25} color="#ffe5c0" />
 
+      {/* Bench surface */}
       <mesh receiveShadow position={[0, 0, 0]}>
         <boxGeometry args={[14, 0.2, 8]} />
         <primitive object={benchMat} />
@@ -283,9 +320,11 @@ function SceneContent({ onHover, onLeave, onClick }) {
       </mesh>
 
       <DeskLamp position={[-5, 0, -2]} />
+
       {DEVICES.map(d => (
         <DeviceMesh key={d.id} device={d} onHover={onHover} onLeave={onLeave} onClick={onClick} />
       ))}
+
       <CoffeeMug position={[4.5, 0.2, 1.8]} />
       <Notebook   position={[1.5, 0.06, -1.8]} />
 
@@ -300,14 +339,21 @@ function SceneContent({ onHover, onLeave, onClick }) {
   );
 }
 
-function HoverLabel({ device, pos }) {
+/* ── HTML hover tooltip ── */
+function HoverLabel({ device, pos }: HoverLabelProps) {
   if (!device) return null;
   return (
     <div
       className="fixed z-50 pointer-events-none select-none"
-      style={{ left: pos.x, top: pos.y - 96, transform: "translateX(-50%)", animation: "tsHoverIn 0.15s ease-out" }}
+      style={{
+        left: pos.x,
+        top: pos.y - 96,
+        transform: "translateX(-50%)",
+        animation: "tsHoverIn 0.15s ease-out",
+      }}
     >
-      <div className="bg-[#fff8e7] rounded-xl px-5 py-3 shadow-2xl border border-amber-200/60"
+      <div
+        className="bg-[#fff8e7] rounded-xl px-5 py-3 border border-amber-200/60"
         style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.45), 0 0 0 1px rgba(251,191,36,0.25)" }}
       >
         <div className="font-black text-stone-800 text-base">{device.label}</div>
@@ -319,20 +365,24 @@ function HoverLabel({ device, pos }) {
   );
 }
 
+/* ── Main export ── */
 export default function TriniLanding3D() {
   const router = useRouter();
-  const [hovered, setHovered] = useState(null);
+  const [hovered, setHovered] = useState<Device | null>(null);
   const [pos, setPos] = useState({ x: 0, y: 0 });
 
-  const onHover = useCallback((id, p) => {
+  const onHover = useCallback((id: string, p: { x: number; y: number }) => {
     setHovered(DEVICES.find(d => d.id === id) ?? null);
     setPos(p);
   }, []);
+
   const onLeave = useCallback(() => setHovered(null), []);
-  const onClick = useCallback((href) => router.push(href), [router]);
+  const onClick = useCallback((href: string) => router.push(href), [router]);
 
   useEffect(() => {
-    const move = (e) => { if (hovered) setPos({ x: e.clientX, y: e.clientY }); };
+    const move = (e: MouseEvent) => {
+      if (hovered) setPos({ x: e.clientX, y: e.clientY });
+    };
     window.addEventListener("mousemove", move, { passive: true });
     return () => window.removeEventListener("mousemove", move);
   }, [hovered]);
@@ -352,8 +402,9 @@ export default function TriniLanding3D() {
         <SceneContent onHover={onHover} onLeave={onLeave} onClick={onClick} />
       </Canvas>
 
-      {/* CSS vignette (replaces GPU postprocessing Vignette) */}
-      <div className="fixed inset-0 z-10 pointer-events-none"
+      {/* CSS vignette — replaces GPU postprocessing Vignette */}
+      <div
+        className="fixed inset-0 z-10 pointer-events-none"
         style={{ background: "radial-gradient(ellipse at 50% 50%, transparent 35%, rgba(0,0,0,0.72) 100%)" }}
       />
 
