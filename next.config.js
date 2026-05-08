@@ -4,7 +4,6 @@ const nextConfig = {
   compress: true,
 
   experimental: {
-    optimizeCss: true,
     optimizePackageImports: [
       "@react-three/fiber",
       "@react-three/drei",
