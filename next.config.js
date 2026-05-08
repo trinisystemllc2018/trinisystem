@@ -1,16 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Performance: compress output
   compress: true,
 
   experimental: {
     optimizePackageImports: [
-      "@react-three/fiber",
-      "@react-three/drei",
-      "@react-three/postprocessing",
       "framer-motion",
       "lucide-react",
-      "three",
     ],
   },
 
