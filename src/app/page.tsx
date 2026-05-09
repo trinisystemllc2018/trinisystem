@@ -61,6 +61,9 @@ export default function Home() {
       {/* ══ HERO ════════════════════════════════════════════════════════
          Fully server-rendered. The H1 is the LCP element, ships in HTML. */}
       <section className="relative bg-hero bg-grid overflow-hidden min-h-screen flex flex-col" aria-label="Hero">
+        {/* Aurora ribbon — animated conic gradient */}
+        <div className="aurora" aria-hidden="true" />
+
         {/* Decorative orbs — pure CSS, animation disabled on mobile via media query */}
         <div className="hero-orb hero-orb-1" aria-hidden="true" />
         <div className="hero-orb hero-orb-2" aria-hidden="true" />
@@ -69,35 +72,33 @@ export default function Home() {
 
         <div className="relative z-10 flex-1 flex flex-col justify-center max-w-6xl mx-auto w-full px-4 pt-10 pb-16">
 
+          {/* Live status badge */}
           <div className="animate-fade-up flex justify-center mb-8">
-            <div className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-mono tracking-widest uppercase"
-              style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)" }}>
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-400" />
-              </span>
-              <span className="text-white/70">Technician Available Now · {PHONE}</span>
+            <div className="glass-card inline-flex items-center gap-3 rounded-full px-5 py-2.5 text-xs font-mono tracking-widest uppercase">
+              <span className="pulse-dot" aria-hidden="true" />
+              <span className="text-white/80">Technician Available Now · {PHONE}</span>
             </div>
           </div>
 
           {/* Main headline — LCP element. No animation delay on the critical text. */}
           <div className="text-center mb-6">
             <h1 className="font-black text-white leading-[1.05] tracking-tight"
-              style={{ fontSize: "clamp(2.6rem,7vw,5rem)" }}>
+              style={{ fontSize: "clamp(2.6rem,7vw,5rem)", textShadow: "0 4px 30px rgba(0,0,0,0.5)" }}>
               Your Tech Problem,
-              <span className="block text-gradient-gold" style={{ fontSize: "clamp(2.6rem,7vw,5rem)" }}>
+              <span className="block text-gradient-gold-shimmer" style={{ fontSize: "clamp(2.8rem,7.5vw,5.5rem)" }}>
                 Fixed Today.
               </span>
             </h1>
-            <p className="animate-fade-up delay-200 text-white/55 text-lg md:text-xl mt-5 max-w-2xl mx-auto">
+            <p className="animate-fade-up delay-200 text-white/65 text-lg md:text-xl mt-5 max-w-2xl mx-auto">
               Real technicians fix printers, slow computers, GPS devices, Gmail, and Facebook — remotely in minutes. Senior-friendly. 24/7.
             </p>
           </div>
 
+          {/* Primary CTAs */}
           <div className="animate-fade-up delay-300 flex flex-col sm:flex-row gap-4 justify-center mb-10">
             <a href={PHONE_HREF}
-              className="btn-glow touch-target flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-black text-lg text-black transition-all hover:scale-105 active:scale-95 animate-pulse-glow"
-              style={{ background: "linear-gradient(135deg, #f59e0b, #fbbf24)", boxShadow: "0 0 40px rgba(245,158,11,0.5), 0 8px 32px rgba(0,0,0,0.3)" }}>
+              className="cta-glow-ring touch-target flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-black text-lg text-black transition-all hover:scale-105 active:scale-95"
+              style={{ background: "linear-gradient(135deg, #f59e0b, #fbbf24)", boxShadow: "0 8px 32px rgba(0,0,0,0.4)" }}>
               <span className="relative flex h-3 w-3">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75" />
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500" />
@@ -105,8 +106,7 @@ export default function Home() {
               📞 {PHONE} — Call Free
             </a>
             <Link href="/how-to"
-              className="btn-glow touch-target flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-black text-lg text-white transition-all hover:scale-105 active:scale-95"
-              style={{ background: "rgba(255,255,255,0.08)", border: "2px solid rgba(255,255,255,0.2)" }}>
+              className="glass-card touch-target flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-black text-lg text-white transition-all hover:scale-105 active:scale-95 hover:bg-white/10">
               📖 Browse Free Guides →
             </Link>
           </div>
@@ -116,11 +116,12 @@ export default function Home() {
             <HeroSearchIsland />
           </div>
 
-          <div className="animate-fade-up delay-500 flex flex-wrap justify-center gap-6 mt-10">
+          {/* Trust stats — 3D depth with glass background */}
+          <div className="animate-fade-up delay-500 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mt-10 max-w-3xl mx-auto">
             {TRUST_STATS.map(t => (
-              <div key={t.label} className="text-center">
-                <div className="text-2xl md:text-3xl font-black" style={{ color: t.color }}>{t.val}</div>
-                <div className="text-white/40 text-xs font-mono tracking-wider mt-0.5">{t.label}</div>
+              <div key={t.label} className="glass-card text-center rounded-2xl py-4 px-3">
+                <div className="stat-3d text-2xl md:text-3xl font-black" style={{ color: t.color }}>{t.val}</div>
+                <div className="text-white/45 text-[11px] font-mono tracking-wider mt-1 uppercase">{t.label}</div>
               </div>
             ))}
           </div>

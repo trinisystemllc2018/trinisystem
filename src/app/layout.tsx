@@ -320,7 +320,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }}
         />
       </head>
-      <body className="bg-white text-gray-900 antialiased font-sans">
+      <body className="bg-[#050d1a] text-white antialiased font-sans">
         {/* GTM noscript */}
         <noscript>
           <iframe
