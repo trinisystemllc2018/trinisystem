@@ -25,16 +25,16 @@ const BelowFoldSections = dynamic(
 );
 
 const SERVICES = [
-  { icon: "🖨️", label: "Printer Help",      sub: "HP · Canon · Epson · Brother",   href: "/printer-support",      color: "#3b82f6", glow: "rgba(59,130,246,0.5)"  },
-  { icon: "💻", label: "Computer Help",     sub: "Slow PC · Windows errors",        href: "/computer-help",        color: "#8b5cf6", glow: "rgba(139,92,246,0.5)"  },
-  { icon: "🛡️", label: "Virus Removal",    sub: "Malware · Pop-ups · Hijacks",     href: "/virus-removal",        color: "#ef4444", glow: "rgba(239,68,68,0.5)"   },
-  { icon: "🗺️", label: "GPS Help",         sub: "Garmin · Maps · Updates",         href: "/garmin-gps-help",      color: "#06b6d4", glow: "rgba(6,182,212,0.5)"   },
-  { icon: "✉️", label: "Gmail & Email",    sub: "Login · Recovery · Setup",        href: "/how-to/gmail-help",    color: "#f97316", glow: "rgba(249,115,22,0.5)"  },
-  { icon: "👥", label: "Facebook Help",    sub: "Hacked · Recovery · Privacy",     href: "/how-to/facebook-help", color: "#1877f2", glow: "rgba(24,119,242,0.5)"  },
-  { icon: "⌚", label: "Garmin Devices",   sub: "GPS · Watch · Marine",            href: "/garmin-gps-help",      color: "#0ea5e9", glow: "rgba(14,165,233,0.5)"  },
-  { icon: "📖", label: "How-To Guides",   sub: "Step-by-step for seniors",         href: "/how-to",               color: "#f59e0b", glow: "rgba(245,158,11,0.5)"  },
-  { icon: "⚡", label: "Free PC Cleaner", sub: "TriniCleaner — download free",     href: "/products",             color: "#10b981", glow: "rgba(16,185,129,0.5)"  },
-  { icon: "🌎", label: "All Services",    sub: "Full list of what we fix",         href: "/services",             color: "#a855f7", glow: "rgba(168,85,247,0.5)"  },
+  { icon: "🖨️", label: "Printer Help",        sub: "HP · Canon · Epson · Brother",   href: "/printer-support",        color: "#3b82f6", glow: "rgba(59,130,246,0.5)"  },
+  { icon: "💻", label: "Computer Help",       sub: "Slow PC · Windows errors",        href: "/computer-help",          color: "#8b5cf6", glow: "rgba(139,92,246,0.5)"  },
+  { icon: "🛡️", label: "Virus Removal",      sub: "Malware · Pop-ups · Hijacks",     href: "/virus-removal",          color: "#ef4444", glow: "rgba(239,68,68,0.5)"   },
+  { icon: "🔌", label: "Printer Offline Fix", sub: "HP offline · Any brand",          href: "/hp-printer-offline",     color: "#06b6d4", glow: "rgba(6,182,212,0.5)"   },
+  { icon: "🚫", label: "Printer Won't Print", sub: "Stuck queue · Driver fix",        href: "/printer-wont-print",     color: "#f97316", glow: "rgba(249,115,22,0.5)"  },
+  { icon: "🐌", label: "Win 11 Slow Fix",     sub: "Speed up PC · Free tools",        href: "/windows-11-slow-fix",    color: "#10b981", glow: "rgba(16,185,129,0.5)"  },
+  { icon: "🔵", label: "Brother Printer",     sub: "MFC · HL · DCP series",           href: "/brother-printer-repair", color: "#004B9C", glow: "rgba(0,75,156,0.5)"    },
+  { icon: "🗺️", label: "GPS Help",           sub: "Garmin · Maps · Updates",         href: "/garmin-gps-help",        color: "#0ea5e9", glow: "rgba(14,165,233,0.5)"  },
+  { icon: "✉️", label: "Gmail & Email",      sub: "Login · Recovery · Setup",        href: "/how-to/gmail-help",      color: "#f59e0b", glow: "rgba(245,158,11,0.5)"  },
+  { icon: "⚡", label: "Free PC Cleaner",    sub: "TriniCleaner — download free",     href: "/products",               color: "#a855f7", glow: "rgba(168,85,247,0.5)"  },
 ];
 
 const TRUST_STATS = [

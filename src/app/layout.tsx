@@ -272,7 +272,7 @@ const speakableSchema = {
   "name": "Trini System LLC — Printer & PC Repair",
   "speakable": {
     "@type": "SpeakableSpecification",
-    "cssSelector": ["h1", "h2", ".speakable-summary"],
+    "cssSelector": ["h1", "h2", ".speakable-summary", ".faq-answer", ".step-description"],
     "xpath": [
       "/html/head/title",
       "/html/head/meta[@name='description']/@content",

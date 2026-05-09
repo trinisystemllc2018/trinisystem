@@ -8,10 +8,10 @@ const footerSections = [
       { label: "HP Printer Repair",          href: "/hp-printer-repair" },
       { label: "Canon Printer Repair",       href: "/canon-printer-repair" },
       { label: "Epson Printer Repair",       href: "/epson-printer-repair" },
+      { label: "Brother Printer Repair",     href: "/brother-printer-repair" },
       { label: "Printer Repair Near Me",     href: "/printer-repair-near-me" },
       { label: "HP Printer Service",         href: "/hp-printer-service" },
       { label: "Epson Service NYC",          href: "/epson-service-nyc" },
-      { label: "Epson Plotters & SureColor", href: "/epson-plotters" },
     ],
   },
   {
@@ -32,12 +32,14 @@ const footerSections = [
   {
     title: "Common Fixes",
     links: [
-      { label: "HP Printer Offline Fix",       href: "/fix-printer/hp/offline" },
-      { label: "HP Printer Not Printing",      href: "/fix-printer/hp/not-printing" },
-      { label: "Canon B200 Error Fix",         href: "/fix-printer/canon/error-code" },
-      { label: "Epson Ink Error Fix",          href: "/fix-printer/epson/error-code" },
-      { label: "Brother WiFi Setup",           href: "/fix-printer/brother/wifi-setup" },
-      { label: "Garmin DriveSmart 65 Update",  href: "/garmin-update/drivesmart-65" },
+      { label: "HP Printer Offline Fix",       href: "/hp-printer-offline" },
+      { label: "Printer Won't Print Fix",      href: "/printer-wont-print" },
+      { label: "Windows 11 Slow Fix",          href: "/windows-11-slow-fix" },
+      { label: "Canon B200 Error Fix",         href: "/error-code/canon/b200" },
+      { label: "Epson 0x97 Error Fix",         href: "/error-code/epson/0x97" },
+      { label: "HP OXc19a0035 Fix",            href: "/error-code/hp/OXc19a0035" },
+      { label: "Brother Driver Unavailable",   href: "/error-code/brother/driver-unavailable" },
+      { label: "HP vs Canon Comparison",       href: "/compare/hp-vs-canon" },
     ],
   },
   {
@@ -195,7 +197,7 @@ export function Footer() {
         {/* Bottom */}
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-gray-500 text-center md:text-left">
-            © 2016–2025 Trini System LLC · Corona, Queens, NY · Independent tech support — not affiliated with HP, Canon, Epson, Brother or Best Buy.
+            © 2016–2026 Trini System LLC · Corona, Queens, NY · Independent tech support — not affiliated with HP, Canon, Epson, Brother or Best Buy.
           </p>
           <div className="flex items-center gap-3">
             {["24/7 Available", "Est. 2016", "All 50 States", "4.9★ Google"].map(b => (
