@@ -68,8 +68,12 @@ const nextConfig = {
   async redirects() {
     return [
       { source: "/fix", destination: "/printer-support", permanent: true },
-      // Additional redirects for common typos/old paths
       { source: "/support", destination: "/printer-support", permanent: false },
+      { source: "/hp-offline", destination: "/hp-printer-offline", permanent: true },
+      { source: "/printer-not-printing", destination: "/printer-wont-print", permanent: true },
+      { source: "/windows-slow", destination: "/windows-11-slow-fix", permanent: true },
+      { source: "/brother", destination: "/brother-printer-repair", permanent: false },
+      { source: "/compare", destination: "/comparison", permanent: false },
     ];
   },
 };
