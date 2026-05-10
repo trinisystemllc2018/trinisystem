@@ -76,9 +76,9 @@ body {
   border-radius: 50%;
   z-index: 99999;
   pointer-events: none;
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  /* will-change added dynamically only on pointer:fine devices */
+  /* GPU composite layer for smooth tracking */
+  will-change: transform;
+  transform: translate(-200px, -200px); /* start off-screen */
 }
 .cursor-dot {
   width: 8px;
@@ -108,6 +108,7 @@ body {
   background: #ef4444;
   box-shadow: 0 0 18px rgba(239, 68, 68, 1), 0 0 36px rgba(239, 68, 68, 0.6);
 }
+/* Hide on touch/coarse devices and when motion is reduced */
 @media (pointer: coarse), (prefers-reduced-motion: reduce) {
   .cursor-dot, .cursor-outline { display: none !important; }
   body, a, button, [role="button"], input, textarea, select, summary, label,
@@ -177,10 +178,14 @@ body {
    BACKGROUNDS
 ════════════════════════════════════════════════════════ */
 .bg-hero {
-  /* Mobile: solid color — skip expensive radial gradients on small GPUs */
+  /* Lightweight gradient on mobile — visible but not expensive */
+  background:
+    radial-gradient(ellipse 90% 60% at 15% 10%, rgba(249, 115, 22, 0.15) 0%, transparent 55%),
+    radial-gradient(ellipse 70% 50% at 85% 80%, rgba(239, 68, 68, 0.12) 0%, transparent 50%),
+    hsl(240 10% 3.9%);
   background-color: hsl(240 10% 3.9%);
 }
-/* Desktop gets the full gradient treatment */
+/* Desktop gets the full multi-layer gradient */
 @media (min-width: 768px) {
   .bg-hero {
     background:
@@ -344,23 +349,49 @@ body {
 .rotateX-0 { transform: rotateX(0deg); }
 
 /* ════════════════════════════════════════════════════════
-   HERO ORBS — hidden on mobile, shown on desktop only
+   HERO ORBS — full glow effect on all screen sizes
+   NOTE: display:none removed from mobile; we use lighter
+   values on small screens to keep performance acceptable.
 ════════════════════════════════════════════════════════ */
 .hero-orb {
-  display: none; /* hidden on mobile by default */
   position: absolute;
   border-radius: 9999px;
   pointer-events: none;
 }
+/* Mobile: lightweight orbs (smaller, less blur, no animation) */
+.hero-orb-1 {
+  top: -5%; left: -10%;
+  width: 340px; height: 340px;
+  opacity: 0.4;
+  filter: blur(60px);
+  background: radial-gradient(circle, #f97316 0%, #c2410c 40%, transparent 70%);
+}
+.hero-orb-2 {
+  bottom: -5%; right: -5%;
+  width: 280px; height: 280px;
+  opacity: 0.35;
+  filter: blur(50px);
+  background: radial-gradient(circle, #ef4444 0%, #b91c1c 40%, transparent 70%);
+}
+.hero-orb-3 {
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px; height: 200px;
+  opacity: 0.2;
+  filter: blur(80px);
+  background: radial-gradient(ellipse, #f59e0b 0%, #b45309 50%, transparent 70%);
+}
+.hero-orb-4 {
+  display: none; /* skip orb-4 on mobile */
+}
+/* Desktop: full-size orbs */
 @media (min-width: 768px) {
-  .hero-orb { display: block; }
   .hero-orb-1 {
     top: -10%; left: -15%;
     width: 700px; height: 700px;
     opacity: 0.55;
     filter: blur(95px);
     background: radial-gradient(circle, #f97316 0%, #c2410c 35%, transparent 70%);
-    mix-blend-mode: screen;
   }
   .hero-orb-2 {
     bottom: -10%; right: -10%;
@@ -368,7 +399,6 @@ body {
     opacity: 0.5;
     filter: blur(80px);
     background: radial-gradient(circle, #ef4444 0%, #b91c1c 35%, transparent 70%);
-    mix-blend-mode: screen;
   }
   .hero-orb-3 {
     top: 50%; left: 50%;
@@ -377,15 +407,14 @@ body {
     opacity: 0.3;
     filter: blur(120px);
     background: radial-gradient(ellipse, #f59e0b 0%, #b45309 45%, transparent 70%);
-    mix-blend-mode: screen;
   }
   .hero-orb-4 {
+    display: block;
     top: 15%; right: 8%;
     width: 320px; height: 320px;
     opacity: 0.35;
     filter: blur(70px);
     background: radial-gradient(circle, #fdba74, transparent 65%);
-    mix-blend-mode: screen;
   }
 }
 @media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
@@ -398,7 +427,7 @@ body {
   .hero-orb-1, .hero-orb-2, .hero-orb-3, .hero-orb-4 { animation: none !important; }
 }
 
-/* Aurora ribbon — desktop only (mobile skips animation for perf) */
+/* Aurora ribbon — static on mobile, animated on desktop */
 .aurora {
   position: absolute;
   inset: 0;
@@ -406,15 +435,14 @@ body {
   background:
     conic-gradient(from 90deg at 50% 50%,
       transparent 0deg,
-      rgba(249, 115, 22, 0.15) 60deg,
-      rgba(59, 130, 246, 0.12) 140deg,
-      rgba(16, 185, 129, 0.10) 220deg,
-      rgba(249, 115, 22, 0.10) 300deg,
+      rgba(249, 115, 22, 0.18) 60deg,
+      rgba(59, 130, 246, 0.14) 140deg,
+      rgba(16, 185, 129, 0.12) 220deg,
+      rgba(249, 115, 22, 0.12) 300deg,
       transparent 360deg);
   filter: blur(70px);
-  opacity: 0.65;
-  mix-blend-mode: screen;
-  /* No animation by default — added only on desktop below */
+  opacity: 0.7;
+  /* No mix-blend-mode: screen — it can wash out on some dark backgrounds */
 }
 @keyframes auroraSpin {
   from { transform: rotate(0deg); }
