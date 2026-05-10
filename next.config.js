@@ -18,8 +18,6 @@ const nextConfig = {
   experimental: {
     // Tree-shake icon and animation libraries
     optimizePackageImports: ["framer-motion", "lucide-react", "react-dom"],
-    // CSS optimization
-    optimizeCss: true,
   },
 
   // Built-in image optimization
