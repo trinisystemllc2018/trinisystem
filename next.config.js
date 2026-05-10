@@ -18,8 +18,10 @@ const nextConfig = {
   experimental: {
     // Tree-shake icon and animation libraries
     optimizePackageImports: ["framer-motion", "lucide-react"],
-    // Partial Pre-Rendering — static shell + dynamic islands (Next 14.x canary)
-    // ppr: true,  // Enable on Next 15 upgrade
+    // Partial Pre-Rendering (PPR) — opt-in per route via `export const experimental_ppr = true`
+    // Static shell renders instantly; dynamic islands stream in via Suspense fallbacks.
+    // To enable: install `next@canary` then uncomment the line below.
+    // ppr: "incremental",
   },
 
   // Built-in image optimization

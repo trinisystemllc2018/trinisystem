@@ -1,12 +1,13 @@
 {
   "name": "trinisystem-llc",
-  "version": "2.2.0",
+  "version": "4.3.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:a11y": "next lint --dir src --quiet"
   },
   "dependencies": {
     "next": "14.2.5",
@@ -24,6 +25,7 @@
     "autoprefixer": "^10.4.19",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
     "postcss": "^8.4.40",
     "tailwindcss": "^3.4.7",
     "typescript": "^5"
