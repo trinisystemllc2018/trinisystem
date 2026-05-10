@@ -30,13 +30,11 @@ export function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300`}
+      className={`sticky top-0 z-50 transition-all duration-300${scrolled ? " navbar-scrolled" : ""}`}
       style={{
         background: scrolled
           ? "rgba(0,0,0,0.95)"
           : "#000000",
-        backdropFilter: scrolled ? "blur(16px)" : "none",
-        WebkitBackdropFilter: scrolled ? "blur(16px)" : "none",
         borderBottom: scrolled
           ? "1px solid rgba(249,115,22,0.2)"
           : "1px solid rgba(255,255,255,0.06)",

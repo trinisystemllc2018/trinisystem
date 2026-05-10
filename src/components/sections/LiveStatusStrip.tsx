@@ -12,9 +12,9 @@ import { Suspense } from "react";
  */
 
 async function LiveCount() {
-  // Simulated async data fetch (replace with real DB/API call in production)
-  await new Promise((r) => setTimeout(r, 800));
+  // Simulated async data fetch — reduced to 100ms for better streaming perf
   // In production: const data = await fetch(`${BASE}/api/live-status`, { next: { revalidate: 30 } });
+  await new Promise((r) => setTimeout(r, 100));
   const helping = Math.floor(Math.random() * 8) + 4; // 4-11 active sessions
   const queueWait = Math.floor(Math.random() * 4) + 2; // 2-5 min wait
   return (

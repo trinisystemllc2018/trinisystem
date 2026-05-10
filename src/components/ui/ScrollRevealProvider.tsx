@@ -38,8 +38,8 @@ export function ScrollRevealProvider() {
       { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
     );
 
-    const reveal = () => {
-      document.querySelectorAll(REVEAL_SELECTOR).forEach((el) => {
+    const observeNew = (root: Element | Document = document) => {
+      root.querySelectorAll(REVEAL_SELECTOR).forEach((el) => {
         if (reduceMotion) {
           el.classList.add("is-visible");
         } else {
@@ -48,23 +48,41 @@ export function ScrollRevealProvider() {
       });
     };
 
-    reveal();
-    const t = setInterval(reveal, 1500);
+    // Initial sweep
+    observeNew();
 
-    // Spotlight mouse tracking
-    const spotlights = new Set<HTMLElement>();
+    // Watch for dynamically injected elements (lazy-loaded sections, etc.)
+    // MutationObserver fires synchronously in microtask queue — no polling needed
+    const mutObs = new MutationObserver((mutations) => {
+      for (const m of mutations) {
+        if (m.type === "childList") {
+          m.addedNodes.forEach((node) => {
+            if (node.nodeType === 1) {
+              observeNew(node as Element);
+              (node as Element).querySelectorAll?.(REVEAL_SELECTOR)
+                .forEach((el) => {
+                  if (reduceMotion) el.classList.add("is-visible");
+                  else observer.observe(el);
+                });
+            }
+          });
+        }
+      }
+    });
+    mutObs.observe(document.body, { childList: true, subtree: true });
+
+    // Spotlight mouse tracking — desktop only
     const onSpotlightMove = (e: MouseEvent) => {
       const target = (e.target as HTMLElement)?.closest?.(".spotlight") as HTMLElement | null;
       if (!target) return;
       const rect = target.getBoundingClientRect();
       target.style.setProperty("--mx", `${e.clientX - rect.left}px`);
       target.style.setProperty("--my", `${e.clientY - rect.top}px`);
-      spotlights.add(target);
     };
     document.addEventListener("mousemove", onSpotlightMove, { passive: true });
 
     return () => {
-      clearInterval(t);
+      mutObs.disconnect();
       observer.disconnect();
       document.removeEventListener("mousemove", onSpotlightMove);
     };

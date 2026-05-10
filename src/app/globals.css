@@ -76,9 +76,9 @@ body {
   border-radius: 50%;
   z-index: 99999;
   pointer-events: none;
-  will-change: transform;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
+  /* will-change added dynamically only on pointer:fine devices */
 }
 .cursor-dot {
   width: 8px;
@@ -177,12 +177,18 @@ body {
    BACKGROUNDS
 ════════════════════════════════════════════════════════ */
 .bg-hero {
-  background:
-    radial-gradient(ellipse 70% 50% at 18% 12%, rgba(249, 115, 22, 0.18) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 45% at 85% 28%, rgba(59, 130, 246, 0.13) 0%, transparent 55%),
-    radial-gradient(ellipse 80% 60% at 50% 100%, rgba(16, 185, 129, 0.10) 0%, transparent 65%),
-    hsl(240 10% 3.9%);
+  /* Mobile: solid color — skip expensive radial gradients on small GPUs */
   background-color: hsl(240 10% 3.9%);
+}
+/* Desktop gets the full gradient treatment */
+@media (min-width: 768px) {
+  .bg-hero {
+    background:
+      radial-gradient(ellipse 70% 50% at 18% 12%, rgba(249, 115, 22, 0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 45% at 85% 28%, rgba(59, 130, 246, 0.13) 0%, transparent 55%),
+      radial-gradient(ellipse 80% 60% at 50% 100%, rgba(16, 185, 129, 0.10) 0%, transparent 65%),
+      hsl(240 10% 3.9%);
+  }
 }
 .bg-section-dark {
   background: linear-gradient(180deg, hsl(240 10% 3.9%) 0%, hsl(240 10% 5%) 50%, hsl(240 10% 3.9%) 100%);
@@ -195,29 +201,56 @@ body {
   background-image: radial-gradient(circle at center, var(--tw-gradient-stops));
 }
 
+/* Navbar blur — desktop only */
+@media (min-width: 768px) {
+  .navbar-scrolled {
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+}
+
 /* ════════════════════════════════════════════════════════
    GLASSMORPHISM (template style)
 ════════════════════════════════════════════════════════ */
 .glass {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(10, 5, 0, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
+@media (min-width: 768px) {
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+}
 .glass-dark {
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+@media (min-width: 768px) {
+  .glass-dark {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+}
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 .glass-card {
-  background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.02) 100%);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(15, 10, 5, 0.7);
   border: 1px solid rgba(249, 115, 22, 0.12);
   box-shadow:
     0 8px 32px rgba(0,0,0,0.4),
     inset 0 1px 0 rgba(255,255,255,0.06);
+}
+/* Only apply blur backdrop on desktop where GPU can handle it */
+@media (min-width: 768px) {
+  .glass-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.02) 100%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
 }
 
 /* ════════════════════════════════════════════════════════
@@ -267,7 +300,10 @@ body {
   0%, 100% { transform: translate(-50%, 0); }
   50%      { transform: translate(-50%, 8px); }
 }
-.animate-bounce-arrow { animation: bounce-arrow 2s ease-in-out infinite; }
+.animate-bounce-arrow { animation: none; }
+@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+  .animate-bounce-arrow { animation: bounce-arrow 2s ease-in-out infinite; }
+}
 
 @keyframes gradientShift {
   0%, 100% { background-position: 0% 50%; }
@@ -308,46 +344,49 @@ body {
 .rotateX-0 { transform: rotateX(0deg); }
 
 /* ════════════════════════════════════════════════════════
-   HERO ORBS — purple/blue/emerald
+   HERO ORBS — hidden on mobile, shown on desktop only
 ════════════════════════════════════════════════════════ */
 .hero-orb {
+  display: none; /* hidden on mobile by default */
   position: absolute;
   border-radius: 9999px;
   pointer-events: none;
-  will-change: transform;
 }
-.hero-orb-1 {
-  top: -10%; left: -15%;
-  width: 700px; height: 700px;
-  opacity: 0.55;
-  filter: blur(95px);
-  background: radial-gradient(circle, #f97316 0%, #c2410c 35%, transparent 70%);
-  mix-blend-mode: screen;
-}
-.hero-orb-2 {
-  bottom: -10%; right: -10%;
-  width: 580px; height: 580px;
-  opacity: 0.5;
-  filter: blur(80px);
-  background: radial-gradient(circle, #ef4444 0%, #b91c1c 35%, transparent 70%);
-  mix-blend-mode: screen;
-}
-.hero-orb-3 {
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 800px; height: 420px;
-  opacity: 0.3;
-  filter: blur(120px);
-  background: radial-gradient(ellipse, #f59e0b 0%, #b45309 45%, transparent 70%);
-  mix-blend-mode: screen;
-}
-.hero-orb-4 {
-  top: 15%; right: 8%;
-  width: 320px; height: 320px;
-  opacity: 0.35;
-  filter: blur(70px);
-  background: radial-gradient(circle, #fdba74, transparent 65%);
-  mix-blend-mode: screen;
+@media (min-width: 768px) {
+  .hero-orb { display: block; }
+  .hero-orb-1 {
+    top: -10%; left: -15%;
+    width: 700px; height: 700px;
+    opacity: 0.55;
+    filter: blur(95px);
+    background: radial-gradient(circle, #f97316 0%, #c2410c 35%, transparent 70%);
+    mix-blend-mode: screen;
+  }
+  .hero-orb-2 {
+    bottom: -10%; right: -10%;
+    width: 580px; height: 580px;
+    opacity: 0.5;
+    filter: blur(80px);
+    background: radial-gradient(circle, #ef4444 0%, #b91c1c 35%, transparent 70%);
+    mix-blend-mode: screen;
+  }
+  .hero-orb-3 {
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px; height: 420px;
+    opacity: 0.3;
+    filter: blur(120px);
+    background: radial-gradient(ellipse, #f59e0b 0%, #b45309 45%, transparent 70%);
+    mix-blend-mode: screen;
+  }
+  .hero-orb-4 {
+    top: 15%; right: 8%;
+    width: 320px; height: 320px;
+    opacity: 0.35;
+    filter: blur(70px);
+    background: radial-gradient(circle, #fdba74, transparent 65%);
+    mix-blend-mode: screen;
+  }
 }
 @media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
   .hero-orb-1 { animation: float 9s ease-in-out infinite; }
@@ -359,7 +398,7 @@ body {
   .hero-orb-1, .hero-orb-2, .hero-orb-3, .hero-orb-4 { animation: none !important; }
 }
 
-/* Aurora ribbon */
+/* Aurora ribbon — desktop only (mobile skips animation for perf) */
 .aurora {
   position: absolute;
   inset: 0;
@@ -374,14 +413,18 @@ body {
       transparent 360deg);
   filter: blur(70px);
   opacity: 0.65;
-  animation: auroraSpin 26s linear infinite;
   mix-blend-mode: screen;
+  /* No animation by default — added only on desktop below */
 }
 @keyframes auroraSpin {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
 }
-@media (prefers-reduced-motion: reduce) { .aurora { animation: none; } }
+/* Only animate on desktop where GPU has headroom */
+@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+  .aurora { animation: auroraSpin 26s linear infinite; }
+}
+@media (prefers-reduced-motion: reduce) { .aurora { animation: none !important; } }
 
 /* ════════════════════════════════════════════════════════
    SERVICE CARDS — 3D tilt with purple glow
@@ -393,8 +436,9 @@ body {
     inset 0 1px 0 rgba(255,255,255,0.06);
   transition: transform 0.22s cubic-bezier(0.22,1,0.36,1), box-shadow 0.22s ease;
   transform-style: preserve-3d;
-  will-change: transform;
+  /* will-change applied only on hover via JS or :hover to avoid compositing all cards */
 }
+.service-card:hover { will-change: transform; }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
   .service-card:hover {
     transform: perspective(900px) rotateX(-5deg) rotateY(5deg) scale(1.05) translateZ(0);
@@ -473,7 +517,12 @@ body {
   z-index: -1;
   opacity: 0.7;
   filter: blur(10px);
-  animation: gradientShift 3s ease infinite;
+}
+/* Gradient shift only on desktop */
+@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+  .cta-glow-ring::before {
+    animation: gradientShift 3s ease infinite;
+  }
 }
 
 /* Pulsing dot */
@@ -491,8 +540,13 @@ body {
   background: #34d399;
 }
 .pulse-dot::before {
-  animation: pulseRing 2s cubic-bezier(0.4,0,0.6,1) infinite;
   opacity: 0.6;
+}
+/* Pulse ring only on desktop — saves a continuous animation on mobile */
+@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+  .pulse-dot::before {
+    animation: pulseRing 2s cubic-bezier(0.4,0,0.6,1) infinite;
+  }
 }
 @keyframes pulseRing {
   0%   { transform: scale(1); opacity: 0.7; }
@@ -743,4 +797,41 @@ body {
 }
 .skip-link:focus {
   top: 0;
+}
+
+/* ════════════════════════════════════════════════════════
+   CONTENT-VISIBILITY — skip rendering off-screen sections
+   Gives the browser permission to skip layout/paint for
+   sections not yet in the viewport. Big win on long pages.
+════════════════════════════════════════════════════════ */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 600px; /* estimated height avoids CLS */
+}
+
+/* ════════════════════════════════════════════════════════
+   FONT DISPLAY — ensure text visible during font load
+════════════════════════════════════════════════════════ */
+@font-face {
+  font-display: swap;
+}
+
+/* ════════════════════════════════════════════════════════
+   REDUCE PAINT AREAS — isolate layers that animate
+════════════════════════════════════════════════════════ */
+.marquee-track {
+  isolation: isolate;
+  contain: layout style;
+}
+
+/* Mobile-specific: disable shimmer animation to cut TBT */
+@media (max-width: 767px) {
+  .text-gradient-gold-shimmer {
+    background-size: 100% 100%;
+    animation: none;
+  }
+  /* Simplify pulse-glow on mobile */
+  .animate-pulse-glow { animation: none; }
+  /* Simplify stat-3d on mobile */
+  .stat-3d { text-shadow: none; }
 }

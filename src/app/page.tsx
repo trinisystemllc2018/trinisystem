@@ -63,7 +63,7 @@ export default function Home() {
     <>
       {/* ══ HERO ════════════════════════════════════════════════════════
          Fully server-rendered. The H1 is the LCP element, ships in HTML. */}
-      <section className="relative bg-hero bg-grid overflow-hidden min-h-screen flex flex-col" aria-label="Hero">
+      <section className="relative bg-hero bg-grid overflow-hidden flex flex-col" style={{ minHeight: "100dvh" }} aria-label="Hero">
         {/* Aurora ribbon — animated conic gradient */}
         <div className="aurora" aria-hidden="true" />
 
@@ -102,8 +102,8 @@ export default function Home() {
             <a href={PHONE_HREF}
               className="cta-glow-ring touch-target flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-black text-lg text-black transition-all hover:scale-105 active:scale-95"
               style={{ background: "linear-gradient(135deg, #f97316 0%, #ef4444 100%)", boxShadow: "0 8px 32px rgba(239,68,68,0.5)" }}>
-              <span className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75" />
+              <span className="relative flex h-3 w-3" aria-hidden="true">
+                <span className="hidden md:block animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75" />
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500" />
               </span>
               📞 {PHONE} — Call Free
@@ -198,9 +198,11 @@ export default function Home() {
       <LiveStatusStrip />
 
       {/* ══ Below-fold sections — streamed via Suspense ══ */}
-      <Suspense fallback={<><SectionSkeleton /><div className="px-4 py-12" style={{ background: "#020005" }}><div className="max-w-6xl mx-auto"><GridSkeleton count={6} /></div></div></>}>
-        <BelowFoldSections />
-      </Suspense>
+      <div className="cv-auto">
+        <Suspense fallback={<><SectionSkeleton /><div className="px-4 py-12" style={{ background: "#020005" }}><div className="max-w-6xl mx-auto"><GridSkeleton count={6} /></div></div></>}>
+          <BelowFoldSections />
+        </Suspense>
+      </div>
 
       {/* ══ Hidden H1 for additional SEO context ══ */}
       <div className="sr-only">
