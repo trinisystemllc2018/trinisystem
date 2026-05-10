@@ -3,6 +3,9 @@ import Link from "next/link";
 import { StickyCTA } from "@/components/ui/Button";
 import { PHONE, PHONE_HREF, DOWNLOAD_URL } from "@/lib/utils";
 
+// ISR — page revalidates every 1 hour, so FAQ updates appear without redeploy
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: "Windows 11 Running Slow — 10 Proven Fixes",
   description:

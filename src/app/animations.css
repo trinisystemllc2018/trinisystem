@@ -1,0 +1,448 @@
+/* ════════════════════════════════════════════════════════════════
+   v4.4 — ADVANCED ANIMATION LIBRARY
+   - Directional reveals (left/right/top/bottom)
+   - Ken Burns (image-as-video) effect
+   - Auto-scrolling carousel + marquee variants
+   - Text animations (typewriter, gradient sweep, letter stagger)
+   - Hover effects (3D, magnetic, glow trail, image zoom)
+   - Parallax backgrounds
+   - All respect prefers-reduced-motion
+════════════════════════════════════════════════════════════════ */
+
+/* ──────────────────────────────────────────────
+   1. DIRECTIONAL SCROLL REVEALS
+   Apply class + scroll-reveal-v2 to trigger via IO
+─────────────────────────────────────────────── */
+.reveal-from-left,
+.reveal-from-right,
+.reveal-from-top,
+.reveal-from-bottom,
+.reveal-zoom,
+.reveal-fade,
+.reveal-rotate {
+  opacity: 0;
+  transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1),
+              transform 0.9s cubic-bezier(0.22,1,0.36,1);
+  will-change: transform, opacity;
+}
+.reveal-from-left   { transform: translateX(-60px); }
+.reveal-from-right  { transform: translateX(60px); }
+.reveal-from-top    { transform: translateY(-50px); }
+.reveal-from-bottom { transform: translateY(50px); }
+.reveal-zoom        { transform: scale(0.85); }
+.reveal-fade        { transform: none; }
+.reveal-rotate      { transform: rotate(-8deg) translateY(40px); }
+
+.reveal-from-left.is-visible,
+.reveal-from-right.is-visible,
+.reveal-from-top.is-visible,
+.reveal-from-bottom.is-visible,
+.reveal-zoom.is-visible,
+.reveal-fade.is-visible,
+.reveal-rotate.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Stagger delays — apply data-stagger="1..6" */
+[data-stagger="1"] { transition-delay: 0.05s; }
+[data-stagger="2"] { transition-delay: 0.10s; }
+[data-stagger="3"] { transition-delay: 0.20s; }
+[data-stagger="4"] { transition-delay: 0.30s; }
+[data-stagger="5"] { transition-delay: 0.40s; }
+[data-stagger="6"] { transition-delay: 0.50s; }
+[data-stagger="7"] { transition-delay: 0.60s; }
+[data-stagger="8"] { transition-delay: 0.70s; }
+
+/* ──────────────────────────────────────────────
+   2. KEN BURNS EFFECT (image-as-video)
+─────────────────────────────────────────────── */
+.kb-frame {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.kb-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.1);
+  will-change: transform;
+}
+.kb-zoom-in .kb-img {
+  animation: kbZoomIn 20s ease-in-out infinite alternate;
+}
+.kb-zoom-out .kb-img {
+  animation: kbZoomOut 20s ease-in-out infinite alternate;
+}
+.kb-pan-right .kb-img {
+  animation: kbPanRight 25s ease-in-out infinite alternate;
+}
+.kb-pan-left .kb-img {
+  animation: kbPanLeft 25s ease-in-out infinite alternate;
+}
+@keyframes kbZoomIn {
+  0%   { transform: scale3d(1.1, 1.1, 1) translate3d(0,0,0); }
+  100% { transform: scale3d(1.4, 1.4, 1) translate3d(-2%, -3%, 0); }
+}
+@keyframes kbZoomOut {
+  0%   { transform: scale3d(1.4, 1.4, 1) translate3d(-2%, -3%, 0); }
+  100% { transform: scale3d(1.1, 1.1, 1) translate3d(0,0,0); }
+}
+@keyframes kbPanRight {
+  0%   { transform: scale3d(1.2, 1.2, 1) translate3d(-3%, 0, 0); }
+  100% { transform: scale3d(1.2, 1.2, 1) translate3d(3%, 0, 0); }
+}
+@keyframes kbPanLeft {
+  0%   { transform: scale3d(1.2, 1.2, 1) translate3d(3%, 0, 0); }
+  100% { transform: scale3d(1.2, 1.2, 1) translate3d(-3%, 0, 0); }
+}
+
+/* Dark contrast overlay for KB images — keeps text readable */
+.kb-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.75) 100%),
+    radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.6) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+.kb-overlay > * { position: relative; z-index: 2; }
+
+/* Color-tinted overlay variant — orange/red brand wash */
+.kb-overlay-brand::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(249,115,22,0.45) 0%, rgba(0,0,0,0.85) 100%);
+  z-index: 1;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+/* ──────────────────────────────────────────────
+   3. AUTO CAROUSEL — scroll-snap based (zero JS)
+─────────────────────────────────────────────── */
+.auto-carousel {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 1rem;
+  scrollbar-width: none;
+}
+.auto-carousel::-webkit-scrollbar { display: none; }
+.auto-carousel > * {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+}
+
+/* Infinite marquee — duplicate content twice in markup */
+.marquee-track {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+  animation: marqueeMove 40s linear infinite;
+}
+.marquee-track-fast {
+  animation-duration: 25s;
+}
+.marquee-track-slow {
+  animation-duration: 60s;
+}
+.marquee-track-reverse {
+  animation-direction: reverse;
+}
+.marquee-track:hover { animation-play-state: paused; }
+@keyframes marqueeMove {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Vertical marquee */
+.marquee-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  height: max-content;
+  animation: marqueeVMove 30s linear infinite;
+}
+@keyframes marqueeVMove {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+/* Edge fade masks for marquee containers */
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+          mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+}
+
+/* ──────────────────────────────────────────────
+   4. AUTO SLIDER (full-bleed slides)
+   Uses CSS-only autoplay via animation
+─────────────────────────────────────────────── */
+.auto-slider {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+.auto-slider-track {
+  display: flex;
+  width: 100%;
+  animation: sliderAuto 18s infinite;
+}
+.auto-slider-track:hover { animation-play-state: paused; }
+.auto-slider-slide {
+  flex: 0 0 100%;
+  width: 100%;
+}
+
+/* 3-slide cycle */
+@keyframes sliderAuto {
+  0%, 30%   { transform: translateX(0); }
+  33%, 63%  { transform: translateX(-100%); }
+  66%, 96%  { transform: translateX(-200%); }
+  100%      { transform: translateX(0); }
+}
+
+/* ──────────────────────────────────────────────
+   5. TEXT ANIMATIONS
+─────────────────────────────────────────────── */
+
+/* Typewriter — cursor blinks */
+.typewriter {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #f97316;
+  animation: typewriterType 3.5s steps(40, end) forwards,
+             typewriterBlink 0.75s step-end infinite;
+}
+@keyframes typewriterType {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+@keyframes typewriterBlink {
+  50% { border-color: transparent; }
+}
+
+/* Letter stagger — animates each <span> child */
+.text-stagger > span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.5em);
+  animation: letterRise 0.6s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+.text-stagger > span:nth-child(1)  { animation-delay: 0.05s; }
+.text-stagger > span:nth-child(2)  { animation-delay: 0.10s; }
+.text-stagger > span:nth-child(3)  { animation-delay: 0.15s; }
+.text-stagger > span:nth-child(4)  { animation-delay: 0.20s; }
+.text-stagger > span:nth-child(5)  { animation-delay: 0.25s; }
+.text-stagger > span:nth-child(6)  { animation-delay: 0.30s; }
+.text-stagger > span:nth-child(7)  { animation-delay: 0.35s; }
+.text-stagger > span:nth-child(8)  { animation-delay: 0.40s; }
+.text-stagger > span:nth-child(9)  { animation-delay: 0.45s; }
+.text-stagger > span:nth-child(10) { animation-delay: 0.50s; }
+.text-stagger > span:nth-child(n+11) { animation-delay: 0.55s; }
+@keyframes letterRise {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Gradient sweep text — for headlines */
+.text-gradient-sweep {
+  background: linear-gradient(
+    90deg,
+    #f97316 0%,
+    #ef4444 25%,
+    #fdba74 50%,
+    #ef4444 75%,
+    #f97316 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradSweep 3s linear infinite;
+}
+@keyframes gradSweep {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Glitch text — for emphasis */
+.text-glitch {
+  position: relative;
+  display: inline-block;
+}
+.text-glitch::before,
+.text-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.text-glitch::before {
+  color: #f97316;
+  z-index: -1;
+  animation: glitchA 3s infinite linear alternate;
+}
+.text-glitch::after {
+  color: #ef4444;
+  z-index: -2;
+  animation: glitchB 3s infinite linear alternate-reverse;
+}
+@keyframes glitchA {
+  0%, 90% { transform: translate(0); opacity: 0; }
+  92% { transform: translate(-2px, 1px); opacity: 0.6; }
+  94% { transform: translate(1px, -2px); opacity: 0.6; }
+  96% { transform: translate(0); opacity: 0; }
+  100% { transform: translate(0); opacity: 0; }
+}
+@keyframes glitchB {
+  0%, 90% { transform: translate(0); opacity: 0; }
+  92% { transform: translate(2px, -1px); opacity: 0.6; }
+  94% { transform: translate(-1px, 2px); opacity: 0.6; }
+  96% { transform: translate(0); opacity: 0; }
+  100% { transform: translate(0); opacity: 0; }
+}
+
+/* ──────────────────────────────────────────────
+   6. HOVER EFFECTS — for sections and cards
+─────────────────────────────────────────────── */
+
+/* Hover spotlight — radial gradient follows cursor */
+.spotlight {
+  position: relative;
+  overflow: hidden;
+}
+.spotlight::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: radial-gradient(600px circle at var(--mx,50%) var(--my,50%),
+    rgba(249,115,22,0.18), transparent 40%);
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+.spotlight:hover::before { opacity: 1; }
+.spotlight > * { position: relative; z-index: 2; }
+
+/* Image zoom on hover (gentler than KB) */
+.img-hover-zoom {
+  overflow: hidden;
+  border-radius: inherit;
+}
+.img-hover-zoom img,
+.img-hover-zoom .kb-img {
+  transition: transform 0.6s cubic-bezier(0.22,1,0.36,1);
+}
+.img-hover-zoom:hover img,
+.img-hover-zoom:hover .kb-img {
+  transform: scale(1.08);
+}
+
+/* Card hover — multilayer lift */
+.card-hover-lift {
+  transition: transform 0.35s cubic-bezier(0.22,1,0.36,1),
+              box-shadow 0.35s ease;
+  will-change: transform;
+}
+.card-hover-lift:hover {
+  transform: translateY(-8px) scale(1.015);
+  box-shadow:
+    0 28px 60px rgba(239,68,68,0.18),
+    0 0 0 1px rgba(249,115,22,0.3),
+    0 0 80px rgba(249,115,22,0.15);
+}
+
+/* Tilt 3D card */
+.card-tilt {
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
+}
+@media (hover: hover) {
+  .card-tilt:hover {
+    transform: perspective(1200px) rotateX(-6deg) rotateY(8deg) translateZ(20px);
+  }
+}
+
+/* Border-trace glow */
+.border-trace {
+  position: relative;
+  isolation: isolate;
+}
+.border-trace::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--angle, 0deg),
+    transparent 0deg,
+    transparent 270deg,
+    #f97316 300deg,
+    #ef4444 330deg,
+    transparent 360deg
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+  animation: borderRotate 4s linear infinite;
+}
+.border-trace:hover::before { opacity: 1; }
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes borderRotate {
+  to { --angle: 360deg; }
+}
+
+/* ──────────────────────────────────────────────
+   7. PARALLAX BACKGROUND (CSS scroll-driven)
+─────────────────────────────────────────────── */
+.parallax-bg {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+@media (max-width: 768px) {
+  .parallax-bg { background-attachment: scroll; }
+}
+
+/* ──────────────────────────────────────────────
+   8. PERFORMANCE / A11Y GUARDS
+─────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .kb-img,
+  .marquee-track,
+  .marquee-vertical,
+  .auto-slider-track,
+  .typewriter,
+  .text-stagger > span,
+  .text-gradient-sweep,
+  .text-glitch::before,
+  .text-glitch::after,
+  .border-trace::before {
+    animation: none !important;
+  }
+  .reveal-from-left, .reveal-from-right,
+  .reveal-from-top, .reveal-from-bottom,
+  .reveal-zoom, .reveal-fade, .reveal-rotate {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .typewriter { white-space: normal; border-right: none; }
+}

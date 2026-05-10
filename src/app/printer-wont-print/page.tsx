@@ -3,6 +3,9 @@ import Link from "next/link";
 import { StickyCTA } from "@/components/ui/Button";
 import { PHONE, PHONE_HREF } from "@/lib/utils";
 
+// ISR — page revalidates every 1 hour, so FAQ updates appear without redeploy
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: "Printer Won't Print — Fix Any Brand in Minutes",
   description:

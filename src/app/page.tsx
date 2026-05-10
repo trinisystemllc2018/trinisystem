@@ -1,8 +1,11 @@
+import { Suspense } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { PHONE, PHONE_HREF } from "@/lib/utils";
 import { HeroSearchIsland } from "@/components/sections/HeroSearchIsland";
 import { ScrollRevealClient } from "@/components/sections/ScrollRevealClient";
+import { LiveStatusStrip } from "@/components/sections/LiveStatusStrip";
+import { SectionSkeleton, GridSkeleton } from "@/components/ui/Skeletons";
 
 /* ════════════════════════════════════════════════════════════════
    TRINI SYSTEM — Optimized Homepage (Server Component)
@@ -191,8 +194,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══ Below-fold sections — separate JS chunk, server-rendered ══ */}
-      <BelowFoldSections />
+      {/* ══ Live status strip — streaming via Suspense ══ */}
+      <LiveStatusStrip />
+
+      {/* ══ Below-fold sections — streamed via Suspense ══ */}
+      <Suspense fallback={<><SectionSkeleton /><div className="px-4 py-12" style={{ background: "#020005" }}><div className="max-w-6xl mx-auto"><GridSkeleton count={6} /></div></div></>}>
+        <BelowFoldSections />
+      </Suspense>
 
       {/* ══ Hidden H1 for additional SEO context ══ */}
       <div className="sr-only">
