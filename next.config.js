@@ -17,11 +17,9 @@ const nextConfig = {
 
   experimental: {
     // Tree-shake icon and animation libraries
-    optimizePackageImports: ["framer-motion", "lucide-react"],
-    // Partial Pre-Rendering (PPR) — opt-in per route via `export const experimental_ppr = true`
-    // Static shell renders instantly; dynamic islands stream in via Suspense fallbacks.
-    // To enable: install `next@canary` then uncomment the line below.
-    // ppr: "incremental",
+    optimizePackageImports: ["framer-motion", "lucide-react", "react-dom"],
+    // CSS optimization
+    optimizeCss: true,
   },
 
   // Built-in image optimization
@@ -30,6 +28,7 @@ const nextConfig = {
     deviceSizes: [375, 640, 768, 1024, 1280, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 31536000,
+    dangerouslyAllowSVG: false,
     domains: [],
   },
 
