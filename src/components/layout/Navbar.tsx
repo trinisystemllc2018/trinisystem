@@ -33,22 +33,22 @@ export function Navbar() {
       className={`sticky top-0 z-50 transition-all duration-300`}
       style={{
         background: scrolled
-          ? "rgba(5,13,26,0.97)"
-          : "linear-gradient(180deg, #050d1a 0%, #070f20 100%)",
+          ? "rgba(0,0,0,0.95)"
+          : "#000000",
         backdropFilter: scrolled ? "blur(16px)" : "none",
         WebkitBackdropFilter: scrolled ? "blur(16px)" : "none",
         borderBottom: scrolled
-          ? "1px solid rgba(245,158,11,0.15)"
+          ? "1px solid rgba(168,85,247,0.2)"
           : "1px solid rgba(255,255,255,0.06)",
         boxShadow: scrolled
-          ? "0 8px 32px -4px rgba(0,0,0,0.6), 0 0 1px rgba(245,158,11,0.1)"
+          ? "0 8px 32px -4px rgba(0,0,0,0.6), 0 0 1px rgba(168,85,247,0.1)"
           : "none",
       }}
     >
       {/* Subtle top glow line */}
       <div
         className="absolute top-0 left-0 right-0 h-px pointer-events-none"
-        style={{ background: "linear-gradient(90deg, transparent, rgba(245,158,11,0.4), rgba(59,130,246,0.3), transparent)" }}
+        style={{ background: "linear-gradient(90deg, transparent, rgba(168,85,247,0.4), rgba(59,130,246,0.3), transparent)" }}
       />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -60,7 +60,7 @@ export function Navbar() {
               <div
                 className="text-xl md:text-2xl font-black tracking-tight leading-none"
                 style={{
-                  background: "linear-gradient(135deg, #fbbf24, #f97316)",
+                  background: "linear-gradient(135deg, #c084fc, #a855f7)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -85,8 +85,8 @@ export function Navbar() {
                   href={link.href}
                   className="relative flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-bold tracking-wider transition-all duration-200 group"
                   style={{
-                    color: isActive ? "#fbbf24" : "rgba(255,255,255,0.55)",
-                    background: isActive ? "rgba(245,158,11,0.1)" : "transparent",
+                    color: isActive ? "#c084fc" : "rgba(255,255,255,0.55)",
+                    background: isActive ? "rgba(168,85,247,0.1)" : "transparent",
                   }}
                 >
                   {/* Hover background */}
@@ -100,7 +100,7 @@ export function Navbar() {
                   {isActive && (
                     <span
                       className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full"
-                      style={{ background: "#f59e0b" }}
+                      style={{ background: "#a855f7" }}
                     />
                   )}
                 </Link>
@@ -128,8 +128,8 @@ export function Navbar() {
               href={PHONE_HREF}
               className="flex items-center gap-2 px-4 md:px-5 py-2.5 rounded-full font-black text-sm text-black transition-all hover:scale-105 active:scale-95"
               style={{
-                background: "linear-gradient(135deg, #fbbf24, #f59e0b)",
-                boxShadow: "0 0 20px rgba(245,158,11,0.4), 0 4px 12px rgba(0,0,0,0.3)",
+                background: "linear-gradient(135deg, #c084fc, #a855f7)",
+                boxShadow: "0 0 20px rgba(168,85,247,0.4), 0 4px 12px rgba(0,0,0,0.3)",
               }}
             >
               <span className="relative flex h-2 w-2">
@@ -145,9 +145,9 @@ export function Navbar() {
               onClick={() => setMobileOpen((o) => !o)}
               className="lg:hidden w-10 h-10 rounded-lg flex items-center justify-center text-lg transition-all"
               style={{
-                background: mobileOpen ? "rgba(245,158,11,0.15)" : "rgba(255,255,255,0.06)",
+                background: mobileOpen ? "rgba(168,85,247,0.2)" : "rgba(255,255,255,0.06)",
                 border: "1px solid rgba(255,255,255,0.1)",
-                color: mobileOpen ? "#f59e0b" : "rgba(255,255,255,0.6)",
+                color: mobileOpen ? "#a855f7" : "rgba(255,255,255,0.6)",
               }}
               aria-label="Menu"
             >
@@ -171,12 +171,12 @@ export function Navbar() {
                   className="flex items-center gap-2 px-3 py-3 rounded-xl font-bold text-sm tracking-wider transition-all"
                   style={{
                     background: isActive
-                      ? "rgba(245,158,11,0.15)"
+                      ? "rgba(168,85,247,0.2)"
                       : "rgba(255,255,255,0.04)",
                     border: isActive
-                      ? "1px solid rgba(245,158,11,0.3)"
+                      ? "1px solid rgba(168,85,247,0.3)"
                       : "1px solid rgba(255,255,255,0.07)",
-                    color: isActive ? "#fbbf24" : "rgba(255,255,255,0.6)",
+                    color: isActive ? "#c084fc" : "rgba(255,255,255,0.6)",
                   }}
                 >
                   <span>{link.icon}</span>

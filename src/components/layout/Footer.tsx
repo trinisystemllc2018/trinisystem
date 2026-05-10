@@ -69,9 +69,9 @@ const footerSections = [
 
 export function Footer() {
   return (
-    <footer className="bg-gray-950 text-white">
+    <footer className="bg-black text-white">
       {/* CTA Strip */}
-      <div className="bg-gradient-to-r from-blue-700 to-blue-900 py-12 px-4">
+      <div className="py-12 px-4" style={{ background: "linear-gradient(135deg, #1a0a2e 0%, #2d1145 100%)", borderBottom: "1px solid rgba(168,85,247,0.2)" }}>
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-1">
@@ -82,13 +82,13 @@ export function Footer() {
           <div className="flex gap-3 shrink-0 flex-wrap justify-center">
             <a
               href={PHONE_HREF}
-              className="bg-white text-blue-700 font-bold px-6 py-3.5 rounded-2xl hover:bg-blue-50 transition-colors shadow-lg"
+              className="bg-white text-purple-700 font-bold px-6 py-3.5 rounded-2xl hover:bg-purple-50 transition-colors shadow-lg"
             >
               📞 {PHONE}
             </a>
             <Link
               href="/contact"
-              className="bg-blue-500 hover:bg-blue-400 text-white font-bold px-6 py-3.5 rounded-2xl transition-colors"
+              className="bg-purple-500 hover:bg-purple-400 text-white font-bold px-6 py-3.5 rounded-2xl transition-colors"
             >
               Book Online →
             </Link>
@@ -102,14 +102,14 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-black text-sm">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center text-white font-black text-sm">
                 TS
               </div>
               <span className="font-bold text-lg">Trini System <span className="text-blue-400">LLC</span></span>
             </div>
             {/* 8-year badge */}
             <div className="flex items-center gap-2 mb-3">
-              <span className="bg-blue-900 text-blue-300 text-xs font-bold px-2.5 py-1 rounded-full border border-blue-700">
+              <span className="bg-purple-900 text-purple-300 text-xs font-bold px-2.5 py-1 rounded-full border border-purple-700">
                 🏆 Est. 2016 — 8 Years in Business
               </span>
             </div>
@@ -143,7 +143,7 @@ export function Footer() {
             <div className="flex items-center gap-3 mt-4">
               <p className="text-xs text-gray-600 font-semibold">Follow us:</p>
               <a href={SOCIAL.facebook} target="_blank" rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xl bg-blue-600 hover:bg-blue-500 flex items-center justify-center transition-colors" aria-label="Facebook">
+                className="w-9 h-9 rounded-xl bg-purple-600 hover:bg-purple-500 flex items-center justify-center transition-colors" aria-label="Facebook">
                 <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
               </a>
               <a href={SOCIAL.youtube} target="_blank" rel="noopener noreferrer"

@@ -113,7 +113,7 @@ export default function HPPrinterOfflinePage() {
           </div>
           <h1 className="font-black text-white leading-tight mb-4" style={{ fontSize: "clamp(2rem,5vw,3.5rem)" }}>
             HP Printer Offline?<br />
-            <span style={{ background: "linear-gradient(135deg,#fbbf24,#f59e0b)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+            <span style={{ background: "linear-gradient(135deg,#c084fc,#f59e0b)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
               Fixed in 5 Minutes.
             </span>
           </h1>
@@ -124,7 +124,7 @@ export default function HPPrinterOfflinePage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href={PHONE_HREF}
               className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-black text-lg text-black"
-              style={{ background: "linear-gradient(135deg,#f59e0b,#fbbf24)", boxShadow: "0 0 30px rgba(245,158,11,0.4)" }}>
+              style={{ background: "linear-gradient(135deg,#f59e0b,#c084fc)", boxShadow: "0 0 30px rgba(168,85,247,0.4)" }}>
               📞 {PHONE} — Free Help
             </a>
             <a href="#fix-steps"
@@ -183,7 +183,7 @@ export default function HPPrinterOfflinePage() {
           </div>
 
           <div className="mt-10 rounded-2xl p-8 text-center"
-            style={{ background: "linear-gradient(135deg,rgba(245,158,11,0.12),rgba(59,130,246,0.08))", border: "1px solid rgba(245,158,11,0.25)" }}>
+            style={{ background: "linear-gradient(135deg,rgba(245,158,11,0.12),rgba(59,130,246,0.08))", border: "1px solid rgba(168,85,247,0.25)" }}>
             <div className="text-4xl mb-3">🤷</div>
             <h3 className="text-white font-black text-2xl mb-3">Still offline after all 5 steps?</h3>
             <p className="text-white/60 mb-6 max-w-xl mx-auto">
@@ -191,7 +191,7 @@ export default function HPPrinterOfflinePage() {
             </p>
             <a href={PHONE_HREF}
               className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-black text-lg text-black"
-              style={{ background: "linear-gradient(135deg,#f59e0b,#fbbf24)" }}>
+              style={{ background: "linear-gradient(135deg,#f59e0b,#c084fc)" }}>
               📞 Call Free — {PHONE}
             </a>
             <div className="text-white/30 text-sm mt-3 font-mono">No fix = no charge · Remote · Under 15 min</div>

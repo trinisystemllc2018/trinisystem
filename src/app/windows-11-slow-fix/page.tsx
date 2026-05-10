@@ -125,7 +125,7 @@ export default function Windows11SlowFixPage() {
           </div>
           <h1 className="font-black text-white leading-tight mb-4" style={{ fontSize: "clamp(2rem,5vw,3.5rem)" }}>
             Windows 11 Running Slow?<br />
-            <span style={{ background: "linear-gradient(135deg,#fbbf24,#f59e0b)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+            <span style={{ background: "linear-gradient(135deg,#c084fc,#f59e0b)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
               Fix It in 15 Minutes — Free.
             </span>
           </h1>
@@ -224,7 +224,7 @@ export default function Windows11SlowFixPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href={PHONE_HREF}
               className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-black text-lg text-black"
-              style={{ background: "linear-gradient(135deg,#f59e0b,#fbbf24)" }}>
+              style={{ background: "linear-gradient(135deg,#f59e0b,#c084fc)" }}>
               📞 Call Free — {PHONE}
             </a>
             <Link href="/computer-help"

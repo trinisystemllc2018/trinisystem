@@ -110,7 +110,7 @@ export default function PrinterWontPrintPage() {
           </div>
           <h1 className="font-black text-white leading-tight mb-4" style={{ fontSize: "clamp(2rem,5vw,3.5rem)" }}>
             Printer Won&apos;t Print?<br />
-            <span style={{ background: "linear-gradient(135deg,#fbbf24,#f59e0b)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+            <span style={{ background: "linear-gradient(135deg,#c084fc,#f59e0b)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
               Here&apos;s the Real Fix.
             </span>
           </h1>
@@ -121,7 +121,7 @@ export default function PrinterWontPrintPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href={PHONE_HREF}
               className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-black text-lg text-black"
-              style={{ background: "linear-gradient(135deg,#f59e0b,#fbbf24)", boxShadow: "0 0 30px rgba(245,158,11,0.4)" }}>
+              style={{ background: "linear-gradient(135deg,#f59e0b,#c084fc)", boxShadow: "0 0 30px rgba(168,85,247,0.4)" }}>
               📞 {PHONE} — Call Free
             </a>
             <a href="#fix-steps"

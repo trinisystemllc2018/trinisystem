@@ -77,7 +77,7 @@ export function FloatingSupport() {
 
           <Link href="/how-to"
             className="flex items-center gap-3 p-3 rounded-2xl group transition-colors"
-            style={{ background: "rgba(245,158,11,0.15)", border: "1px solid rgba(245,158,11,0.3)" }}>
+            style={{ background: "rgba(168,85,247,0.15)", border: "1px solid rgba(168,85,247,0.3)" }}>
             <span className="text-2xl">📖</span>
             <div className="flex-1">
               <p className="text-sm font-bold text-amber-300">Free Guides</p>

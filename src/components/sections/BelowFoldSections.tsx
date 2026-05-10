@@ -32,27 +32,27 @@ export default function BelowFoldSections() {
   return (
     <>
       {/* ══ HOW IT WORKS ══════════════════════════════════ */}
-      <section className="py-20 px-4" style={{ background: "linear-gradient(180deg, #020817 0%, #0a0f1e 100%)" }} aria-label="How it works">
+      <section className="py-20 px-4" style={{ background: "linear-gradient(180deg, #000000 0%, #050505 100%)" }} aria-label="How it works">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16 reveal">
+          <div className="text-center mb-16 scroll-reveal">
             <h2 className="text-4xl md:text-5xl font-black text-white mb-4">How it works</h2>
             <p className="text-white/50 text-lg">From your first call to a fixed device — here's what to expect.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-4 relative">
             {HOW_IT_WORKS.map((step, idx) => (
-              <div key={step.step} className="reveal flex flex-col items-center text-center" style={{ animationDelay: `${idx * 0.12}s` }}>
+              <div key={step.step} className="scroll-reveal flex flex-col items-center text-center" style={{ animationDelay: `${idx * 0.12}s` }}>
                 <div className="relative mb-6">
                   <div className="w-20 h-20 rounded-full flex items-center justify-center text-3xl"
-                    style={{ background: "linear-gradient(135deg, #1e293b, #0f172a)", border: "2px solid rgba(245,158,11,0.3)", boxShadow: "0 8px 32px rgba(0,0,0,0.4), 0 0 0 8px rgba(245,158,11,0.04)" }}>
+                    style={{ background: "linear-gradient(135deg, #1e293b, #0f172a)", border: "2px solid rgba(168,85,247,0.3)", boxShadow: "0 8px 32px rgba(0,0,0,0.4), 0 0 0 8px rgba(245,158,11,0.04)" }}>
                     {step.icon}
                   </div>
                   <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center text-xs font-black text-black"
-                    style={{ background: "linear-gradient(135deg, #f59e0b, #fbbf24)" }}>
+                    style={{ background: "linear-gradient(135deg, #a855f7, #c084fc)" }}>
                     {step.step}
                   </div>
                   {idx < HOW_IT_WORKS.length - 1 && (
                     <div className="hidden md:block absolute top-10 left-full w-full h-px -translate-y-1/2"
-                      style={{ background: "linear-gradient(90deg, rgba(245,158,11,0.4), transparent)", marginLeft: "8px" }} />
+                      style={{ background: "linear-gradient(90deg, rgba(168,85,247,0.4), transparent)", marginLeft: "8px" }} />
                   )}
                 </div>
                 <h3 className="text-white font-black text-lg mb-2">{step.title}</h3>
@@ -66,7 +66,7 @@ export default function BelowFoldSections() {
       {/* ══ SENIOR GUIDES SPOTLIGHT ════════════════════════ */}
       <section className="py-20 px-4 bg-section-dark" aria-label="Senior guides">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12 reveal">
+          <div className="text-center mb-12 scroll-reveal">
             <div className="text-5xl mb-4">👴👵</div>
             <h2 className="text-4xl md:text-5xl font-black text-white mb-4">Guides written for seniors</h2>
             <p className="text-white/55 text-lg max-w-2xl mx-auto">
@@ -76,7 +76,7 @@ export default function BelowFoldSections() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {SENIOR_GUIDES.map((guide, i) => (
-              <div key={guide.href} className="reveal rounded-2xl overflow-hidden" style={{ animationDelay: `${i * 0.1}s` }}>
+              <div key={guide.href} className="scroll-reveal rounded-2xl overflow-hidden" style={{ animationDelay: `${i * 0.1}s` }}>
                 <div className="p-6" style={{ background: "linear-gradient(135deg, #1e293b, #0f172a)", border: "1px solid rgba(255,255,255,0.07)" }}>
                   <div className="text-5xl mb-4">{guide.icon}</div>
                   <h3 className="text-xl font-black text-white mb-2">{guide.title}</h3>
@@ -99,7 +99,7 @@ export default function BelowFoldSections() {
             ))}
           </div>
 
-          <div className="text-center mt-8 reveal">
+          <div className="text-center mt-8 scroll-reveal">
             <Link href="/how-to"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl font-black text-white transition-all hover:scale-105"
               style={{ background: "rgba(255,255,255,0.08)", border: "2px solid rgba(255,255,255,0.2)" }}>
@@ -111,7 +111,7 @@ export default function BelowFoldSections() {
 
       {/* ══ FREE TOOLS BAND ════════════════════════════════ */}
       <section className="py-16 px-4" style={{ background: "linear-gradient(135deg, #064e3b, #065f46)" }} aria-label="Free tools">
-        <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8 reveal">
+        <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8 scroll-reveal">
           <div className="flex-1 text-center md:text-left">
             <div className="inline-flex items-center gap-2 bg-emerald-400/20 border border-emerald-400/30 rounded-full px-4 py-2 text-emerald-300 text-xs font-mono tracking-widest uppercase mb-4">
               ⚡ 100% Free · No Subscription Ever
@@ -140,14 +140,14 @@ export default function BelowFoldSections() {
       {/* ══ REVIEWS ════════════════════════════════════════ */}
       <section className="py-20 px-4" style={{ background: "#020817" }} aria-label="Customer reviews">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12 reveal">
+          <div className="text-center mb-12 scroll-reveal">
             <div className="text-4xl mb-3">⭐⭐⭐⭐⭐</div>
             <h2 className="text-4xl font-black text-white mb-2">4.9 on Google · 47 reviews</h2>
             <p className="text-white/50">Real customers, real fixes.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {REVIEWS.map((r, i) => (
-              <div key={r.name} className="reveal rounded-2xl p-6" style={{
+              <div key={r.name} className="scroll-reveal rounded-2xl p-6" style={{
                 animationDelay: `${i * 0.08}s`,
                 background: "linear-gradient(135deg, #1e293b, #0f172a)",
                 border: "1px solid rgba(255,255,255,0.07)",
@@ -168,10 +168,10 @@ export default function BelowFoldSections() {
               </div>
             ))}
           </div>
-          <div className="text-center mt-8 reveal">
+          <div className="text-center mt-8 scroll-reveal">
             <a href="https://share.google/1mtrJVk8Ya0PkjG76" target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-amber-400 hover:text-amber-300 transition-colors"
-              style={{ border: "1px solid rgba(245,158,11,0.3)" }}>
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-purple-400 hover:text-purple-300 transition-colors"
+              style={{ border: "1px solid rgba(168,85,247,0.3)" }}>
               ⭐ Read all reviews on Google ↗
             </a>
           </div>
@@ -180,7 +180,7 @@ export default function BelowFoldSections() {
 
       {/* ══ FINAL CTA ══════════════════════════════════════ */}
       <section className="py-20 px-4 bg-hero bg-grid text-center" aria-label="Call to action">
-        <div className="max-w-3xl mx-auto reveal">
+        <div className="max-w-3xl mx-auto scroll-reveal">
           <div className="text-5xl mb-6 animate-float">📞</div>
           <h2 className="text-4xl md:text-5xl font-black text-white mb-4">Ready to get help?</h2>
           <p className="text-white/60 text-xl mb-8">
@@ -189,7 +189,7 @@ export default function BelowFoldSections() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href={PHONE_HREF}
               className="btn-glow touch-target flex items-center justify-center gap-3 px-10 py-5 rounded-2xl font-black text-xl text-black transition-all hover:scale-105 active:scale-95"
-              style={{ background: "linear-gradient(135deg, #f59e0b, #fbbf24)", boxShadow: "0 0 60px rgba(245,158,11,0.5)" }}>
+              style={{ background: "linear-gradient(135deg, #a855f7, #c084fc)", boxShadow: "0 0 60px rgba(168,85,247,0.5)" }}>
               📞 {PHONE} — Call Free Now
             </a>
             <Link href="/contact"

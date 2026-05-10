@@ -4,6 +4,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { CustomCursor } from "@/components/ui/CustomCursor";
+import { ScrollRevealProvider } from "@/components/ui/ScrollRevealProvider";
 import { DeferredFloating } from "@/components/ui/DeferredFloating";
 
 // Self-host font — removes the render-blocking Google Fonts request
@@ -320,7 +322,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }}
         />
       </head>
-      <body className="bg-[#050d1a] text-white antialiased font-sans">
+      <body className="text-white antialiased font-sans">
         {/* GTM noscript */}
         <noscript>
           <iframe
@@ -330,6 +332,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
         </noscript>
 
+        <CustomCursor />
+        <ScrollRevealProvider />
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />

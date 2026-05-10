@@ -216,7 +216,7 @@ function ArrowTooltip({ text, position = "top" }: { text: string; position?: "to
         {text}
       </div>
       <svg width="20" height="40" viewBox="0 0 20 40">
-        <path d="M10 0 L10 32 M4 26 L10 32 L16 26" stroke="#d97706" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M10 0 L10 32 M4 26 L10 32 L16 26" stroke="#7e22ce" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     </div>
   );

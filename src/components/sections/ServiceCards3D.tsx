@@ -174,13 +174,13 @@ export function ServiceCards3D() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 mb-6 px-5 py-2.5 rounded-full"
-            style={{ background: "rgba(245,158,11,0.1)", border: "1px solid rgba(245,158,11,0.25)" }}>
+            style={{ background: "rgba(168,85,247,0.1)", border: "1px solid rgba(168,85,247,0.25)" }}>
             <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
             <span className="text-amber-300/80 text-xs font-mono tracking-widest uppercase">Remote Support — All 50 States</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">
             What can we fix<br />
-            <span style={{ background: "linear-gradient(90deg, #fbbf24, #f97316)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+            <span style={{ background: "linear-gradient(90deg, #c084fc, #f97316)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
               for you today?
             </span>
           </h2>

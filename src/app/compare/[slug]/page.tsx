@@ -139,7 +139,7 @@ export default function ComparePage({ params }: Props) {
         style={{ background: "linear-gradient(135deg,#050d1a 0%,#0f1a30 60%,#050d1a 100%)" }}>
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-mono tracking-widest uppercase mb-6"
-            style={{ background: "rgba(245,158,11,0.12)", border: "1px solid rgba(245,158,11,0.3)", color: "#f59e0b" }}>
+            style={{ background: "rgba(245,158,11,0.12)", border: "1px solid rgba(168,85,247,0.3)", color: "#f59e0b" }}>
             🖨️ Printer Comparison 2026
           </div>
           <h1 className="font-black text-white leading-tight mb-4" style={{ fontSize: "clamp(2rem,5vw,3.5rem)" }}>
@@ -147,7 +147,7 @@ export default function ComparePage({ params }: Props) {
             {" "}vs{" "}
             <span style={{ color: brandB.color }}>{brandB.name}</span>
             {" "}Printer<br />
-            <span style={{ background: "linear-gradient(135deg,#fbbf24,#f59e0b)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+            <span style={{ background: "linear-gradient(135deg,#c084fc,#f59e0b)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
               Which Should You Buy?
             </span>
           </h1>
@@ -231,7 +231,7 @@ export default function ComparePage({ params }: Props) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <a href={PHONE_HREF}
               className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-black text-lg text-black"
-              style={{ background: "linear-gradient(135deg,#f59e0b,#fbbf24)" }}>
+              style={{ background: "linear-gradient(135deg,#f59e0b,#c084fc)" }}>
               📞 {PHONE}
             </a>
           </div>
