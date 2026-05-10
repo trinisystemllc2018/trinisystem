@@ -175,7 +175,7 @@ const schemas = [
 const colorMap: Record<string, string> = {
   blue: "border-blue-200 hover:border-blue-400 bg-blue-50",
   emerald: "border-emerald-200 hover:border-emerald-400 bg-emerald-50",
-  purple: "border-purple-200 hover:border-purple-400 bg-purple-50",
+  purple: "border-purple-200 hover:border-purple-400 bg-orange-50",
   amber: "border-amber-200 hover:border-amber-400 bg-amber-50",
   red: "border-red-200 hover:border-red-400 bg-red-50",
 };
@@ -183,7 +183,7 @@ const colorMap: Record<string, string> = {
 const accentMap: Record<string, string> = {
   blue: "text-blue-700",
   emerald: "text-emerald-700",
-  purple: "text-purple-700",
+  purple: "text-orange-700",
   amber: "text-amber-700",
   red: "text-red-700",
 };

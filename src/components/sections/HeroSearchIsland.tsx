@@ -69,7 +69,7 @@ export function HeroSearchIsland() {
           style={{
             background: focused ? "#ffffff" : "#f8fafc",
             boxShadow: focused
-              ? "0 0 0 3px rgba(168,85,247,0.5), 0 0 0 1px rgba(245,158,11,0.8), 0 24px 60px rgba(0,0,0,0.5)"
+              ? "0 0 0 3px rgba(249,115,22,0.5), 0 0 0 1px rgba(245,158,11,0.8), 0 24px 60px rgba(0,0,0,0.5)"
               : "0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.1)",
           }}
         >
@@ -99,8 +99,8 @@ export function HeroSearchIsland() {
             type="submit"
             className="m-2 px-6 md:px-8 py-3.5 rounded-xl text-white font-black text-sm md:text-base btn-glow shrink-0 transition-all hover:scale-105 active:scale-95"
             style={{
-              background: "linear-gradient(135deg, #a855f7, #7e22ce)",
-              boxShadow: "0 4px 20px rgba(168,85,247,0.5), inset 0 1px 0 rgba(255,255,255,0.2)",
+              background: "linear-gradient(135deg, #f97316, #c2410c)",
+              boxShadow: "0 4px 20px rgba(249,115,22,0.5), inset 0 1px 0 rgba(255,255,255,0.2)",
             }}
           >
             FIX IT →
@@ -121,9 +121,9 @@ export function HeroSearchIsland() {
               backdropFilter: "blur(8px)",
             }}
             onMouseEnter={e => {
-              (e.currentTarget as HTMLElement).style.background = "rgba(168,85,247,0.15)";
-              (e.currentTarget as HTMLElement).style.borderColor = "rgba(168,85,247,0.4)";
-              (e.currentTarget as HTMLElement).style.color = "#c084fc";
+              (e.currentTarget as HTMLElement).style.background = "rgba(249,115,22,0.15)";
+              (e.currentTarget as HTMLElement).style.borderColor = "rgba(249,115,22,0.4)";
+              (e.currentTarget as HTMLElement).style.color = "#fb923c";
             }}
             onMouseLeave={e => {
               (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.06)";

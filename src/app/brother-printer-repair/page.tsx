@@ -86,7 +86,7 @@ export default function BrotherPrinterRepairPage() {
           </div>
           <h1 className="font-black text-white leading-tight mb-4" style={{ fontSize: "clamp(2rem,5vw,3.5rem)" }}>
             Brother Printer Not Working?<br />
-            <span style={{ background: "linear-gradient(135deg,#c084fc,#f59e0b)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+            <span style={{ background: "linear-gradient(135deg,#fb923c,#f59e0b)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
               We Fix It Remotely.
             </span>
           </h1>
@@ -97,7 +97,7 @@ export default function BrotherPrinterRepairPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <a href={PHONE_HREF}
               className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-black text-lg text-black"
-              style={{ background: "linear-gradient(135deg,#f59e0b,#c084fc)", boxShadow: "0 0 30px rgba(168,85,247,0.4)" }}>
+              style={{ background: "linear-gradient(135deg,#f59e0b,#fb923c)", boxShadow: "0 0 30px rgba(249,115,22,0.4)" }}>
               📞 {PHONE} — Call Free
             </a>
           </div>
@@ -154,12 +154,12 @@ export default function BrotherPrinterRepairPage() {
           </div>
 
           <div className="mt-10 rounded-2xl p-8 text-center"
-            style={{ background: "rgba(168,85,247,0.1)", border: "1px solid rgba(168,85,247,0.25)" }}>
+            style={{ background: "rgba(249,115,22,0.1)", border: "1px solid rgba(249,115,22,0.25)" }}>
             <h3 className="text-white font-black text-xl mb-3">Don&apos;t want to do it yourself?</h3>
             <p className="text-white/55 mb-5">We&apos;ve fixed thousands of Brother printers remotely. Call us and we&apos;ll have it working in under 20 minutes.</p>
             <a href={PHONE_HREF}
               className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-black text-lg text-black"
-              style={{ background: "linear-gradient(135deg,#f59e0b,#c084fc)" }}>
+              style={{ background: "linear-gradient(135deg,#f59e0b,#fb923c)" }}>
               📞 {PHONE}
             </a>
           </div>

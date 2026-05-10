@@ -97,7 +97,7 @@ const FIXES = [
     time: "10 min",
   },
   {
-    num: "07", icon: "🌐", title: "Disable Background Apps", color: "#a855f7", impact: "LOW-MED",
+    num: "07", icon: "🌐", title: "Disable Background Apps", color: "#f97316", impact: "LOW-MED",
     detail: "Settings → Apps → Installed apps → click any app → Advanced options → Background app permissions → Never. Do this for OneDrive, Edge, any app you don't need running constantly. Background apps silently use CPU and RAM.",
     time: "3 min",
   },
@@ -125,7 +125,7 @@ export default function Windows11SlowFixPage() {
           </div>
           <h1 className="font-black text-white leading-tight mb-4" style={{ fontSize: "clamp(2rem,5vw,3.5rem)" }}>
             Windows 11 Running Slow?<br />
-            <span style={{ background: "linear-gradient(135deg,#c084fc,#f59e0b)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+            <span style={{ background: "linear-gradient(135deg,#fb923c,#f59e0b)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
               Fix It in 15 Minutes — Free.
             </span>
           </h1>
@@ -224,7 +224,7 @@ export default function Windows11SlowFixPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href={PHONE_HREF}
               className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-black text-lg text-black"
-              style={{ background: "linear-gradient(135deg,#f59e0b,#c084fc)" }}>
+              style={{ background: "linear-gradient(135deg,#f59e0b,#fb923c)" }}>
               📞 Call Free — {PHONE}
             </a>
             <Link href="/computer-help"

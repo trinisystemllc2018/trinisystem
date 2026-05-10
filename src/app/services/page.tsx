@@ -133,7 +133,7 @@ function BrandDetails() {
 
 function OtherServices() {
   const services = [
-    { icon: "💻", title: "PC & Windows Support", models: ["Windows 10 Repair", "Windows 11 Issues", "Slow Computer Fix", "Driver Updates", "System Restore"], color: "bg-purple-50 border-purple-100" },
+    { icon: "💻", title: "PC & Windows Support", models: ["Windows 10 Repair", "Windows 11 Issues", "Slow Computer Fix", "Driver Updates", "System Restore"], color: "bg-orange-50 border-purple-100" },
     { icon: "🦠", title: "Virus & Malware Removal", models: ["Norton/McAfee Install", "Full System Scan", "Malwarebytes Setup", "Browser Cleanup", "Ransomware Help"], color: "bg-red-50 border-red-100" },
     { icon: "🗺️", title: "Garmin GPS Updates", models: ["nuvi Series", "DriveSmart 65/55", "RV 890/890LMT", "Map Updates", "Firmware Updates"], color: "bg-teal-50 border-teal-100" },
     { icon: "🏠", title: "Home Office Setup", models: ["Router Config", "Printer Network Setup", "Webcam / Monitor", "Home Classroom", "Video Call Setup"], color: "bg-orange-50 border-orange-100" },

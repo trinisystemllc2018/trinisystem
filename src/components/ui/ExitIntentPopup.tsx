@@ -34,15 +34,15 @@ export function ExitIntentPopup() {
         className="w-full max-w-md rounded-3xl overflow-hidden"
         style={{
           background: "linear-gradient(135deg, #0f172a, #1e293b)",
-          border: "1px solid rgba(168,85,247,0.3)",
-          boxShadow: "0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(168,85,247,0.1)",
+          border: "1px solid rgba(249,115,22,0.3)",
+          boxShadow: "0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(249,115,22,0.1)",
           animation: "scaleIn 0.25s ease",
         }}
         onClick={e => e.stopPropagation()}
       >
         {/* Header */}
         <div className="relative px-6 pt-6 pb-4 text-center"
-          style={{ background: "linear-gradient(135deg, #a855f722, transparent)" }}>
+          style={{ background: "linear-gradient(135deg, #f9731622, transparent)" }}>
           <button onClick={dismiss}
             className="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center text-white/40 hover:text-white transition-colors"
             style={{ background: "rgba(255,255,255,0.08)" }}>✕</button>

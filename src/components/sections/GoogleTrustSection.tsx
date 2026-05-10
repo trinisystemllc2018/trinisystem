@@ -23,7 +23,7 @@ const REVIEWS = [
     text: "Very helpful in finding and resolving my Canon PIXMA B200 error. Quick, simple, and effective. I was ready to buy a new printer — they saved me $200!",
     device: "Canon PIXMA MX922",
     avatar: "LP",
-    color: "bg-purple-500",
+    color: "bg-orange-500",
   },
   {
     name: "Mary Steil",

@@ -3,9 +3,13 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * CustomCursor — dot + outline cursor that follows the mouse.
- * Outline uses spring lag for natural feel. Auto-disabled on touch devices.
- * Adds .cursor-hover class when hovering interactive elements.
+ * CustomCursor — orange dot + outline that follows the mouse with spring lag.
+ *
+ * Fixes vs prior version:
+ * - Stays visible while scrolling (no longer hides on document mouseleave)
+ * - Uses pointermove events so it works during scroll/touch hybrids
+ * - Visibility starts hidden, only shown after first mouse move
+ * - Hover state checks every frame against current pointer coords
  */
 export function CustomCursor() {
   const dotRef = useRef<HTMLDivElement>(null);
@@ -13,7 +17,7 @@ export function CustomCursor() {
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    // Disable on touch devices and reduced motion
+    if (typeof window === "undefined") return;
     const isTouch = window.matchMedia("(pointer: coarse)").matches;
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (isTouch || reduceMotion) return;
@@ -24,67 +28,77 @@ export function CustomCursor() {
     const outline = outlineRef.current;
     if (!dot || !outline) return;
 
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
-    let outlineX = mouseX;
-    let outlineY = mouseY;
+    let mouseX = -100, mouseY = -100;
+    let outlineX = -100, outlineY = -100;
+    let visible = false;
+    let lastHoverTarget: Element | null = null;
     let rafId = 0;
 
-    const onMove = (e: MouseEvent) => {
+    const interactiveSelector =
+      'a, button, [role="button"], input, textarea, select, summary, label, [data-cursor-hover]';
+
+    const onMove = (e: PointerEvent) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
-      // dot follows mouse instantly
-      dot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
-    };
-
-    const animate = () => {
-      // outline lags with spring physics
-      outlineX += (mouseX - outlineX) * 0.18;
-      outlineY += (mouseY - outlineY) * 0.18;
-      outline.style.transform = `translate(${outlineX}px, ${outlineY}px) translate(-50%, -50%)`;
-      rafId = requestAnimationFrame(animate);
-    };
-    animate();
-
-    const interactiveSelector = 'a, button, [role="button"], input, textarea, select, label, [data-cursor-hover]';
-
-    const onOver = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (target.closest(interactiveSelector)) {
-        dot.classList.add("cursor-hover");
-        outline.classList.add("cursor-hover");
-      }
-    };
-    const onOut = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (target.closest(interactiveSelector)) {
-        dot.classList.remove("cursor-hover");
-        outline.classList.remove("cursor-hover");
+      if (!visible) {
+        visible = true;
+        dot.style.opacity = "1";
+        outline.style.opacity = "1";
       }
     };
 
-    const onLeave = () => {
-      dot.style.opacity = "0";
-      outline.style.opacity = "0";
+    const onLeaveWindow = (e: PointerEvent) => {
+      // Only hide when pointer truly leaves the window (relatedTarget is null)
+      if (!e.relatedTarget) {
+        visible = false;
+        dot.style.opacity = "0";
+        outline.style.opacity = "0";
+      }
     };
-    const onEnter = () => {
+
+    const onEnterWindow = () => {
+      visible = true;
       dot.style.opacity = "1";
       outline.style.opacity = "1";
     };
 
-    document.addEventListener("mousemove", onMove);
-    document.addEventListener("mouseover", onOver);
-    document.addEventListener("mouseout", onOut);
-    document.addEventListener("mouseleave", onLeave);
-    document.addEventListener("mouseenter", onEnter);
+    const animate = () => {
+      // Dot — follows instantly
+      dot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
+      // Outline — spring lag
+      outlineX += (mouseX - outlineX) * 0.18;
+      outlineY += (mouseY - outlineY) * 0.18;
+      outline.style.transform = `translate(${outlineX}px, ${outlineY}px) translate(-50%, -50%)`;
+
+      // Recompute hover target every frame using current pointer position
+      // This keeps hover state correct during scroll, even without mouse movement
+      const target = document.elementFromPoint(mouseX, mouseY);
+      const interactive = target?.closest(interactiveSelector) ?? null;
+
+      if (interactive !== lastHoverTarget) {
+        if (interactive) {
+          dot.classList.add("cursor-hover");
+          outline.classList.add("cursor-hover");
+        } else {
+          dot.classList.remove("cursor-hover");
+          outline.classList.remove("cursor-hover");
+        }
+        lastHoverTarget = interactive;
+      }
+
+      rafId = requestAnimationFrame(animate);
+    };
+    animate();
+
+    document.addEventListener("pointermove", onMove);
+    document.addEventListener("pointerleave", onLeaveWindow);
+    document.addEventListener("pointerenter", onEnterWindow);
 
     return () => {
       cancelAnimationFrame(rafId);
-      document.removeEventListener("mousemove", onMove);
-      document.removeEventListener("mouseover", onOver);
-      document.removeEventListener("mouseout", onOut);
-      document.removeEventListener("mouseleave", onLeave);
-      document.removeEventListener("mouseenter", onEnter);
+      document.removeEventListener("pointermove", onMove);
+      document.removeEventListener("pointerleave", onLeaveWindow);
+      document.removeEventListener("pointerenter", onEnterWindow);
     };
   }, []);
 
@@ -92,8 +106,8 @@ export function CustomCursor() {
 
   return (
     <>
-      <div ref={dotRef} className="cursor-dot" aria-hidden="true" />
-      <div ref={outlineRef} className="cursor-outline" aria-hidden="true" />
+      <div ref={dotRef} className="cursor-dot" aria-hidden="true" style={{ opacity: 0 }} />
+      <div ref={outlineRef} className="cursor-outline" aria-hidden="true" style={{ opacity: 0 }} />
     </>
   );
 }

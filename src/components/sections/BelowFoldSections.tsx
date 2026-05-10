@@ -43,16 +43,16 @@ export default function BelowFoldSections() {
               <div key={step.step} className="scroll-reveal flex flex-col items-center text-center" style={{ animationDelay: `${idx * 0.12}s` }}>
                 <div className="relative mb-6">
                   <div className="w-20 h-20 rounded-full flex items-center justify-center text-3xl"
-                    style={{ background: "linear-gradient(135deg, #1e293b, #0f172a)", border: "2px solid rgba(168,85,247,0.3)", boxShadow: "0 8px 32px rgba(0,0,0,0.4), 0 0 0 8px rgba(245,158,11,0.04)" }}>
+                    style={{ background: "linear-gradient(135deg, #1e293b, #0f172a)", border: "2px solid rgba(249,115,22,0.3)", boxShadow: "0 8px 32px rgba(0,0,0,0.4), 0 0 0 8px rgba(245,158,11,0.04)" }}>
                     {step.icon}
                   </div>
                   <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center text-xs font-black text-black"
-                    style={{ background: "linear-gradient(135deg, #a855f7, #c084fc)" }}>
+                    style={{ background: "linear-gradient(135deg, #f97316, #fb923c)" }}>
                     {step.step}
                   </div>
                   {idx < HOW_IT_WORKS.length - 1 && (
                     <div className="hidden md:block absolute top-10 left-full w-full h-px -translate-y-1/2"
-                      style={{ background: "linear-gradient(90deg, rgba(168,85,247,0.4), transparent)", marginLeft: "8px" }} />
+                      style={{ background: "linear-gradient(90deg, rgba(249,115,22,0.4), transparent)", marginLeft: "8px" }} />
                   )}
                 </div>
                 <h3 className="text-white font-black text-lg mb-2">{step.title}</h3>
@@ -170,8 +170,8 @@ export default function BelowFoldSections() {
           </div>
           <div className="text-center mt-8 scroll-reveal">
             <a href="https://share.google/1mtrJVk8Ya0PkjG76" target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-purple-400 hover:text-purple-300 transition-colors"
-              style={{ border: "1px solid rgba(168,85,247,0.3)" }}>
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-orange-400 hover:text-orange-300 transition-colors"
+              style={{ border: "1px solid rgba(249,115,22,0.3)" }}>
               ⭐ Read all reviews on Google ↗
             </a>
           </div>
@@ -189,7 +189,7 @@ export default function BelowFoldSections() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href={PHONE_HREF}
               className="btn-glow touch-target flex items-center justify-center gap-3 px-10 py-5 rounded-2xl font-black text-xl text-black transition-all hover:scale-105 active:scale-95"
-              style={{ background: "linear-gradient(135deg, #a855f7, #c084fc)", boxShadow: "0 0 60px rgba(168,85,247,0.5)" }}>
+              style={{ background: "linear-gradient(135deg, #f97316, #fb923c)", boxShadow: "0 0 60px rgba(249,115,22,0.5)" }}>
               📞 {PHONE} — Call Free Now
             </a>
             <Link href="/contact"

@@ -175,7 +175,7 @@ export function PrinterSimulator() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 bg-purple-100 text-purple-700 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-4 border border-purple-200">
+          <div className="inline-flex items-center gap-2 bg-purple-100 text-orange-700 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-4 border border-purple-200">
             🖨️ Interactive Simulator
           </div>
           <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-3">

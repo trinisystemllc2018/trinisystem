@@ -568,7 +568,7 @@ export function OneClickHelpMode() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 w-full max-w-2xl">
                 {[
                   { icon: "🖨️", title: "My Printer Won't Work", sub: "HP, Canon, Epson, Brother", color: "from-blue-500 to-blue-700", action: () => setStep("printer") },
-                  { icon: "🐌", title: "My Computer Is Slow", sub: "Free TriniCleaner download", color: "from-purple-500 to-purple-700", action: () => notifyAndGo("Computer Is Slow", DOWNLOAD_URL) },
+                  { icon: "🐌", title: "My Computer Is Slow", sub: "Free TriniCleaner download", color: "from-orange-500 to-red-600", action: () => notifyAndGo("Computer Is Slow", DOWNLOAD_URL) },
                   { icon: "🦠", title: "I Think I Have a Virus", sub: "Remote removal — same day", color: "from-red-500 to-red-700", action: () => notifyAndGo("Virus Help", PHONE_HREF) },
                   { icon: "🗺️", title: "Update My GPS Maps", sub: "Garmin, all models", color: "from-teal-500 to-teal-700", action: () => notifyAndGo("GPS Map Update", PHONE_HREF) },
                   { icon: "📱", title: "Set Up My New Device", sub: "Tablet, phone, computer", color: "from-orange-500 to-orange-700", action: () => notifyAndGo("New Device Setup", PHONE_HREF) },

@@ -249,7 +249,7 @@ export default function ErrorCodePage({ params }: Props) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href={PHONE_HREF}
               className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-black text-lg text-black"
-              style={{ background: "linear-gradient(135deg,#f59e0b,#c084fc)", boxShadow: "0 0 30px rgba(168,85,247,0.4)" }}>
+              style={{ background: "linear-gradient(135deg,#f59e0b,#fb923c)", boxShadow: "0 0 30px rgba(249,115,22,0.4)" }}>
               📞 {PHONE} — Fix It Now
             </a>
           </div>
@@ -300,7 +300,7 @@ export default function ErrorCodePage({ params }: Props) {
               </div>
 
               <div className="mt-10 rounded-2xl p-8 text-center"
-                style={{ background: "rgba(168,85,247,0.1)", border: "1px solid rgba(168,85,247,0.25)" }}>
+                style={{ background: "rgba(249,115,22,0.1)", border: "1px solid rgba(249,115,22,0.25)" }}>
                 <div className="text-3xl mb-3">🛠️</div>
                 <h3 className="text-white font-black text-xl mb-3">Still getting the error?</h3>
                 <p className="text-white/55 mb-5">
@@ -308,7 +308,7 @@ export default function ErrorCodePage({ params }: Props) {
                 </p>
                 <a href={PHONE_HREF}
                   className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-black text-lg text-black"
-                  style={{ background: "linear-gradient(135deg,#f59e0b,#c084fc)" }}>
+                  style={{ background: "linear-gradient(135deg,#f59e0b,#fb923c)" }}>
                   📞 {PHONE} — Free Diagnosis
                 </a>
               </div>
@@ -328,7 +328,7 @@ export default function ErrorCodePage({ params }: Props) {
             </p>
             <a href={PHONE_HREF}
               className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-black text-lg text-black"
-              style={{ background: "linear-gradient(135deg,#f59e0b,#c084fc)" }}>
+              style={{ background: "linear-gradient(135deg,#f59e0b,#fb923c)" }}>
               📞 {PHONE} — Free Diagnosis
             </a>
           </div>

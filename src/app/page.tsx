@@ -33,12 +33,12 @@ const SERVICES = [
   { icon: "🐌", label: "Win 11 Slow Fix",     sub: "Speed up PC · Free tools",        href: "/windows-11-slow-fix",    color: "#10b981", glow: "rgba(16,185,129,0.5)"  },
   { icon: "🔵", label: "Brother Printer",     sub: "MFC · HL · DCP series",           href: "/brother-printer-repair", color: "#004B9C", glow: "rgba(0,75,156,0.5)"    },
   { icon: "🗺️", label: "GPS Help",           sub: "Garmin · Maps · Updates",         href: "/garmin-gps-help",        color: "#0ea5e9", glow: "rgba(14,165,233,0.5)"  },
-  { icon: "✉️", label: "Gmail & Email",      sub: "Login · Recovery · Setup",        href: "/how-to/gmail-help",      color: "#c084fc", glow: "rgba(192,132,252,0.5)"  },
-  { icon: "⚡", label: "Free PC Cleaner",    sub: "TriniCleaner — download free",     href: "/products",               color: "#a855f7", glow: "rgba(168,85,247,0.5)"  },
+  { icon: "✉️", label: "Gmail & Email",      sub: "Login · Recovery · Setup",        href: "/how-to/gmail-help",      color: "#fb923c", glow: "rgba(251,146,60,0.5)"  },
+  { icon: "⚡", label: "Free PC Cleaner",    sub: "TriniCleaner — download free",     href: "/products",               color: "#f97316", glow: "rgba(249,115,22,0.5)"  },
 ];
 
 const TRUST_STATS = [
-  { val: "4.9★", label: "Google Rating",  color: "#c084fc" },
+  { val: "4.9★", label: "Google Rating",  color: "#fb923c" },
   { val: "47",   label: "5-Star Reviews", color: "#10b981" },
   { val: "20+",  label: "Years Exp.",     color: "#3b82f6" },
   { val: "50",   label: "US States",      color: "#8b5cf6" },
@@ -98,7 +98,7 @@ export default function Home() {
           <div className="animate-fade-up delay-300 flex flex-col sm:flex-row gap-4 justify-center mb-10">
             <a href={PHONE_HREF}
               className="cta-glow-ring touch-target flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-black text-lg text-black transition-all hover:scale-105 active:scale-95"
-              style={{ background: "linear-gradient(135deg, #a855f7, #c084fc)", boxShadow: "0 8px 32px rgba(168,85,247,0.4)" }}>
+              style={{ background: "linear-gradient(135deg, #f97316 0%, #ef4444 100%)", boxShadow: "0 8px 32px rgba(239,68,68,0.5)" }}>
               <span className="relative flex h-3 w-3">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75" />
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500" />
@@ -134,11 +134,11 @@ export default function Home() {
       </section>
 
       {/* ══ TRUST TICKER — pure CSS marquee ══════════════════════ */}
-      <div className="overflow-hidden py-3 border-y border-white/10" style={{ background: "rgba(168,85,247,0.08)" }}>
+      <div className="overflow-hidden py-3 border-y border-white/10" style={{ background: "rgba(249,115,22,0.08)" }}>
         <div className="flex gap-10 whitespace-nowrap animate-marquee">
           {[...TICKER_ITEMS, ...TICKER_ITEMS].map((item, i) => (
-            <span key={i} className="text-purple-300/80 font-mono text-xs tracking-widest uppercase shrink-0">
-              {item} <span className="text-purple-400/30 mx-3">·</span>
+            <span key={i} className="text-orange-300/80 font-mono text-xs tracking-widest uppercase shrink-0">
+              {item} <span className="text-orange-400/30 mx-3">·</span>
             </span>
           ))}
         </div>
@@ -149,7 +149,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14 reveal">
             <div className="inline-flex items-center gap-2 rounded-full px-5 py-2 mb-6 text-xs font-mono tracking-widest uppercase"
-              style={{ background: "rgba(168,85,247,0.1)", border: "1px solid rgba(168,85,247,0.3)", color: "#c084fc" }}>
+              style={{ background: "rgba(249,115,22,0.1)", border: "1px solid rgba(249,115,22,0.3)", color: "#fb923c" }}>
               Remote Support · All 50 States
             </div>
             <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">

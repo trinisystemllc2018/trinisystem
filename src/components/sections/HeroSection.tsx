@@ -37,7 +37,7 @@ const CATEGORIES = [
     label: "Computer",
     sub: "Dell · HP · Lenovo · Gateway",
     href: "/computer-help",
-    bg: "from-violet-500 to-purple-700",
+    bg: "from-violet-500 to-red-600",
     glow: "rgba(139,92,246,0.6)",
     icon: "💻",
     keywords: ["computer","pc","laptop","windows","slow","dell","lenovo","gateway","freeze","crash","boot"],
@@ -322,7 +322,7 @@ export function HeroSection() {
                 whileTap={{ scale:0.96 }}
                 className="group relative overflow-hidden rounded-3xl p-5 text-left flex flex-col"
                 style={{
-                  background: `linear-gradient(135deg,${cat.bg.includes("blue") ? "#2563eb,#1d4ed8" : cat.bg.includes("teal") ? "#0d9488,#059669" : cat.bg.includes("violet") ? "#7c3aed,#6d28d9" : "#dc2626,#b91c1c"})`,
+                  background: `linear-gradient(135deg,${cat.bg.includes("blue") ? "#2563eb,#1d4ed8" : cat.bg.includes("teal") ? "#0d9488,#059669" : cat.bg.includes("violet") ? "#7c3aed,#b91c1c" : "#dc2626,#b91c1c"})`,
                   boxShadow: `0 8px 32px ${cat.glow}, 0 2px 8px rgba(0,0,0,0.3)`,
                   minHeight: "180px",
                 }}

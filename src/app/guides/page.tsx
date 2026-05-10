@@ -69,7 +69,7 @@ const colorMap: Record<string, { badge: string; btn: string; border: string }> =
   red:    { badge: "bg-red-100 text-red-700",       btn: "bg-red-600 hover:bg-red-700",     border: "border-red-200" },
   teal:   { badge: "bg-teal-100 text-teal-700",     btn: "bg-teal-600 hover:bg-teal-700",   border: "border-teal-200" },
   indigo: { badge: "bg-indigo-100 text-indigo-700", btn: "bg-indigo-600 hover:bg-indigo-700",border: "border-indigo-200" },
-  purple: { badge: "bg-purple-100 text-purple-700", btn: "bg-purple-600 hover:bg-purple-700",border: "border-purple-200" },
+  purple: { badge: "bg-purple-100 text-orange-700", btn: "bg-orange-600 hover:bg-orange-700",border: "border-purple-200" },
 };
 
 const difficultyColor: Record<string, string> = {

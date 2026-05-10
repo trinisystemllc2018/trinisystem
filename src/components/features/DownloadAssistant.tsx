@@ -230,7 +230,7 @@ export function DownloadAssistant() {
 const INITIAL_METRICS = [
   { label: "Junk Files",      value: 78,  unit: "%",   color: "bg-blue-500",   icon: "🗑️" },
   { label: "Registry Errors", value: 61,  unit: "%",   color: "bg-orange-400", icon: "🔧" },
-  { label: "Startup Items",   value: 44,  unit: "%",   color: "bg-purple-500", icon: "🚀" },
+  { label: "Startup Items",   value: 44,  unit: "%",   color: "bg-orange-500", icon: "🚀" },
   { label: "Browser Cache",   value: 89,  unit: "%",   color: "bg-teal-500",   icon: "🌐" },
   { label: "Disk Usage",      value: 73,  unit: "%",   color: "bg-red-400",    icon: "💾" },
 ];
