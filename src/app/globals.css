@@ -239,9 +239,6 @@ body {
     -webkit-backdrop-filter: blur(10px);
   }
 }
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
 .glass-card {
   background: rgba(15, 10, 5, 0.7);
   border: 1px solid rgba(249, 115, 22, 0.12);
