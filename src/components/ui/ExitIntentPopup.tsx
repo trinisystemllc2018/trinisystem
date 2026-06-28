@@ -1,79 +1,85 @@
 "use client";
 import { useEffect, useState } from "react";
+import { X, Phone, Download } from "lucide-react";
 import { DOWNLOAD_URL, PHONE_HREF, PHONE } from "@/lib/utils";
 
-/* Pure CSS transitions — no framer-motion */
+const KEY = "trini-exit-dismissed";
+const COOLDOWN_DAYS = 7;
+
 export function ExitIntentPopup() {
   const [show, setShow] = useState(false);
-  const [dismissed, setDismissed] = useState(false);
 
   useEffect(() => {
-    if (dismissed) return;
-    const timer = setTimeout(() => {
-      const handleLeave = (e: MouseEvent) => {
-        if (e.clientY <= 5 && !dismissed) {
+    // Respect a prior dismissal for COOLDOWN_DAYS (audit fix #9)
+    try {
+      const until = Number(localStorage.getItem(KEY) || 0);
+      if (until && Date.now() < until) return;
+    } catch {}
+
+    const arm = setTimeout(() => {
+      const onLeave = (e: MouseEvent) => {
+        if (e.clientY <= 4) {
           setShow(true);
-          document.removeEventListener("mouseleave", handleLeave);
+          document.removeEventListener("mouseleave", onLeave);
         }
       };
-      document.addEventListener("mouseleave", handleLeave);
-      return () => document.removeEventListener("mouseleave", handleLeave);
-    }, 5000);
-    return () => clearTimeout(timer);
-  }, [dismissed]);
+      document.addEventListener("mouseleave", onLeave);
+    }, 6000);
+    return () => clearTimeout(arm);
+  }, []);
 
-  const dismiss = () => { setShow(false); setDismissed(true); };
+  const dismiss = () => {
+    setShow(false);
+    try {
+      localStorage.setItem(KEY, String(Date.now() + COOLDOWN_DAYS * 864e5));
+    } catch {}
+  };
 
   if (!show) return null;
 
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
       onClick={dismiss}
-      style={{ background: "rgba(0,0,0,0.7)", backdropFilter: "blur(6px)", animation: "fadeIn 0.2s ease" }}>
+      style={{ background: "rgba(0,0,0,0.6)", backdropFilter: "blur(6px)", animation: "fadeIn 0.2s ease" }}>
       <div
-        className="w-full max-w-md rounded-3xl overflow-hidden"
-        style={{
-          background: "linear-gradient(135deg, #0f172a, #1e293b)",
-          border: "1px solid rgba(249,115,22,0.3)",
-          boxShadow: "0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(249,115,22,0.1)",
-          animation: "scaleIn 0.25s ease",
-        }}
-        onClick={e => e.stopPropagation()}
+        className="w-full max-w-md rounded-3xl overflow-hidden t-surface"
+        style={{ border: "1px solid var(--border-strong)", boxShadow: "var(--shadow-lg)", animation: "scaleIn 0.25s ease" }}
+        onClick={(e) => e.stopPropagation()}
+        role="dialog" aria-label="Before you go"
       >
-        {/* Header */}
-        <div className="relative px-6 pt-6 pb-4 text-center"
-          style={{ background: "linear-gradient(135deg, #f9731622, transparent)" }}>
+        <div className="relative px-6 pt-6 pb-4 text-center" style={{ background: "var(--primary-soft)" }}>
           <button onClick={dismiss}
-            className="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center text-white/40 hover:text-white transition-colors"
-            style={{ background: "rgba(255,255,255,0.08)" }}>✕</button>
-          <div className="text-4xl mb-2">⚡</div>
-          <h3 className="text-xl font-black text-white">Wait — before you go!</h3>
-          <p className="text-white/55 text-sm mt-1">Get free help or download our free PC cleaner.</p>
+            className="absolute top-4 right-4 w-8 h-8 rounded-full grid place-items-center t-muted transition-colors"
+            style={{ background: "var(--surface)" }} aria-label="Close">
+            <X size={16} />
+          </button>
+          <h3 className="text-xl font-black t-text">Need a hand before you go?</h3>
+          <p className="t-muted text-sm mt-1">Talk to a real technician, or grab our free PC cleaner.</p>
         </div>
 
         <div className="p-5 space-y-3">
           <a href={PHONE_HREF}
-            className="flex items-center gap-4 p-4 rounded-2xl transition-all hover:scale-[1.02] active:scale-[0.98]"
-            style={{ background: "linear-gradient(135deg, #1e3a8a, #1d4ed8)", boxShadow: "0 4px 20px rgba(37,99,235,0.4)" }}>
-            <span className="text-3xl">📞</span>
+            className="flex items-center gap-4 p-4 rounded-2xl transition-transform hover:scale-[1.02] active:scale-[0.98]"
+            style={{ background: "linear-gradient(135deg, var(--primary), var(--primary-2))", color: "var(--on-primary)" }}>
+            <Phone size={26} />
             <div>
-              <p className="text-white font-black">Free Call — Real Technician</p>
-              <p className="text-blue-200 text-sm">{PHONE} · Answer in &lt;5 min</p>
+              <p className="font-black">Free call — real technician</p>
+              <p className="text-sm" style={{ opacity: 0.85 }}>{PHONE}</p>
             </div>
           </a>
 
           <a href={DOWNLOAD_URL} target="_blank" rel="noopener noreferrer"
-            className="flex items-center gap-4 p-4 rounded-2xl transition-all hover:scale-[1.02] active:scale-[0.98]"
-            style={{ background: "linear-gradient(135deg, #064e3b, #059669)", boxShadow: "0 4px 20px rgba(16,185,129,0.4)" }}>
-            <span className="text-3xl">⬇</span>
+            className="flex items-center gap-4 p-4 rounded-2xl transition-transform hover:scale-[1.02] active:scale-[0.98]"
+            style={{ background: "var(--surface)", border: "1px solid var(--border)" }}>
+            <Download size={26} style={{ color: "#10b981" }} />
             <div>
-              <p className="text-white font-black">Free TriniCleaner Download</p>
-              <p className="text-emerald-200 text-sm">Speed up your PC — 100% free</p>
+              <p className="font-black t-text">Free TriniCleaner download</p>
+              <p className="text-sm t-faint">Speed up your PC — 100% free</p>
             </div>
           </a>
 
-          <button onClick={dismiss} className="w-full text-white/30 text-sm py-2 hover:text-white/50 transition-colors">
-            No thanks, I'll manage →
+          <button onClick={dismiss} className="w-full t-faint text-sm py-2 hover:opacity-80 transition-opacity">
+            No thanks, I'll keep browsing
           </button>
         </div>
       </div>

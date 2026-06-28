@@ -53,24 +53,34 @@ export function Button({ variant="primary", size="md", loading=false, icon, icon
 export function StickyCTA() {
   const [visible, setVisible] = React.useState(false);
   React.useEffect(() => {
-    const fn = () => setVisible(window.scrollY > 600);
+    const fn = () => {
+      const v = window.scrollY > 600;
+      setVisible(v);
+      // Tell the FAB stack to lift above this bar (audit fix #5)
+      document.documentElement.setAttribute("data-cta", v ? "1" : "0");
+    };
+    fn();
     window.addEventListener("scroll", fn, { passive: true });
-    return () => window.removeEventListener("scroll", fn);
+    return () => {
+      window.removeEventListener("scroll", fn);
+      document.documentElement.removeAttribute("data-cta");
+    };
   }, []);
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-40 transition-all duration-500"
       style={{ transform: visible ? "translateY(0)" : "translateY(100%)", opacity: visible ? 1 : 0 }}>
-      <div className="border-t border-gray-800 px-4 py-3 flex items-center justify-between max-w-7xl mx-auto"
-        style={{ background: "#0a0f1e", boxShadow: "0 -4px 30px rgba(0,0,0,0.5)" }}>
+      <div className="px-4 py-3 flex items-center justify-between max-w-7xl mx-auto"
+        style={{ background: "var(--surface-solid)", borderTop: "1px solid var(--border)", boxShadow: "0 -8px 30px rgba(0,0,0,0.25)" }}>
         <div className="flex items-center gap-3">
           <div className="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse" />
-          <p className="text-sm font-medium text-white/70 hidden sm:block">Technicians available now — under 5 min response</p>
+          <p className="text-sm font-medium t-muted hidden sm:block">Real technicians on call — we usually reply fast</p>
         </div>
         <div className="flex items-center gap-2 shrink-0">
-          <Button variant="outline" size="sm" href="tel:+13479531531"
-            className="!bg-white/10 !text-white !border-white/20 hover:!bg-white/20">📞 Call</Button>
-          <Button variant="primary" size="sm" href="/contact">Get Help →</Button>
+          <a href="tel:+13479531531" className="px-4 py-2 rounded-xl text-sm font-bold transition-colors"
+            style={{ background: "var(--surface)", color: "var(--text)", border: "1px solid var(--border)" }}>Call</a>
+          <a href="/contact" className="px-4 py-2 rounded-xl text-sm font-black transition-transform hover:scale-[1.03]"
+            style={{ background: "linear-gradient(135deg, var(--primary), var(--primary-2))", color: "var(--on-primary)" }}>Get help &rarr;</a>
         </div>
       </div>
     </div>

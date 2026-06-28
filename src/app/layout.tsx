@@ -286,8 +286,14 @@ const speakableSchema = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" dir="ltr" className={inter.variable}>
+    <html lang="en" dir="ltr" data-theme="dark" suppressHydrationWarning className={inter.variable}>
       <head>
+        {/* No-flash theme init — runs before paint, picks saved choice or system pref */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('trini-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();`,
+          }}
+        />
         {/* Preconnect to speed up any remaining third-party origins */}
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {/* DNS prefetch for analytics — non-blocking */}
@@ -326,7 +332,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }}
         />
       </head>
-      <body className="text-white antialiased font-sans">
+      <body className="t-text antialiased font-sans theme-transition">
         {/* GTM noscript */}
         <noscript>
           <iframe

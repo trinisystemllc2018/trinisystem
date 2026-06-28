@@ -10,54 +10,150 @@
 ════════════════════════════════════════════════════════ */
 
 @layer base {
+  /* ══════════════════════════════════════════════════════════════
+     SEMANTIC THEME TOKENS
+     Dark is the signature default. Light mode is a first-class option.
+     Toggle by setting data-theme="light" / "dark" on <html>.
+     Every surface, text and border below reads from these tokens, so
+     a single switch reflows the whole UI — readable in BOTH modes.
+  ══════════════════════════════════════════════════════════════ */
+  :root, [data-theme="dark"] {
+    color-scheme: dark;
+
+    /* Canvas + surfaces */
+    --bg:            #0a0710;   /* page background (warm near-black) */
+    --bg-2:          #0e0a16;   /* alternating section */
+    --surface:       rgba(255,255,255,0.045);
+    --surface-solid: #16101f;   /* opaque card on dark */
+    --surface-hover: rgba(255,255,255,0.07);
+
+    /* Text */
+    --text:        #f6f4f9;
+    --text-muted:  rgba(246,244,249,0.74);
+    --text-faint:  rgba(246,244,249,0.50);
+
+    /* Lines */
+    --border:        rgba(255,255,255,0.10);
+    --border-strong: rgba(249,115,22,0.28);
+
+    /* Glass */
+    --glass:        rgba(20,14,28,0.70);
+    --glass-border: rgba(249,115,22,0.14);
+    --glass-blur:   16px;
+
+    /* Brand (constant across themes) */
+    --primary:      #f97316;
+    --primary-2:    #ef4444;
+    --primary-soft: rgba(249,115,22,0.14);
+    --accent:       #3b82f6;
+    --on-primary:   #1a0e02;    /* text that sits on the orange button */
+
+    /* Shadows */
+    --shadow-sm: 0 4px 16px rgba(0,0,0,0.40);
+    --shadow:    0 8px 32px rgba(0,0,0,0.45);
+    --shadow-lg: 0 24px 70px rgba(0,0,0,0.55);
+
+    /* Hero atmosphere opacity (graphics are KEPT, just tuned per theme) */
+    --orb-opacity: 1;
+    --aurora-opacity: 0.7;
+    --grid-line: rgba(255,255,255,0.04);
+  }
+
+  [data-theme="light"] {
+    color-scheme: light;
+
+    --bg:            #f6f5f9;   /* soft warm off-white, never harsh pure-white */
+    --bg-2:          #efedf4;
+    --surface:       #ffffff;
+    --surface-solid: #ffffff;
+    --surface-hover: #f4f2f8;
+
+    --text:        #1b1622;
+    --text-muted:  rgba(27,22,34,0.70);
+    --text-faint:  rgba(27,22,34,0.52);
+
+    --border:        rgba(27,22,34,0.12);
+    --border-strong: rgba(249,115,22,0.40);
+
+    --glass:        rgba(255,255,255,0.80);
+    --glass-border: rgba(27,22,34,0.10);
+    --glass-blur:   16px;
+
+    --primary:      #ea580c;    /* slightly deeper orange for AA on white */
+    --primary-2:    #dc2626;
+    --primary-soft: rgba(234,88,12,0.10);
+    --accent:       #2563eb;
+    --on-primary:   #ffffff;
+
+    --shadow-sm: 0 2px 10px rgba(27,22,34,0.06);
+    --shadow:    0 10px 30px rgba(27,22,34,0.10);
+    --shadow-lg: 0 24px 60px rgba(27,22,34,0.14);
+
+    --orb-opacity: 0.55;
+    --aurora-opacity: 0.40;
+    --grid-line: rgba(27,22,34,0.05);
+  }
+
   :root {
+    /* shadcn-compat HSL (kept so legacy components don't error) */
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
     --card: 240 10% 3.9%;
     --card-foreground: 0 0% 98%;
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
-    --primary: 20.5 90.2% 48.2%;
     --primary-foreground: 210 20% 98%;
     --secondary: 240 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
     --muted: 240 3.7% 15.9%;
     --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
     --accent-foreground: 0 0% 98%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 20.5 90.2% 48.2%;
     --radius: 0.5rem;
 
-    /* Trini brand tokens — kept for legacy components */
-    --ts-dark: #0a0a0f;
-    --ts-amber: #f59e0b;
-    --ts-amber-b: #fbbf24;
-    --ts-blue: #3b82f6;
-    --ts-cyan: #06b6d4;
-    --ts-green: #10b981;
-    --ts-red: #ef4444;
-    --ts-purple: #f97316;
-    --ts-purple-b: #ea580c;
     --radius-card: 1rem;
-
     --font-body: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
 }
 
-* { border-color: hsl(var(--border)); }
+/* ── Theme-aware helper utilities (used by the rebuilt shell + pages) ── */
+.t-bg        { background: var(--bg); }
+.t-bg-2      { background: var(--bg-2); }
+.t-surface   { background: var(--surface-solid); }
+.t-text      { color: var(--text); }
+.t-muted     { color: var(--text-muted); }
+.t-faint     { color: var(--text-faint); }
+.t-border    { border-color: var(--border); }
+.theme-transition,
+.theme-transition * {
+  transition: background-color .35s ease, border-color .35s ease, color .25s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .theme-transition, .theme-transition * { transition: none !important; }
+}
+
+* { border-color: var(--border); }
 
 html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--font-body);
-  background: hsl(var(--background));
-  color: hsl(var(--foreground));
+  background: var(--bg);
+  color: var(--text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color .35s ease, color .25s ease;
+}
+
+/* Global, brand-coloured keyboard focus ring — visible in both themes.
+   (Audit fix: previously there was no :focus-visible anywhere.) */
+:where(a, button, input, textarea, select, summary, [role="button"], [tabindex]):focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 6px;
 }
 
 /* ════════════════════════════════════════════════════════
@@ -65,8 +161,12 @@ body {
 ════════════════════════════════════════════════════════ */
 @media (pointer: fine) and (prefers-reduced-motion: no-preference) {
   body { cursor: none; }
-  a, button, [role="button"], input, textarea, select, summary, label[for],
+  a, button, [role="button"], select, summary, label[for],
   [data-cursor-hover] { cursor: none; }
+  /* Audit fix: keep the native I-beam over text fields so people can see
+     where they're typing (this was a real complaint on the contact form). */
+  input:not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]),
+  textarea { cursor: text !important; }
 }
 .cursor-dot,
 .cursor-outline {
@@ -119,7 +219,7 @@ body {
    CUSTOM SCROLLBAR — purple accent
 ════════════════════════════════════════════════════════ */
 ::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-track { background: rgba(0,0,0,0.4); }
+::-webkit-scrollbar-track { background: var(--bg-2); }
 ::-webkit-scrollbar-thumb {
   background: rgba(249, 115, 22, 0.4);
   border-radius: 6px;
@@ -178,30 +278,39 @@ body {
    BACKGROUNDS
 ════════════════════════════════════════════════════════ */
 .bg-hero {
-  /* Lightweight gradient on mobile — visible but not expensive */
   background:
     radial-gradient(ellipse 90% 60% at 15% 10%, rgba(249, 115, 22, 0.15) 0%, transparent 55%),
     radial-gradient(ellipse 70% 50% at 85% 80%, rgba(239, 68, 68, 0.12) 0%, transparent 50%),
-    hsl(240 10% 3.9%);
-  background-color: hsl(240 10% 3.9%);
+    var(--bg);
+  background-color: var(--bg);
 }
-/* Desktop gets the full multi-layer gradient */
 @media (min-width: 768px) {
   .bg-hero {
     background:
       radial-gradient(ellipse 70% 50% at 18% 12%, rgba(249, 115, 22, 0.18) 0%, transparent 60%),
       radial-gradient(ellipse 60% 45% at 85% 28%, rgba(59, 130, 246, 0.13) 0%, transparent 55%),
       radial-gradient(ellipse 80% 60% at 50% 100%, rgba(16, 185, 129, 0.10) 0%, transparent 65%),
-      hsl(240 10% 3.9%);
+      var(--bg);
   }
 }
+[data-theme="light"] .bg-hero {
+  background:
+    radial-gradient(ellipse 80% 55% at 18% 8%, rgba(249,115,22,0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 45% at 88% 25%, rgba(59,130,246,0.08) 0%, transparent 55%),
+    var(--bg);
+}
 .bg-section-dark {
-  background: linear-gradient(180deg, hsl(240 10% 3.9%) 0%, hsl(240 10% 5%) 50%, hsl(240 10% 3.9%) 100%);
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 50%, var(--bg) 100%);
 }
 .bg-section-navy {
-  background: linear-gradient(180deg, hsl(240 10% 3.9%) 0%, hsl(240 10% 5%) 100%);
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
 }
-.bg-grid { background-image: none; }
+.bg-grid {
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
 .bg-gradient-radial {
   background-image: radial-gradient(circle at center, var(--tw-gradient-stops));
 }
@@ -218,14 +327,13 @@ body {
    GLASSMORPHISM (template style)
 ════════════════════════════════════════════════════════ */
 .glass {
-  background: rgba(10, 5, 0, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
 }
 @media (min-width: 768px) {
   .glass {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
   }
 }
 .glass-dark {
@@ -240,20 +348,17 @@ body {
   }
 }
 .glass-card {
-  background: rgba(15, 10, 5, 0.7);
-  border: 1px solid rgba(249, 115, 22, 0.12);
-  box-shadow:
-    0 8px 32px rgba(0,0,0,0.4),
-    inset 0 1px 0 rgba(255,255,255,0.06);
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,0.06);
 }
-/* Only apply blur backdrop on desktop where GPU can handle it */
 @media (min-width: 768px) {
   .glass-card {
-    background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.02) 100%);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
   }
 }
+[data-theme="light"] .glass-card { box-shadow: var(--shadow); }
 
 /* ════════════════════════════════════════════════════════
    ANIMATIONS — float, pulse-slow, marquee, fade-up
@@ -795,16 +900,17 @@ body {
 
 /* Glassy input style */
 .glass-input {
-  background: rgba(255,255,255,0.04);
-  border: 1.5px solid rgba(255,255,255,0.08);
-  color: #fff;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  color: var(--text);
   transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
+.glass-input::placeholder { color: var(--text-faint); }
 .glass-input:focus {
   outline: none;
-  border-color: rgba(249,115,22,0.5);
-  background: rgba(255,255,255,0.06);
-  box-shadow: 0 0 0 4px rgba(249,115,22,0.1);
+  border-color: var(--primary);
+  background: var(--surface-hover);
+  box-shadow: 0 0 0 4px var(--primary-soft);
 }
 
 /* Skip-to-main accessibility link */
@@ -812,8 +918,8 @@ body {
   position: absolute;
   top: -40px;
   left: 0;
-  background: #f97316;
-  color: #000;
+  background: var(--primary);
+  color: var(--on-primary);
   padding: 8px 16px;
   z-index: 9999;
   font-weight: 700;
@@ -860,3 +966,128 @@ body {
   /* Simplify stat-3d on mobile */
   .stat-3d { text-shadow: none; }
 }
+
+/* ════════════════════════════════════════════════════════
+   THEME-TUNED ATMOSPHERE (graphics KEPT, dialled per theme)
+════════════════════════════════════════════════════════ */
+.hero-orb { opacity: calc(var(--orb-opacity) * 1); }
+.aurora   { opacity: var(--aurora-opacity); }
+[data-theme="light"] .hero-orb-1 { opacity: calc(0.40 * var(--orb-opacity)); }
+[data-theme="light"] .hero-orb-2 { opacity: calc(0.35 * var(--orb-opacity)); }
+[data-theme="light"] .hero-orb-3 { opacity: calc(0.30 * var(--orb-opacity)); }
+[data-theme="light"] .hero-orb-4 { opacity: calc(0.30 * var(--orb-opacity)); }
+
+/* ════════════════════════════════════════════════════════
+   INNOVATIVE CURSOR  (audit fix #5 — far more visible)
+   A soft comet trail + a reticle ring + a contextual mode dot.
+   Mix-blend keeps it legible on ANY background, light or dark.
+════════════════════════════════════════════════════════ */
+.tx-cursor-ring,
+.tx-cursor-core,
+.tx-cursor-trail {
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 99999;
+  will-change: transform; border-radius: 50%;
+  transform: translate(-200px,-200px);
+}
+.tx-cursor-core {
+  width: 10px; height: 10px; margin: -5px 0 0 -5px;
+  background: var(--primary);
+  box-shadow: 0 0 10px 2px var(--primary), 0 0 22px 6px rgba(239,68,68,0.55);
+  transition: width .18s, height .18s, background .18s, opacity .25s;
+}
+.tx-cursor-ring {
+  width: 40px; height: 40px; margin: -20px 0 0 -20px;
+  border: 2px solid var(--primary);
+  /* difference blend = always stands out over photos, dark OR light */
+  mix-blend-mode: difference;
+  background: transparent;
+  transition: width .25s cubic-bezier(.22,1,.36,1),
+              height .25s cubic-bezier(.22,1,.36,1),
+              border-color .2s, opacity .25s, border-radius .25s;
+}
+/* the four reticle ticks make the cursor read as a precision tool */
+.tx-cursor-ring::before,
+.tx-cursor-ring::after {
+  content:''; position:absolute; background: var(--primary);
+  left:50%; top:50%;
+}
+.tx-cursor-ring::before { width:2px; height:7px; transform: translate(-50%,-50%); box-shadow:0 -16px 0 var(--primary),0 16px 0 var(--primary); }
+.tx-cursor-ring::after  { width:7px; height:2px; transform: translate(-50%,-50%); box-shadow:-16px 0 0 var(--primary),16px 0 0 var(--primary); }
+.tx-cursor-trail {
+  width: 7px; height: 7px; margin: -3.5px 0 0 -3.5px;
+  background: radial-gradient(circle, rgba(249,115,22,0.8), transparent 70%);
+  opacity: .5;
+}
+/* HOVER state on any interactive element: ring blooms + shows a label */
+.tx-cursor-ring.is-hover {
+  width: 62px; height: 62px; margin:-31px 0 0 -31px;
+  border-color: var(--primary-2);
+}
+.tx-cursor-core.is-hover { width: 6px; height: 6px; margin:-3px 0 0 -3px; }
+.tx-cursor-ring .tx-cursor-label {
+  position:absolute; left:50%; top:120%; transform:translateX(-50%);
+  font: 700 9px/1 var(--font-body); letter-spacing:.18em; text-transform:uppercase;
+  color: var(--primary); white-space:nowrap; opacity:0; transition:opacity .2s;
+  mix-blend-mode: normal;
+}
+.tx-cursor-ring.is-hover .tx-cursor-label { opacity:1; }
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .tx-cursor-ring, .tx-cursor-core, .tx-cursor-trail { display:none !important; }
+}
+
+/* ════════════════════════════════════════════════════════
+   THEME TOGGLE
+════════════════════════════════════════════════════════ */
+.theme-toggle {
+  position: relative; width: 58px; height: 30px; border-radius: 9999px;
+  background: var(--surface); border: 1px solid var(--border);
+  display:inline-flex; align-items:center; padding:0 4px; flex-shrink:0;
+  transition: background .3s, border-color .3s;
+}
+.theme-toggle__thumb {
+  position:absolute; width:22px; height:22px; border-radius:50%;
+  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  box-shadow: 0 2px 8px rgba(239,68,68,0.5);
+  transform: translateX(0); transition: transform .3s cubic-bezier(.22,1,.36,1);
+  display:flex; align-items:center; justify-content:center; font-size:11px;
+}
+[data-theme="light"] .theme-toggle__thumb { transform: translateX(28px); }
+
+/* ════════════════════════════════════════════════════════
+   SEGMENTED NAV (new header style — audit fix #2)
+════════════════════════════════════════════════════════ */
+.nav-shell {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+}
+.nav-pill {
+  position: relative; color: var(--text-muted);
+  transition: color .2s;
+}
+.nav-pill:hover { color: var(--text); }
+.nav-pill[data-active="true"] { color: var(--primary); }
+.nav-pill[data-active="true"]::after {
+  content:''; position:absolute; left:14px; right:14px; bottom:-1px; height:2px;
+  border-radius:2px; background: linear-gradient(90deg, var(--primary), var(--primary-2));
+}
+
+/* Coordinated floating stack — nothing overlaps now (audit fix #5) */
+:root { --dock-bottom: 1.25rem; }
+.tx-dock { position: fixed; right: 1rem; z-index: 50; display:flex; flex-direction:column; gap:.75rem; align-items:flex-end; }
+@media (min-width:768px){ .tx-dock { right: 1.5rem; } }
+
+/* ── Non-overlapping floating controls (audit fix #5) ───────────── */
+:root { --fab-b: 1.25rem; }
+@media (min-width: 768px) { :root { --fab-b: 1.5rem; } }
+/* When the sticky CTA bar is on screen, lift the FABs above it */
+html[data-cta="1"] { --fab-b: 5rem; }
+.tx-fab-support { position: fixed; right: 1rem; bottom: var(--fab-b); z-index: 50; }
+.tx-fab-top     { position: fixed; right: 1rem; bottom: calc(var(--fab-b) + 4.75rem); z-index: 50; }
+@media (min-width: 768px) { .tx-fab-support, .tx-fab-top { right: 1.5rem; } }
+
+/* Popup entrance keyframes used by modals */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes scaleIn { from { opacity: 0; transform: scale(0.94); } to { opacity: 1; transform: scale(1); } }

@@ -79,20 +79,20 @@ export default function Home() {
           <div className="animate-fade-up flex justify-center mb-8">
             <div className="glass-card inline-flex items-center gap-3 rounded-full px-5 py-2.5 text-xs font-mono tracking-widest uppercase">
               <span className="pulse-dot" aria-hidden="true" />
-              <span className="text-white/80">Technician Available Now · {PHONE}</span>
+              <span className="t-muted">Technician Available Now · {PHONE}</span>
             </div>
           </div>
 
           {/* Main headline — LCP element. No animation delay on the critical text. */}
           <div className="text-center mb-6">
-            <h1 className="font-black text-white leading-[1.05] tracking-tight"
+            <h1 className="font-black t-text leading-[1.05] tracking-tight"
               style={{ fontSize: "clamp(2.6rem,7vw,5rem)", textShadow: "0 4px 30px rgba(0,0,0,0.5)" }}>
               Your Tech Problem,
               <span className="block text-gradient-gold-shimmer" style={{ fontSize: "clamp(2.8rem,7.5vw,5.5rem)" }}>
                 Fixed Today.
               </span>
             </h1>
-            <p className="animate-fade-up delay-200 text-white/65 text-lg md:text-xl mt-5 max-w-2xl mx-auto">
+            <p className="animate-fade-up delay-200 t-muted text-lg md:text-xl mt-5 max-w-2xl mx-auto">
               Real technicians fix printers, slow computers, GPS devices, Gmail, and Facebook — remotely in minutes. Senior-friendly. 24/7.
             </p>
           </div>
@@ -109,7 +109,7 @@ export default function Home() {
               📞 {PHONE} — Call Free
             </a>
             <Link href="/how-to"
-              className="glass-card touch-target flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-black text-lg text-white transition-all hover:scale-105 active:scale-95 hover:bg-white/10">
+              className="glass-card touch-target flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-black text-lg t-text transition-all hover:scale-105 active:scale-95 hover:bg-white/10">
               📖 Browse Free Guides →
             </Link>
           </div>
@@ -124,13 +124,13 @@ export default function Home() {
             {TRUST_STATS.map(t => (
               <div key={t.label} className="glass-card text-center rounded-2xl py-4 px-3">
                 <div className="stat-3d text-2xl md:text-3xl font-black" style={{ color: t.color }}>{t.val}</div>
-                <div className="text-white/45 text-[11px] font-mono tracking-wider mt-1 uppercase">{t.label}</div>
+                <div className="t-faint text-[11px] font-mono tracking-wider mt-1 uppercase">{t.label}</div>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-white/25 animate-bounce-arrow">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 t-faint animate-bounce-arrow">
           <span className="text-xs font-mono tracking-widest uppercase">scroll</span>
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true"><path d="M19 9l-7 7-7-7"/></svg>
         </div>
@@ -155,11 +155,11 @@ export default function Home() {
               style={{ background: "rgba(249,115,22,0.1)", border: "1px solid rgba(249,115,22,0.3)", color: "#fb923c" }}>
               Remote Support · All 50 States
             </div>
-            <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">
+            <h2 className="text-4xl md:text-5xl font-black t-text leading-tight">
               What can we fix<br />
               <span className="text-gradient-gold">for you today?</span>
             </h2>
-            <p className="text-white/50 mt-4 text-lg max-w-xl mx-auto">
+            <p className="t-muted mt-4 text-lg max-w-xl mx-auto">
               Hover any card to see details. Click to go straight to the guide or solution.
             </p>
           </div>
@@ -181,8 +181,8 @@ export default function Home() {
                 <div className="service-card-accent" aria-hidden="true" />
                 <div className="relative">
                   <div className="text-4xl mb-3 service-card-icon inline-block">{s.icon}</div>
-                  <div className="font-black text-white text-lg mb-1">{s.label}</div>
-                  <div className="text-white/50 text-xs font-mono tracking-wide">{s.sub}</div>
+                  <div className="font-black t-text text-lg mb-1">{s.label}</div>
+                  <div className="t-muted text-xs font-mono tracking-wide">{s.sub}</div>
                   <div className="mt-4 flex items-center gap-1.5 text-sm font-semibold" style={{ color: s.color }}>
                     <span>Open guide</span>
                     <span className="service-card-arrow">→</span>
