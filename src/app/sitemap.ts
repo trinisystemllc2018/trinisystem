@@ -4,6 +4,7 @@ import { ALL_GARMIN_SLUGS } from "@/lib/garmin-data";
 import { ALL_GMAIL_SLUGS } from "@/lib/gmail-data";
 import { ALL_FACEBOOK_SLUGS } from "@/lib/facebook-data";
 import { ALL_GARMIN_APPS_SLUGS } from "@/lib/garmin-apps-data";
+import { ALL_VACATION_GPS_SLUGS } from "@/lib/vacation-gps-data";
 
 const BASE = "https://trinisystem.vercel.app";
 const NOW = new Date();
@@ -130,6 +131,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.82,
   }));
 
+  /* ── 2026 vacation / seasonal GPS update pages — NEW ── */
+  const vacation_gps_pages: MetadataRoute.Sitemap = ALL_VACATION_GPS_SLUGS.map((slug) => ({
+    url: `${BASE}/${slug}`,
+    lastModified: NOW,
+    changeFrequency: "weekly" as const,
+    priority: 0.9,
+  }));
+
   return [
     ...static_pages,
     ...printer_pages,
@@ -140,5 +149,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...garmin_apps_pages,
     ...error_code_pages,
     ...compare_pages,
+    ...vacation_gps_pages,
   ];
 }

@@ -35,6 +35,25 @@ export const metadata: Metadata = {
 
 const CATEGORIES = [
   {
+    title: "2026 Travel Season",
+    icon: "✈️",
+    color: "blue",
+    description:
+      "Planning a US or UK vacation? Get maps, firmware, and traffic data current before you fly or hit the road — Garmin and TomTom both covered.",
+    pages: [
+      { label: "Garmin GPS Updates 2026", href: "/garmin-gps-updates-2026", popular: true },
+      { label: "Latest Garmin GPS Updates", href: "/latest-garmin-gps-updates" },
+      { label: "How to Update Garmin GPS (2026 Map Guide)", href: "/how-to-update-garmin-gps-2026-map", popular: true },
+      { label: "Update Your Garmin Before Vacation", href: "/garmin-map-update-before-vacation" },
+      { label: "TomTom GPS Updates 2026", href: "/tomtom-gps-updates-2026" },
+      { label: "Latest TomTom GPS Updates", href: "/latest-tomtom-gps-updates" },
+      { label: "How to Update TomTom GPS (2026 Map Guide)", href: "/how-to-update-tomtom-gps-2026-map" },
+      { label: "Latest GPS Devices 2026", href: "/latest-gps-devices-2026" },
+      { label: "Best Travel GPS Devices 2026", href: "/best-travel-gps-devices-2026" },
+      { label: "GPS Update Guide Before a Road Trip", href: "/gps-update-guide-before-road-trip-2026" },
+    ],
+  },
+  {
     title: "Auto / Car GPS",
     icon: "🚗",
     color: "blue",
