@@ -1,6 +1,7 @@
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { BRANDS, SERVICES, REVIEWS, PHONE, PHONE_HREF, DOWNLOAD_URL } from "@/lib/utils";
+import { DeviceFixShowcase } from "@/components/sections/DeviceFixShowcase";
 
 const SmartProblemFinder = dynamic(
   () => import("@/components/features/SmartProblemFinder").then((m) => m.SmartProblemFinder),
@@ -707,6 +708,7 @@ export default function BelowFoldSections() {
       <BrandMarquee />
       <BrandsSection />
       <CinematicStrip />
+      <DeviceFixShowcase />
       <SmartFinderSection />
       <ServicesGrid />
       <HowItWorks />
