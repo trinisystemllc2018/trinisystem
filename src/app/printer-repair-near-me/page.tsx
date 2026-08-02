@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { TechER } from "@/components/features/TechER";
 import { StickyCTA } from "@/components/ui/Button";
+import { ALL_LOCATION_SLUGS } from "@/lib/locations-data";
 
 export const metadata: Metadata = {
   title: "Printer Repair Near Me — Same Day Remote Fix",
@@ -290,11 +291,19 @@ export default function PrinterRepairNearMePage() {
             <p className="text-blue-300 max-w-2xl mx-auto">Remote service available in every US state. Same fast response no matter where you live.</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-2 max-w-5xl mx-auto">
-            {CITIES_SERVED.map((city) => (
-              <span key={city} className="text-sm py-2 px-3 rounded-lg bg-white/5 border border-white/10 text-blue-100 hover:bg-white/10 transition-colors">
-                📍 {city}
-              </span>
-            ))}
+            {CITIES_SERVED.map((city) => {
+              const normalized = city.toLowerCase().replace(/[^a-z ]/g, "").trim();
+              const slug = ALL_LOCATION_SLUGS.find((s) => normalized.startsWith(s.replace(/-/g, " ")));
+              return slug ? (
+                <Link key={city} href={`/printer-repair/${slug}`} className="text-sm py-2 px-3 rounded-lg bg-white/10 border border-white/20 text-white font-semibold hover:bg-white/20 transition-colors">
+                  📍 {city}
+                </Link>
+              ) : (
+                <span key={city} className="text-sm py-2 px-3 rounded-lg bg-white/5 border border-white/10 text-blue-100">
+                  📍 {city}
+                </span>
+              );
+            })}
           </div>
           <p className="text-center text-sm text-blue-300 mt-8">
             Don&apos;t see your city? <a href="tel:+13479531531" className="text-white font-bold underline hover:text-blue-200">Call us</a> — we serve all 50 states.

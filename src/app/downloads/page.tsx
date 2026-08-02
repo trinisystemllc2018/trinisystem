@@ -4,7 +4,7 @@ import { StickyCTA } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
   title: "Free Downloads — TriniCleaner PC Optimizer",
-  description: "Download TriniCleaner free — Windows PC optimizer that removes junk files, fixes registry errors, and speeds up your computer. No subscription ever.",
+  description: "Download TriniCleaner free — Windows PC optimizer that removes junk files, fixes registry errors, and speeds up your computer. Need a hand? Call 347-953-1531.",
   alternates: { canonical: "https://trinisystem.vercel.app/downloads" },
 };
 

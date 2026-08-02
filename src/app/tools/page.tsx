@@ -7,7 +7,7 @@ import { StickyCTA } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
   title: "Free Tech Tools — Printer Setup & Diagnostics",
-  description: "Free interactive tools: Smart Problem Finder, Printer Setup Simulator, Device Compatibility Checker, and PC Cleaner Demo. Fix tech issues faster.",
+  description: "Free interactive tools: Smart Problem Finder, Printer Setup Simulator, Device Compatibility Checker, and PC Cleaner Demo. Or skip the tools — call 347-953-1531.",
   alternates: { canonical: "https://trinisystem.vercel.app/tools" },
 };
 

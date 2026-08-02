@@ -72,7 +72,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `${brandA.name} vs ${brandB.name} Printer — Which to Buy 2026?`,
-    description: `${brandA.name} vs ${brandB.name} printer comparison: reliability, ink cost, repair ease, and which brand is right for you in 2026. Expert analysis from Trini System.`,
+    description: `${brandA.name} vs ${brandB.name} printer comparison: reliability, ink cost, repair ease, and which brand is right for you in 2026. Free expert advice — call 347-953-1531.`,
     alternates: { canonical: `${BASE}/compare/${params.slug}` },
     keywords: [
       `${a} vs ${b} printer`,

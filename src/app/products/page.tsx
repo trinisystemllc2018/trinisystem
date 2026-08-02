@@ -6,7 +6,7 @@ import { StickyCTA } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
   title: "TriniCleaner — Free Windows PC Optimizer",
-  description: "Download TriniCleaner free — removes junk files, fixes registry errors, speeds up boot time. Works on Windows 7, 8, 10 and 11. No subscription ever.",
+  description: "Download TriniCleaner free — removes junk files, fixes registry errors, speeds up boot time. Works on Windows 7, 8, 10 and 11. Need help installing it? Call 347-953-1531.",
   alternates: { canonical: "https://trinisystem.vercel.app/products" },
   keywords: ["free computer cleaner", "make computer faster", "free PC optimizer", "Windows junk remover", "free registry cleaner", "TriniCleaner download"],
 };

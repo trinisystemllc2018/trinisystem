@@ -5,7 +5,7 @@ import { StickyCTA } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
   title: "Printer Setup & Repair Guides — Step by Step",
-  description: "Free step-by-step guides for HP DeskJet 4155e setup, Canon PIXMA WiFi, Epson EcoTank ink reset, Brother driver install, and Windows PC repair.",
+  description: "Free step-by-step guides for HP DeskJet 4155e setup, Canon PIXMA WiFi, Epson EcoTank ink reset, Brother driver install, and Windows PC repair. Stuck? Call 347-953-1531.",
   alternates: { canonical: "https://trinisystem.vercel.app/guides" },
 };
 
