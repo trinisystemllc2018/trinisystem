@@ -36,7 +36,7 @@ import { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 
 const SPLINE_SCENE_URL =
-  "https://prod.spline.design/fJ2ptJKzT-sDkpfO/scene.splinecode"; // TODO: replace with your branded scene
+  "https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"; // TODO: replace with your branded scene — this is a known-good public "fills its container" demo scene, not on-brand, swap before launch
 
 const Spline = dynamic(() => import("@splinetool/react-spline"), {
   ssr: false,
@@ -84,7 +84,11 @@ export function SplineHeroBackground() {
           className="absolute inset-0 transition-opacity duration-[1200ms]"
           style={{ opacity: ready ? 1 : 0 }}
         >
-          <Spline scene={SPLINE_SCENE_URL} onLoad={() => setReady(true)} />
+          <Spline
+            scene={SPLINE_SCENE_URL}
+            onLoad={() => setReady(true)}
+            style={{ width: "100%", height: "100%" }}
+          />
         </div>
       )}
       {/* Dark veil so foreground text stays readable over the 3D scene */}
