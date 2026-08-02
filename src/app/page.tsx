@@ -3,6 +3,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { PHONE, PHONE_HREF } from "@/lib/utils";
 import { HeroSearchIsland } from "@/components/sections/HeroSearchIsland";
+import { SplineHeroBackground } from "@/components/sections/SplineHeroBackground";
 import { ScrollRevealClient } from "@/components/sections/ScrollRevealClient";
 import { LiveStatusStrip } from "@/components/sections/LiveStatusStrip";
 import { SectionSkeleton, GridSkeleton } from "@/components/ui/Skeletons";
@@ -64,14 +65,18 @@ export default function Home() {
       {/* ══ HERO ════════════════════════════════════════════════════════
          Fully server-rendered. The H1 is the LCP element, ships in HTML. */}
       <section className="relative bg-hero bg-grid overflow-hidden flex flex-col" style={{ minHeight: "100dvh" }} aria-label="Hero">
-        {/* Aurora ribbon — animated conic gradient */}
+        {/* Aurora ribbon — animated conic gradient (instant, always visible) */}
         <div className="aurora" aria-hidden="true" />
 
-        {/* Decorative orbs — pure CSS, animation disabled on mobile via media query */}
+        {/* Decorative orbs — pure CSS fallback, shown until/unless the 3D scene loads */}
         <div className="hero-orb hero-orb-1" aria-hidden="true" />
         <div className="hero-orb hero-orb-2" aria-hidden="true" />
         <div className="hero-orb hero-orb-3" aria-hidden="true" />
         <div className="hero-orb hero-orb-4" aria-hidden="true" />
+
+        {/* Interactive 3D scene — lazy-loaded client-side, never blocks LCP.
+            See SplineHeroBackground.tsx to swap in your own Spline design. */}
+        <SplineHeroBackground />
 
         <div className="relative z-10 flex-1 flex flex-col justify-center max-w-6xl mx-auto w-full px-4 pt-10 pb-16">
 
