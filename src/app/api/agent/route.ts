@@ -144,7 +144,6 @@ async function callGemini(system: string, contents: Content[]) {
     contents,
     config: {
       systemInstruction: system,
-      tools: TOOLS,
       maxOutputTokens: 700,
       // 2.5 Flash "thinks" by default and thinking tokens count toward maxOutputTokens.
       thinkingConfig: { thinkingBudget: 0 },
