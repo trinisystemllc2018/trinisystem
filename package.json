@@ -10,14 +10,15 @@
     "lint:a11y": "next lint --dir src --quiet"
   },
   "dependencies": {
+    "@google/genai": "^2.24.0",
+    "@splinetool/react-spline": "^2.2.6",
+    "@splinetool/runtime": "^1.9.82",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.3.19",
+    "lucide-react": "^0.383.0",
     "next": "14.2.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "framer-motion": "^11.3.19",
-    "@splinetool/react-spline": "^2.2.6",
-    "@splinetool/runtime": "^1.9.82",
-    "lucide-react": "^0.383.0",
-    "clsx": "^2.1.1",
     "tailwind-merge": "^2.4.0"
   },
   "devDependencies": {
