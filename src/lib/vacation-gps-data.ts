@@ -7,7 +7,7 @@
  * "latest gps devices 2026", etc.
  *
  * Styled to match the existing Garmin hub pages (dark hero, red CTA,
- * $49 flat rate, 347-953-1531) so the whole GPS section feels consistent.
+ * $49 flat rate, booking online so the whole GPS section feels consistent.
  */
 
 export type VacationGpsPage = {
@@ -28,7 +28,7 @@ export type VacationGpsPage = {
   relatedLinks: { label: string; href: string }[];
 };
 
-const PHONE = "347-953-1531";
+const BOOKING_LABEL = "Book Online";
 
 export const VACATION_GPS_PAGES: VacationGpsPage[] = [
   // ────────────────────────────────────────────────────────────
@@ -42,7 +42,7 @@ export const VACATION_GPS_PAGES: VacationGpsPage[] = [
     h1Sub: "Get your maps, firmware & traffic data current before you hit the road",
     metaTitle: "Garmin GPS Updates 2026 — Maps & Firmware",
     metaDescription:
-      "Get your Garmin GPS updated for 2026 travel season. Latest maps, firmware & traffic data for DriveSmart, Nuvi, eTrex & more. From $49. Call 347-953-1531.",
+      "Get your Garmin GPS updated for 2026 travel season. Latest maps, firmware & traffic data for DriveSmart, Nuvi, eTrex & more. From $49. Book online.",
     keywords: [
       "garmin gps updates 2026",
       "garmin 2026 map update",
@@ -115,7 +115,7 @@ export const VACATION_GPS_PAGES: VacationGpsPage[] = [
     h1Sub: "What changed in the newest Garmin Express map & firmware releases",
     metaTitle: "Latest Garmin GPS Updates — What's New",
     metaDescription:
-      "See what's in the latest Garmin GPS map & firmware updates and get your device current. Free guide + remote update service from $49. Call 347-953-1531.",
+      "See what's in the latest Garmin GPS map & firmware updates and get your device current. Free guide + remote update service from $49. Book online.",
     keywords: [
       "latest garmin gps updates",
       "newest garmin firmware",
@@ -184,7 +184,7 @@ export const VACATION_GPS_PAGES: VacationGpsPage[] = [
     h1Sub: "The exact steps we use to update Garmin maps, in order, every time",
     metaTitle: "How to Update Garmin GPS 2026 Map — Guide",
     metaDescription:
-      "Step-by-step guide to updating your Garmin GPS map in 2026 using Garmin Express or WiFi. Free instructions, or we do it remotely from $49. Call 347-953-1531.",
+      "Step-by-step guide to updating your Garmin GPS map in 2026 using Garmin Express or WiFi. Free instructions, or we do it remotely from $49. Book online.",
     keywords: [
       "how to update garmin gps 2026 map",
       "how to update garmin gps map",
@@ -235,7 +235,7 @@ export const VACATION_GPS_PAGES: VacationGpsPage[] = [
       { q: "Why does my Garmin update keep failing at the same percentage?", a: "That's almost always a USB or power issue, not a software bug. Switch to the original cable, use a rear (motherboard) USB port instead of a front-panel one, and make sure the device stays above 20% battery throughout." },
       { q: "Can I update the map without a computer?", a: "Yes, if your model has built-in WiFi (most 2020-and-newer DriveSmart, Drive, and some outdoor models). Everything else needs Garmin Express on a PC or Mac." },
       { q: "How long should I budget for the full update?", a: "Plan for 90 minutes total: 45–75 minutes for the map download depending on region size, plus time for firmware and verification. Don't start this the morning you're leaving for a trip." },
-      { q: "What if I get stuck partway through?", a: "Call us at 347-953-1531. We take over the same Garmin Express session remotely and finish it — flat $49, no fix no fee." },
+      { q: "What if I get stuck partway through?", a: "Book online. We take over the same Garmin Express session remotely and finish it — flat $49, no fix no fee." },
     ],
     relatedLinks: [
       { label: "Garmin GPS Updates 2026", href: "/garmin-gps-updates-2026" },
@@ -255,7 +255,7 @@ export const VACATION_GPS_PAGES: VacationGpsPage[] = [
     h1Sub: "A pre-trip GPS checklist so your Garmin doesn't fail you on the road",
     metaTitle: "Update Garmin Before Vacation — Trip Checklist",
     metaDescription:
-      "Get your Garmin GPS ready before your US/UK road trip or rental car vacation. Map update, battery check, offline backup. Remote help from $49. Call 347-953-1531.",
+      "Get your Garmin GPS ready before your US/UK road trip or rental car vacation. Map update, battery check, offline backup. Remote help from $49. Book online.",
     keywords: [
       "update garmin before vacation",
       "garmin road trip checklist",
@@ -322,7 +322,7 @@ export const VACATION_GPS_PAGES: VacationGpsPage[] = [
     h1Sub: "Current maps and MyDrive software for GO, START, RIDER & VIA models",
     metaTitle: "TomTom GPS Updates 2026 — Maps & Software",
     metaDescription:
-      "Update your TomTom GPS for 2026 travel — latest maps & MyDrive Connect software for GO, START, RIDER & VIA. Remote help from $49. Call 347-953-1531.",
+      "Update your TomTom GPS for 2026 travel — latest maps & MyDrive Connect software for GO, START, RIDER & VIA. Remote help from $49. Book online.",
     keywords: [
       "tomtom gps update 2026",
       "tomtom map update 2026",
@@ -391,7 +391,7 @@ export const VACATION_GPS_PAGES: VacationGpsPage[] = [
     h1Sub: "What's new in the newest TomTom map & MyDrive Connect releases",
     metaTitle: "Latest TomTom GPS Updates — What's New",
     metaDescription:
-      "See what's included in the latest TomTom GPS map and software updates and get your device current. Remote update service from $49. Call 347-953-1531.",
+      "See what's included in the latest TomTom GPS map and software updates and get your device current. Remote update service from $49. Book online.",
     keywords: [
       "latest tomtom gps updates",
       "newest tomtom software",
@@ -455,7 +455,7 @@ export const VACATION_GPS_PAGES: VacationGpsPage[] = [
     h1Sub: "The exact MyDrive Connect steps we use for every TomTom update",
     metaTitle: "How to Update TomTom GPS 2026 Map — Guide",
     metaDescription:
-      "Step-by-step guide to updating your TomTom GPS map in 2026 with MyDrive Connect. Free instructions, or we do it remotely from $49. Call 347-953-1531.",
+      "Step-by-step guide to updating your TomTom GPS map in 2026 with MyDrive Connect. Free instructions, or we do it remotely from $49. Book online.",
     keywords: [
       "how to update tomtom gps 2026 map",
       "how to update tomtom gps map",
@@ -494,7 +494,7 @@ export const VACATION_GPS_PAGES: VacationGpsPage[] = [
       "TomTom Trucker",
     ],
     faqs: [
-      { q: "Why does MyDrive Connect say 'update failed' partway through?", a: "Most often a USB power or connection drop mid-download. Use a direct rear USB port (not a hub), the original cable, and don't let the computer sleep. If it keeps failing, call us — we fix this remotely." },
+      { q: "Why does MyDrive Connect say 'update failed' partway through?", a: "Most often a USB power or connection drop mid-download. Use a direct rear USB port (not a hub), the original cable, and don't let the computer sleep. If it keeps failing, book a session — we fix this remotely." },
       { q: "Can I update my TomTom over WiFi without a computer?", a: "Most TomTom models require MyDrive Connect on a computer. A few newer connected models support over-the-air updates via the TomTom app on your phone — check your specific model's manual to confirm." },
       { q: "How long before a trip should I run this update?", a: "At least a week out, same as any GPS brand — it gives you buffer time if the update needs troubleshooting." },
     ],
@@ -516,7 +516,7 @@ export const VACATION_GPS_PAGES: VacationGpsPage[] = [
     h1Sub: "What's current across Garmin, TomTom & other dedicated GPS brands",
     metaTitle: "Latest GPS Devices 2026 — Overview",
     metaDescription:
-      "See what's current in dedicated GPS navigation devices for 2026 — Garmin, TomTom and more. Plus update & repair help for existing units. Call 347-953-1531.",
+      "See what's current in dedicated GPS navigation devices for 2026 — Garmin, TomTom and more. Plus update & repair help for existing units. Book online.",
     keywords: [
       "latest gps devices 2026",
       "new gps devices 2026",
@@ -581,7 +581,7 @@ export const VACATION_GPS_PAGES: VacationGpsPage[] = [
     h1Sub: "What to look for before your road trip or vacation — and how to keep it updated",
     metaTitle: "Best Travel GPS Devices 2026",
     metaDescription:
-      "What to look for in a travel GPS for 2026 vacations and road trips, plus how to keep any Garmin or TomTom device fully updated. Call 347-953-1531.",
+      "What to look for in a travel GPS for 2026 vacations and road trips, plus how to keep any Garmin or TomTom device fully updated. Book online.",
     keywords: [
       "best gps devices for travel 2026",
       "best road trip gps 2026",
@@ -645,7 +645,7 @@ export const VACATION_GPS_PAGES: VacationGpsPage[] = [
     h1Sub: "One checklist that works for Garmin, TomTom, and most other dedicated GPS brands",
     metaTitle: "GPS Update Guide Before a Road Trip 2026",
     metaDescription:
-      "A brand-agnostic GPS update checklist for your 2026 road trip or vacation — Garmin, TomTom & more. Remote update help available from $49. Call 347-953-1531.",
+      "A brand-agnostic GPS update checklist for your 2026 road trip or vacation — Garmin, TomTom & more. Remote update help available from $49. Book online.",
     keywords: [
       "gps update guide before road trip 2026",
       "road trip gps checklist",
@@ -707,4 +707,3 @@ export function getVacationGpsPage(slug: string): VacationGpsPage | undefined {
   return VACATION_GPS_PAGES.find((p) => p.slug === slug);
 }
 
-export const PHONE_DISPLAY = PHONE;

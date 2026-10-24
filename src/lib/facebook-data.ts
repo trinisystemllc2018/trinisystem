@@ -182,7 +182,7 @@ export const FACEBOOK_PAGES: Record<string, FacebookPage> = {
 
     metaTitle: "Facebook Help for Seniors — Plain-English Step-by-Step Guides",
     metaDescription:
-      "Easy Facebook help for seniors. Login, password reset, hacked account, fake friend requests, privacy — large-text guides with practice screens. Call 347-953-1531.",
+      "Easy Facebook help for seniors. Login, password reset, hacked account, fake friend requests, privacy — large-text guides with practice screens. Book online.",
     h1: "Facebook Help for Seniors — Pick What You Need",
     primaryKeywords: [
       "facebook help for seniors",
@@ -194,7 +194,7 @@ export const FACEBOOK_PAGES: Record<string, FacebookPage> = {
     ],
 
     tldrAnswer:
-      "Trini System helps seniors solve every common Facebook problem — login, forgotten passwords, recovering a hacked account, blocking scammers, fake friend requests, and privacy settings. Each guide is plain English with large text and a free practice mode that walks you through real Facebook screens. Facebook itself has no phone support — any '1-800 Facebook help' number you see online is a scam. If you get stuck, call us at 347-953-1531 and a real person answers in under 15 minutes.",
+      "Trini System helps seniors solve every common Facebook problem — login, forgotten passwords, recovering a hacked account, blocking scammers, fake friend requests, and privacy settings. Each guide is plain English with large text and a free practice mode that walks you through real Facebook screens. Facebook itself has no phone support — any '1-800 Facebook help' number you see online is a scam. If you get stuck, book online and a real person answers in under 15 minutes.",
 
     heroIntro:
       "Facebook can feel like a maze — buttons move, scams arrive in your messages, and account problems are scary. Pick the topic you need below. Every guide has large text, numbered steps, and a free practice mode where you click through copies of the real Facebook screens before doing it yourself.",
@@ -208,7 +208,7 @@ export const FACEBOOK_PAGES: Record<string, FacebookPage> = {
     faqs: [
       {
         q: "Is Trini System related to Facebook or Meta?",
-        a: "No. Trini System is an independent technology help service for seniors. We are not employed by, endorsed by, or affiliated with Meta or Facebook in any way. We help you understand Facebook's official steps. We never log in to your account; you stay in control of your computer the whole time. Calls to 347-953-1531 are free and we never ask for your password.",
+        a: "No. Trini System is an independent technology help service for seniors. We are not employed by, endorsed by, or affiliated with Meta or Facebook in any way. We help you understand Facebook's official steps. We never log in to your account; you stay in control of your computer the whole time. Booking a session is free and we never ask for your password.",
       },
       {
         q: "Does Facebook have a real phone number for help?",
@@ -220,15 +220,15 @@ export const FACEBOOK_PAGES: Record<string, FacebookPage> = {
       },
       {
         q: "Are these Facebook guides current for 2026?",
-        a: "Yes. Every Facebook guide on this site is dated and reviewed every 90 days because Meta changes the look of Facebook often. The 'Last updated' date shows at the top of each page. If you ever land on a guide more than 6 months old, please call us — Facebook may have moved buttons since.",
+        a: "Yes. Every Facebook guide on this site is dated and reviewed every 90 days because Meta changes the look of Facebook often. The 'Last updated' date shows at the top of each page. If you ever land on a guide more than 6 months old, please book a session — Facebook may have moved buttons since.",
       },
       {
         q: "Do I have to make an account or pay to read these?",
-        a: "No. All Facebook help pages on this site are completely free to read with no signup, no email required, and no fee. The phone number 347-953-1531 is only there if you want to talk to a person — there's no charge to call either.",
+        a: "No. All Facebook help pages on this site are completely free to read with no signup, no email required, and no fee. The booking assistant is only there if you want to talk to a person — there's no charge to ask.",
       },
       {
         q: "What if my problem isn't in your list?",
-        a: "Call 347-953-1531. We help seniors with hundreds of Facebook situations every week — even unusual ones. If we can solve it for free over the phone in under 15 minutes, that's what we do. If it needs more time, we'll quote a flat fee before any work begins.",
+        a: "Book online. We help seniors with hundreds of Facebook situations every week — even unusual ones. If we can solve it for free, remotely in under 15 minutes, that's what we do. If it needs more time, we'll quote a flat fee before any work begins.",
       },
     ],
 
@@ -263,7 +263,7 @@ export const FACEBOOK_PAGES: Record<string, FacebookPage> = {
 
     metaTitle: "How to Log In to Facebook — Step-by-Step for Seniors (2026)",
     metaDescription:
-      "Plain-English Facebook login guide for seniors. Large text, screen-by-screen practice mode, and free phone help at 347-953-1531. Updated May 2026.",
+      "Plain-English Facebook login guide for seniors. Large text, screen-by-screen practice mode, and free help — book online. Updated May 2026.",
     h1: "How Do I Log In to My Facebook Account?",
     primaryKeywords: [
       "how to log in to facebook",
@@ -342,7 +342,7 @@ export const FACEBOOK_PAGES: Record<string, FacebookPage> = {
       {
         step: 3,
         title: "Type your email or phone in the top box",
-        detail: "Once Facebook loads, you'll see two empty boxes near the top right (on a computer) or in the center (on a phone). In the FIRST box, type whichever you used to sign up — your email address (like jane@yahoo.com) OR your mobile phone number with no dashes (like 3479531531). Either works.",
+        detail: "Once Facebook loads, you'll see two empty boxes near the top right (on a computer) or in the center (on a phone). In the FIRST box, type whichever you used to sign up — your email address (like jane@yahoo.com) OR your mobile phone number with no dashes (like 5551234567). Either works.",
       },
       {
         step: 4,
@@ -402,7 +402,7 @@ export const FACEBOOK_PAGES: Record<string, FacebookPage> = {
       },
       {
         q: "Can I log in to Facebook with just my phone number instead of email?",
-        a: "Yes — if you added a phone number to your Facebook account, you can use it instead of email. Just type the number with no dashes or spaces (like 3479531531) into the email box. Facebook accepts either. If you've never added a phone number, only the email works.",
+        a: "Yes — if you added a phone number to your Facebook account, you can use it instead of email. Just type the number with no dashes or spaces (like 5551234567) into the email box. Facebook accepts either. If you've never added a phone number, only the email works.",
       },
       {
         q: "Is fb.com the same as facebook.com?",
@@ -422,7 +422,7 @@ export const FACEBOOK_PAGES: Record<string, FacebookPage> = {
       },
       {
         q: "Is it safe to call a 1-800 number for Facebook help?",
-        a: "No. Meta does not offer any phone support for personal Facebook accounts. Every phone number on the internet that claims to be 'Facebook support' or 'Meta support' is a scam designed to steal your password, money, or both. Real Facebook help is only at facebook.com/help. Trini System (347-953-1531) is independent — we don't claim to BE Facebook; we just walk you through their official steps for free.",
+        a: "No. Meta does not offer any phone support for personal Facebook accounts. Every phone number on the internet that claims to be 'Facebook support' or 'Meta support' is a scam designed to steal your password, money, or both. Real Facebook help is only at facebook.com/help. Trini System is independent — we don't claim to BE Facebook; we just walk you through their official steps for free.",
       },
     ],
 
@@ -457,7 +457,7 @@ export const FACEBOOK_PAGES: Record<string, FacebookPage> = {
 
     metaTitle: "I Forgot My Facebook Password — How to Reset It (Senior Guide)",
     metaDescription:
-      "Forgot Facebook password? Step-by-step reset guide for seniors with practice mode and large text. Free phone help at 347-953-1531. Updated May 2026.",
+      "Forgot Facebook password? Step-by-step reset guide for seniors with practice mode and large text. Free help — book online. Updated May 2026.",
     h1: "I Forgot My Facebook Password — How Do I Reset It?",
     primaryKeywords: [
       "i forgot my facebook password",
@@ -603,7 +603,7 @@ export const FACEBOOK_PAGES: Record<string, FacebookPage> = {
     faqs: [
       {
         q: "Can I call Facebook to reset my password?",
-        a: "No. Meta does not offer phone support for personal Facebook accounts and never has. Any phone number that claims to be 'Facebook support' is a scam. The only way to reset a Facebook password is through facebook.com/login/identify. Trini System (347-953-1531) can walk you through Facebook's official process for free, but we cannot reset the password for you.",
+        a: "No. Meta does not offer phone support for personal Facebook accounts and never has. Any phone number that claims to be 'Facebook support' is a scam. The only way to reset a Facebook password is through facebook.com/login/identify. Trini System can walk you through Facebook's official process for free, but we cannot reset the password for you.",
       },
       {
         q: "How long does a Facebook password reset take?",
@@ -665,7 +665,7 @@ export const FACEBOOK_PAGES: Record<string, FacebookPage> = {
 
     metaTitle: "How to Recover Your Facebook Account — Senior Guide (2026)",
     metaDescription:
-      "Lost access to Facebook? Senior recovery guide covering trusted contacts, ID upload, and Meta's verification process. Call 347-953-1531 for free help.",
+      "Lost access to Facebook? Senior recovery guide covering trusted contacts, ID upload, and Meta's verification process. Book online for free help.",
     h1: "How Do I Recover My Facebook Account?",
     primaryKeywords: [
       "how to recover facebook account",
@@ -803,7 +803,7 @@ export const FACEBOOK_PAGES: Record<string, FacebookPage> = {
       },
       {
         q: "What if Facebook denies my recovery and I have no other options?",
-        a: "Unfortunately, Facebook does not have a phone or email support line for free accounts. If automated recovery fails repeatedly, the only paths are (a) waiting at least a week and trying again with more accurate info, or (b) creating a new Facebook account and starting over. Trini System (347-953-1531) can review your situation and tell you which is realistic — for free.",
+        a: "Unfortunately, Facebook does not have a phone or email support line for free accounts. If automated recovery fails repeatedly, the only paths are (a) waiting at least a week and trying again with more accurate info, or (b) creating a new Facebook account and starting over. Trini System can review your situation and tell you which is realistic — for free.",
       },
       {
         q: "Are 'Facebook account recovery services' for hire legitimate?",
@@ -819,7 +819,7 @@ export const FACEBOOK_PAGES: Record<string, FacebookPage> = {
       },
       {
         q: "Can my child or spouse recover my Facebook for me?",
-        a: "Not directly. They can sit with you and help you click through the screens (over the phone or in person), but Facebook's verification is tied to YOU — your devices, your email, your ID. Family members cannot 'log in for you' or contact Meta on your behalf. If you need this kind of help, that's exactly what Trini System (347-953-1531) does for free.",
+        a: "Not directly. They can sit with you and help you click through the screens (over the phone or in person), but Facebook's verification is tied to YOU — your devices, your email, your ID. Family members cannot 'log in for you' or contact Meta on your behalf. If you need this kind of help, that's exactly what Trini System does for free.",
       },
       {
         q: "Will I lose my photos, friends, and posts if I create a new account instead?",
@@ -827,7 +827,7 @@ export const FACEBOOK_PAGES: Record<string, FacebookPage> = {
       },
       {
         q: "Can Trini System recover my Facebook account?",
-        a: "We can guide you through Facebook's official recovery — for free over the phone — at 347-953-1531. We CANNOT bypass Meta's verification or contact Meta on your behalf. No service can; anyone claiming otherwise is scamming. We're most useful when you're stuck on a specific screen or don't understand what Facebook is asking for.",
+        a: "We can guide you through Facebook's official recovery — for free — book a session online. We CANNOT bypass Meta's verification or contact Meta on your behalf. No service can; anyone claiming otherwise is scamming. We're most useful when you're stuck on a specific screen or don't understand what Facebook is asking for.",
       },
     ],
 
@@ -863,7 +863,7 @@ export const FACEBOOK_PAGES: Record<string, FacebookPage> = {
 
     metaTitle: "My Facebook Was Hacked — What to Do Right Now (Senior Guide)",
     metaDescription:
-      "Step-by-step recovery if your Facebook was hacked. Senior-friendly with practice mode. Free help at 347-953-1531. Verified May 2026.",
+      "Step-by-step recovery if your Facebook was hacked. Senior-friendly with practice mode. Free help: book online. Verified May 2026.",
     h1: "My Facebook Was Hacked — What Should I Do?",
     primaryKeywords: [
       "my facebook was hacked",
@@ -1002,7 +1002,7 @@ export const FACEBOOK_PAGES: Record<string, FacebookPage> = {
       },
       {
         q: "Should I pay someone advertising 'Facebook hack recovery service'?",
-        a: "Absolutely not — every single one is a scam. They cannot bypass Meta's verification any more than you can. They take your money, often ask for your password (then steal more), and disappear. Real Facebook recovery is FREE through facebook.com/hacked. If you need help navigating it, call us free at 347-953-1531.",
+        a: "Absolutely not — every single one is a scam. They cannot bypass Meta's verification any more than you can. They take your money, often ask for your password (then steal more), and disappear. Real Facebook recovery is FREE through facebook.com/hacked. If you need help navigating it, book online.",
       },
       {
         q: "How did the hacker get my Facebook password?",
@@ -1061,7 +1061,7 @@ export const FACEBOOK_PAGES: Record<string, FacebookPage> = {
 
     metaTitle: "Can't Log In to Facebook? 7 Common Causes and Fixes (2026)",
     metaDescription:
-      "Facebook won't let you log in? Senior-friendly checklist of 7 common causes — wrong password, browser, captcha, locked account. Free help at 347-953-1531.",
+      "Facebook won't let you log in? Senior-friendly checklist of 7 common causes — wrong password, browser, captcha, locked account. Free help: book online.",
     h1: "Why Won't Facebook Let Me Log In?",
     primaryKeywords: [
       "can't log in to facebook",
@@ -1210,7 +1210,7 @@ export const FACEBOOK_PAGES: Record<string, FacebookPage> = {
 
     metaTitle: "Facebook Two-Factor Authentication — Setup and Help (2026)",
     metaDescription:
-      "Turn on Facebook two-factor security or fix code problems. Senior-friendly walkthrough with practice mode. Free phone help at 347-953-1531.",
+      "Turn on Facebook two-factor security or fix code problems. Senior-friendly walkthrough with practice mode. Free help — book online.",
     h1: "Facebook Two-Factor Authentication — Setup and Fixes",
     primaryKeywords: [
       "facebook two factor authentication",
@@ -1407,7 +1407,7 @@ export const FACEBOOK_PAGES: Record<string, FacebookPage> = {
     difficultyLabel: "5-minute fix",
     estimatedTime: "3 to 5 minutes",
     metaTitle: "Fake Friend Requests on Facebook — Spot, Report, Block (2026)",
-    metaDescription: "Senior guide to fake Facebook friend requests. Learn the cloned-account scam, how to spot it, report it, and block. Free help at 347-953-1531.",
+    metaDescription: "Senior guide to fake Facebook friend requests. Learn the cloned-account scam, how to spot it, report it, and block. Free help: book online.",
     h1: "Why Am I Getting Friend Requests From People Already on My List?",
     primaryKeywords: ["fake friend requests on facebook","duplicate friend request facebook","facebook cloned account","fake facebook profile","report fake facebook account","delete fake friend request"],
     tldrAnswer: "Getting a friend request from someone already on your friends list is a 'cloned account' scam. A scammer copied your real friend's photo and name to make a fake profile, then sent you a request hoping you'll accept and trust their next message. Don't accept and don't delete the request. Click on the fake profile, click the three dots, click 'Find support or report profile', and pick 'Pretending to be someone'. Then tell your real friend so they can warn others. Never click links or send money in response to messages from a 'friend' you just re-added.",
@@ -1466,7 +1466,7 @@ export const FACEBOOK_PAGES: Record<string, FacebookPage> = {
     difficultyLabel: "Quick action",
     estimatedTime: "1 minute",
     metaTitle: "How to Block Someone on Facebook — Senior Step-by-Step (2026)",
-    metaDescription: "Block someone on Facebook in 1 minute. Senior-friendly guide with practice mode, plus how to unblock if you change your mind. Call 347-953-1531 for free help.",
+    metaDescription: "Block someone on Facebook in 1 minute. Senior-friendly guide with practice mode, plus how to unblock if you change your mind. Book online for free help.",
     h1: "How Do I Block Someone on Facebook?",
     primaryKeywords: ["how to block someone on facebook","block someone on facebook","block on facebook","facebook block","how to unblock on facebook","stop messages facebook"],
     tldrAnswer: "To block someone on Facebook: go to their profile, click the three dots near their name (or tap the three dots on the top right of their profile on mobile), and click 'Block'. Confirm by clicking 'Block' again on the popup. They can no longer see your profile, send you messages, tag you, or find you in search. To unblock later: Settings → Blocking → click 'Unblock' next to their name. Blocking is private — Facebook does not tell them.",
@@ -1523,7 +1523,7 @@ export const FACEBOOK_PAGES: Record<string, FacebookPage> = {
     difficultyLabel: "10-minute setup",
     estimatedTime: "10 minutes",
     metaTitle: "How to Make Your Facebook Private — Senior Privacy Guide (2026)",
-    metaDescription: "Make Facebook private in 10 minutes. Senior-friendly walkthrough of every privacy setting that matters. Practice mode included. Free help: 347-953-1531.",
+    metaDescription: "Make Facebook private in 10 minutes. Senior-friendly walkthrough of every privacy setting that matters. Practice mode included. Free help: book online.",
     h1: "How Do I Make My Facebook Private?",
     primaryKeywords: ["how to make facebook private","facebook privacy settings","make my facebook private","private facebook profile","facebook privacy seniors","hide facebook from strangers"],
     tldrAnswer: "To make Facebook private: go to Settings → Privacy. Set 'Who can see your future posts?' to Friends. Set 'Who can send you friend requests?' to Friends of friends. Set 'Who can look you up using the email address you provided?' and 'phone number' both to Friends. Then go to Privacy → 'Limit Past Posts' and click 'Limit Old Posts' to apply the same Friends-only setting to everything you posted before. Total time: 10 minutes. Privacy settings save automatically as you change them.",
@@ -1583,7 +1583,7 @@ export const FACEBOOK_PAGES: Record<string, FacebookPage> = {
     difficultyLabel: "Reversible for 30 days",
     estimatedTime: "5 minutes (then 30 day wait)",
     metaTitle: "How to Delete Facebook Account — Permanent vs Deactivate (2026)",
-    metaDescription: "Senior guide to deleting Facebook permanently or just deactivating. Step-by-step with practice mode. Save your photos first. Free help: 347-953-1531.",
+    metaDescription: "Senior guide to deleting Facebook permanently or just deactivating. Step-by-step with practice mode. Save your photos first. Free help: book online.",
     h1: "How Do I Delete My Facebook Account?",
     primaryKeywords: ["how to delete facebook","delete facebook account","deactivate facebook","permanently delete facebook","close facebook account","deactivate vs delete facebook"],
     tldrAnswer: "There are two ways to leave Facebook: Deactivate (temporary, reversible anytime by logging back in) or Delete (permanent after 30 days, photos and posts gone forever). To delete: download your photos and data first via Settings → Your Facebook Information → Download Your Information. Then go to Settings → Account Center → Personal details → Account ownership and control → Deactivation or deletion → pick 'Delete account'. Facebook waits 30 days before permanent deletion in case you change your mind.",
@@ -1642,7 +1642,7 @@ export const FACEBOOK_PAGES: Record<string, FacebookPage> = {
     difficultyLabel: "Stay alert",
     estimatedTime: "10 minutes to read",
     metaTitle: "Facebook Scam Messages — How to Spot Them (Senior Guide 2026)",
-    metaDescription: "Senior guide to the 7 most common Facebook scams in 2026. How to spot them, what to do, and how to report. Free help at 347-953-1531.",
+    metaDescription: "Senior guide to the 7 most common Facebook scams in 2026. How to spot them, what to do, and how to report. Free help: book online.",
     h1: "How Do I Spot Scam Messages on Facebook?",
     primaryKeywords: ["facebook scam messages","facebook scams","facebook phishing","facebook prize scam","fake facebook message","facebook security message scam","facebook scam seniors"],
     tldrAnswer: "The 7 most common Facebook scams targeting seniors in 2026 are: (1) cloned account 'I'm in trouble' messages from fake friends, (2) 'You won a prize' lottery scams, (3) fake Facebook security warnings asking you to log in, (4) romance scammers in Messenger, (5) fake livestream funeral scams, (6) cryptocurrency 'investment opportunity' scams, and (7) marketplace overpayment scams. Common warning signs in all: urgency, requests for money or gift cards, links to non-Facebook websites, and pressure to act fast. Real Facebook never asks for your password by message and has no phone support.",
@@ -1677,7 +1677,7 @@ export const FACEBOOK_PAGES: Record<string, FacebookPage> = {
       { q: "How do I report a scam message on Facebook?", a: "Open the message thread. Tap the person's name at the top to open their profile. Tap the three dots → 'Find support or report' → pick the matching reason ('Pretending to be someone', 'Scam', 'Fraud', etc.). Submit. Facebook reviews the report and may remove the account. Reporting also reduces the scammer's reach to other potential victims." },
       { q: "Can I get my money back if I sent it to a scammer?", a: "Sometimes — depends on payment method. Credit card: high recovery chance, dispute through your card company within 60 days. Bank transfer to a US bank: lower chance, contact your bank immediately. Wire transfer (Western Union, MoneyGram): very low recovery — file a fraud report with the company anyway. Gift cards: nearly impossible to recover — report to the gift card company and FTC. Crypto: essentially zero recovery." },
       { q: "Is it true that Facebook will pay seniors money for being on the platform?", a: "No — that's a scam claim. Facebook does not pay users for using Facebook. There is no 'senior compensation program', 'long-term user payout', or 'Mark Zuckerberg gives money to seniors' offer. Every message claiming otherwise is a scam designed to extract bank account info or 'processing fees'." },
-      { q: "What should I do if a scam message looks really convincing and I'm tempted to click?", a: "Stop. Take 10 minutes. The urgency is part of the scam — real situations don't require you to act in the next minute. During those 10 minutes: call the friend the message claims to be from. Search the wording of the message in Google — almost every scam message has been reported many times before. If still unsure, call us free at 347-953-1531 and we'll review it for you." },
+      { q: "What should I do if a scam message looks really convincing and I'm tempted to click?", a: "Stop. Take 10 minutes. The urgency is part of the scam — real situations don't require you to act in the next minute. During those 10 minutes: call the friend the message claims to be from. Search the wording of the message in Google — almost every scam message has been reported many times before. If still unsure, book online and we'll review it for you." },
       { q: "How do I teach my spouse or sibling to spot Facebook scams?", a: "Share this guide with them. Walk through the seven patterns together. Set a household rule: 'no money sent based on Facebook messages without a phone call first'. Most scams collapse when victims pause for a phone call — that single rule prevents 95% of senior Facebook fraud." },
     ],
     relatedSlugs: ["facebook-friend-requests", "facebook-hacked-account", "facebook-block-someone", "facebook-privacy-settings"],

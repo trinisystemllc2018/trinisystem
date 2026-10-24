@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { PHONE_HREF } from "@/lib/utils";
+import { BOOKING_HREF } from "@/lib/utils";
 
 type SimStep = {
   id: number;
@@ -133,14 +133,14 @@ const SIM_STEPS: SimStep[] = [
     id: 3,
     title: "Install Drivers on PC",
     instruction: "On your Windows computer, go to 123.hp.com (for HP) or your brand's website. Download and run the full software package. Follow the on-screen prompts.",
-    tip: "💡 If you can't find the right driver, call us — we'll install it remotely in 10 minutes.",
+    tip: "💡 If you can't find the right driver, book a session — we'll install it remotely in 10 minutes.",
     visual: <PrinterVisual state="install" />,
   },
   {
     id: 4,
     title: "Print a Test Page",
     instruction: "Open Notepad on your PC, type a few words, then click File → Print. Select your printer from the list and click Print.",
-    tip: "✅ If it prints, you're all done! If not, call us — we'll fix it right now.",
+    tip: "✅ If it prints, you're all done! If not, book a session — we'll fix it right now.",
     visual: <PrinterVisual state="test" />,
   },
   {
@@ -274,10 +274,10 @@ export function PrinterSimulator() {
                         </button>
                       ) : (
                         <a
-                          href={PHONE_HREF}
+                          href={BOOKING_HREF}
                           className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white font-bold py-3 px-6 rounded-2xl hover:from-emerald-600 hover:to-emerald-700 transition-all shadow-md"
                         >
-                          📞 Need Help? Call Us Now
+                          📅 Need Help? Book Now
                         </a>
                       )}
 

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { BRANDS, SERVICES, REVIEWS, PHONE, PHONE_HREF, DOWNLOAD_URL } from "@/lib/utils";
+import { BRANDS, SERVICES, REVIEWS, BOOKING_LABEL, BOOKING_HREF, DOWNLOAD_URL } from "@/lib/utils";
 import { DeviceFixShowcase } from "@/components/sections/DeviceFixShowcase";
 
 const SmartProblemFinder = dynamic(
@@ -157,14 +157,14 @@ function CinematicStrip() {
         <p className="reveal-from-bottom text-white/75 text-lg max-w-2xl mb-8" data-stagger="2">
           Not a chatbot. Not a script. A trained tech who&apos;ll stay on the line until your problem is solved.
         </p>
-        <a href={PHONE_HREF}
+        <a href={BOOKING_HREF}
           className="reveal-from-bottom cta-glow-ring click-ripple inline-flex items-center gap-3 font-black text-lg px-10 py-5 rounded-2xl text-white transition-all hover:scale-105"
           data-stagger="4"
           style={{
             background: "linear-gradient(135deg, #f97316 0%, #ef4444 100%)",
             boxShadow: "0 12px 40px rgba(239,68,68,0.6)",
           }}>
-          📞 Talk to a Technician — {PHONE}
+          📞 Talk to a Technician — {BOOKING_LABEL}
         </a>
       </div>
     </section>
@@ -272,7 +272,7 @@ function ServicesGrid() {
 ═══════════════════════════════════════════════════════════════════ */
 function HowItWorks() {
   const steps = [
-    { n: "01", icon: "📞", title: "Call or Click",        desc: "Reach us 24/7 — phone, web form, or click-to-callback." },
+    { n: "01", icon: "📞", title: "Chat or Book",         desc: "Use our AI assistant or the web form to request a session." },
     { n: "02", icon: "🔍", title: "Free Diagnosis",       desc: "We diagnose the issue remotely while you watch — no charge." },
     { n: "03", icon: "🛠️", title: "Fix It Together",     desc: "Approve the fix, we do the work. Most issues take 15–30 min." },
     { n: "04", icon: "✅", title: "Pay Only When Fixed",  desc: "No fix = no fee. Pay only after you confirm it's working." },
@@ -552,13 +552,13 @@ function ComparisonSection() {
           ))}
         </div>
         <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-          <a href={PHONE_HREF}
+          <a href={BOOKING_HREF}
             className="reveal-from-bottom cta-glow-ring click-ripple flex items-center justify-center gap-2 font-black py-4 px-8 rounded-2xl text-white transition-all hover:scale-105"
             style={{
               background: "linear-gradient(135deg, #f97316 0%, #ef4444 100%)",
               boxShadow: "0 8px 32px rgba(239,68,68,0.5)",
             }}>
-            📞 Call {PHONE} — Available Now
+            📞 {BOOKING_LABEL} — Available Now
           </a>
           <Link href="/contact"
             className="reveal-from-bottom glass-card click-ripple flex items-center justify-center gap-2 font-semibold py-4 px-8 rounded-2xl text-white transition-all hover:scale-105"
@@ -680,13 +680,13 @@ function FinalCTA() {
           Real technicians waiting. Free first call. No fix = no fee.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href={PHONE_HREF}
+          <a href={BOOKING_HREF}
             className="reveal-from-left cta-glow-ring click-ripple flex items-center justify-center gap-3 px-10 py-5 rounded-2xl font-black text-xl text-white transition-all hover:scale-105"
             style={{
               background: "linear-gradient(135deg, #f97316 0%, #ef4444 100%)",
               boxShadow: "0 12px 40px rgba(239,68,68,0.6)",
             }}>
-            📞 {PHONE}
+            📞 {BOOKING_LABEL}
           </a>
           <Link href="/contact"
             className="reveal-from-right glass-card click-ripple flex items-center justify-center gap-3 px-10 py-5 rounded-2xl font-black text-xl text-white transition-all hover:scale-105">

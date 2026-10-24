@@ -31,7 +31,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Eastern",
     metaTitle: "Printer Repair Atlanta — Local Technician Network",
     metaDescription:
-      "Printer repair in Atlanta via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in Atlanta via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "Trini System matches Atlanta customers with a technician from our nationwide independent network, or fixes most printer issues remotely in minutes — often faster than waiting for a local shop appointment.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -46,7 +46,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Central",
     metaTitle: "Printer Repair Chicago — Local Technician Network",
     metaDescription:
-      "Printer repair in Chicago via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in Chicago via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "Chicago customers get matched with a technician from our nationwide network, or connect instantly with a remote specialist from HQ for most printer errors — no waiting on a shop drop-off.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -61,7 +61,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Central",
     metaTitle: "Printer Repair Houston — Local Technician Network",
     metaDescription:
-      "Printer repair in Houston via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in Houston via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "Houston customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -76,7 +76,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Mountain",
     metaTitle: "Printer Repair Phoenix — Local Technician Network",
     metaDescription:
-      "Printer repair in Phoenix via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in Phoenix via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "Phoenix customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -91,7 +91,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Eastern",
     metaTitle: "Printer Repair Philadelphia — Local Technician Network",
     metaDescription:
-      "Printer repair in Philadelphia via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in Philadelphia via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "Philadelphia customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -106,7 +106,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Central",
     metaTitle: "Printer Repair San Antonio — Local Technician Network",
     metaDescription:
-      "Printer repair in San Antonio via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in San Antonio via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "San Antonio customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -121,7 +121,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Pacific",
     metaTitle: "Printer Repair San Diego — Local Technician Network",
     metaDescription:
-      "Printer repair in San Diego via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in San Diego via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "San Diego customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -136,7 +136,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Central",
     metaTitle: "Printer Repair Dallas — Local Technician Network",
     metaDescription:
-      "Printer repair in Dallas via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in Dallas via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "Dallas customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -151,7 +151,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Central",
     metaTitle: "Printer Repair Austin — Local Technician Network",
     metaDescription:
-      "Printer repair in Austin via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in Austin via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "Austin customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -166,7 +166,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Eastern",
     metaTitle: "Printer Repair Miami — Local Technician Network",
     metaDescription:
-      "Printer repair in Miami via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in Miami via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "Miami customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -181,7 +181,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Pacific",
     metaTitle: "Printer Repair Seattle — Local Technician Network",
     metaDescription:
-      "Printer repair in Seattle via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in Seattle via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "Seattle customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -196,7 +196,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Mountain",
     metaTitle: "Printer Repair Denver — Local Technician Network",
     metaDescription:
-      "Printer repair in Denver via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in Denver via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "Denver customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -211,7 +211,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Eastern",
     metaTitle: "Printer Repair Boston — Local Technician Network",
     metaDescription:
-      "Printer repair in Boston via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in Boston via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "Boston customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -226,7 +226,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Pacific",
     metaTitle: "Printer Repair Los Angeles — Local Technician Network",
     metaDescription:
-      "Printer repair in Los Angeles via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in Los Angeles via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "Los Angeles customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -241,7 +241,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Eastern",
     metaTitle: "Printer Repair New York — Local Technician Network",
     metaDescription:
-      "Printer repair in New York via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in New York via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "New York customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -256,7 +256,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Pacific",
     metaTitle: "Printer Repair San Jose — Local Technician Network",
     metaDescription:
-      "Printer repair in San Jose via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in San Jose via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "San Jose customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -271,7 +271,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Eastern",
     metaTitle: "Printer Repair Jacksonville — Local Technician Network",
     metaDescription:
-      "Printer repair in Jacksonville via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in Jacksonville via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "Jacksonville customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -286,7 +286,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Central",
     metaTitle: "Printer Repair Fort Worth — Local Technician Network",
     metaDescription:
-      "Printer repair in Fort Worth via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in Fort Worth via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "Fort Worth customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -301,7 +301,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Eastern",
     metaTitle: "Printer Repair Columbus — Local Technician Network",
     metaDescription:
-      "Printer repair in Columbus via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in Columbus via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "Columbus customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -316,7 +316,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Eastern",
     metaTitle: "Printer Repair Charlotte — Local Technician Network",
     metaDescription:
-      "Printer repair in Charlotte via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in Charlotte via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "Charlotte customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -331,7 +331,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Eastern",
     metaTitle: "Printer Repair Indianapolis — Local Technician Network",
     metaDescription:
-      "Printer repair in Indianapolis via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in Indianapolis via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "Indianapolis customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -346,7 +346,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Pacific",
     metaTitle: "Printer Repair San Francisco — Local Technician Network",
     metaDescription:
-      "Printer repair in San Francisco via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in San Francisco via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "San Francisco customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -361,7 +361,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Eastern",
     metaTitle: "Printer Repair Washington — Local Technician Network",
     metaDescription:
-      "Printer repair in Washington via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in Washington via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "Washington customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -376,7 +376,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Central",
     metaTitle: "Printer Repair Nashville — Local Technician Network",
     metaDescription:
-      "Printer repair in Nashville via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in Nashville via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "Nashville customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -391,7 +391,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Central",
     metaTitle: "Printer Repair Memphis — Local Technician Network",
     metaDescription:
-      "Printer repair in Memphis via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in Memphis via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "Memphis customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -406,7 +406,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Pacific",
     metaTitle: "Printer Repair Portland — Local Technician Network",
     metaDescription:
-      "Printer repair in Portland via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in Portland via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "Portland customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -421,7 +421,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Pacific",
     metaTitle: "Printer Repair Las Vegas — Local Technician Network",
     metaDescription:
-      "Printer repair in Las Vegas via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in Las Vegas via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "Las Vegas customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -436,7 +436,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Eastern",
     metaTitle: "Printer Repair Tampa — Local Technician Network",
     metaDescription:
-      "Printer repair in Tampa via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in Tampa via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "Tampa customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -451,7 +451,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Eastern",
     metaTitle: "Printer Repair Orlando — Local Technician Network",
     metaDescription:
-      "Printer repair in Orlando via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in Orlando via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "Orlando customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -466,7 +466,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Central",
     metaTitle: "Printer Repair Minneapolis — Local Technician Network",
     metaDescription:
-      "Printer repair in Minneapolis via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in Minneapolis via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "Minneapolis customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -481,7 +481,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Eastern",
     metaTitle: "Printer Repair Cleveland — Local Technician Network",
     metaDescription:
-      "Printer repair in Cleveland via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in Cleveland via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "Cleveland customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -496,7 +496,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Eastern",
     metaTitle: "Printer Repair Detroit — Local Technician Network",
     metaDescription:
-      "Printer repair in Detroit via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in Detroit via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "Detroit customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -511,7 +511,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Pacific",
     metaTitle: "Printer Repair Sacramento — Local Technician Network",
     metaDescription:
-      "Printer repair in Sacramento via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in Sacramento via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "Sacramento customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -526,7 +526,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Central",
     metaTitle: "Printer Repair Kansas City — Local Technician Network",
     metaDescription:
-      "Printer repair in Kansas City via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in Kansas City via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "Kansas City customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -541,7 +541,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Eastern",
     metaTitle: "Printer Repair Pittsburgh — Local Technician Network",
     metaDescription:
-      "Printer repair in Pittsburgh via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in Pittsburgh via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "Pittsburgh customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -556,7 +556,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Central",
     metaTitle: "Printer Repair St. Louis — Local Technician Network",
     metaDescription:
-      "Printer repair in St. Louis via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in St. Louis via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "St. Louis customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -571,7 +571,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Eastern",
     metaTitle: "Printer Repair Cincinnati — Local Technician Network",
     metaDescription:
-      "Printer repair in Cincinnati via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in Cincinnati via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "Cincinnati customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -586,7 +586,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Eastern",
     metaTitle: "Printer Repair Baltimore — Local Technician Network",
     metaDescription:
-      "Printer repair in Baltimore via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in Baltimore via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "Baltimore customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -601,7 +601,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Central",
     metaTitle: "Printer Repair Milwaukee — Local Technician Network",
     metaDescription:
-      "Printer repair in Milwaukee via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in Milwaukee via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "Milwaukee customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],
@@ -616,7 +616,7 @@ export const LOCATIONS: LocationPage[] = [
     timezone: "Mountain",
     metaTitle: "Printer Repair Albuquerque — Local Technician Network",
     metaDescription:
-      "Printer repair in Albuquerque via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Call 347-953-1531.",
+      "Printer repair in Albuquerque via our nationwide independent technician network, plus instant remote fixes from HQ. HP, Canon, Epson, Brother. From $49. Book online.",
     intro:
       "Albuquerque customers can be matched with a technician from our nationwide network, or get most printer issues resolved remotely from HQ the same day.",
     brandsInDemand: ["HP", "Canon", "Epson", "Brother"],

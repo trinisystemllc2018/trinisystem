@@ -185,7 +185,7 @@ export function ServiceCards3D() {
             </span>
           </h2>
           <p className="text-white/45 mt-4 text-lg max-w-xl mx-auto">
-            Hover any card for a 3D preview. Click to go to the full guide or call us live.
+            Hover any card for a 3D preview. Click to go to the full guide or book a session live.
           </p>
         </div>
 

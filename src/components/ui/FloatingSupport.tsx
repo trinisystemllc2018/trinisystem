@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { MessageCircle, X, Phone, CalendarClock, Zap, BookOpen, ArrowRight } from "lucide-react";
-import { PHONE_HREF, PHONE, DOWNLOAD_URL } from "@/lib/utils";
+import { MessageCircle, X, CalendarClock, Zap, BookOpen, ArrowRight } from "lucide-react";
+import { BOOKING_HREF, DOWNLOAD_URL } from "@/lib/utils";
 import { CallbackButton } from "@/components/ui/CallbackModal";
 
 /** Single support entry point — lives in the coordinated FAB stack. */
@@ -40,15 +40,15 @@ export function FloatingSupport() {
         <div className="p-4 space-y-2">
           <p className="t-muted text-sm px-1 pb-2">Pick the fastest way to get help:</p>
 
-          <a href={PHONE_HREF} className="flex items-center gap-3 p-3 rounded-2xl transition-colors"
+          <Link href={BOOKING_HREF} className="flex items-center gap-3 p-3 rounded-2xl transition-colors"
             style={{ background: "var(--primary-soft)", border: "1px solid var(--border-strong)" }}>
-            <Phone size={20} style={{ color: "var(--primary)" }} />
+            <MessageCircle size={20} style={{ color: "var(--primary)" }} />
             <div className="flex-1">
-              <p className="text-sm font-bold" style={{ color: "var(--primary)" }}>Call now — free</p>
-              <p className="text-xs t-faint">{PHONE} · 24/7</p>
+              <p className="text-sm font-bold" style={{ color: "var(--primary)" }}>Chat &amp; book a session</p>
+              <p className="text-xs t-faint">AI assistant · answers questions</p>
             </div>
             <ArrowRight size={16} style={{ color: "var(--primary)" }} />
-          </a>
+          </Link>
 
           <CallbackButton className="flex items-center gap-3 p-3 rounded-2xl w-full text-left transition-colors"
             style={{ background: "var(--surface)", border: "1px solid var(--border)" } as any}>

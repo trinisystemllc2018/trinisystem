@@ -4,9 +4,9 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
-  Home, Printer, Monitor, MapPin, BookOpen, Zap, Phone, Menu, X, Download,
+  Home, Printer, Monitor, MapPin, BookOpen, Zap, Phone, CalendarCheck, Menu, X, Download,
 } from "lucide-react";
-import { PHONE, PHONE_HREF, DOWNLOAD_URL } from "@/lib/utils";
+import { BOOKING_LABEL, BOOKING_HREF, DOWNLOAD_URL } from "@/lib/utils";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 const navLinks = [
@@ -94,7 +94,7 @@ export function Navbar() {
               </a>
 
               <a
-                href={PHONE_HREF}
+                href={BOOKING_HREF}
                 className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2.5 rounded-xl font-black text-sm transition-transform hover:scale-[1.03] active:scale-95"
                 style={{ background: "linear-gradient(135deg, var(--primary), var(--primary-2))", color: "var(--on-primary)", boxShadow: "0 6px 20px rgba(239,68,68,0.35)" }}
               >
@@ -102,9 +102,9 @@ export function Navbar() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white/80 opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
                 </span>
-                <Phone size={15} className="hidden sm:block" />
-                <span className="hidden md:inline">{PHONE}</span>
-                <span className="md:hidden">Call</span>
+                <CalendarCheck size={15} className="hidden sm:block" />
+                <span className="hidden md:inline">{BOOKING_LABEL}</span>
+                <span className="md:hidden">Book</span>
               </a>
 
               <button

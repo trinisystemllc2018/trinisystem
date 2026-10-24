@@ -110,18 +110,18 @@ export default function VisualWalkthrough({ screens, brandColor = "#1a73e8" }: P
         )}
       </div>
 
-      {/* PHONE CTA — always visible inside walkthrough */}
+      {/* BOOKING_LABEL CTA — always visible inside walkthrough */}
       <div className="mt-5 bg-emerald-50 border-2 border-emerald-200 rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center gap-4">
         <div className="flex-1">
           <div className="font-bold text-emerald-900 text-lg">Stuck on this step?</div>
           <div className="text-emerald-800">Talk to a real person — free, in under 15 minutes.</div>
         </div>
         <a
-          href="tel:3479531531"
+          href="/book"
           className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-lg px-6 py-3 rounded-xl whitespace-nowrap transition"
-          aria-label="Call Trini System for free help: 347-953-1531"
+          aria-label="book a session with Trini System for free help"
         >
-          📞 Call 347-953-1531
+          📞 Book online
         </a>
       </div>
     </div>

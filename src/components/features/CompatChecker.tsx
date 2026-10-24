@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { PHONE_HREF, PHONE, DOWNLOAD_URL } from "@/lib/utils";
+import { BOOKING_HREF, BOOKING_LABEL, DOWNLOAD_URL } from "@/lib/utils";
 
 /* ═══════════════════════════════════════════════════════════════
    MASSIVE DEVICE DATABASE — 30+ models, SEO-optimized
@@ -47,7 +47,7 @@ const DEVICE_DB: Record<string, DeviceResult> = {
     brand: "HP", model: "ENVY 6055e", type: "printer",
     drivers: ["HP Smart App", "Full Feature Driver", "Universal Print Driver"],
     issues: ["HP+ account required error", "Scan not working", "WiFi offline", "Cartridge incompatible"],
-    seniorTip: "💡 ENVY printers need an HP account for HP+. We help seniors set this up quickly over the phone.",
+    seniorTip: "💡 ENVY printers need an HP account for HP+. We help seniors set this up quickly.",
     guideUrl: "https://support.hp.com",
     setupSteps: ["Create free HP account at hpsmart.com", "Download HP Smart App", "Sign in and add printer", "Enable HP+"],
   },
@@ -255,9 +255,9 @@ const DEVICE_DB: Record<string, DeviceResult> = {
     brand: "Windows", model: "Computer Won't Turn On", type: "pc",
     drivers: ["Remote Diagnosis Available"],
     issues: ["Black screen", "Power light off", "Beeping sounds", "Restart loop", "No display"],
-    seniorTip: "💡 Don't panic. Most 'won't turn on' issues are power-related and fixable without any repair shop visit. Call us first.",
-    guideUrl: PHONE_HREF,
-    setupSteps: ["Check power cable is firmly plugged in", "Try a different power outlet", "Hold power button 10 seconds to force restart", "If black screen but running: call us for display fix"],
+    seniorTip: "💡 Don't panic. Most 'won't turn on' issues are power-related and fixable without any repair shop visit. Book a session first.",
+    guideUrl: BOOKING_HREF,
+    setupSteps: ["Check power cable is firmly plugged in", "Try a different power outlet", "Hold power button 10 seconds to force restart", "If black screen but running: book a session for display fix"],
   },
   "hp laptop slow": {
     brand: "HP", model: "HP Laptop Running Slow", type: "laptop",
@@ -437,11 +437,11 @@ export function DeviceCompatChecker() {
                 <div className="bg-amber-50 border-2 border-amber-200 rounded-3xl p-8 text-center">
                   <div className="text-5xl mb-3">🤔</div>
                   <h3 className="font-black text-gray-900 text-xl mb-2">Device Not Found — But We Can Still Help!</h3>
-                  <p className="text-gray-600 mb-2 max-w-lg mx-auto">Our technicians know every printer, GPS and computer brand sold in the USA. Just call us.</p>
+                  <p className="text-gray-600 mb-2 max-w-lg mx-auto">Our technicians know every printer, GPS and computer brand sold in the USA. Just book a session.</p>
                   <p className="text-gray-500 text-sm mb-6">Try typing just the brand (e.g. &quot;HP&quot; or &quot;Canon&quot;) or a symptom (e.g. &quot;printer offline&quot;).</p>
                   <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                    <a href={PHONE_HREF} className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold px-8 py-4 rounded-2xl shadow-brand text-lg">
-                      📞 Call {PHONE} — Free Help
+                    <a href={BOOKING_HREF} className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold px-8 py-4 rounded-2xl shadow-brand text-lg">
+                      📞 {BOOKING_LABEL} — Free Help
                     </a>
                     <button onClick={() => { setQuery(""); setResult(null); }}
                       className="inline-flex items-center gap-2 bg-white text-gray-700 font-semibold px-8 py-4 rounded-2xl border-2 border-gray-200">
@@ -506,7 +506,7 @@ export function DeviceCompatChecker() {
                   </div>
 
                   <div className="px-6 pb-6 flex flex-col sm:flex-row gap-3">
-                    <a href={PHONE_HREF}
+                    <a href={BOOKING_HREF}
                       className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold py-4 px-5 rounded-2xl shadow-brand transition-all hover:from-blue-700 hover:to-blue-800 text-lg">
                       📞 Get Remote Help Now
                     </a>
@@ -569,10 +569,10 @@ export function OneClickHelpMode() {
                 {[
                   { icon: "🖨️", title: "My Printer Won't Work", sub: "HP, Canon, Epson, Brother", color: "from-blue-500 to-blue-700", action: () => setStep("printer") },
                   { icon: "🐌", title: "My Computer Is Slow", sub: "Free TriniCleaner download", color: "from-orange-500 to-red-600", action: () => notifyAndGo("Computer Is Slow", DOWNLOAD_URL) },
-                  { icon: "🦠", title: "I Think I Have a Virus", sub: "Remote removal — same day", color: "from-red-500 to-red-700", action: () => notifyAndGo("Virus Help", PHONE_HREF) },
-                  { icon: "🗺️", title: "Update My GPS Maps", sub: "Garmin, all models", color: "from-teal-500 to-teal-700", action: () => notifyAndGo("GPS Map Update", PHONE_HREF) },
-                  { icon: "📱", title: "Set Up My New Device", sub: "Tablet, phone, computer", color: "from-orange-500 to-orange-700", action: () => notifyAndGo("New Device Setup", PHONE_HREF) },
-                  { icon: "🔒", title: "I Was Scammed Online", sub: "Urgent — call us now", color: "from-gray-700 to-gray-900", action: () => notifyAndGo("Scam Alert", PHONE_HREF) },
+                  { icon: "🦠", title: "I Think I Have a Virus", sub: "Remote removal — same day", color: "from-red-500 to-red-700", action: () => notifyAndGo("Virus Help", BOOKING_HREF) },
+                  { icon: "🗺️", title: "Update My GPS Maps", sub: "Garmin, all models", color: "from-teal-500 to-teal-700", action: () => notifyAndGo("GPS Map Update", BOOKING_HREF) },
+                  { icon: "📱", title: "Set Up My New Device", sub: "Tablet, phone, computer", color: "from-orange-500 to-orange-700", action: () => notifyAndGo("New Device Setup", BOOKING_HREF) },
+                  { icon: "🔒", title: "I Was Scammed Online", sub: "Urgent — book now", color: "from-gray-700 to-gray-900", action: () => notifyAndGo("Scam Alert", BOOKING_HREF) },
                 ].map(item => (
                   <button key={item.title} onClick={item.action}
                     className={`flex flex-col items-center justify-center gap-3 p-8 rounded-3xl bg-gradient-to-br ${item.color} text-white shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all active:scale-[0.98]`}>
@@ -582,9 +582,9 @@ export function OneClickHelpMode() {
                   </button>
                 ))}
               </div>
-              <a href={PHONE_HREF}
+              <a href={BOOKING_HREF}
                 className="flex items-center gap-3 bg-gray-900 text-white text-2xl font-black px-10 py-5 rounded-3xl shadow-xl hover:bg-gray-800 transition-colors">
-                📞 Just Call Us: {PHONE}
+                📅 {BOOKING_LABEL}
               </a>
             </>
           )}
@@ -603,15 +603,15 @@ export function OneClickHelpMode() {
                   { name: "Epson", color: "bg-sky-600" },
                   { name: "Brother", color: "bg-indigo-600" },
                 ].map(b => (
-                  <button key={b.name} onClick={() => notifyAndGo(`Printer — ${b.name}`, PHONE_HREF)}
+                  <button key={b.name} onClick={() => notifyAndGo(`Printer — ${b.name}`, BOOKING_HREF)}
                     className={`${b.color} text-white text-3xl font-black py-8 rounded-3xl shadow-lg hover:opacity-90 transition-all`}>
                     {b.name}
                   </button>
                 ))}
               </div>
-              <a href={PHONE_HREF}
+              <a href={BOOKING_HREF}
                 className="flex items-center gap-3 bg-gray-900 text-white text-2xl font-black px-10 py-5 rounded-3xl shadow-xl hover:bg-gray-800">
-                📞 Just Call: {PHONE}
+                📅 {BOOKING_LABEL}
               </a>
             </>
           )}

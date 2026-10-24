@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PHONE, PHONE_HREF, DOWNLOAD_URL, MAPS_URL, OFFICIAL_SITE, SOCIAL } from "@/lib/utils";
+import { BOOKING_LABEL, BOOKING_HREF, DOWNLOAD_URL, MAPS_URL, OFFICIAL_SITE, SOCIAL } from "@/lib/utils";
 
 const footerSections = [
   {
@@ -81,10 +81,10 @@ export function Footer() {
           </div>
           <div className="flex gap-3 shrink-0 flex-wrap justify-center">
             <a
-              href={PHONE_HREF}
+              href={BOOKING_HREF}
               className="font-bold px-6 py-3.5 rounded-2xl transition-transform hover:scale-[1.03] shadow-lg" style={{ background: "var(--surface-solid)", color: "var(--primary)" }}
             >
-              📞 {PHONE}
+              📞 {BOOKING_LABEL}
             </a>
             <Link
               href="/contact"
@@ -118,8 +118,8 @@ export function Footer() {
             </p>
             {/* NAP — critical for local SEO, must match Google Business exactly */}
             <address className="not-italic mb-4 space-y-1">
-              <a href={PHONE_HREF} className="text-xl font-bold transition-colors flex items-center gap-2">
-                📞 {PHONE}
+              <a href={BOOKING_HREF} className="text-xl font-bold transition-colors flex items-center gap-2">
+                📞 {BOOKING_LABEL}
               </a>
               <p className="text-xs t-faint">52-09 99th St Apt 8S, Corona, NY 11368</p>
               <p className="text-xs t-faint">Available 24/7 · Remote & On-Site</p>

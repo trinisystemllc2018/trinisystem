@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { PHONE_HREF, PHONE } from "@/lib/utils";
+import { BOOKING_HREF, BOOKING_LABEL } from "@/lib/utils";
 
 /* ─────────────────────────────────────────
    LIVE STATUS DASHBOARD — support availability
@@ -92,12 +92,12 @@ export function LiveStatusDashboard() {
         {/* CTA */}
         <div className="text-center">
           <a
-            href={PHONE_HREF}
+            href={BOOKING_HREF}
             className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-black text-lg px-10 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all active:scale-95"
           >
-            📞 Call {PHONE} — Talk to a Technician Now
+            📞 {BOOKING_LABEL} — Talk to a Technician Now
           </a>
-          <p className="text-sm text-gray-400 mt-3">No hold music. No bots. A real technician picks up.</p>
+          <p className="text-sm text-gray-400 mt-3">No hold music. A real technician confirms every booking.</p>
         </div>
       </div>
     </section>

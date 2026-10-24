@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { PHONE_HREF, PHONE } from "@/lib/utils";
+import { BOOKING_HREF, BOOKING_LABEL } from "@/lib/utils";
 
 const GOOGLE_LISTING_URL = "https://share.google/1mtrJVk8Ya0PkjG76";
 
@@ -243,10 +243,10 @@ export function GoogleReviewsSection() {
             Read All 47 Google Reviews ↗
           </a>
           <a
-            href={PHONE_HREF}
+            href={BOOKING_HREF}
             className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold px-8 py-4 rounded-2xl shadow-brand hover:from-blue-700 hover:to-blue-800 transition-all"
           >
-            📞 Call {PHONE} — Join Our Happy Customers
+            📞 {BOOKING_LABEL} — Join Our Happy Customers
           </a>
         </div>
       </div>

@@ -82,11 +82,11 @@ export const drivesmart: GarminSeries = {
   ],
   faqs: [
     { q: "How often should I update my Garmin DriveSmart maps?", a: "Garmin releases major map updates 4 times per year (quarterly). For most drivers, updating twice a year is enough. If you drive in unfamiliar areas often or rely on the GPS for work, update quarterly. Models with 'lifetime maps' (DriveSmart with 'LM' suffix) are entitled to free updates forever — no extra purchase." },
-    { q: "Why does my DriveSmart 65 say 'Update Failed' at 39%?", a: "39% is where the largest map files start transferring. Two causes: (1) USB cable degraded or aftermarket — switch to original Garmin cable, (2) PC USB port front-panel doesn't deliver enough power — plug into a rear motherboard port. About 92% of stuck-at-39% errors clear with these two fixes. If still stuck, call us at 347-953-1531." },
+    { q: "Why does my DriveSmart 65 say 'Update Failed' at 39%?", a: "39% is where the largest map files start transferring. Two causes: (1) USB cable degraded or aftermarket — switch to original Garmin cable, (2) PC USB port front-panel doesn't deliver enough power — plug into a rear motherboard port. About 92% of stuck-at-39% errors clear with these two fixes. If still stuck, book online." },
     { q: "Can I update DriveSmart 86 over WiFi without a computer?", a: "Yes — DriveSmart 86 (and 76) have built-in WiFi. Settings → Updates → Map → Update. Make sure the unit is on AC power because the battery won't last for an 8-14 GB download. WiFi map updates are slightly slower than Garmin Express via USB but require no PC." },
     { q: "Why is my DriveSmart 55 missing the Bluetooth menu?", a: "DriveSmart 55 doesn't have Bluetooth — only DriveSmart 65, 76, 86, and Drive 52 (with hyphen suffixes like 52T) have it. If your Settings → Wireless menu is missing, you most likely have a 55, not a 65. Confirm by checking the back label or Settings → Device → About." },
     { q: "How long does a Garmin DriveSmart map update actually take?", a: "Realistic timings on USB 2.0: DriveSmart 55 (~9 GB North America map) = 35 min. DriveSmart 65/76/86 (~12 GB North America HD map) = 60-75 min. Add 10 min for verification. Plan 90 min total. WiFi updates on 76/86 are 20–30% slower than USB." },
-    { q: "My DriveSmart was working yesterday, now it won't power on. What do I do?", a: "Common cause is the internal battery has discharged below recovery voltage. Plug into wall charger (not PC USB) and wait 10 minutes WITHOUT pressing power. Then hold power for 10 seconds. If still no display, the unit needs a hard reset — small reset hole on the back near the screw. Press with a paperclip for 5 seconds while plugged in. We diagnose this remotely in 12 min — call 347-953-1531." },
+    { q: "My DriveSmart was working yesterday, now it won't power on. What do I do?", a: "Common cause is the internal battery has discharged below recovery voltage. Plug into wall charger (not PC USB) and wait 10 minutes WITHOUT pressing power. Then hold power for 10 seconds. If still no display, the unit needs a hard reset — small reset hole on the back near the screw. Press with a paperclip for 5 seconds while plugged in. We diagnose this remotely in 12 min — book online." },
     { q: "Can Trini System update my Garmin DriveSmart for me?", a: "Yes. We update Garmin DriveSmart units remotely — you connect the GPS to your computer with a USB cable, we connect to your computer via secure remote session, and we run the entire Garmin Express update while you watch. Average completion: 75 minutes including verification. Flat $49." },
   ],
   cableType: "USB-A to micro-USB (DriveSmart 55, 65) or USB-A to USB-C (DriveSmart 76, 86)",
@@ -96,7 +96,7 @@ export const drivesmart: GarminSeries = {
   accentColor: "blue",
   metaTitle: "Garmin DriveSmart Update — 55, 65, 76, 86 Fix",
   metaDescription:
-    "Update Garmin DriveSmart 55, 65, 76, 86 maps & firmware. Fix update failed at 39%, Bluetooth, voice prompts. Remote service from $49. Call 347-953-1531.",
+    "Update Garmin DriveSmart 55, 65, 76, 86 maps & firmware. Fix update failed at 39%, Bluetooth, voice prompts. Remote service from $49. Book online.",
   primaryKeywords: [
     "garmin drivesmart update", "garmin drivesmart 65 update", "garmin drivesmart 55 map update",
     "garmin drivesmart 76 update", "garmin drivesmart 86 firmware", "garmin drivesmart bluetooth fix",
@@ -136,7 +136,7 @@ export const expressNotWorking: GarminProblemPage = {
   problemTitle: "Garmin Express Not Working",
   metaTitle: "Garmin Express Not Working — Fast 2026 Fix",
   metaDescription:
-    "Fix Garmin Express won't open, freezes at startup, or won't detect your GPS. Step-by-step 2026 guide — 8 causes & fixes. Call 347-953-1531 free.",
+    "Fix Garmin Express won't open, freezes at startup, or won't detect your GPS. Step-by-step 2026 guide — 8 causes & fixes. Book online free.",
   problemSummary:
     "Garmin Express is the desktop app that updates Garmin GPS, watches, and dash cams. When it stops working — won't open, won't detect the device, or freezes during update — there are 8 common root causes, and most are fixed in 5–15 minutes.",
   affectedModels: [
@@ -217,7 +217,7 @@ export const expressNotWorking: GarminProblemPage = {
     { step: 7, title: "Run firmware update FIRST, then maps", detail: "Always firmware before maps. Map update on old firmware sometimes installs but device can't read the new map format.", estimatedTime: "5–75 min depending on update size" },
   ],
   whenToCallUs:
-    "Call us at 347-953-1531 if any of these apply: (a) Express still won't open after fresh reinstall, (b) device shows in Disk Management but Express never sees it, (c) update completes but device is bricked / shows 'Map cannot be read', (d) you're on a work PC and don't have admin rights. We fix Express issues remotely from $49.",
+    "Book online if any of these apply: (a) Express still won't open after fresh reinstall, (b) device shows in Disk Management but Express never sees it, (c) update completes but device is bricked / shows 'Map cannot be read', (d) you're on a work PC and don't have admin rights. We fix Express issues remotely from $49.",
   faqs: [
     { q: "Why does Garmin Express keep saying 'Could not connect to Garmin servers'?", a: "Three causes in order of likelihood: (1) Antivirus is blocking Express's outbound HTTPS request to garmin.com — disable AV temporarily to confirm, then add Express to exceptions. (2) Windows clock is off by more than 5 minutes — HTTPS handshake fails. Sync clock manually. (3) Corporate/school firewall blocks garmin.com — try from home network. About 70% of 'Could not connect' errors are antivirus." },
     { q: "Why won't Garmin Express detect my GPS?", a: "First check Windows Disk Management (Win+X → Disk Management). If Garmin appears there as a removable disk, the cable and port are fine — problem is Express. If Garmin does NOT appear in Disk Management, problem is the cable (use original Garmin cable, not aftermarket) or port (use rear USB port). About 60% of 'device not detected' errors are charging-only USB cables." },
@@ -246,7 +246,7 @@ export const wontAcquireSatellites: GarminProblemPage = {
   problemTitle: "Garmin Won't Acquire Satellites",
   metaTitle: "Garmin Won't Acquire Satellites — Fix Guide",
   metaDescription:
-    "Garmin GPS won't find satellites? 6 root causes & step-by-step fixes for DriveSmart, Nuvi, eTrex, Forerunner, Fenix. Free guide. Call 347-953-1531.",
+    "Garmin GPS won't find satellites? 6 root causes & step-by-step fixes for DriveSmart, Nuvi, eTrex, Forerunner, Fenix. Free guide. Book online.",
   problemSummary:
     "When a Garmin GPS unit can't find satellites, it can't navigate. The screen typically shows 'Acquiring Satellites' indefinitely or displays 0/0 satellites. The cause is almost always one of 6 issues — and 5 of the 6 are fixed in under 15 minutes without any hardware repair.",
   affectedModels: [
@@ -306,7 +306,7 @@ export const wontAcquireSatellites: GarminProblemPage = {
     { step: 2, title: "Verify GPS satellite system is enabled", detail: "On watches: Settings → System → Sensors → GPS — check that GPS is enabled and at least 'GPS + GLONASS' or 'All Systems' is selected. On auto units: Settings → Device → About → look for satellite indicator.", ifFails: "If already enabled, proceed to step 3 (almanac refresh)." },
     { step: 3, title: "Force almanac refresh", detail: "Hold device outdoors with clear sky view. Power off completely (not just sleep). Wait 30 seconds. Power on. Set device flat with screen up. DO NOT MOVE for 15 full minutes. The device performs a 'cold start' — re-downloads satellite almanac from scratch.", ifFails: "If after 15 minutes there's still no signal, proceed to step 4." },
     { step: 4, title: "Check firmware version", detail: "Settings → Device → About — note the firmware version. Search 'Garmin [model] firmware [version] GPS issue' to see if there's a known regression. If yes, update via Garmin Express to latest firmware.", ifFails: "If on latest firmware and still no signal, proceed to step 5." },
-    { step: 5, title: "Battery check", detail: "Charge device to 100%. Unplug. Test GPS again outdoors (steps 1–3).", ifFails: "If still no signal at 100% battery in open sky after 15 min cold start, you likely have hardware antenna damage. Call us — we'll confirm." },
+    { step: 5, title: "Battery check", detail: "Charge device to 100%. Unplug. Test GPS again outdoors (steps 1–3).", ifFails: "If still no signal at 100% battery in open sky after 15 min cold start, you likely have hardware antenna damage. Book a session — we'll confirm." },
   ],
   fixSequence: [
     { step: 1, title: "Cold-start in open sky", detail: "Outdoor location with no overhead obstruction. Power off device completely. Power on. Set on a flat surface (or wear watch on wrist, arm extended). Wait 15 minutes minimum without moving the device.", estimatedTime: "15 min" },
@@ -316,7 +316,7 @@ export const wontAcquireSatellites: GarminProblemPage = {
     { step: 5, title: "Re-cold-start", detail: "After settings reset, do another 15-min cold start in open sky.", estimatedTime: "15 min" },
   ],
   whenToCallUs:
-    "Call us at 347-953-1531 if any of these apply: (a) device finds 0 satellites even after a 15-minute open-sky cold start, (b) device finds 1–2 satellites maximum even in optimal conditions (likely antenna damage), (c) you're not comfortable doing firmware updates yourself, (d) device worked fine before a specific firmware update and you want to roll back. Remote diagnosis is free; fix is $49 if doable remotely.",
+    "Book online if any of these apply: (a) device finds 0 satellites even after a 15-minute open-sky cold start, (b) device finds 1–2 satellites maximum even in optimal conditions (likely antenna damage), (c) you're not comfortable doing firmware updates yourself, (d) device worked fine before a specific firmware update and you want to roll back. Remote diagnosis is free; fix is $49 if doable remotely.",
   faqs: [
     { q: "Why does my Garmin take 30 minutes to find satellites?", a: "Almanac data is stale (most common cause). When a Garmin sits unused for 90+ days, its predicted satellite positions go out of date. The device has to do a 'cold start' — search the entire sky from scratch. This takes 5–15 minutes in open sky. After the first successful lock, subsequent locks take 30–60 seconds because the almanac is now fresh." },
     { q: "Will my Garmin GPS work indoors?", a: "Mostly no. GPS signals come from satellites 12,000+ miles overhead and are line-of-sight. Concrete ceilings, metal roofs, basements, and indoor environments block or severely attenuate the signal. Some Garmin units may show 1–2 satellites near a window, but the position will be inaccurate. To test if your GPS is working, you must be outdoors with clear sky view." },
@@ -345,7 +345,7 @@ export const mapUpdateFailed: GarminProblemPage = {
   problemTitle: "Garmin Map Update Failed",
   metaTitle: "Garmin Map Update Failed — How to Fix Now",
   metaDescription:
-    "Garmin map update failed at 39%, 50%, or 99%? Diagnose 7 causes & recover your GPS in 25 min. Free guide. Call 347-953-1531 — we fix it remotely.",
+    "Garmin map update failed at 39%, 50%, or 99%? Diagnose 7 causes & recover your GPS in 25 min. Free guide. Book online — we fix it remotely.",
   problemSummary:
     "When a Garmin map update fails partway through, the device often becomes unusable — old map gone, new map not fully installed. This is recoverable in 95% of cases. The sequence depends on which percentage the update failed at, because different file types transfer at different stages.",
   affectedModels: [
@@ -421,7 +421,7 @@ export const mapUpdateFailed: GarminProblemPage = {
     { step: 7, title: "Verify map version on device after update", detail: "Settings → Device → About → Map. Should show 2026.10 or newer. If still old version, update silently failed — repeat from step 4.", estimatedTime: "2 min" },
   ],
   whenToCallUs:
-    "Call us at 347-953-1531 in any of these situations: (a) update failed and device now shows 'Map cannot be read' on every boot, (b) Recovery Mode option in Express isn't fixing it, (c) you don't have admin rights on the PC for the recovery process, (d) you're not confident running a 'Recover Device' wipe yourself. We've recovered hundreds of bricked Garmin units remotely. From $49.",
+    "Book online in any of these situations: (a) update failed and device now shows 'Map cannot be read' on every boot, (b) Recovery Mode option in Express isn't fixing it, (c) you don't have admin rights on the PC for the recovery process, (d) you're not confident running a 'Recover Device' wipe yourself. We've recovered hundreds of bricked Garmin units remotely. From $49.",
   faqs: [
     { q: "My Garmin update failed at 39% — what does this mean?", a: "39% is where the largest contiguous map files start streaming over USB. Failure at this exact percentage is almost always one of: (1) USB cable degraded — switch to original Garmin cable, (2) front-panel USB port underpowered — use rear motherboard port, (3) device storage filled mid-transfer — delete old files first. About 92% of stuck-at-39% errors clear with these three checks." },
     { q: "My Garmin says 'Map cannot be read' after a failed update — is it bricked?", a: "Probably not. 'Map cannot be read' usually means the map partition was partially written when the update failed. Recovery: connect to PC, open Garmin Express, click your device → Tools → 'Recover Device' (or 'Restore Defaults'). This wipes the device and re-downloads everything cleanly. Takes 90 minutes but recovers 95% of units. We do this remotely for $49." },
@@ -429,7 +429,7 @@ export const mapUpdateFailed: GarminProblemPage = {
     { q: "Why did my Garmin map update succeed but show old map version?", a: "The download completed but the install didn't. Common cause: firmware too old to read the new map format. Fix: connect to Express, do firmware update FIRST, reboot device, then re-run map update. The second attempt usually completes the install. If still showing old version after both, run Express → Tools → Recover Device." },
     { q: "How do I avoid Garmin map update failures in the first place?", a: "Pre-update checklist: (1) charge device to 100%, (2) verify 2x map-size free storage, (3) use original Garmin USB cable, (4) plug into rear PC USB port, (5) disable PC sleep mode, (6) pause Windows/Mac updates, (7) use stable hardwired internet if possible, (8) update firmware BEFORE maps, (9) don't multitask on the PC during update. Following all 9 steps drops failure rate from ~25% to under 3%." },
     { q: "Will my Garmin work without the latest map update?", a: "Yes — if your old map data is intact, the GPS continues working, just with outdated road information. You'll get correct position but may be routed via roads that were rerouted, or miss new roads built since your last map. For most casual use this is fine for 6+ months out of date. For business/commercial use (delivery, RVs, trucks), update at least quarterly." },
-    { q: "Can Trini System recover my Garmin if the update bricked it?", a: "Yes. We've recovered hundreds of bricked Garmin units (DriveSmart, Nuvi, eTrex, Zumo, Dezl, watches) remotely. Process: you connect Garmin to your PC via USB, we connect to your PC via secure remote session, run the Garmin Express 'Recover Device' procedure, monitor the 90-minute process, and verify the device boots cleanly afterward. $49 flat. Call 347-953-1531." },
+    { q: "Can Trini System recover my Garmin if the update bricked it?", a: "Yes. We've recovered hundreds of bricked Garmin units (DriveSmart, Nuvi, eTrex, Zumo, Dezl, watches) remotely. Process: you connect Garmin to your PC via USB, we connect to your PC via secure remote session, run the Garmin Express 'Recover Device' procedure, monitor the 90-minute process, and verify the device boots cleanly afterward. $49 flat. Book online." },
   ],
   bgGradient: "linear-gradient(135deg, #1a1206 0%, #2c1f0a 40%, #4a330e 100%)",
   accentColor: "amber",
@@ -491,12 +491,12 @@ export const forerunner: GarminSeries = {
   ],
   faqs: [
     { q: "How do I update my Garmin Forerunner without a computer?", a: "Forerunner 165, 255, 265, 955, and 965 update over WiFi or phone Bluetooth — no PC needed. On the watch: hold UP → Settings → System → Software Update → Check for Updates. Make sure the watch is connected to WiFi (settings → connectivity → WiFi) and has 50%+ battery. FR 245 and older still require Garmin Express via USB clip." },
-    { q: "Why won't my Forerunner sync with Garmin Connect?", a: "Most common cause is iOS or Android Bluetooth cache after a phone OS update. Fix: (1) force-quit Garmin Connect app, (2) on phone Bluetooth settings, forget the watch, (3) on watch hold UP → Settings → Phone → Forget Phone, (4) re-pair via Connect → Add Device. Works for 94% of sync failures. If still fails, the watch's BLE radio may be desynced — call us." },
+    { q: "Why won't my Forerunner sync with Garmin Connect?", a: "Most common cause is iOS or Android Bluetooth cache after a phone OS update. Fix: (1) force-quit Garmin Connect app, (2) on phone Bluetooth settings, forget the watch, (3) on watch hold UP → Settings → Phone → Forget Phone, (4) re-pair via Connect → Add Device. Works for 94% of sync failures. If still fails, the watch's BLE radio may be desynced — book a session." },
     { q: "Why does my Forerunner GPS take so long to find satellites?", a: "Stale EPO data — the predictive ephemeris file that tells your watch where satellites should be. After 7+ days of no GPS use, the file expires. Fix: stand outdoors with clear sky, sync watch with Connect (downloads fresh EPO), then start activity. First lock takes 60-90 seconds. Subsequent activities lock in 5-15 seconds." },
     { q: "How long does a Forerunner firmware update take?", a: "Via WiFi/phone: 5-8 minutes typically. Via USB Garmin Express: 8-12 minutes. The watch reboots 2-3 times during install — don't press buttons. Total time including verification: ~15 minutes. If your update has been running over 30 minutes with no progress, abort (hold START 10 sec) and retry via USB." },
-    { q: "Can I downgrade Forerunner firmware if a new version has bugs?", a: "Garmin doesn't officially support downgrades, but it's possible via USB by manually replacing the GUPDATE.gcd file in /Garmin/firmware/ on the watch. We do this for customers when there's a confirmed regression (we keep archived firmware files for major models). $49 flat — call us before attempting yourself." },
+    { q: "Can I downgrade Forerunner firmware if a new version has bugs?", a: "Garmin doesn't officially support downgrades, but it's possible via USB by manually replacing the GUPDATE.gcd file in /Garmin/firmware/ on the watch. We do this for customers when there's a confirmed regression (we keep archived firmware files for major models). $49 flat — book a session before attempting yourself." },
     { q: "Why is my Forerunner heart rate stuck at 60 BPM?", a: "Optical sensor calibration glitch. Fix sequence: (1) clean sensor on watch back with damp cloth, (2) wear watch one finger-width above wrist bone, snug but not tight, (3) hold UP → Settings → Sensors → Heart Rate → toggle off and on, (4) start a walking activity for 5 minutes to recalibrate. If still stuck, soft reset: hold UP+DOWN+START for 10 seconds." },
-    { q: "Will Trini System update my Forerunner remotely?", a: "Yes. Connect Forerunner to your computer via charging clip, we connect to your computer via secure remote session, run the firmware + map update via Garmin Express while you watch. Average time: 15 minutes. Flat $49. Call 347-953-1531." },
+    { q: "Will Trini System update my Forerunner remotely?", a: "Yes. Connect Forerunner to your computer via charging clip, we connect to your computer via secure remote session, run the firmware + map update via Garmin Express while you watch. Average time: 15 minutes. Flat $49. Book online." },
   ],
   cableType: "Garmin proprietary 4-pin charging clip (USB-A) — same clip across all current Forerunner models",
   expressCompatible: true,
@@ -505,7 +505,7 @@ export const forerunner: GarminSeries = {
   accentColor: "purple",
   metaTitle: "Garmin Forerunner Update — 245, 255, 955, 965",
   metaDescription:
-    "Update Garmin Forerunner 245, 255, 265, 955, 965 firmware. Fix sync, GPS, music sync issues. Remote service from $49. Call 347-953-1531.",
+    "Update Garmin Forerunner 245, 255, 265, 955, 965 firmware. Fix sync, GPS, music sync issues. Remote service from $49. Book online.",
   primaryKeywords: [
     "garmin forerunner update", "forerunner 255 update", "forerunner 955 update",
     "forerunner 245 firmware", "forerunner 265 sync issues", "garmin forerunner not syncing",
@@ -566,9 +566,9 @@ export const fenix: GarminSeries = {
     { q: "Why is my Fenix battery dying so much faster after the update?", a: "Three common causes after firmware updates: (1) Always-on display reset to ON — disable in Settings → Display, (2) Pulse Ox set to all-day instead of sleep-only — change in Settings → Sensors → Pulse Ox, (3) GPS-on-default for activities — change activity profile defaults. Also known firmware regressions on Fenix 7 14.x — wait for 14.30+ patch." },
     { q: "How do I clear Fenix storage to install new maps?", a: "Connect Fenix to PC, open Garmin Express, click device → Maps tab. You'll see all installed regions (each 1.5-4 GB) plus base maps. Uncheck regions you don't need (e.g., remove European TOPO if hiking US only). Click 'Apply'. Frees 4-8 GB. You can also remove Connect IQ apps via Express to free 100-500 MB." },
     { q: "Can I downgrade Fenix firmware if the new version has bugs?", a: "Garmin doesn't officially support downgrades, but it works via USB by replacing GUPDATE.gcd in /Garmin/firmware/ on the watch. Risky — can brick the watch. We keep archived firmware files for Fenix 5, 6, 7, 8 and downgrade as a service for $49. Don't attempt yourself unless you're comfortable with file system manipulation." },
-    { q: "My Fenix Solar shows 0% solar input — is it broken?", a: "Three likely causes in order: (1) solar lens dirty (clean with soft cloth, no chemicals), (2) low ambient light — solar needs 10,000+ lux which is direct sunlight, indoor doesn't register, (3) firmware regression on certain 14.x versions — check Garmin forums for your model. If still 0% after cleaning + outdoor sunlight test, hardware sensor failure — call us for diagnostic." },
+    { q: "My Fenix Solar shows 0% solar input — is it broken?", a: "Three likely causes in order: (1) solar lens dirty (clean with soft cloth, no chemicals), (2) low ambient light — solar needs 10,000+ lux which is direct sunlight, indoor doesn't register, (3) firmware regression on certain 14.x versions — check Garmin forums for your model. If still 0% after cleaning + outdoor sunlight test, hardware sensor failure — book a session for diagnostic." },
     { q: "Why won't my Fenix pair with my HRM-Pro Plus?", a: "Phone Bluetooth often interferes. Sequence: (1) turn phone Bluetooth OFF temporarily, (2) put HRM-Pro in pairing mode (wet contacts, put on chest), (3) on watch hold UP → Sensors & Accessories → Add New → Heart Rate. Should pair in 30 seconds. Once paired, you can re-enable phone Bluetooth — watch and phone won't fight over the sensor." },
-    { q: "Will Trini System update my Fenix remotely?", a: "Yes. Connect Fenix to your PC via charging clip, we connect via secure remote session, run firmware + map update + sensor recalibration via Garmin Express. Average time: 30-45 minutes for full update. $49 flat. Call 347-953-1531." },
+    { q: "Will Trini System update my Fenix remotely?", a: "Yes. Connect Fenix to your PC via charging clip, we connect via secure remote session, run firmware + map update + sensor recalibration via Garmin Express. Average time: 30-45 minutes for full update. $49 flat. Book online." },
   ],
   cableType: "Garmin proprietary 4-pin charging clip (USB-A) — same clip across Fenix 5, 6, 7, 8 (Fenix 5 uses older clip)",
   expressCompatible: true,
@@ -577,7 +577,7 @@ export const fenix: GarminSeries = {
   accentColor: "emerald",
   metaTitle: "Garmin Fenix Update — Fenix 5, 6, 7, 8 Fix",
   metaDescription:
-    "Update Garmin Fenix 5, 6, 7, 8 — firmware, TOPO maps, compass, sensors. Fix battery drain, sync, solar issues. Remote service from $49. Call 347-953-1531.",
+    "Update Garmin Fenix 5, 6, 7, 8 — firmware, TOPO maps, compass, sensors. Fix battery drain, sync, solar issues. Remote service from $49. Book online.",
   primaryKeywords: [
     "garmin fenix update", "fenix 7 update", "fenix 6 firmware update", "fenix 8 update",
     "fenix battery drain fix", "fenix map update stuck", "fenix won't sync",
@@ -639,7 +639,7 @@ export const zumo: GarminSeries = {
     { q: "Why does my Zumo's helmet Bluetooth keep cutting out?", a: "Three causes in order: (1) helmet headset battery dying — most common, charge helmet, (2) Bluetooth pair conflict with phone, in helmet settings allow 'multipoint' mode, (3) firmware mismatch between Zumo and helmet — update both. Sena and Cardo helmet firmware affects Bluetooth profile compatibility. After updates, re-pair fresh." },
     { q: "How do I get scenic / curvy roads routing on Zumo?", a: "Settings → Navigation → Calculation Mode → 'Curvy Roads' or 'Adventurous Routing'. Default 'Fastest Route' uses highways which is boring on a bike. 'Curvy Roads' prioritizes twisty backroads. 'Adventurous Routing' adds elevation changes and hills. Set as default and Zumo plans every route this way." },
     { q: "My Zumo screen is hard to see in direct sunlight — fix?", a: "Settings → Display → Brightness → Maximum (or Auto). Settings → Display → Background → 'Day' (white background more visible than black in sun). Anti-glare film for $15 helps significantly. Older Zumo 5xx series has weaker screens than modern XT/XT2 — limit." },
-    { q: "Will Trini System update my Zumo remotely?", a: "Yes. Bring Zumo inside off the bike, connect to your PC via USB. We connect via secure remote session, run firmware + map update + helmet pairing reset via Garmin Express. Average time: 90 minutes for full update. $49 flat. Call 347-953-1531." },
+    { q: "Will Trini System update my Zumo remotely?", a: "Yes. Bring Zumo inside off the bike, connect to your PC via USB. We connect via secure remote session, run firmware + map update + helmet pairing reset via Garmin Express. Average time: 90 minutes for full update. $49 flat. Book online." },
   ],
   cableType: "USB-A to micro-USB (Zumo 595, 396) or USB-A to USB-C (Zumo XT, XT2)",
   expressCompatible: true,
@@ -648,7 +648,7 @@ export const zumo: GarminSeries = {
   accentColor: "amber",
   metaTitle: "Garmin Zumo Update — XT, XT2, 595 Motorcycle",
   metaDescription:
-    "Update Garmin Zumo XT, XT2, 595, 396 maps & firmware. Fix Bluetooth helmet audio, glove screen, BaseCamp routes. From $49. Call 347-953-1531.",
+    "Update Garmin Zumo XT, XT2, 595, 396 maps & firmware. Fix Bluetooth helmet audio, glove screen, BaseCamp routes. From $49. Book online.",
   primaryKeywords: [
     "garmin zumo update", "zumo xt update", "zumo xt2 firmware",
     "garmin zumo 595 update", "garmin zumo 396 map update", "zumo bluetooth helmet",
@@ -713,7 +713,7 @@ export const etrex: GarminSeries = {
     { q: "How long do batteries last on a Garmin eTrex?", a: "With fresh AA alkaline + GPS continuously on + backlight off: 22-25 hours on eTrex 22x/32x, 18-22 hours on older 20/30. With backlight always on: 8-12 hours. NiMH rechargeables: 80% of alkaline life but reusable. eTrex SE/Solar charge via USB-C — 12-14 hour battery, extendable indefinitely with Solar variant in good sun." },
     { q: "Why is my eTrex compass spinning randomly?", a: "Magnetic interference. Most common: phone in same pocket, metal car frame, magnetic watch band, or being inside a vehicle. Move 6+ feet from electronics, perform compass calibration: Settings → Heading → Calibrate Compass. Hold flat, figure-8 motion 30 sec, then vertical figure-8 30 sec. Calibration completes when 'Calibration successful' appears." },
     { q: "Can I transfer waypoints from old eTrex to new eTrex?", a: "Yes via BaseCamp (free Garmin desktop software). Connect old eTrex → BaseCamp imports waypoints. Disconnect, connect new eTrex, drag waypoints from old device folder to new device folder in BaseCamp left panel. Waypoints transfer. Or export to .GPX file as middleware. Works between any two eTrex models." },
-    { q: "Will Trini System update my Garmin eTrex remotely?", a: "Yes. Connect eTrex to your PC via USB cable, we connect via secure remote session, run firmware + map updates + waypoint backup via Garmin Express + BaseCamp. Average time: 30-45 minutes including backup. $49 flat. Call 347-953-1531." },
+    { q: "Will Trini System update my Garmin eTrex remotely?", a: "Yes. Connect eTrex to your PC via USB cable, we connect via secure remote session, run firmware + map updates + waypoint backup via Garmin Express + BaseCamp. Average time: 30-45 minutes including backup. $49 flat. Book online." },
   ],
   cableType: "USB-A to mini-USB (eTrex 10, 20, 22x, 30, 32x) or USB-A to USB-C (eTrex SE, Solar)",
   expressCompatible: true,
@@ -722,7 +722,7 @@ export const etrex: GarminSeries = {
   accentColor: "emerald",
   metaTitle: "Garmin eTrex Update — 10, 20, 22x, 30, 32x Fix",
   metaDescription:
-    "Update Garmin eTrex 10, 20, 22x, 30, 32x, SE, Solar — TOPO maps, firmware. Fix satellite, compass, microSD issues. From $49. Call 347-953-1531.",
+    "Update Garmin eTrex 10, 20, 22x, 30, 32x, SE, Solar — TOPO maps, firmware. Fix satellite, compass, microSD issues. From $49. Book online.",
   primaryKeywords: [
     "garmin etrex update", "etrex 22x update", "etrex 32x firmware",
     "etrex 10 not finding satellites", "etrex topo map install", "etrex se update",
@@ -740,7 +740,7 @@ export const wifiSyncNotWorking: GarminProblemPage = {
   problemTitle: "Garmin WiFi Sync Not Working",
   metaTitle: "Garmin WiFi Sync Not Working — Quick Fix",
   metaDescription:
-    "Garmin watch WiFi won't sync? 7 causes & fixes for Forerunner, Fenix, Venu, Vivoactive. Free 2026 guide. Call 347-953-1531 — remote fix.",
+    "Garmin watch WiFi won't sync? 7 causes & fixes for Forerunner, Fenix, Venu, Vivoactive. Free 2026 guide. Book online — remote fix.",
   problemSummary:
     "Garmin watches use WiFi to upload large activity files, sync music, and download firmware faster than Bluetooth. When WiFi sync stops working, you're stuck on slower Bluetooth-only sync — or no sync at all if Bluetooth is also broken. There are 7 root causes and 5 fixes that work in 90% of cases.",
   affectedModels: [
@@ -813,7 +813,7 @@ export const wifiSyncNotWorking: GarminProblemPage = {
     { step: 5, title: "If router is WPA3 only, change to WPA2/WPA3 mixed", detail: "Log into router admin (usually 192.168.1.1 or 192.168.0.1). Wireless Settings → Security → change WPA3 to 'WPA2/WPA3 Mixed' or 'WPA2'. Save. Watch can now connect.", estimatedTime: "10 min" },
   ],
   whenToCallUs:
-    "Call us at 347-953-1531 if any of these apply: (a) you've tried phone hotspot and home WiFi and both fail, (b) firmware update via USB also fails, (c) you don't have admin access to your router to change settings, (d) the watch worked on WiFi yesterday but not today after a firmware update. We diagnose remotely from $49.",
+    "Book online if any of these apply: (a) you've tried phone hotspot and home WiFi and both fail, (b) firmware update via USB also fails, (c) you don't have admin access to your router to change settings, (d) the watch worked on WiFi yesterday but not today after a firmware update. We diagnose remotely from $49.",
   faqs: [
     { q: "Does my Garmin watch have WiFi?", a: "WiFi-equipped models: Forerunner 255/265/945/955/965, Fenix 6 Pro/7/7 Pro/8/8 Pro, Epix 2/Pro, Venu 2/2 Plus/3, Vivoactive 5 (via phone), Tactix 7, Quatix 7. NOT WiFi-equipped: Forerunner 245, Forerunner 165, Fenix 5/5 Plus/6 (non-Pro), Venu (1st gen), Venu Sq, Vivoactive 4 and earlier. Check yours: hold UP → Settings → Connectivity. If 'WiFi' option exists, you have it." },
     { q: "Why does my Garmin say 'Wrong Password' when password is correct?", a: "Three possibilities: (1) special character mistyped — !, @, #, $ are easy to confuse on the small watch keyboard, (2) capital vs lowercase letter — Garmin watch defaults to lowercase, you must shift for caps, (3) network actually requires WPA3 and watch only supports WPA2. Test password on phone first to rule out (1) and (2). If phone works but watch fails, check router for (3)." },
@@ -821,7 +821,7 @@ export const wifiSyncNotWorking: GarminProblemPage = {
     { q: "How long does WiFi sync take vs Bluetooth?", a: "Activity sync: WiFi is 3-5x faster than Bluetooth for large activities (4+ hour rides with HRM data). Music sync: WiFi REQUIRED for music — Bluetooth doesn't transfer music files. Firmware updates: WiFi 5-8 min vs Bluetooth 20-30 min. For everyday step/sleep sync, Bluetooth and WiFi are similar speed." },
     { q: "Why does WiFi work for sync but not music download?", a: "Music download requires authentication with Spotify/Amazon Music/Deezer — separate from Garmin Connect WiFi sync. If WiFi works for activity sync but music sync hangs at 'Preparing': open Connect IQ Store on phone → Spotify/Amazon Music app → re-authenticate. Token expires every 30-60 days." },
     { q: "Should I use WiFi or Bluetooth for my Garmin watch?", a: "Use both — they complement each other. Bluetooth is for everyday small syncs (steps, sleep, notifications) and is always-on. WiFi auto-engages for large transfers (4+ hour activities, music, firmware). Don't disable either. Watch automatically picks fastest path. If WiFi is broken, watch falls back to Bluetooth — slower but functional." },
-    { q: "Can Trini System fix my Garmin WiFi sync remotely?", a: "Yes. We connect to your computer via secure remote session (you don't need to mail your watch in). We diagnose router settings, firmware version, and WiFi config, then walk through the fix while you watch. Average time: 25 minutes. $49 flat. Call 347-953-1531." },
+    { q: "Can Trini System fix my Garmin WiFi sync remotely?", a: "Yes. We connect to your computer via secure remote session (you don't need to mail your watch in). We diagnose router settings, firmware version, and WiFi config, then walk through the fix while you watch. Average time: 25 minutes. $49 flat. Book online." },
   ],
   bgGradient: "linear-gradient(135deg, #061224 0%, #0a2347 40%, #0d3266 100%)",
   accentColor: "blue",
@@ -887,11 +887,11 @@ export const venu: GarminSeries = {
   faqs: [
     { q: "How do I update my Garmin Venu without a computer?", a: "Venu 2, 2 Plus, 3, and 3S support over-the-air firmware updates via WiFi or phone Bluetooth. On the watch: hold MENU → Settings → System → Software Update → Check for Updates. Make sure watch has 50%+ battery and is connected to 2.4 GHz WiFi (Venu doesnt support 5 GHz). Original Venu and Venu Sq still require USB Garmin Express. WiFi update typically completes in 8 minutes; USB takes 12 minutes but is more reliable." },
     { q: "Why wont my Venu sync music with Spotify?", a: "Most common cause is expired Spotify auth token (every 30-60 days). Fix: open Connect IQ Store on phone → Spotify app → Sign Out → Sign In. Re-authorize Garmin to access Spotify Premium. Re-sync playlist from watch — should pull songs in 5-10 minutes. If still hangs at Preparing, verify Spotify Premium subscription is active (free tier wont sync to Garmin)." },
-    { q: "How do I fix Venu touchscreen unresponsive?", a: "Most likely water lock is engaged. Hold MENU button 2 seconds — unlock screen. If touch is still unresponsive: hold UP+LIGHT for 10 seconds for hard reboot. Watch face shows Garmin logo, then home screen. Touchscreen recalibrates on boot. If still unresponsive after reboot, capacitive sensor may be damaged — call us." },
+    { q: "How do I fix Venu touchscreen unresponsive?", a: "Most likely water lock is engaged. Hold MENU button 2 seconds — unlock screen. If touch is still unresponsive: hold UP+LIGHT for 10 seconds for hard reboot. Watch face shows Garmin logo, then home screen. Touchscreen recalibrates on boot. If still unresponsive after reboot, capacitive sensor may be damaged — book a session." },
     { q: "Why is my Venu Body Battery stuck at low value?", a: "Body Battery needs 3 nights of sleep + HR data to calibrate. After firmware updates or factory resets, it resets to neutral starting value. Wear Venu continuously for 72+ hours including sleep. Score should normalize to your typical range. If stuck after 3 nights, HR sensor may not be reading consistently — wear watch one finger-width above wrist bone, snug fit, clean sensor with damp cloth." },
     { q: "How long does Venu battery last?", a: "Venu 2/2 Plus: 11 days smartwatch mode, 8 hours GPS. Venu 3: 14 days smartwatch, 26 hours GPS. AMOLED always-on display drops these by 50-60%. Pulse Ox all-day drops by 30%. Music streaming via Bluetooth drops GPS battery by 70%. To maximize: disable always-on display, set Pulse Ox to sleep-only, sync via WiFi instead of always-on Bluetooth." },
     { q: "Can I use Venu 3 for ECG?", a: "Venu 3/3S have ECG capability hardware-wise but ECG feature was rolled out via firmware update April 2024 in approved regions only (US, Canada, EU, UK, Australia, NZ initially). On watch: hold MENU → ECG. If menu missing, ECG not enabled in your region. Venu 2/2 Plus do NOT have ECG hardware." },
-    { q: "Will Trini System update my Venu remotely?", a: "Yes. Connect Venu to your computer via charging clip, we connect via secure remote session, run firmware + Connect IQ + music service re-auth via Garmin Express. Average time: 25 minutes. Flat $49. Call 347-953-1531." },
+    { q: "Will Trini System update my Venu remotely?", a: "Yes. Connect Venu to your computer via charging clip, we connect via secure remote session, run firmware + Connect IQ + music service re-auth via Garmin Express. Average time: 25 minutes. Flat $49. Book online." },
   ],
   cableType: "Garmin proprietary 4-pin charging clip (USB-A)",
   expressCompatible: true,
@@ -900,7 +900,7 @@ export const venu: GarminSeries = {
   accentColor: "purple",
   metaTitle: "Garmin Venu Update — Venu 2, 2 Plus, 3, 3S Fix",
   metaDescription:
-    "Update Garmin Venu, Venu 2, 2 Plus, 3, 3S firmware. Fix sync, music, voice assistant, body battery. Remote service from $49. Call 347-953-1531.",
+    "Update Garmin Venu, Venu 2, 2 Plus, 3, 3S firmware. Fix sync, music, voice assistant, body battery. Remote service from $49. Book online.",
   primaryKeywords: [
     "garmin venu update", "venu 2 update", "venu 3 firmware", "venu 2 plus update",
     "venu music sync", "venu spotify not working", "venu body battery stuck",
@@ -959,7 +959,7 @@ export const dezl: GarminSeries = {
     { q: "How do I pair the BC30 backup camera with Dezl?", a: "Settings → Wireless Cameras → Pair Camera. Power-cycle the BC30 (unplug 12V, replug). Pair window opens 30 seconds. Dezl detects BC30 — tap to confirm. Mount camera + Dezl shows live feed. If pairing fails: ensure BC30 is wireless model (BC30 Wireless), not wired BC20. BC40 (newer) pairs same process." },
     { q: "Why is Dezl GPS slow after long-haul time off?", a: "Almanac data goes stale after 7+ days idle. When you fire up Dezl after a 14-day home break, GPS searches sky for satellites that have moved. Cold-start procedure: in open Walmart/truck-stop parking lot, power Dezl, set on dash flat, wait 10-15 minutes for full almanac re-download. After first lock, future locks take 30-60 seconds." },
     { q: "Does Dezl work in Canada?", a: "Yes. Dezl OTR series ships with North America map data including all Canadian provinces. Truck restrictions in Canada (low bridges, weigh scales, weight limits) are in the database. Customs preparation: Dezl has built-in border crossing alerts and prep checklists. Set Truck Profile to match your rig + Crossing Type for Canadian customs." },
-    { q: "Will Trini System update my Dezl remotely?", a: "Yes. Bring Dezl inside out of the cab, connect to your PC via USB cable. We connect via secure remote session, run firmware + truck map update + ELD app verification + camera re-pair via Garmin Express. Average time: 90 minutes for full update. $49 flat. Call 347-953-1531." },
+    { q: "Will Trini System update my Dezl remotely?", a: "Yes. Bring Dezl inside out of the cab, connect to your PC via USB cable. We connect via secure remote session, run firmware + truck map update + ELD app verification + camera re-pair via Garmin Express. Average time: 90 minutes for full update. $49 flat. Book online." },
   ],
   cableType: "USB-A to USB-C (Dezl OTR series) or USB-A to micro-USB (Dezl 580, 780)",
   expressCompatible: true,
@@ -968,7 +968,7 @@ export const dezl: GarminSeries = {
   accentColor: "amber",
   metaTitle: "Garmin Dezl Update — OTR700, OTR800, OTR1000",
   metaDescription:
-    "Update Garmin Dezl OTR700, OTR800, OTR1000, 580, 780 truck GPS. Fix routing, ELD, BC30 camera. From $49. Call 347-953-1531.",
+    "Update Garmin Dezl OTR700, OTR800, OTR1000, 580, 780 truck GPS. Fix routing, ELD, BC30 camera. From $49. Book online.",
   primaryKeywords: [
     "garmin dezl update", "dezl otr700 update", "dezl otr800 firmware", "dezl otr1000 map",
     "dezl truck routing", "dezl eld app", "garmin truck gps update",
@@ -1021,13 +1021,13 @@ export const hondaNavigation: GarminSeries = {
     { trigger: "After windshield replacement", symptom: "GPS drifts, slow lock", ourFix: "GPS antenna routing under headliner sometimes disturbed. Dealer can verify antenna connection. External antenna option exists." },
   ],
   faqs: [
-    { q: "How do I update my Honda Garmin nav for free?", a: "Most 2016+ Honda models with Garmin Nav included Lifetime Maps free for the first owner. Visit garmin.com/honda, register your VIN, download free map updates. If your VIN shows expired or not eligible, the lifetime license may have been used by a previous owner. Trini System helps recover or transfer Honda nav licenses — call 347-953-1531." },
+    { q: "How do I update my Honda Garmin nav for free?", a: "Most 2016+ Honda models with Garmin Nav included Lifetime Maps free for the first owner. Visit garmin.com/honda, register your VIN, download free map updates. If your VIN shows expired or not eligible, the lifetime license may have been used by a previous owner. Trini System helps recover or transfer Honda nav licenses — book online." },
     { q: "What SD card do I need for Honda nav update?", a: "Class 10+ SD card, 32 GB minimum, formatted to FAT32 (NOT exFAT). SanDisk Extreme or Samsung EVO are reliable choices. SDXC (over 32 GB) sometimes works on newer Honda nav units but Class 10 SDHC 32 GB is the most universally compatible option. Dont use generic no-name cards — many fail mid-update." },
     { q: "Why does my Honda nav say SD Card Not Recognized?", a: "Three causes: (1) Card format is exFAT or NTFS — must be FAT32, (2) Card is over 32 GB — older Honda nav units cap at 32 GB SDHC, (3) Map file is in a folder instead of card root. Fix: format card to FAT32, copy map file to root (not in any folder), retry. About 90% of not recognized errors are format issues." },
     { q: "How long does Honda nav update take?", a: "45-90 minutes depending on map size and your specific Honda model. 2016-2018 nav units are slower; 2019+ are faster. Engine MUST run entire time (alternator power required). Plan to update in your driveway with engine idling. Dont attempt at gas station — fumes plus idling is bad combination." },
     { q: "Can I use Apple CarPlay instead of updating Honda nav?", a: "Yes — many newer Hondas support Apple CarPlay or Android Auto, which uses your phone Google/Apple Maps (always current). CarPlay activation: settings menu Apple CarPlay enable. However, built-in Honda nav still works without phone, has on-screen voice control, and shows on dashboard cluster. Many drivers use both." },
     { q: "What happens if I shut off engine during nav update?", a: "Update aborts mid-flash. Best case: nav prompts to retry on next start. Worst case: nav unit bricked, requires dealer service ($300-600). Always update with engine running, park safely, walk away for 60 minutes. If accidental shut-off happened: pull nav fuse 30 sec, restart, retry SD card. Sometimes recovers." },
-    { q: "Will Trini System update my Honda nav remotely?", a: "Partially. Honda nav updates require physical SD card insertion — we cant do that remotely. But we CAN remotely: (1) verify SD card format is correct, (2) help you download the right map file from garmin.com/honda, (3) walk through VIN registration, (4) troubleshoot if update fails. From $49. Call 347-953-1531." },
+    { q: "Will Trini System update my Honda nav remotely?", a: "Partially. Honda nav updates require physical SD card insertion — we cant do that remotely. But we CAN remotely: (1) verify SD card format is correct, (2) help you download the right map file from garmin.com/honda, (3) walk through VIN registration, (4) troubleshoot if update fails. From $49. Book online." },
   ],
   cableType: "Class 10+ SDHC card, 32 GB, FAT32 formatted (NOT USB cable)",
   expressCompatible: false,
@@ -1036,7 +1036,7 @@ export const hondaNavigation: GarminSeries = {
   accentColor: "red",
   metaTitle: "Honda Garmin Navigation Update — Civic, CR-V",
   metaDescription:
-    "Update Honda Garmin nav — Civic, Accord, CR-V, Pilot, Odyssey. SD card setup, VIN registration, free map updates. From $49. Call 347-953-1531.",
+    "Update Honda Garmin nav — Civic, Accord, CR-V, Pilot, Odyssey. SD card setup, VIN registration, free map updates. From $49. Book online.",
   primaryKeywords: [
     "honda garmin update", "honda navigation update", "honda civic garmin",
     "honda crv navigation update", "honda pilot garmin map", "honda accord nav update",
@@ -1094,7 +1094,7 @@ export const jeepRhb430n: GarminSeries = {
     { q: "Can I use a Garmin DriveSmart instead of the built-in RHB 430N?", a: "Yes, and many Wrangler owners do — DriveSmart maps update easier (USB instead of SD card), have current truck/RV alerts, and dont tie to VIN. Mount with windshield or vent mount. Power from USB. Built-in RHB 430N keeps original radio + Bluetooth functions; DriveSmart handles navigation independently. Best of both." },
     { q: "What if my RHB 430N is bricked after a failed update?", a: "Recovery options: (1) Pull nav fuse 30-60 seconds, restart vehicle, sometimes recovers, (2) Try a different SD card with the SAME map file — sometimes card is the issue, (3) Dealer service ($300-500) — they have factory reset tools, (4) Replacement RHB 430N from junkyard ($150-300) — VIN re-binding may be required. Trini System helps prevent this with pre-update checks." },
     { q: "Why is my Jeep Garmin nav showing wrong location off-road?", a: "Two scenarios: (1) Off-road mode disabled — Settings Map Off-Road Mode ON. Without this, GPS snaps to nearest mapped road, not your actual position. (2) GPS lock weak under tree canopy — Wrangler interior is good for sky view but soft tops with hard tops over have antenna obstruction. External antenna helps. Off-road mode + external antenna = accurate trail GPS." },
-    { q: "Will Trini System help with Jeep RHB 430N updates?", a: "Yes. We help remotely with: SD card format verification, map file download from jeep.garmin.com, VIN registration, lifetime maps license recovery, troubleshooting failed updates. Physical SD insertion you do yourself. From $49. Call 347-953-1531." },
+    { q: "Will Trini System help with Jeep RHB 430N updates?", a: "Yes. We help remotely with: SD card format verification, map file download from jeep.garmin.com, VIN registration, lifetime maps license recovery, troubleshooting failed updates. Physical SD insertion you do yourself. From $49. Book online." },
   ],
   cableType: "Class 10+ SDHC card, 16 GB minimum, FAT32 formatted (NOT USB cable)",
   expressCompatible: false,
@@ -1103,7 +1103,7 @@ export const jeepRhb430n: GarminSeries = {
   accentColor: "amber",
   metaTitle: "Jeep RHB 430N Garmin Update — Wrangler Nav",
   metaDescription:
-    "Update Jeep Wrangler / Cherokee RHB 430N Garmin nav. SD card setup, VIN registration, free map updates. From $49. Call 347-953-1531.",
+    "Update Jeep Wrangler / Cherokee RHB 430N Garmin nav. SD card setup, VIN registration, free map updates. From $49. Book online.",
   primaryKeywords: [
     "jeep rhb 430n update", "jeep wrangler garmin update", "jeep cherokee navigation",
     "jeep nav sd card", "wrangler garmin map update", "jeep compass garmin",
@@ -1162,7 +1162,7 @@ export const drive50: GarminSeries = {
     { q: "Can I replace the Drive 50 battery myself?", a: "Yes, with care. Drive 50 battery is a flat lithium pouch ($15-25 on AliExpress/eBay). Process: remove rear screws, pry case open carefully, disconnect old battery, connect new. Risk: cracking the case or damaging the screen connector. iFixit has guides. Trini System recommends professional service ($45-75) for non-technical users." },
     { q: "Why does Smartphone Link not work on my Drive 51?", a: "Garmin discontinued Smartphone Link app in 2022. Replaced by Garmin Drive app (different name, same functions). Fix: uninstall Smartphone Link from phone, install Garmin Drive from App Store / Play Store, re-pair Bluetooth. Live traffic, weather, and Foursquare integration all moved to Garmin Drive app." },
     { q: "Should I upgrade from Drive 50 to a newer Garmin?", a: "Cost-benefit: Drive 50 still works fine for basic navigation if hardware healthy. Newer DriveSmart 65/76/86 add: brighter screens, voice command, traffic alerts via WiFi, faster updates, better internal storage. If you drive a lot for work, upgrade. If casual use, Drive 50 keeps going for another 3-5 years easily. Trini System helps either way." },
-    { q: "Will Trini System update my Garmin Drive 50 remotely?", a: "Yes. Connect Drive 50 to your PC via USB, we connect via secure remote session, run firmware + map update + license verification via Garmin Express. Average time: 75-90 minutes for full update. $49 flat. Call 347-953-1531." },
+    { q: "Will Trini System update my Garmin Drive 50 remotely?", a: "Yes. Connect Drive 50 to your PC via USB, we connect via secure remote session, run firmware + map update + license verification via Garmin Express. Average time: 75-90 minutes for full update. $49 flat. Book online." },
   ],
   cableType: "USB-A to mini-USB (Drive 50, 51) or USB-A to micro-USB (Drive 52, 60, 61)",
   expressCompatible: true,
@@ -1171,7 +1171,7 @@ export const drive50: GarminSeries = {
   accentColor: "blue",
   metaTitle: "Garmin Drive 50 Update — 50, 51, 52, 60 Maps",
   metaDescription:
-    "Update Garmin Drive 50, 51, 52, 60, 61 maps & firmware. Fix update failed, Smartphone Link, freeze. Remote service from $49. Call 347-953-1531.",
+    "Update Garmin Drive 50, 51, 52, 60, 61 maps & firmware. Fix update failed, Smartphone Link, freeze. Remote service from $49. Book online.",
   primaryKeywords: [
     "garmin drive 50 update", "drive 50 map update", "garmin drive 51 update",
     "drive 50 lifetime maps", "garmin drive 52 firmware", "drive 60 update",
@@ -1229,7 +1229,7 @@ export const nuvi2597: GarminSeries = {
     { q: "Why is Nuvi 2597 Bluetooth not working with my iPhone?", a: "iOS 14+ deprecated older Bluetooth profile (HFP 1.5) that Nuvi 2597 relies on for hands-free calling. Pairing succeeds, but audio doesnt transfer to iPhone calls reliably. Workaround: use iPhone speaker for calls, Nuvi for navigation only. Or use a Bluetooth car kit as middleman. Some iOS users report success disabling Bluetooth Privacy in iPhone settings." },
     { q: "How big is the Nuvi 2597 map file?", a: "Full North America: ~7 GB. Nuvi 2597 has only 8 GB internal — old map MUST be uninstalled before new install or you will fail at 50%. Regional maps smaller: US Northeast ~1.8 GB, US West ~2.2 GB. If you only drive in your home region, regional map saves time and avoids storage issues." },
     { q: "Can I replace the Nuvi 2597 battery?", a: "Yes — standard lithium pouch ($15-20 on eBay/AliExpress). Process: remove rear screws (4 screws under labels), pry case carefully, disconnect ribbon cable, swap battery, reassemble. Risk: cracking screen or damaging ribbon. iFixit has guides for similar Nuvi models. Trini System recommends professional service for non-technical users — about $45 labor." },
-    { q: "Will Trini System update my Garmin Nuvi 2597 remotely?", a: "Yes. Connect Nuvi to your PC via mini-USB cable, we connect via secure remote session, run firmware + map update via Garmin Express 6.20. Average time: 90 minutes for full update including license verification. $49 flat. Call 347-953-1531." },
+    { q: "Will Trini System update my Garmin Nuvi 2597 remotely?", a: "Yes. Connect Nuvi to your PC via mini-USB cable, we connect via secure remote session, run firmware + map update via Garmin Express 6.20. Average time: 90 minutes for full update including license verification. $49 flat. Book online." },
   ],
   cableType: "USB-A to mini-USB (NOT micro-USB, NOT USB-C)",
   expressCompatible: true,
@@ -1238,7 +1238,7 @@ export const nuvi2597: GarminSeries = {
   accentColor: "blue",
   metaTitle: "Garmin Nuvi 2597 Update — 2597, 2598, 2599 Map",
   metaDescription:
-    "Update Garmin Nuvi 2597, 2598, 2599 maps & firmware. Fix Cannot Connect, frozen boot, Bluetooth. Remote service from $49. Call 347-953-1531.",
+    "Update Garmin Nuvi 2597, 2598, 2599 maps & firmware. Fix Cannot Connect, frozen boot, Bluetooth. Remote service from $49. Book online.",
   primaryKeywords: [
     "garmin nuvi 2597 update", "nuvi 2597 map update", "nuvi 2597lmt update",
     "garmin nuvi 2598 update", "nuvi 2599 firmware", "nuvi 2597 free map update",
@@ -1296,7 +1296,7 @@ export const oregon: GarminSeries = {
     { q: "How long do AA batteries last in Oregon 700?", a: "GPS continuously on + backlight off: 16 hours on fresh AA alkaline. Backlight 25%: 12 hours. Backlight always-on max: 6 hours. NiMH rechargeables: 80% of alkaline life. For multi-day trips, carry 2-3 sets of spare AA. Lithium AA gives 25-30% more runtime in cold." },
     { q: "Why wont my Oregon find satellites in heavy tree canopy?", a: "Older Oregon (600 series) has weaker GPS chip than current handhelds. Heavy forest canopy can block enough signal to prevent lock. Workarounds: (1) Move to small clearing or ridgeline for initial lock, (2) Use WAAS/EGNOS for additional accuracy, (3) Activate GLONASS receiver if Oregon model supports it. Current Oregon 700/750 has multi-constellation receiver — much better in canopy." },
     { q: "Can I use Oregon for backcountry hunting in 24K detail?", a: "Yes — Oregon 750t includes preloaded TOPO US 100K nationwide, but for true 24K detail purchase TOPO US 24K subscription ($30-50 per region) via Garmin. Or use OnX Hunt Connect IQ app for property boundaries (private vs public land). Many serious hunters run BOTH TOPO 24K + OnX Hunt simultaneously on Oregon." },
-    { q: "Will Trini System update my Garmin Oregon remotely?", a: "Yes. Connect Oregon to your PC via mini-USB cable, we connect via secure remote session, run firmware + TOPO map + waypoint backup + custom map setup via Garmin Express + BaseCamp. Average time: 45 minutes including backup. $49 flat. Call 347-953-1531." },
+    { q: "Will Trini System update my Garmin Oregon remotely?", a: "Yes. Connect Oregon to your PC via mini-USB cable, we connect via secure remote session, run firmware + TOPO map + waypoint backup + custom map setup via Garmin Express + BaseCamp. Average time: 45 minutes including backup. $49 flat. Book online." },
   ],
   cableType: "USB-A to mini-USB (Oregon 700, 750, 750t and older)",
   expressCompatible: true,
@@ -1305,7 +1305,7 @@ export const oregon: GarminSeries = {
   accentColor: "emerald",
   metaTitle: "Garmin Oregon Update — 700, 750, 750t Outdoor",
   metaDescription:
-    "Update Garmin Oregon 700, 750, 750t — TOPO maps, BirdsEye, custom maps. Fix touchscreen, compass, geocaches. From $49. Call 347-953-1531.",
+    "Update Garmin Oregon 700, 750, 750t — TOPO maps, BirdsEye, custom maps. Fix touchscreen, compass, geocaches. From $49. Book online.",
   primaryKeywords: [
     "garmin oregon update", "oregon 700 update", "oregon 750 firmware", "oregon 750t map",
     "garmin oregon topo map", "oregon birdseye satellite", "oregon custom map install",
@@ -1363,7 +1363,7 @@ export const gpsmap: GarminSeries = {
     { q: "How accurate is GPSMAP 66sr in the woods?", a: "GPSMAP 66sr has multi-band GNSS receiver — uses both L1 and L5 GPS frequencies. In open sky, 1-2 meter accuracy. In dense canopy, 3-5 meter accuracy. SAR teams report it is the most accurate Garmin handheld in trees as of 2026. Compare to phone GPS: typically 5-15 meters in canopy. For survey-grade work, GPSMAP 66sr + WAAS gives sub-meter occasional accuracy." },
     { q: "Can I use GPSMAP for hunting unit boundaries?", a: "Yes via OnX Hunt Connect IQ app. Install OnX Hunt on GPSMAP, sign in to OnX account, sync state-specific hunting unit boundaries. Shows public vs private land overlays directly on TOPO map. Works on GPSMAP 65, 66, 67. Subscription: OnX Hunt Premium $30/year per state, $100/year national. Many hunters consider GPSMAP + OnX the gold standard for backcountry hunting." },
     { q: "Why is my GPSMAP compass keep needing recalibration?", a: "Tilt-compensated 3-axis compass on GPSMAP 65/66/67 needs calibration after: battery swap, large temperature change, magnetic interference exposure, firmware update. Calibration: Settings Heading Calibrate Compass. Hold device flat — figure-8 in horizontal plane 30 sec. Tilt vertical — figure-8 in vertical plane 30 sec. Rotate device — final spin. Should say Calibration successful." },
-    { q: "Will Trini System update my Garmin GPSMAP remotely?", a: "Yes. Connect GPSMAP to your PC via USB, we connect via secure remote session, run firmware + TOPO maps + inReach activation (if applicable) + waypoint backup via Garmin Express. Average time: 45-60 minutes for full update. $49 flat. Call 347-953-1531." },
+    { q: "Will Trini System update my Garmin GPSMAP remotely?", a: "Yes. Connect GPSMAP to your PC via USB, we connect via secure remote session, run firmware + TOPO maps + inReach activation (if applicable) + waypoint backup via Garmin Express. Average time: 45-60 minutes for full update. $49 flat. Book online." },
   ],
   cableType: "USB-A to mini-USB (GPSMAP 64, 65, 66) or USB-A to USB-C (GPSMAP 67, 67i)",
   expressCompatible: true,
@@ -1372,7 +1372,7 @@ export const gpsmap: GarminSeries = {
   accentColor: "emerald",
   metaTitle: "Garmin GPSMAP Update — 64, 65, 66, 67 Outdoor",
   metaDescription:
-    "Update Garmin GPSMAP 64, 65, 66, 67, 67i — firmware, TOPO maps, inReach. Fix compass, ANT+, satellite. From $49. Call 347-953-1531.",
+    "Update Garmin GPSMAP 64, 65, 66, 67, 67i — firmware, TOPO maps, inReach. Fix compass, ANT+, satellite. From $49. Book online.",
   primaryKeywords: [
     "garmin gpsmap update", "gpsmap 66s update", "gpsmap 67 firmware", "gpsmap 67i inreach",
     "gpsmap 64 update", "gpsmap topo map", "gpsmap birdseye", "gpsmap 66sr accuracy",
@@ -1386,7 +1386,7 @@ export const connectAppNotWorking: GarminProblemPage = {
   problemTitle: "Garmin Connect App Not Working",
   metaTitle: "Garmin Connect App Not Working — Quick Fix",
   metaDescription:
-    "Garmin Connect app crashing, wont sync, or wont open? 7 fixes for iPhone & Android. Free 2026 guide. Call 347-953-1531 — remote help.",
+    "Garmin Connect app crashing, wont sync, or wont open? 7 fixes for iPhone & Android. Free 2026 guide. Book online — remote help.",
   problemSummary:
     "Garmin Connect is the phone app that syncs every Garmin watch and GPS to your account, displays activities, and pushes firmware updates. When it stops working — wont open, crashes, wont sync — you are cut off from sleep tracking, heart rate trends, and most watch features. There are 7 root causes and the fix sequence works on both iPhone and Android.",
   affectedModels: [
@@ -1432,7 +1432,7 @@ export const connectAppNotWorking: GarminProblemPage = {
     { step: 7, title: "Check Connect status at status.garmin.com", detail: "If multi-user outage, your fix wont work — Garmin servers are down. Wait 15-60 min for restoration.", estimatedTime: "1 min" },
   ],
   whenToCallUs:
-    "Call us at 347-953-1531 if any of these apply: (a) clean reinstall of Connect didnt help, (b) account login fails on connect.garmin.com web too, (c) you are not comfortable with phone settings on iOS or Android, (d) your watch worked fine yesterday but stopped today after iOS/Android update. We diagnose remotely from $49.",
+    "Book online if any of these apply: (a) clean reinstall of Connect didnt help, (b) account login fails on connect.garmin.com web too, (c) you are not comfortable with phone settings on iOS or Android, (d) your watch worked fine yesterday but stopped today after iOS/Android update. We diagnose remotely from $49.",
   faqs: [
     { q: "Why does Garmin Connect keep crashing on my iPhone?", a: "Most common cause after iOS 17/18 update: Bluetooth privacy permissions reset. Settings Privacy Bluetooth Garmin Connect ON. Also check: Settings Privacy Microphone, Notifications, Location all ON for Connect. About 60% of post-iOS-update crashes are permission resets. If still crashes, force-close Connect and restart iPhone." },
     { q: "Why does my Garmin watch show Sync Failed in Connect?", a: "Most common: Bluetooth cache corrupted. Fix: phone Settings Bluetooth tap (i) next to your Garmin Forget Device. Open Connect app Garmin Devices Add Device follow watch pairing instructions. Re-pair process takes 5 min. About 70% of sync failures clear with re-pair. If still fails, app version outdated — update via App Store / Play Store." },
@@ -1440,7 +1440,7 @@ export const connectAppNotWorking: GarminProblemPage = {
     { q: "Garmin Connect wont open on Android — what do I do?", a: "Sequence: (1) Force-close Connect: Settings Apps Garmin Connect Force Stop, (2) Clear cache (NOT data): Settings Apps Garmin Connect Storage Clear Cache, (3) Reopen. If still wont open: (4) Restart phone, (5) Update Connect from Play Store, (6) If all fails, uninstall + reinstall. Re-pair watch after reinstall." },
     { q: "Why does Connect drain my phone battery so much?", a: "Connect uses Bluetooth Low Energy (BLE) to maintain connection to your watch — typically 2-5% phone battery per day, normal. If draining 15-20%+ per day: (1) Bluetooth scanning stuck (force-close Connect, restart phone), (2) Pulse Ox always-on settings on watch sending more data than needed, (3) Always-on display + frequent activity sync. Reasonable target: 3-7% phone battery per day for Connect." },
     { q: "Is Garmin Connect down right now?", a: "Check status.garmin.com for current outages. Garmin runs major updates Tuesday mornings ET — sync may be slow during these windows. If status.garmin.com shows All Systems Operational but your sync still fails, problem is your phone or watch, not Garmin servers. Run through fix sequence above." },
-    { q: "Can Trini System fix my Garmin Connect remotely?", a: "Yes. We connect to your computer via secure remote session, you bring your phone or have us guide you through phone settings via screen share. Diagnose Connect, permissions, Bluetooth, watch firmware. Fix while you watch. Average time: 25 minutes. $49 flat. Call 347-953-1531." },
+    { q: "Can Trini System fix my Garmin Connect remotely?", a: "Yes. We connect to your computer via secure remote session, you bring your phone or have us guide you through phone settings via screen share. Diagnose Connect, permissions, Bluetooth, watch firmware. Fix while you watch. Average time: 25 minutes. $49 flat. Book online." },
   ],
   bgGradient: "linear-gradient(135deg, #061224 0%, #0a2347 40%, #0d3266 100%)",
   accentColor: "blue",
@@ -1457,7 +1457,7 @@ export const bluetoothPairingFailed: GarminProblemPage = {
   problemTitle: "Garmin Bluetooth Pairing Failed",
   metaTitle: "Garmin Bluetooth Pairing Failed — Quick Fix",
   metaDescription:
-    "Garmin wont pair with phone? 7 fixes for iPhone + Android. Watches, auto, motorcycle. Free 2026 guide. Call 347-953-1531.",
+    "Garmin wont pair with phone? 7 fixes for iPhone + Android. Watches, auto, motorcycle. Free 2026 guide. Book online.",
   problemSummary:
     "Garmin Bluetooth pairing failure cuts off your watch or GPS from phone notifications, music sync, and live traffic. Most pairing failures are due to one of 7 root causes — and the fix sequence is the same across watches, auto units, and motorcycle GPS. About 90% are fixed in under 15 minutes.",
   affectedModels: [
@@ -1503,7 +1503,7 @@ export const bluetoothPairingFailed: GarminProblemPage = {
     { step: 7, title: "Test functionality immediately", detail: "Test: phone notification appears on watch (within 10 sec). Watch syncs activity to phone (manual sync — Connect app pull-down refresh). Music plays from phone to watch (if applicable).", estimatedTime: "3 min" },
   ],
   whenToCallUs:
-    "Call us at 347-953-1531 if any of these apply: (a) Garmin wont pair to any phone (different iPhone or Android tested), (b) phone wont pair to any Bluetooth device (other speakers/earbuds also fail), (c) you have completed full re-pair sequence twice and still failing, (d) you are on a managed work phone where you dont have permission to change Bluetooth settings. From $49.",
+    "Book online if any of these apply: (a) Garmin wont pair to any phone (different iPhone or Android tested), (b) phone wont pair to any Bluetooth device (other speakers/earbuds also fail), (c) you have completed full re-pair sequence twice and still failing, (d) you are on a managed work phone where you dont have permission to change Bluetooth settings. From $49.",
   faqs: [
     { q: "Why wont my Garmin watch pair with my iPhone?", a: "Most common cause after iOS update: Bluetooth privacy reset. Settings Privacy Bluetooth Garmin Connect ON. Also check: Settings Privacy Microphone, Notifications, Location for Garmin Connect — all ON. About 60% of post-iOS-update pairing failures are permission resets. If permissions OK, fix sequence: forget watch in iPhone Bluetooth, forget phone in watch Settings, restart iPhone, re-pair via Connect app (not phone Bluetooth menu)." },
     { q: "How do I clear Bluetooth cache on my Android phone?", a: "Android-specific: Settings Apps show System Apps Bluetooth Storage Clear Cache (NOT Clear Data — that loses paired devices list). Restart phone. Re-pair Garmin. About 70% of Android Bluetooth issues clear with cache clear. If problem persists, do same for Bluetooth Share system app." },
@@ -1511,7 +1511,7 @@ export const bluetoothPairingFailed: GarminProblemPage = {
     { q: "Can my Garmin be paired to multiple phones?", a: "No — Garmin watches and auto units pair to ONE phone at a time. Connect app on the second phone wont allow registering the same device twice. Workaround: log out of Connect on phone A, log in on phone B, re-pair. Or factory-reset the Garmin and re-pair fresh on phone B. Family sharing of one watch isnt supported." },
     { q: "Why does my Zumo motorcycle GPS Bluetooth keep dropping during rides?", a: "Helmet headset issue, usually. Sena and Cardo headsets can drop A2DP audio profile to save battery. Fix: in helmet headset settings, enable Multipoint mode (allows phone + Zumo simultaneously). On Zumo: Settings Wireless Networks forget all paired audio, re-pair fresh. Also check helmet battery — low battery causes intermittent drops." },
     { q: "How do I pair Garmin with iOS 18?", a: "iOS 18 requires explicit Bluetooth permission for each app. After updating to iOS 18, Garmin Connect needs re-permission. Settings Privacy Bluetooth Garmin Connect ON. Then in Connect app: Garmin Devices Add Device follow standard pairing for your watch model. iOS 18 also reset Notification permissions — re-enable in Settings Notifications Garmin Connect." },
-    { q: "Will Trini System fix my Garmin Bluetooth pairing remotely?", a: "Yes. We connect to your computer via secure remote session, screen-share guide you through phone settings + Garmin device settings + Garmin Connect app re-pair sequence. Average time: 25 minutes. Diagnoses both sides simultaneously. $49 flat. Call 347-953-1531." },
+    { q: "Will Trini System fix my Garmin Bluetooth pairing remotely?", a: "Yes. We connect to your computer via secure remote session, screen-share guide you through phone settings + Garmin device settings + Garmin Connect app re-pair sequence. Average time: 25 minutes. Diagnoses both sides simultaneously. $49 flat. Book online." },
   ],
   bgGradient: "linear-gradient(135deg, #1a061f 0%, #2d0a36 40%, #4a164f 100%)",
   accentColor: "purple",
@@ -1528,7 +1528,7 @@ export const batteryDrainFast: GarminProblemPage = {
   problemTitle: "Garmin Battery Drain Fast",
   metaTitle: "Garmin Battery Drain Fast — Fix in 10 Min",
   metaDescription:
-    "Garmin watch battery dying fast? 6 causes & fixes for Forerunner, Fenix, Venu, Instinct. Free 2026 guide. Call 347-953-1531.",
+    "Garmin watch battery dying fast? 6 causes & fixes for Forerunner, Fenix, Venu, Instinct. Free 2026 guide. Book online.",
   problemSummary:
     "Garmin watch battery should last 7-21 days in smartwatch mode. When yours drains in 1-3 days, the cause is almost always one of 6 settings or firmware issues — not actual hardware battery failure. Most are fixed in under 10 minutes by changing settings the firmware update reset.",
   affectedModels: [
@@ -1575,7 +1575,7 @@ export const batteryDrainFast: GarminProblemPage = {
     { step: 7, title: "Soft reset (preserves data)", detail: "Settings System Reset Reset Defaults (NOT Delete Data). Clears settings cache without wiping activities. Sometimes resolves drain after firmware updates.", estimatedTime: "3 min" },
   ],
   whenToCallUs:
-    "Call us at 347-953-1531 if any of these apply: (a) battery drains in less than 24 hours even with all settings optimized, (b) battery percentage jumps erratically (sign of failing battery), (c) watch is hot to touch consistently (sign of hardware issue), (d) Solar variant shows 0% solar input even after cleaning lens. From $49.",
+    "Book online if any of these apply: (a) battery drains in less than 24 hours even with all settings optimized, (b) battery percentage jumps erratically (sign of failing battery), (c) watch is hot to touch consistently (sign of hardware issue), (d) Solar variant shows 0% solar input even after cleaning lens. From $49.",
   faqs: [
     { q: "Why is my Garmin Forerunner battery dying so fast?", a: "Most common cause: always-on display enabled (drops AMOLED Forerunner 265 from 14 days to 5 days). Settings Display Always-On Display OFF. Second most common: Pulse Ox set to All Day instead of Sleep Only — Settings Sensors Pulse Ox Sleep Only. These two settings alone account for 60% of fast-drain cases. Third: recent firmware regression — update to latest firmware via Express." },
     { q: "How long should my Garmin Fenix 7 battery last?", a: "Garmin spec: Fenix 7 standard = 18 days smartwatch, 57 hours GPS. Fenix 7 Pro Solar = 22 days, 89 hours GPS. Fenix 7X Pro = 28 days, 89 hours GPS. Real-world with normal settings (Pulse Ox sleep-only, no always-on display): typically 12-15 days for Fenix 7 standard. If you are seeing under 7 days, settings issue likely. Heavy GPS use (daily 1-hour run with GPS+music): expect ~10 days." },
@@ -1583,7 +1583,7 @@ export const batteryDrainFast: GarminProblemPage = {
     { q: "Why does my watch hot to touch when battery drains fast?", a: "Heat correlates with high power draw. Common causes: (1) Connect IQ app stuck in loop drawing CPU constantly, (2) GPS hunting for signal (poor sky view), (3) Bluetooth retrying connection, (4) firmware bug. Test: hold UP Tools Battery Manager see what is consuming. If watch is genuinely hot (uncomfortable to wear), turn off and restart. Persistent heat = potential battery damage, hardware service needed." },
     { q: "Can I replace my Garmin watch battery?", a: "Officially: no — Garmin watches are sealed waterproof units. Battery replacement voids warranty and waterproofing. Unofficially: third-party repair shops can replace battery on Forerunner 245, 255, Fenix 5, 6 for $80-150. Not recommended for waterproof use post-repair. Better path: if your watch is 4+ years old with degraded battery, upgrade to current model — newer watches have 2-3x better battery efficiency." },
     { q: "Why does my Solar Garmin show 0% solar input?", a: "Solar charging requires 10,000+ lux (direct sunlight) — indoor lighting is 200-500 lux, 50x too dim. Test outdoors in midday sun. Cause if still 0%: (1) Solar lens dirty — clean with soft cloth, no chemicals, (2) Recent firmware regression on solar sensor — update firmware, (3) Solar lens scratched — minor scratches dont matter; deep scratches do reduce input. Solar tops up battery, doesnt fully replace charging — expect 1-3% per day in good sun." },
-    { q: "Will Trini System diagnose my Garmin battery drain remotely?", a: "Yes. We connect to your computer via secure remote session, you connect Garmin via charging clip. We review firmware version, settings audit, Connect IQ apps, recent activity history. Identify root cause and fix while you watch. Average time: 25 minutes. $49 flat. Call 347-953-1531." },
+    { q: "Will Trini System diagnose my Garmin battery drain remotely?", a: "Yes. We connect to your computer via secure remote session, you connect Garmin via charging clip. We review firmware version, settings audit, Connect IQ apps, recent activity history. Identify root cause and fix while you watch. Average time: 25 minutes. $49 flat. Book online." },
   ],
   bgGradient: "linear-gradient(135deg, #1a0a06 0%, #36140a 40%, #4f1f10 100%)",
   accentColor: "amber",

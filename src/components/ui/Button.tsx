@@ -77,7 +77,7 @@ export function StickyCTA() {
           <p className="text-sm font-medium t-muted hidden sm:block">Real technicians on call — we usually reply fast</p>
         </div>
         <div className="flex items-center gap-2 shrink-0">
-          <a href="tel:+13479531531" className="px-4 py-2 rounded-xl text-sm font-bold transition-colors"
+          <a href="/book" className="px-4 py-2 rounded-xl text-sm font-bold transition-colors"
             style={{ background: "var(--surface)", color: "var(--text)", border: "1px solid var(--border)" }}>Call</a>
           <a href="/contact" className="px-4 py-2 rounded-xl text-sm font-black transition-transform hover:scale-[1.03]"
             style={{ background: "linear-gradient(135deg, var(--primary), var(--primary-2))", color: "var(--on-primary)" }}>Get help &rarr;</a>

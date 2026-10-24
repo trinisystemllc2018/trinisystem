@@ -161,7 +161,7 @@ export const GARMIN_APPS_PAGES: Record<string, GarminPage> = {
     estimatedTime: "varies",
     metaTitle: "Garmin Express — What It Is and How to Use It (2026 Senior Guide)",
     metaDescription:
-      "Plain-English Garmin Express guide. Update your watch, GPS, nuvi, dezl, drivesmart with screens. Free help: 347-953-1531. Updated May 2026.",
+      "Plain-English Garmin Express guide. Update your watch, GPS, nuvi, dezl, drivesmart with screens. Free help: book online. Updated May 2026.",
     h1: "Garmin Express — What It Does and How to Use It",
     primaryKeywords: [
       "garmin express",
@@ -199,7 +199,7 @@ export const GARMIN_APPS_PAGES: Record<string, GarminPage> = {
       },
       {
         q: "Can Trini System install Garmin Express for me?",
-        a: "We can walk you through it for free over the phone at 347-953-1531 — about 10 minutes. We never log into your computer remotely without your consent and never ask for passwords. We're independent of Garmin (we don't work for them), but we know their software well and can guide you step-by-step in plain English.",
+        a: "We can walk you through it for free over the book online — about 10 minutes. We never log into your computer remotely without your consent and never ask for passwords. We're independent of Garmin (we don't work for them), but we know their software well and can guide you step-by-step in plain English.",
       },
       {
         q: "Do I need a Garmin account to use Garmin Express?",
@@ -238,7 +238,7 @@ export const GARMIN_APPS_PAGES: Record<string, GarminPage> = {
     estimatedTime: "5 minutes",
     metaTitle: "Where to Download Garmin Express Safely (Senior Guide 2026)",
     metaDescription:
-      "Download Garmin Express the safe way — only from garmin.com/express. Watch out for scam sites. Step-by-step for Windows and Mac. Call 347-953-1531.",
+      "Download Garmin Express the safe way — only from garmin.com/express. Watch out for scam sites. Step-by-step for Windows and Mac. Book online.",
     h1: "Where Do I Download Garmin Express?",
     primaryKeywords: [
       "garmin express download",
@@ -312,7 +312,7 @@ export const GARMIN_APPS_PAGES: Record<string, GarminPage> = {
     estimatedTime: "10 minutes",
     metaTitle: "Install Garmin Express on Windows — Senior Step-by-Step (2026)",
     metaDescription:
-      "Install Garmin Express on Windows 10 or 11. Plain-English steps, screen-by-screen. Free help at 347-953-1531. Updated May 2026.",
+      "Install Garmin Express on Windows 10 or 11. Plain-English steps, screen-by-screen. Free help: book online. Updated May 2026.",
     h1: "How Do I Install Garmin Express on My Windows Computer?",
     primaryKeywords: [
       "install garmin express on windows",
@@ -339,7 +339,7 @@ export const GARMIN_APPS_PAGES: Record<string, GarminPage> = {
       { step: 2, title: "Double-click the installer", detail: "Double-click GarminExpressInstaller.exe. Windows may show a blue or yellow warning saying 'Do you want to allow this app to make changes?' — click 'Yes'. This is normal for any installer.", warning: "Only click Yes if the publisher shown is 'Garmin International' or 'Garmin Ltd'. If it shows anything else, click No and re-download from garmin.com/express." },
       { step: 3, title: "Welcome screen — click Next", detail: "The Garmin Express setup wizard opens with a welcome screen. Click 'Next' (bottom right) to continue." },
       { step: 4, title: "License agreement — click 'I Accept'", detail: "Read the license terms (or scroll past). Click the radio button that says 'I accept the terms in the License Agreement', then click 'Next'." },
-      { step: 5, title: "Installation in progress", detail: "A green progress bar fills as Express installs. This takes 3-5 minutes on most computers. Don't close the window, restart your computer, or unplug anything — the install needs to finish cleanly.", warning: "If you see an error during install (any red text or warning), write down the exact message before clicking anything. Call us free at 347-953-1531 with the message and we'll help diagnose." },
+      { step: 5, title: "Installation in progress", detail: "A green progress bar fills as Express installs. This takes 3-5 minutes on most computers. Don't close the window, restart your computer, or unplug anything — the install needs to finish cleanly.", warning: "If you see an error during install (any red text or warning), write down the exact message before clicking anything. Book online with the message and we'll help diagnose." },
       { step: 6, title: "Click Finish", detail: "When the green bar fills completely, the wizard shows 'Installation Complete'. Click Finish. Garmin Express launches automatically." },
       { step: 7, title: "Sign in with your Garmin account", detail: "Express asks for your Garmin email and password. Use the same one as garmin.com (or click 'Create One' if this is your first time). Account is free." },
       { step: 8, title: "Plug in your Garmin device with the USB cable", detail: "Use the USB cable that came with your device. Plug the small end into your Garmin and the big end into a USB port on your computer. Express should detect it within 10-30 seconds and show the device name on screen.", warning: "Use a real Garmin USB cable. Generic USB cables sometimes only carry power, not data — meaning your device charges but Express never sees it. If yours doesn't, see our 'Garmin Express not working' guide." },
@@ -389,7 +389,7 @@ export const GARMIN_APPS_PAGES: Record<string, GarminPage> = {
     estimatedTime: "10 minutes",
     metaTitle: "Install Garmin Express on Mac — Senior Step-by-Step (2026)",
     metaDescription:
-      "Install Garmin Express on Mac (macOS 11+). Drag-to-Applications walkthrough with senior-friendly screens. Free help: 347-953-1531.",
+      "Install Garmin Express on Mac (macOS 11+). Drag-to-Applications walkthrough with senior-friendly screens. Free help: book online.",
     h1: "How Do I Install Garmin Express on My Mac?",
     primaryKeywords: [
       "install garmin express on mac",
@@ -467,7 +467,7 @@ export const GARMIN_APPS_PAGES: Record<string, GarminPage> = {
     estimatedTime: "15 to 30 minutes",
     metaTitle: "Update Garmin Watch with Garmin Express — Senior Guide (2026)",
     metaDescription:
-      "Update fenix, forerunner, vivoactive, venu watches using Garmin Express on your computer. Step-by-step practice mode. Call 347-953-1531.",
+      "Update fenix, forerunner, vivoactive, venu watches using Garmin Express on your computer. Step-by-step practice mode. Book online.",
     h1: "How Do I Update My Garmin Watch Using a Computer?",
     primaryKeywords: [
       "update garmin watch with garmin express",
@@ -551,7 +551,7 @@ export const GARMIN_APPS_PAGES: Record<string, GarminPage> = {
     estimatedTime: "30 minutes to 2 hours",
     metaTitle: "Update Garmin Nuvi, Dezl, RV, Zumo Maps with Express (2026)",
     metaDescription:
-      "Senior guide to updating Garmin nuvi, dezl truck GPS, RV navigators, and zumo motorcycles. Step-by-step practice mode. Call 347-953-1531 for free help.",
+      "Senior guide to updating Garmin nuvi, dezl truck GPS, RV navigators, and zumo motorcycles. Step-by-step practice mode. Book online for free help.",
     h1: "How Do I Update the Maps on My Garmin Nuvi or Dezl?",
     primaryKeywords: [
       "update garmin nuvi maps",
@@ -625,7 +625,7 @@ export const GARMIN_APPS_PAGES: Record<string, GarminPage> = {
     difficultyLabel: "20-60 minutes",
     estimatedTime: "20 to 60 minutes",
     metaTitle: "Update Garmin DriveSmart Maps with Express — Senior Guide (2026)",
-    metaDescription: "Update Garmin Drive, DriveSmart, DriveAssist, DriveCam GPS units. Walkthrough with practice mode, large text. Call 347-953-1531.",
+    metaDescription: "Update Garmin Drive, DriveSmart, DriveAssist, DriveCam GPS units. Walkthrough with practice mode, large text. Book online.",
     h1: "How Do I Update My Garmin DriveSmart or Drive GPS?",
     primaryKeywords: ["update garmin drivesmart","drivesmart map update","garmin drive update","drive 52 update","drivesmart 65 update"],
     tldrAnswer: "Garmin DriveSmart, Drive, DriveAssist, and DriveCam units update through Garmin Express — same as nuvi but newer. Open Express, plug in the Drive with USB, wait for detection, then click Install for available map and software updates. Modern DriveSmart units (built 2017+) also support Wi-Fi updates directly on the device — Settings → Wi-Fi. Map updates are 2-4 GB and take 20-60 minutes depending on internet speed.",
@@ -688,7 +688,7 @@ export const GARMIN_APPS_PAGES: Record<string, GarminPage> = {
     difficultyLabel: "Diagnostic checklist",
     estimatedTime: "10 to 30 minutes",
     metaTitle: "Garmin Express Not Working? 8 Common Fixes (Senior Guide 2026)",
-    metaDescription: "Garmin Express won't open, recognize device, or update? Senior-friendly checklist of the 8 most common fixes. Free help: 347-953-1531.",
+    metaDescription: "Garmin Express won't open, recognize device, or update? Senior-friendly checklist of the 8 most common fixes. Free help: book online.",
     h1: "Garmin Express Not Working — How Do I Fix It?",
     primaryKeywords: ["garmin express not working","garmin express won't open","garmin express won't recognize device","garmin express not detecting","garmin express crashes","garmin express error"],
     tldrAnswer: "When Garmin Express stops working, the cause is almost always one of eight things, listed easiest to hardest: outdated Express version, wrong USB cable (charge-only instead of data), USB port issue, sleeping device, blocked by antivirus or firewall, low disk space, corrupted install, or device too old for current Express. This guide checks all eight in order. Most users fix it by step 4.",
@@ -725,7 +725,7 @@ export const GARMIN_APPS_PAGES: Record<string, GarminPage> = {
       { q: "Is there a 'reset Garmin Express to default' button?", a: "Not directly, but you can achieve it. Sign out of Express. Quit Express. Delete the Garmin Express folder in your AppData (Windows: %APPDATA%\\Garmin) or ~/Library/Application Support/Garmin (Mac). Reopen Express. It rebuilds with default settings. Your devices reappear after sign-in." },
       { q: "Why does Express get stuck at 0% on every update?", a: "Almost always a network blockage. Check: pause VPN, allow Express through firewall, try a different network (mobile hotspot for testing). If 0% stuck happens on multiple networks, your Express install is corrupt — uninstall and reinstall." },
       { q: "Should I run Express as administrator?", a: "Generally no — and Garmin specifically advises against it on Windows. Running as admin sometimes causes more problems than it solves (file ownership confusion, USB enumeration issues). Run as your normal user account. Only run as admin if Garmin support explicitly tells you to." },
-      { q: "What's the official Garmin support number for Express?", a: "Garmin support phone is 1-800-800-1020 (US) or via chat at support.garmin.com. They are real and answer in business hours. Note: anyone calling YOU claiming to be Garmin is a scam — Garmin doesn't make outbound support calls. Trini System (347-953-1531) is independent free help; we are not Garmin." },
+      { q: "What's the official Garmin support number for Express?", a: "Garmin support phone is 1-800-800-1020 (US) or via chat at support.garmin.com. They are real and answer in business hours. Note: anyone calling YOU claiming to be Garmin is a scam — Garmin doesn't make outbound support calls. Trini System is independent free help; we are not Garmin." },
     ],
     relatedSlugs: ["garmin-express", "garmin-express-install-windows", "garmin-express-install-mac", "garmin-webupdater"],
     toolsRequired: ["Garmin Express installed", "Original Garmin USB cable", "Computer with internet access", "Patience — work through the steps in order"],
@@ -748,7 +748,7 @@ export const GARMIN_APPS_PAGES: Record<string, GarminPage> = {
     difficultyLabel: "For older Garmin devices",
     estimatedTime: "15 minutes",
     metaTitle: "Garmin WebUpdater — Update Older Garmin Devices (Senior Guide 2026)",
-    metaDescription: "Garmin WebUpdater is the legacy app for older nuvi, Oregon, etrex, and Forerunner devices. Senior-friendly walkthrough. Free help: 347-953-1531.",
+    metaDescription: "Garmin WebUpdater is the legacy app for older nuvi, Oregon, etrex, and Forerunner devices. Senior-friendly walkthrough. Free help: book online.",
     h1: "What Is Garmin WebUpdater and Do I Need It?",
     primaryKeywords: ["garmin webupdater","garmin web updater","webupdater download","old garmin gps update","garmin webupdater windows","garmin webupdater mac"],
     tldrAnswer: "Garmin WebUpdater is the legacy desktop app for updating older Garmin devices that modern Garmin Express no longer supports — typically nuvi units made before 2014, older Oregon and etrex handhelds, older Forerunner watches, and discontinued products. WebUpdater only updates DEVICE SOFTWARE (firmware), not maps. Download free from garmin.com/webupdater. If your device works with Garmin Express, use Express instead — it does more. Use WebUpdater only when Express can't see your device.",
@@ -811,7 +811,7 @@ export const GARMIN_APPS_PAGES: Record<string, GarminPage> = {
     difficultyLabel: "10 minutes",
     estimatedTime: "10 minutes",
     metaTitle: "Set Up Garmin Connect App on Phone — Senior Guide (2026)",
-    metaDescription: "Pair your Garmin watch with the Garmin Connect mobile app on iPhone or Android. Step-by-step practice mode. Call 347-953-1531.",
+    metaDescription: "Pair your Garmin watch with the Garmin Connect mobile app on iPhone or Android. Step-by-step practice mode. Book online.",
     h1: "How Do I Set Up the Garmin Connect App on My Phone?",
     primaryKeywords: ["garmin connect app","set up garmin connect","pair garmin watch","garmin connect mobile","garmin app iphone","garmin app android","sync garmin watch"],
     tldrAnswer: "To set up the Garmin Connect app: download 'Garmin Connect' from the Apple App Store (iPhone) or Google Play Store (Android). Open the app and tap 'Sign In' (or 'Create Account' if first time). Tap 'Add a Device', pick your watch model from the list, and follow the on-screen pairing wizard. Your watch shows a 6-digit code — type it into the phone. Pairing takes 2-3 minutes. After paired, the watch syncs activities to the phone automatically every few hours.",
@@ -874,7 +874,7 @@ export const GARMIN_APPS_PAGES: Record<string, GarminPage> = {
     difficultyLabel: "Boat owners",
     estimatedTime: "20 minutes",
     metaTitle: "Garmin ActiveCaptain — Update Marine Charts & Charts (2026)",
-    metaDescription: "Set up Garmin ActiveCaptain to update marine charts, sync chartplotters, and download Navionics maps. Senior-friendly guide. Call 347-953-1531.",
+    metaDescription: "Set up Garmin ActiveCaptain to update marine charts, sync chartplotters, and download Navionics maps. Senior-friendly guide. Book online.",
     h1: "How Do I Use Garmin ActiveCaptain for Marine Charts?",
     primaryKeywords: ["garmin activecaptain app","activecaptain setup","garmin marine app","garmin navionics chart","update chartplotter","activecaptain wifi pair"],
     tldrAnswer: "Garmin ActiveCaptain is the free mobile app for boaters. Download from the App Store or Google Play. Open and sign in with your Garmin account. To pair with your Garmin chartplotter: insert the ActiveCaptain SD card into the chartplotter, on the chartplotter open the ActiveCaptain page, then on your phone connect to the chartplotter's Wi-Fi and Bluetooth when prompted. Once paired, you can update marine charts wirelessly, sync routes and waypoints, and view chartplotter screens from your phone. Navionics+ subscription required for premium chart updates.",
@@ -936,7 +936,7 @@ export const GARMIN_APPS_PAGES: Record<string, GarminPage> = {
     difficultyLabel: "Pilots only",
     estimatedTime: "30 minutes",
     metaTitle: "Garmin Pilot & flyGarmin — Aviation Database Updates (2026)",
-    metaDescription: "Garmin Pilot mobile app + flyGarmin web portal for pilots. Update aviation databases, charts, and Jeppesen NavData. Senior-friendly. Call 347-953-1531.",
+    metaDescription: "Garmin Pilot mobile app + flyGarmin web portal for pilots. Update aviation databases, charts, and Jeppesen NavData. Senior-friendly. Book online.",
     h1: "Garmin Pilot and flyGarmin — How Do I Update Aviation Databases?",
     primaryKeywords: ["garmin pilot app","flygarmin","aviation database update","garmin pilot subscription","jeppesen navdata garmin","database concierge","garmin pilot ipad"],
     tldrAnswer: "Pilots use three Garmin tools together: Garmin Pilot (mobile app on iPad or Android tablet), flyGarmin.com (web portal for purchases and aircraft management), and Garmin Aviation Database Manager (desktop app for downloading large database files). To update aircraft avionics: subscribe to databases on flyGarmin.com, sign into Garmin Pilot with the same account, enable Database Concierge, then transfer databases wirelessly via Flight Stream 510 or via SD card. Database cycles run every 28 days following the Jeppesen schedule.",
@@ -1000,7 +1000,7 @@ export const GARMIN_APPS_PAGES: Record<string, GarminPage> = {
     difficultyLabel: "30-90 minutes",
     estimatedTime: "1 to 2 hours",
     metaTitle: "Honda Navigation Map Update — Garmin-Powered Senior Guide (2026)",
-    metaDescription: "Update Honda Pilot, Accord, Odyssey, CRV, Civic navigation maps. Garmin-powered systems use a separate portal. Senior guide. Call 347-953-1531.",
+    metaDescription: "Update Honda Pilot, Accord, Odyssey, CRV, Civic navigation maps. Garmin-powered systems use a separate portal. Senior guide. Book online.",
     h1: "How Do I Update My Honda's Built-In Navigation Maps?",
     primaryKeywords: ["honda navigation map update","honda gps update","update honda pilot navigation","honda accord nav update","honda map update garmin","honda nav usb update"],
     tldrAnswer: "Honda navigation systems use Garmin maps but a SEPARATE portal at hondanavi.navigation.com — NOT Garmin Express. Go to hondanavi.navigation.com, enter your Honda VIN to identify your car, then either download the update onto a USB drive (most newer Hondas), order a DVD by mail (older models), or use the HondaLink app for some 2017+ vehicles. Many Hondas qualify for a free first map update; later updates cost $95-149. Plug the USB into your car and follow on-screen prompts.",
@@ -1063,7 +1063,7 @@ export const GARMIN_APPS_PAGES: Record<string, GarminPage> = {
     difficultyLabel: "Eligibility check",
     estimatedTime: "5 minutes to check",
     metaTitle: "Free Garmin Map Updates — How to Tell If You Qualify (2026)",
-    metaDescription: "Find out if your Garmin device gets free lifetime map updates. Senior guide explaining LM, LMT, LMT-S labeling and how to check. Free help: 347-953-1531.",
+    metaDescription: "Find out if your Garmin device gets free lifetime map updates. Senior guide explaining LM, LMT, LMT-S labeling and how to check. Free help: book online.",
     h1: "Are My Garmin Maps Really Free?",
     primaryKeywords: ["free garmin map updates","garmin lifetime maps","garmin free maps","garmin map subscription","what does LMT mean garmin","free garmin nuvi maps"],
     tldrAnswer: "Many Garmin devices (especially nuvi, DriveSmart, dezl, RV, zumo) include 'lifetime maps' — free quarterly map updates for the life of the device. Look for 'LM', 'LMT', or 'LMT-S' in your device's model name (e.g., nuvi 2595LMT). 'LM' = lifetime maps. 'LMT' = lifetime maps + traffic. 'LMT-S' = lifetime maps + traffic + smartphone link. If you have these, updates through Garmin Express are free forever. If your model doesn't have these letters, individual map updates cost $50-99 each. There are also free open-source alternatives (OpenStreetMap-based maps).",
@@ -1083,7 +1083,7 @@ export const GARMIN_APPS_PAGES: Record<string, GarminPage> = {
     whatIfNotWork: [
       { problem: "My device says 'LMT' but Express wants me to pay for maps", cause: "Subscription got disconnected during a recent update or registration issue.", fix: "Open Express → Sign Out, then Sign In again with the SAME account that originally registered the device. If the subscription doesn't reappear, contact Garmin support — they can manually re-link it to your account." },
       { problem: "Express shows 'Lifetime maps expired'", cause: "Either the device is past its end-of-support date, or there's a billing/account issue.", fix: "Check the device's age. If 8+ years old, Garmin may have ended lifetime support — that's per their terms. If less than 8 years, contact Garmin support for re-instatement; usually they'll restore it." },
-      { problem: "I want to put a custom OpenStreetMap on my Garmin", cause: "Wanting free non-Garmin maps.", fix: "Download a Garmin-format .img file from a free OSM source (garmin.openstreetmap.nl). Plug your Garmin into your computer. Copy the .img file to the device's '/Garmin' folder, naming it 'gmapsupp.img'. Eject and disconnect. The map shows on the device along with (or replacing) Garmin's. Advanced — call us if stuck." },
+      { problem: "I want to put a custom OpenStreetMap on my Garmin", cause: "Wanting free non-Garmin maps.", fix: "Download a Garmin-format .img file from a free OSM source (garmin.openstreetmap.nl). Plug your Garmin into your computer. Copy the .img file to the device's '/Garmin' folder, naming it 'gmapsupp.img'. Eject and disconnect. The map shows on the device along with (or replacing) Garmin's. Advanced — book a session if stuck." },
       { problem: "Bought a new map for my older nuvi but it won't fit on the device", cause: "Modern map files are larger than older nuvi internal storage.", fix: "Buy a microSD card (Class 10, up to your device's max — usually 16-32 GB). Insert into the device's SD slot. Express recognizes the card and offers to install the map there instead. Cost: $10-15 for the SD card." },
     ],
     faqs: [

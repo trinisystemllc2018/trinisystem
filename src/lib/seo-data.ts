@@ -72,7 +72,7 @@ export const PRINTER_PROBLEMS = {
     ],
     faqs: [
       { q: "Why does my printer keep going offline?", a: "The most common causes are: WiFi router IP address changes, Windows driver conflicts after updates, or the 'Use Printer Offline' flag getting set accidentally. A router restart fixes this 70% of the time." },
-      { q: "Can I fix an offline printer without calling anyone?", a: "Yes — follow the 4 steps above. If those don't work in 10 minutes, call us at 347-953-1531 for a free remote fix." },
+      { q: "Can I fix an offline printer without calling anyone?", a: "Yes — follow the 4 steps above. If those don't work in 10 minutes, book online for a free remote fix." },
     ],
   },
   "not-printing": {
@@ -123,10 +123,10 @@ export const PRINTER_PROBLEMS = {
       { title: "Note the exact error code", detail: "Write down or photograph the complete error code. Different codes have completely different fixes — OXc19a0035 vs 0x83c0000a require totally different solutions." },
       { title: "Power cycle with a long wait", detail: "Turn off the printer, unplug from wall for 2 full minutes (longer than a normal restart). This clears the printer's memory buffers which often causes error loops." },
       { title: "Update printer firmware", detail: "Many error codes are caused by outdated firmware. Check your printer's settings menu for a firmware update, or use the manufacturer's app on your PC." },
-      { title: "Call with the exact error code", detail: "Each code has a specific fix. Call 347-953-1531 with your exact code and we'll tell you the solution in under 2 minutes — free." },
+      { title: "Book with the exact error code", detail: "Each code has a specific fix. Book online with your exact code and we'll tell you the solution in under 2 minutes — free." },
     ],
     faqs: [
-      { q: "What does HP error OXc19a0035 mean?", a: "This is an HP ink system failure error on DeskJet and ENVY printers. Remove all cartridges, check for packing tape, clean the gold contacts with a dry cloth, and reinsert firmly. Call us if it persists." },
+      { q: "What does HP error OXc19a0035 mean?", a: "This is an HP ink system failure error on DeskJet and ENVY printers. Remove all cartridges, check for packing tape, clean the gold contacts with a dry cloth, and reinsert firmly. Book a session if it persists." },
       { q: "What does Canon B200 error mean?", a: "B200 is a printhead overheating error. Unplug the printer, slide the cartridge to center position, wait 15 minutes, then try the Stop/Reset + Power button reset sequence. 76% of B200 errors fix without any new parts." },
     ],
   },

@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { PHONE, PHONE_HREF, DOWNLOAD_URL } from "@/lib/utils";
+import { BOOKING_LABEL, BOOKING_HREF, DOWNLOAD_URL } from "@/lib/utils";
 import { CallbackButton } from "@/components/ui/CallbackModal";
 
 export type BrandFilter =
@@ -44,7 +44,7 @@ const FIXES: Record<string, Fix> = {
       { icon: "🖨️", title: "Set as default and test print", detail: "In Printers & Scanners, click your HP printer → Set as Default → Print a test page. If it prints, you're done." },
       { icon: "⚙️", title: "Still offline? Reinstall the driver", detail: "Visit 123.hp.com, enter your model number, download HP Smart App. Choose Wireless setup. This creates a completely fresh connection." },
     ],
-    cta: { label: "📞 Call Us — We Fix This in 15 Min", href: PHONE_HREF },
+    cta: { label: "📅 Book — We Fix This in 15 Min", href: BOOKING_HREF },
     ctaSecondary: { label: "View HP Repair Page →", href: "/hp-printer-repair" },
   },
   hp_error: {
@@ -57,7 +57,7 @@ const FIXES: Record<string, Fix> = {
       { icon: "🖨️", title: "Remove and reseat ink cartridges", detail: "Open the cartridge door. Remove all cartridges. Wait 30 seconds. Reinstall them firmly until they click into place." },
       { icon: "💻", title: "Update printer firmware", detail: "Open HP Smart app → select your printer → Printer Settings → Printer Updates → Check for Updates. Outdated firmware causes most persistent error codes." },
     ],
-    cta: { label: "📞 Call — HP Error Code Expert", href: PHONE_HREF },
+    cta: { label: "📅 Book — HP Error Code Expert", href: BOOKING_HREF },
     ctaSecondary: { label: "HP Repair Page →", href: "/hp-printer-repair" },
   },
   canon_b200: {
@@ -70,7 +70,7 @@ const FIXES: Record<string, Fix> = {
       { icon: "🔄", title: "Power on with Stop held", detail: "Plug in the printer. Hold the Stop/Reset button while pressing Power. Release both when the printer starts up. This triggers a maintenance reset." },
       { icon: "💻", title: "Run Canon My Printer tool", detail: "Download 'Canon My Printer' from usa.canon.com/support. Run Maintenance → Head Cleaning → Nozzle Check." },
     ],
-    cta: { label: "📞 Canon B200 Specialist — Call Now", href: PHONE_HREF },
+    cta: { label: "📞 Canon B200 Specialist — Book Now", href: BOOKING_HREF },
     ctaSecondary: { label: "Canon Repair Page →", href: "/canon-printer-repair" },
   },
   canon_wifi: {
@@ -82,7 +82,7 @@ const FIXES: Record<string, Fix> = {
       { icon: "📱", title: "Use Canon PRINT app", detail: "Download Canon PRINT Inkjet/SELPHY app on your phone. Tap '+' to add a printer. The app uses Bluetooth to reconnect your printer to WiFi automatically." },
       { icon: "🖥️", title: "Reinstall driver on PC", detail: "Go to usa.canon.com/support, search your model, download the MP Drivers. Run the installer and select 'Wireless LAN connection' when prompted." },
     ],
-    cta: { label: "📞 Call — Canon WiFi Fix", href: PHONE_HREF },
+    cta: { label: "📅 Book — Canon WiFi Fix", href: BOOKING_HREF },
     ctaSecondary: { label: "Canon Repair Page →", href: "/canon-printer-repair" },
   },
   epson_ink: {
@@ -95,7 +95,7 @@ const FIXES: Record<string, Fix> = {
       { icon: "🧹", title: "Run Head Cleaning utility", detail: "Open Epson Printer Utility on your PC → Maintenance → Head Cleaning → Run up to 3 cycles → Print Nozzle Check after each cycle." },
       { icon: "🔧", title: "If error persists — Adjustment Program", detail: "We use the Epson Adjustment Program remotely to reset the ink counter. This is a 10-minute fix that clears all ink system errors permanently." },
     ],
-    cta: { label: "📞 Epson Ink Error Specialist", href: PHONE_HREF },
+    cta: { label: "📞 Epson Ink Error Specialist", href: BOOKING_HREF },
     ctaSecondary: { label: "Epson Repair Page →", href: "/epson-printer-repair" },
   },
   epson_wifi: {
@@ -107,7 +107,7 @@ const FIXES: Record<string, Fix> = {
       { icon: "📶", title: "Run Wireless Setup on printer", detail: "On the printer's control panel: Settings → Wi-Fi Setup → Wi-Fi Setup Wizard. Enter your WiFi password carefully (they're case-sensitive)." },
       { icon: "💻", title: "Reinstall using Epson Connect Setup", detail: "Download 'Epson Connect Printer Setup' from epson.com. Run it and choose 'Wireless LAN' connection. It completely rebuilds the WiFi connection." },
     ],
-    cta: { label: "📞 Call — Epson WiFi Fix", href: PHONE_HREF },
+    cta: { label: "📅 Book — Epson WiFi Fix", href: BOOKING_HREF },
     ctaSecondary: { label: "Epson Repair Page →", href: "/epson-printer-repair" },
   },
   brother_driver: {
@@ -119,7 +119,7 @@ const FIXES: Record<string, Fix> = {
       { icon: "⬇", title: "Download Full Driver from Brother", detail: "Go to support.brother.com. Search your model. Download the 'Full Driver & Software Package'. Do NOT use Windows Update drivers — always use the official Brother package." },
       { icon: "🔌", title: "Install via USB first, then switch to WiFi", detail: "Connect your Brother printer to your PC via USB cable. Run the installer. After installation is complete, switch to wireless in the Brother Wireless Setup Wizard." },
     ],
-    cta: { label: "📞 Call — Brother Driver Specialist", href: PHONE_HREF },
+    cta: { label: "📅 Book — Brother Driver Specialist", href: BOOKING_HREF },
     ctaSecondary: { label: "View All Services →", href: "/services" },
   },
   pc_slow: {
@@ -133,7 +133,7 @@ const FIXES: Record<string, Fix> = {
       { icon: "🚀", title: "Disable startup programs", detail: "In TriniCleaner, go to Startup Manager. Disable programs you don't need at startup (common: Teams, Spotify, OneDrive, Adobe). This alone can cut boot time in half." },
     ],
     cta: { label: "⬇ Download TriniCleaner — Free", href: DOWNLOAD_URL },
-    ctaSecondary: { label: "Still slow? Call us →", href: PHONE_HREF },
+    ctaSecondary: { label: "Still slow? Book a session →", href: BOOKING_HREF },
   },
   pc_crash: {
     title: "PC Blue Screen / Crashing Fix",
@@ -145,7 +145,7 @@ const FIXES: Record<string, Fix> = {
       { icon: "🔧", title: "Update all drivers", detail: "In Safe Mode, open Device Manager. Look for any yellow warning icons. Right-click → Update driver. Pay special attention to display adapter and network drivers." },
       { icon: "💻", title: "Run Windows Memory Diagnostic", detail: "Press Win+R → type mdsched.exe → Restart now and check for problems. RAM errors cause most random BSODs." },
     ],
-    cta: { label: "📞 Call — BSOD Specialist", href: PHONE_HREF },
+    cta: { label: "📅 Book — BSOD Specialist", href: BOOKING_HREF },
     ctaSecondary: { label: "Computer Help Page →", href: "/computer-help" },
   },
   pc_virus: {
@@ -155,10 +155,10 @@ const FIXES: Record<string, Fix> = {
     steps: [
       { icon: "🚫", title: "Stop what you're doing immediately", detail: "Do NOT enter any passwords, credit card numbers, or banking information on the affected computer until it's been cleaned." },
       { icon: "📵", title: "Disconnect from the internet if possible", detail: "Unplug your ethernet cable or turn off WiFi. This prevents malware from sending data or downloading more malicious files." },
-      { icon: "📞", title: "Call us — virus removal starts same day", detail: "Our technicians connect remotely, run Malwarebytes + Windows Defender full scans, and remove all threats while you watch." },
+      { icon: "📞", title: "Book a session — virus removal starts same day", detail: "Our technicians connect remotely, run Malwarebytes + Windows Defender full scans, and remove all threats while you watch." },
       { icon: "🔒", title: "Change passwords after cleaning", detail: "Once the computer is clean, change your email, banking, and important passwords from a clean device first." },
     ],
-    cta: { label: "📞 Call Now — Urgent Virus Help", href: PHONE_HREF },
+    cta: { label: "📅 Book Now — Urgent Virus Help", href: BOOKING_HREF },
     ctaSecondary: { label: "Learn About Virus Removal →", href: "/virus-removal" },
   },
   virus_popup: {
@@ -169,14 +169,14 @@ const FIXES: Record<string, Fix> = {
       { icon: "❌", title: "Do NOT call the number shown", detail: "The pop-up phone number is a scam. Calling it gives criminals access to your PC and may result in charges of hundreds of dollars." },
       { icon: "💪", title: "Force-close your browser", detail: "Press Ctrl+Alt+Delete → Task Manager → find your browser → End Task. If the pop-up won't close, hold the Power button for 5 seconds to force shutdown." },
       { icon: "🔍", title: "Run Malwarebytes free scan", detail: "Download Malwarebytes from malwarebytes.com (free version). Run a full scan. It will identify and remove any adware that triggered the pop-up." },
-      { icon: "📞", title: "Already called? Contact us immediately", detail: "If you already called the scam number and gave them access, contact Trini System immediately at 347-953-1531. We will secure your PC and undo any changes they made." },
+      { icon: "📞", title: "Already called? Contact us immediately", detail: "If you already called the scam number and gave them access, book a session with Trini System right away. We will secure your PC and undo any changes they made." },
     ],
-    cta: { label: "📞 Already Scammed? Call Us Now", href: PHONE_HREF },
+    cta: { label: "📅 Already Scammed? Book Now", href: BOOKING_HREF },
     ctaSecondary: { label: "Virus Removal Page →", href: "/virus-removal" },
   },
   gps_update: {
     title: "Garmin GPS Map Update — Step by Step",
-    summary: "Garmin map updates can be confusing. We do this every single day — remotely while you watch, or we walk you through it step by step over the phone.",
+    summary: "Garmin map updates can be confusing. We do this every single day — remotely while you watch, or we walk you through it step by step.",
     severity: "easy", successRate: 100, avgTime: "30–90 min",
     steps: [
       { icon: "⬇", title: "Download Garmin Express", detail: "Visit garmin.com/express on your computer. Download and install Garmin Express (it's free). This is the official tool for all Garmin updates." },
@@ -184,7 +184,7 @@ const FIXES: Record<string, Fix> = {
       { icon: "👤", title: "Sign in to your Garmin account", detail: "Sign in or create a free Garmin account. This activates your map subscriptions and shows all available updates." },
       { icon: "🗺️", title: "Download map updates", detail: "Click 'Add Map Updates' and let it run. Map updates take 30–90 minutes depending on your internet speed. Keep the GPS plugged in throughout." },
     ],
-    cta: { label: "📞 Get GPS Update Help — We Do It For You", href: PHONE_HREF },
+    cta: { label: "📞 Get GPS Update Help — We Do It For You", href: BOOKING_HREF },
     ctaSecondary: { label: "View Step-by-Step Guides →", href: "/guides" },
   },
   gps_signal: {
@@ -197,7 +197,7 @@ const FIXES: Record<string, Fix> = {
       { icon: "💻", title: "Update GPS software + satellite data", detail: "Connect to Garmin Express and update both the device software AND the satellite prediction data (Garmin calls this 'Express Update')." },
       { icon: "📞", title: "Still no signal? Hardware check needed", detail: "If the GPS still can't find satellites after all these steps, the antenna may be damaged. We can diagnose this remotely in minutes." },
     ],
-    cta: { label: "📞 Call — GPS Signal Specialist", href: PHONE_HREF },
+    cta: { label: "📅 Book — GPS Signal Specialist", href: BOOKING_HREF },
     ctaSecondary: { label: "GPS Help Page →", href: "/gps-help" },
   },
 };
@@ -709,7 +709,7 @@ export function TechER({ brandFilter, pageTrending, category }: TechERProps) {
               ))}
             </div>
             <p className="text-center text-sm text-gray-400 mt-6">
-              Rather talk to a human? <a href={PHONE_HREF} className="text-blue-600 font-bold hover:underline">{PHONE}</a> — available 24/7
+              Rather talk to a human? <a href={BOOKING_HREF} className="text-blue-600 font-bold hover:underline">{BOOKING_LABEL}</a> — available 24/7
             </p>
           </motion.div>
         )}
@@ -836,7 +836,7 @@ export function TechER({ brandFilter, pageTrending, category }: TechERProps) {
             </div>
 
             <p className="text-center text-sm text-gray-500">
-              Or call us: <a href={PHONE_HREF} className="text-blue-600 font-bold hover:underline">{PHONE}</a> — 24/7 · No fix = no fee
+              Or book a session: <a href={BOOKING_HREF} className="text-blue-600 font-bold hover:underline">{BOOKING_LABEL}</a> — 24/7 · No fix = no fee
             </p>
           </motion.div>
         )}

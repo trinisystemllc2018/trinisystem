@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { X, Phone, Download } from "lucide-react";
-import { DOWNLOAD_URL, PHONE_HREF, PHONE } from "@/lib/utils";
+import { DOWNLOAD_URL, BOOKING_HREF, BOOKING_LABEL } from "@/lib/utils";
 
 const KEY = "trini-exit-dismissed";
 const COOLDOWN_DAYS = 7;
@@ -58,13 +58,13 @@ export function ExitIntentPopup() {
         </div>
 
         <div className="p-5 space-y-3">
-          <a href={PHONE_HREF}
+          <a href={BOOKING_HREF}
             className="flex items-center gap-4 p-4 rounded-2xl transition-transform hover:scale-[1.02] active:scale-[0.98]"
             style={{ background: "linear-gradient(135deg, var(--primary), var(--primary-2))", color: "var(--on-primary)" }}>
             <Phone size={26} />
             <div>
-              <p className="font-black">Free call — real technician</p>
-              <p className="text-sm" style={{ opacity: 0.85 }}>{PHONE}</p>
+              <p className="font-black">Free diagnosis — real technician</p>
+              <p className="text-sm" style={{ opacity: 0.85 }}>{BOOKING_LABEL}</p>
             </div>
           </a>
 

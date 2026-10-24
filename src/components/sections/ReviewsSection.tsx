@@ -209,7 +209,7 @@ export function TrustSection() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {[
             { icon: "🛡️", title: "No Fix, No Fee", desc: "If we can't fix it, you don't pay. Simple as that." },
-            { icon: "⚡", title: "Under 15 Min Response", desc: "A real technician picks up — not an automated bot." },
+            { icon: "⚡", title: "Under 15 Min Response", desc: "A real technician confirms every booking." },
             { icon: "🔒", title: "Secure Remote Access", desc: "You watch everything we do on your screen in real time." },
           ].map(t => (
             <motion.div

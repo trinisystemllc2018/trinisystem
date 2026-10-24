@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { PHONE_HREF, PHONE, DOWNLOAD_URL } from "@/lib/utils";
+import { BOOKING_HREF, BOOKING_LABEL, DOWNLOAD_URL } from "@/lib/utils";
 
 type Step = { id: string; question: string; options: Option[] };
 type Option = { label: string; icon: string; next?: string; result?: Result };
@@ -24,7 +24,7 @@ const RESULTS: Record<string, Result> = {
       "Right-click your printer → See what's printing → Printer menu → Uncheck 'Use Printer Offline'",
       "If still offline, remove the printer and reinstall using 123.hp.com",
     ],
-    cta: { label: "📞 Call Us — We Fix This in 15 Min", href: PHONE_HREF },
+    cta: { label: "📅 Book — We Fix This in 15 Min", href: BOOKING_HREF },
     ctaSecondary: { label: "Try It Yourself →", href: "/guides" },
     severity: "medium",
   },
@@ -35,9 +35,9 @@ const RESULTS: Record<string, Result> = {
       "Note down the exact error code shown on your printer display",
       "Turn the printer fully off (not just sleep) and unplug for 60 seconds",
       "Plug back in and power on — many errors clear this way",
-      "If the error returns, call us with the exact code for a targeted fix",
+      "If the error returns, book a session with the exact code for a targeted fix",
     ],
-    cta: { label: "📞 Call — Error Code Expert", href: PHONE_HREF },
+    cta: { label: "📅 Book — Error Code Expert", href: BOOKING_HREF },
     severity: "high",
   },
   pc_slow: {
@@ -50,7 +50,7 @@ const RESULTS: Record<string, Result> = {
       "Click 'Clean Now' and restart your PC",
     ],
     cta: { label: "⬇ Download TriniCleaner Free", href: DOWNLOAD_URL },
-    ctaSecondary: { label: "Still slow? Call us →", href: PHONE_HREF },
+    ctaSecondary: { label: "Still slow? Book a session →", href: BOOKING_HREF },
     severity: "low",
   },
   pc_virus: {
@@ -59,10 +59,10 @@ const RESULTS: Record<string, Result> = {
     steps: [
       "Do NOT enter any passwords or credit card info on the affected computer",
       "Disconnect from the internet if possible",
-      "Call us immediately — virus removal starts same day",
+      "Book a session immediately — virus removal starts same day",
       "We'll run Malwarebytes + a full system scan and remove all threats",
     ],
-    cta: { label: "📞 Call Now — Urgent Virus Help", href: PHONE_HREF },
+    cta: { label: "📅 Book Now — Urgent Virus Help", href: BOOKING_HREF },
     severity: "high",
   },
   gps_update: {
@@ -72,9 +72,9 @@ const RESULTS: Record<string, Result> = {
       "Connect your Garmin device to your computer via USB",
       "Open Garmin Express (or let us install it for you)",
       "Sign in and check for available map updates",
-      "Or call us — we'll update it remotely while you watch",
+      "Or book a session — we'll update it remotely while you watch",
     ],
-    cta: { label: "📞 Get GPS Update Help", href: PHONE_HREF },
+    cta: { label: "📞 Get GPS Update Help", href: BOOKING_HREF },
     ctaSecondary: { label: "View GPS Guide →", href: "/guides" },
     severity: "low",
   },
@@ -87,7 +87,7 @@ const RESULTS: Record<string, Result> = {
       "Open the printer lid, slide the cartridge to the center, close lid",
       "Plug in and power on while holding the Stop/Reset button",
     ],
-    cta: { label: "📞 Canon B200 Specialist", href: PHONE_HREF },
+    cta: { label: "📞 Canon B200 Specialist", href: BOOKING_HREF },
     severity: "high",
   },
   epson_ink: {
@@ -99,7 +99,7 @@ const RESULTS: Record<string, Result> = {
       "If error persists, we'll run the Epson Adjustment Program remotely",
       "Average fix time: 25 minutes via remote session",
     ],
-    cta: { label: "📞 Epson Ink Error Fix", href: PHONE_HREF },
+    cta: { label: "📞 Epson Ink Error Fix", href: BOOKING_HREF },
     severity: "medium",
   },
 };
@@ -349,7 +349,7 @@ export function SmartProblemFinder() {
                   </div>
 
                   <p className="text-center text-sm text-gray-500 mt-4">
-                    Or call us directly: <a href={PHONE_HREF} className="text-blue-600 font-semibold hover:underline">{PHONE}</a> — available 24/7
+                    Or book a session directly: <a href={BOOKING_HREF} className="text-blue-600 font-semibold hover:underline">{BOOKING_LABEL}</a> — available 24/7
                   </p>
                 </motion.div>
               )}

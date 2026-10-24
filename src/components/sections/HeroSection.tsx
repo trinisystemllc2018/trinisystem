@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { PHONE, PHONE_HREF } from "@/lib/utils";
+import { BOOKING_LABEL, BOOKING_HREF } from "@/lib/utils";
 
 /* ─────────────────────────────────────────────────────────────
    HOME HERO — Search-first, bright animated category cards
@@ -206,7 +206,7 @@ export function HeroSection() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
             <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400" />
           </span>
-          <span className="text-white/70 text-xs font-semibold tracking-widest uppercase">Technician Available Now · {PHONE}</span>
+          <span className="text-white/70 text-xs font-semibold tracking-widest uppercase">Booking assistant online · {BOOKING_LABEL}</span>
         </motion.div>
 
         {/* Main heading */}
@@ -356,7 +356,7 @@ export function HeroSection() {
 
         {/* Trust strip */}
         <motion.div initial={{ opacity:0 }} animate={{ opacity:1 }} transition={{ delay:1.0 }} className="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-10 text-white/25 text-sm">
-          {["⚡ Avg response < 15 min","🛡️ No fix = no fee","🌎 All 50 US states","⭐ 4.9 Google rating",`📞 ${PHONE}`].map(b => (
+          {["⚡ Avg response < 15 min","🛡️ No fix = no fee","🌎 All 50 US states","⭐ 4.9 Google rating",`📞 ${BOOKING_LABEL}`].map(b => (
             <span key={b} className="font-medium">{b}</span>
           ))}
         </motion.div>

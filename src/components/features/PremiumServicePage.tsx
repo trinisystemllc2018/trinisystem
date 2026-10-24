@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import Link from "next/link";
-import { PHONE, PHONE_HREF } from "@/lib/utils";
+import { BOOKING_LABEL, BOOKING_HREF } from "@/lib/utils";
 import { CallbackButton } from "@/components/ui/CallbackModal";
 
 /* ═══════════════════════════════════════════════════════════════
@@ -392,8 +392,8 @@ export default function PremiumServicePage(props: PremiumServicePageProps) {
             <a href="#brands" className="group relative flex items-center justify-center gap-3 bg-white text-gray-900 font-black text-lg px-10 py-5 rounded-2xl shadow-2xl hover:-translate-y-0.5 transition-all">
               Start Free Diagnosis →
             </a>
-            <a href={PHONE_HREF} className={`flex items-center justify-center gap-2 ${a.bg} hover:opacity-90 text-white font-bold text-base px-10 py-5 rounded-2xl transition-all border border-white/10`}>
-              📞 Call {PHONE}
+            <a href={BOOKING_HREF} className={`flex items-center justify-center gap-2 ${a.bg} hover:opacity-90 text-white font-bold text-base px-10 py-5 rounded-2xl transition-all border border-white/10`}>
+              📞 {BOOKING_LABEL}
             </a>
           </motion.div>
 
@@ -672,9 +672,9 @@ export default function PremiumServicePage(props: PremiumServicePageProps) {
                             Some issues need hands-on expertise. Our technician will connect to your screen remotely and fix your {selectedBrand} in under 30 minutes. Free diagnosis — no fix, no fee.
                           </p>
                           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                            <a href={PHONE_HREF}
+                            <a href={BOOKING_HREF}
                               className="flex items-center justify-center gap-2 bg-white text-gray-900 font-black text-lg px-10 py-5 rounded-2xl shadow-2xl"
-                            >📞 Call {PHONE} — Free Fix</a>
+                            >📞 {BOOKING_LABEL} — Free Fix</a>
                             <button onClick={resetWizard} className="text-white/50 text-sm font-bold hover:text-white/70 transition-colors py-3">
                               Try again →
                             </button>

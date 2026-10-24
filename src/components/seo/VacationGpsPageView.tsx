@@ -56,7 +56,6 @@ export function buildVacationGpsSchemas(data: VacationGpsPage) {
       provider: {
         "@type": "LocalBusiness",
         name: "Trini System LLC",
-        telephone: "+13479531531",
         address: {
           "@type": "PostalAddress",
           streetAddress: "52-09 99th St Apt 8S",
@@ -122,9 +121,7 @@ export function VacationGpsPageView({ data }: { data: VacationGpsPage }) {
         style={{ background: `linear-gradient(90deg, ${theme.barFrom}, ${theme.barTo})` }}
       >
         {theme.icon} {theme.name} · Vacation-Ready GPS Updates ·{" "}
-        <a href="tel:+13479531531" className="underline font-bold hover:text-white/80">
-          347-953-1531
-        </a>{" "}
+        <a href="/book" className="underline font-bold hover:text-white/80">Book online</a>{" "}
         · From $49 · No Fix = No Fee
       </div>
 
@@ -164,11 +161,11 @@ export function VacationGpsPageView({ data }: { data: VacationGpsPage }) {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+13479531531"
+                href="/book"
                 className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105"
                 style={{ background: "linear-gradient(135deg,#dc2626,#b91c1c)", boxShadow: "0 4px 30px rgba(220,38,38,0.5)" }}
               >
-                📞 Call Now — 347-953-1531
+                📅 Book Online
               </a>
               <a
                 href="#update-guide"
@@ -262,7 +259,7 @@ export function VacationGpsPageView({ data }: { data: VacationGpsPage }) {
       <section aria-label="Why Trini System" className="text-white py-14" style={{ background: theme.gradient }}>
         <div className="max-w-5xl mx-auto px-4">
           <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-black mb-3">Why Travelers Call Trini System</h2>
+            <h2 className="text-3xl md:text-4xl font-black mb-3">Why Travelers book a session with Trini System</h2>
             <p className="text-white/60 max-w-2xl mx-auto">
               Remote GPS updates for people who need it done right before they leave — not shipped off for two weeks.
             </p>
@@ -343,11 +340,11 @@ export function VacationGpsPageView({ data }: { data: VacationGpsPage }) {
           <h2 className="text-3xl md:text-4xl font-black mb-4">Get Your GPS Vacation-Ready</h2>
           <p className="text-white/70 text-lg mb-8">Phone pickup under 5 min · From $49 · No fix = no fee · 24/7</p>
           <a
-            href="tel:+13479531531"
+            href="/book"
             className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105"
             style={{ background: "linear-gradient(135deg,#dc2626,#b91c1c)", boxShadow: "0 4px 30px rgba(220,38,38,0.5)" }}
           >
-            📞 347-953-1531
+            📅 Book Online
           </a>
         </div>
       </section>

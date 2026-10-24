@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { SOCIAL, PHONE_HREF, PHONE } from "@/lib/utils";
+import { SOCIAL, BOOKING_HREF, BOOKING_LABEL } from "@/lib/utils";
 
 /* ══════════════════════════════════════════════════════════════
    SOCIAL PROOF SECTION
@@ -25,7 +25,7 @@ const PLATFORMS = [
     ),
     posts: [
       { text: "🖨️ HP DeskJet 4155e showing offline? Here's the 3-step fix most people miss...", likes: "24 likes" },
-      { text: "✅ Fixed another Epson EcoTank ink error today remotely! Free call — no fix, no fee.", likes: "18 likes" },
+      { text: "✅ Fixed another Epson EcoTank ink error today remotely! Free diagnosis — no fix, no fee.", likes: "18 likes" },
       { text: "💻 Is your Windows 11 PC slow? Download TriniCleaner — it's free and takes 60 seconds.", likes: "31 likes" },
     ],
   },
@@ -165,7 +165,7 @@ function WhyFollowSection() {
     <div className="mt-14 bg-gradient-to-br from-blue-50 to-sky-50 rounded-3xl border border-blue-100 p-8">
       <div className="text-center mb-8">
         <h3 className="text-2xl font-black text-gray-900 mb-2">Why Follow Trini System on Social Media?</h3>
-        <p className="text-gray-600">Our social content fixes problems before you even need to call us.</p>
+        <p className="text-gray-600">Our social content fixes problems before you even need to book a session.</p>
       </div>
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {reasons.map((r, i) => (
@@ -242,7 +242,7 @@ export function SocialProofSection() {
             <span className="block text-gradient"> Before You Even Call</span>
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            We post free printer repair guides, PC tips, and Garmin tutorials daily across all platforms. Follow us for instant help — and call us when you need a real technician.
+            We post free printer repair guides, PC tips, and Garmin tutorials daily across all platforms. Follow us for instant help — and book a session when you need a real technician.
           </p>
         </motion.div>
 
@@ -260,10 +260,10 @@ export function SocialProofSection() {
         <div className="mt-10 text-center">
           <p className="text-gray-600 mb-4 font-medium">Still need a real technician? We're one call away.</p>
           <a
-            href={PHONE_HREF}
+            href={BOOKING_HREF}
             className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-black text-xl px-10 py-5 rounded-2xl shadow-brand transition-all"
           >
-            📞 Call {PHONE} — Available 24/7
+            📞 {BOOKING_LABEL} — Available 24/7
           </a>
         </div>
       </div>

@@ -5,8 +5,10 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export const PHONE = "347-953-1531";
-export const PHONE_HREF = "tel:+13479531531";
+/** Visitors reach us through the booking assistant (no public phone number). */
+export const BOOKING_HREF = "/book";
+export const BOOKING_LABEL = "Book Online";
+export const CONTACT_EMAIL = "trinisystemllc@gmail.com";
 export const DOWNLOAD_URL =
   "https://github.com/trinisystemllc2018/trini-system-app/releases/download/v1.0.0/TriniCleaner_Setup.exe";
 export const SUPPORT_FORM =
@@ -170,7 +172,7 @@ export const SERVICES = [
   {
     icon: "📞",
     title: "HP Printer Service & Support",
-    description: "Independent HP printer service — phone & remote. 5-min callback, 24/7, $49 flat. Faster than HP's official line.",
+    description: "Independent HP printer service — remote support. Book online, $49 flat.",
     href: "/hp-printer-service",
     color: "blue",
     popular: false,
