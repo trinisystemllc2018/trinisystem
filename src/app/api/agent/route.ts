@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { GoogleGenAI, Type, type Content, type Part } from "@google/genai";
 import { BOOKING_RULES, BOOKING_SERVICES, BOOKING_STEPS, BUSINESS, TIME_WINDOWS } from "@/lib/booking-config";
 import {
   mergeDraft,
@@ -15,7 +16,7 @@ import {
 export const runtime = "nodejs";
 export const maxDuration = 30;
 
-const MODEL = process.env.ANTHROPIC_MODEL || "claude-sonnet-5-5";
+const MODEL = process.env.GEMINI_MODEL || "gemini-2.5-flash";
 const MAX_TURNS = 24; // messages kept from the conversation
 const MAX_TOOL_LOOPS = 4;
 
@@ -80,63 +81,75 @@ NEXT INCOMPLETE STEP: ${next ? `${next.n} — ${next.label}` : "none (all done)"
 STEPS COMPLETE: ${stepStatus(draft).map((d, i) => (d ? i + 1 : null)).filter(Boolean).join(", ") || "none"}`;
 }
 
-/* ── Tools ── */
+/* ── Tools (Gemini function declarations) ── */
 const TOOLS = [
   {
-    name: "update_booking",
-    description:
-      "Save booking details the visitor has given. Include only fields the visitor actually provided. Returns the validated draft and any errors.",
-    input_schema: {
-      type: "object",
-      properties: {
-        service: { type: "string", enum: BOOKING_SERVICES.map((s) => s.id) },
-        device: { type: "string", description: "Brand and model, e.g. 'HP DeskJet 4155e'" },
-        issue: { type: "string", description: "What is going wrong, incl. any error code" },
-        environment: { type: "string", description: "Windows/Mac and how the device connects (WiFi/USB)" },
-        tried: { type: "string", description: "What the visitor already tried, or 'nothing yet'" },
-        date: { type: "string", description: "Preferred date, YYYY-MM-DD" },
-        time: { type: "string", enum: [...TIME_WINDOWS] },
-        timezone: { type: "string", description: "Visitor's time zone, e.g. 'US Eastern' or 'America/Chicago'" },
-        name: { type: "string" },
-        email: { type: "string" },
-        phone: { type: "string", description: "Optional" },
-        contact_method: { type: "string", enum: ["email", "phone"] },
-        consent: { type: "boolean", description: "True only if the visitor agreed we may contact them about this request" },
+    functionDeclarations: [
+      {
+        name: "update_booking",
+        description:
+          "Save booking details the visitor has given. Include only fields the visitor actually provided. Returns the validated draft and any errors.",
+        parameters: {
+          type: Type.OBJECT,
+          properties: {
+            service: { type: Type.STRING, enum: BOOKING_SERVICES.map((s) => s.id) },
+            device: { type: Type.STRING, description: "Brand and model, e.g. 'HP DeskJet 4155e'" },
+            issue: { type: Type.STRING, description: "What is going wrong, incl. any error code" },
+            environment: { type: Type.STRING, description: "Windows/Mac and how the device connects (WiFi/USB)" },
+            tried: { type: Type.STRING, description: "What the visitor already tried, or 'nothing yet'" },
+            date: { type: Type.STRING, description: "Preferred date, YYYY-MM-DD" },
+            time: { type: Type.STRING, enum: [...TIME_WINDOWS] },
+            timezone: { type: Type.STRING, description: "Visitor's time zone, e.g. 'US Eastern' or 'America/Chicago'" },
+            name: { type: Type.STRING },
+            email: { type: Type.STRING },
+            phone: { type: Type.STRING, description: "Optional" },
+            contact_method: { type: Type.STRING, enum: ["email", "phone"] },
+            consent: { type: Type.BOOLEAN, description: "True only if the visitor agreed we may contact them about this request" },
+          },
+        },
       },
-    },
-  },
-  {
-    name: "submit_booking",
-    description:
-      "Send the finished booking request to the team. Call ONLY after steps 1-9 are complete and the visitor has explicitly said yes to sending.",
-    input_schema: {
-      type: "object",
-      properties: { customer_confirmed: { type: "boolean" } },
-      required: ["customer_confirmed"],
-    },
+      {
+        name: "submit_booking",
+        description:
+          "Send the finished booking request to the team. Call ONLY after steps 1-9 are complete and the visitor has explicitly said yes to sending.",
+        parameters: {
+          type: Type.OBJECT,
+          properties: { customer_confirmed: { type: Type.BOOLEAN } },
+          required: ["customer_confirmed"],
+        },
+      },
+    ],
   },
 ];
 
-type Msg = { role: "user" | "assistant"; content: unknown };
+type Msg = { role: "user" | "assistant"; content: string };
 
-async function callClaude(system: string, messages: Msg[]) {
-  const res = await fetch("https://api.anthropic.com/v1/messages", {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-      "x-api-key": process.env.ANTHROPIC_API_KEY as string,
-      "anthropic-version": "2023-06-01",
+let _ai: GoogleGenAI | null = null;
+function getAI(): GoogleGenAI {
+  if (!_ai) _ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+  return _ai;
+}
+
+/** Frontend messages → Gemini contents (role 'user' | 'model', parts: [{ text }]). */
+function toContents(messages: Msg[]): Content[] {
+  return messages.map((m) => ({
+    role: m.role === "user" ? "user" : "model",
+    parts: [{ text: m.content }],
+  }));
+}
+
+async function callGemini(system: string, contents: Content[]) {
+  return getAI().models.generateContent({
+    model: MODEL,
+    contents,
+    config: {
+      systemInstruction: system,
+      tools: TOOLS,
+      maxOutputTokens: 700,
+      // 2.5 Flash "thinks" by default and thinking tokens count toward maxOutputTokens.
+      thinkingConfig: { thinkingBudget: 0 },
     },
-    body: JSON.stringify({ model: MODEL, max_tokens: 700, system, tools: TOOLS, messages }),
   });
-  if (!res.ok) {
-    console.error("Anthropic error:", res.status, await res.text());
-    throw new Error("upstream");
-  }
-  return res.json() as Promise<{
-    stop_reason: string;
-    content: { type: string; text?: string; id?: string; name?: string; input?: Record<string, unknown> }[];
-  }>;
 }
 
 const FALLBACK =
@@ -173,32 +186,35 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Bad request" }, { status: 400 });
   }
 
-  if (!process.env.ANTHROPIC_API_KEY) {
-    console.error("ANTHROPIC_API_KEY is not set");
+  if (!process.env.GEMINI_API_KEY) {
+    console.error("GEMINI_API_KEY is not set");
     return NextResponse.json({ reply: FALLBACK, booking: draft, unavailable: true });
   }
 
   const page = clean(body.page, 80) || "/book";
   let submitted: { id: string } | undefined;
-  const working: Msg[] = [...history];
+  const working: Content[] = toContents(history);
 
   try {
     for (let loop = 0; loop <= MAX_TOOL_LOOPS; loop++) {
-      const out = await callClaude(buildSystemPrompt(draft), working);
+      const out = await callGemini(buildSystemPrompt(draft), working);
+      const calls = out.functionCalls ?? [];
 
-      if (out.stop_reason !== "tool_use") {
-        const reply = out.content.filter((b) => b.type === "text").map((b) => b.text).join("\n").trim();
+      if (calls.length === 0) {
+        const reply = (out.text ?? "").trim();
         return NextResponse.json({ reply: reply || "Could you say that again, please?", booking: draft, submitted });
       }
 
-      working.push({ role: "assistant", content: out.content });
-      const results: unknown[] = [];
+      // Keep the model's full turn (incl. any thought signatures) in the history.
+      const modelTurn = out.candidates?.[0]?.content;
+      if (modelTurn) working.push(modelTurn);
+      const results: Part[] = [];
 
-      for (const block of out.content.filter((b) => b.type === "tool_use")) {
+      for (const block of calls) {
         let result: Record<string, unknown>;
 
         if (block.name === "update_booking") {
-          const input = { ...(block.input ?? {}) } as Record<string, unknown>;
+          const input = { ...(block.args ?? {}) } as Record<string, unknown>;
           if (input.contact_method !== undefined) {
             input.contactMethod = input.contact_method;
             delete input.contact_method;
@@ -209,7 +225,7 @@ export async function POST(req: NextRequest) {
         } else if (block.name === "submit_booking") {
           if (submitted) {
             result = { ok: false, error: "Already submitted", booking_id: submitted.id };
-          } else if (block.input?.customer_confirmed !== true) {
+          } else if (block.args?.customer_confirmed !== true) {
             result = { ok: false, error: "The visitor has not confirmed yet. Ask them first." };
           } else if (!readyToConfirm(draft)) {
             const n = nextStep(draft);
@@ -229,12 +245,15 @@ export async function POST(req: NextRequest) {
           result = { ok: false, error: "Unknown tool" };
         }
 
-        results.push({ type: "tool_result", tool_use_id: block.id, content: JSON.stringify(result) });
+        results.push({
+          functionResponse: { ...(block.id ? { id: block.id } : {}), name: block.name as string, response: result },
+        });
       }
-      working.push({ role: "user", content: results });
+      working.push({ role: "user", parts: results });
     }
     return NextResponse.json({ reply: "Sorry, I got stuck. Could you try rephrasing that?", booking: draft, submitted });
-  } catch {
+  } catch (err) {
+    console.error("Gemini error:", err);
     return NextResponse.json({ reply: FALLBACK, booking: draft, unavailable: true });
   }
 }

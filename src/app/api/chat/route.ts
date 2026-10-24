@@ -1,11 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
+import { GoogleGenAI } from "@google/genai";
 import { TRINI_BOT_PROMPT } from "@/lib/trini-bot-prompt";
 import { clean } from "@/lib/booking";
 
 export const runtime = "nodejs";
 export const maxDuration = 30;
 
-const MODEL = process.env.ANTHROPIC_MODEL || "claude-sonnet-5-5";
+const MODEL = process.env.GEMINI_MODEL || "gemini-2.5-flash";
 const MAX_TURNS = 20;
 
 const FALLBACK =
@@ -50,31 +51,27 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Bad request" }, { status: 400 });
   }
 
-  if (!process.env.ANTHROPIC_API_KEY) {
-    console.error("ANTHROPIC_API_KEY is not set");
+  if (!process.env.GEMINI_API_KEY) {
+    console.error("GEMINI_API_KEY is not set");
     return NextResponse.json({ content: FALLBACK });
   }
 
   try {
-    const res = await fetch("https://api.anthropic.com/v1/messages", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        "x-api-key": process.env.ANTHROPIC_API_KEY,
-        "anthropic-version": "2023-06-01",
+    const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+    const response = await ai.models.generateContent({
+      model: MODEL,
+      // Frontend 'assistant' → Gemini 'model'
+      contents: history.map((m) => ({
+        role: m.role === "user" ? "user" : "model",
+        parts: [{ text: m.content }],
+      })),
+      config: {
+        systemInstruction: TRINI_BOT_PROMPT,
+        maxOutputTokens: 600,
+        thinkingConfig: { thinkingBudget: 0 },
       },
-      body: JSON.stringify({ model: MODEL, max_tokens: 600, system: TRINI_BOT_PROMPT, messages: history }),
     });
-    if (!res.ok) {
-      console.error("Anthropic error:", res.status, await res.text());
-      return NextResponse.json({ content: FALLBACK });
-    }
-    const data = (await res.json()) as { content?: { type: string; text?: string }[] };
-    const text = (data.content ?? [])
-      .filter((b) => b.type === "text")
-      .map((b) => b.text)
-      .join("\n")
-      .trim();
+    const text = (response.text ?? "").trim();
     return NextResponse.json({ content: text || "Could you tell me a bit more about the problem?" });
   } catch (err) {
     console.error("Trini Bot error:", err);

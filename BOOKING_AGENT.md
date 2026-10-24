@@ -13,16 +13,16 @@ The agent answers questions at any point and then returns to the current step. A
 ## Files
 - `src/components/features/BookingAgent.tsx` — chat UI
 - `src/app/book/page.tsx` — the page
-- `src/app/api/agent/route.ts` — calls Claude (tools: `update_booking`, `submit_booking`); validates everything server-side; rate-limited
+- `src/app/api/agent/route.ts` — calls Google Gemini via `@google/genai` (function calls: `update_booking`, `submit_booking`); validates everything server-side; rate-limited
 - `src/lib/booking.ts` — validation, step logic, Discord delivery
 - `src/lib/booking-config.ts` — **edit services, prices, time windows here**
 
 ## Setup (Vercel → Settings → Environment Variables)
 | Name | Purpose |
 |---|---|
-| `ANTHROPIC_API_KEY` | required for the assistant (console.anthropic.com) |
+| `GEMINI_API_KEY` | required for the assistant (aistudio.google.com/apikey) |
 | `DISCORD_WEBHOOK_URL` | where bookings arrive (already used by your contact form) |
-| `ANTHROPIC_MODEL` | optional, default `claude-sonnet-5-5` |
+| `GEMINI_MODEL` | optional, default `gemini-2.5-flash` |
 
 Without the API key the chat shows a polite fallback pointing to the contact form.
 
