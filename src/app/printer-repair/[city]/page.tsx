@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { StickyCTA } from "@/components/ui/Button";
-import { PHONE, PHONE_HREF } from "@/lib/utils";
+import { BOOKING_LABEL, BOOKING_HREF } from "@/lib/utils";
 import { LOCATIONS, ALL_LOCATION_SLUGS, getLocation } from "@/lib/locations-data";
 
 interface Props {
@@ -60,7 +60,6 @@ export default function LocationPage({ params }: Props) {
       provider: {
         "@type": "Organization",
         name: "Trini System LLC",
-        telephone: "+13479531531",
         url: "https://trinisystem.vercel.app",
       },
       areaServed: { "@type": "City", name: loc.city, containedInPlace: { "@type": "State", name: loc.state } },
@@ -84,7 +83,7 @@ export default function LocationPage({ params }: Props) {
           name: `How fast can someone help me in ${loc.city}?`,
           acceptedAnswer: {
             "@type": "Answer",
-            text: `Remote sessions from HQ are typically available same-day, often within the hour. On-site matching through our technician network depends on current availability in the ${loc.city} area — call 347-953-1531 and we'll tell you honestly what's available before you commit to anything.`,
+            text: `Remote sessions from HQ are typically available same-day, often within the hour. On-site matching through our technician network depends on current availability in the ${loc.city} area — book online and we'll tell you honestly what's available before you commit to anything.`,
           },
         },
         {
@@ -108,7 +107,7 @@ export default function LocationPage({ params }: Props) {
       {/* Urgency Bar */}
       <div className="bg-gradient-to-r from-blue-700 to-indigo-600 text-white py-3 text-center text-sm font-semibold">
         🖨️ Printer Repair — {loc.city}, {loc.stateAbbr} ·{" "}
-        <a href={PHONE_HREF} className="underline font-bold hover:text-blue-200">Call {PHONE}</a>
+        <a href={BOOKING_HREF} className="underline font-bold hover:text-blue-200">{BOOKING_LABEL}</a>
         {" "}· From $49 · No Fix = No Fee
       </div>
 
@@ -137,8 +136,8 @@ export default function LocationPage({ params }: Props) {
               tell you upfront which option fits your issue.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href={PHONE_HREF} className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105" style={{ background: "linear-gradient(135deg,#dc2626,#b91c1c)", boxShadow: "0 4px 30px rgba(220,38,38,0.5)" }}>
-                📞 Call Now — {PHONE}
+              <a href={BOOKING_HREF} className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105" style={{ background: "linear-gradient(135deg,#dc2626,#b91c1c)", boxShadow: "0 4px 30px rgba(220,38,38,0.5)" }}>
+                📅 Book Now — {BOOKING_LABEL}
               </a>
               <Link href="/services" className="inline-flex items-center justify-center gap-2 bg-white/10 border-2 border-white/30 text-white font-bold py-5 px-8 rounded-2xl text-lg hover:bg-white/20 transition-all">
                 View All Services →
@@ -187,7 +186,7 @@ export default function LocationPage({ params }: Props) {
           <div className="space-y-4">
             {[
               { q: `Does Trini System have a physical repair shop in ${loc.city}?`, a: `No — we're headquartered in Corona, Queens, NY. For ${loc.city} we offer remote fixes from HQ or matching with an independent technician from our nationwide network. We tell you which applies before you commit.` },
-              { q: `How fast can someone help me in ${loc.city}?`, a: `Remote sessions are typically same-day. On-site matching depends on current technician availability in your area — call ${PHONE} and we'll be upfront about timing.` },
+              { q: `How fast can someone help me in ${loc.city}?`, a: `Remote sessions are typically same-day. On-site matching depends on current technician availability in your area — use ${BOOKING_LABEL} and we'll be upfront about timing.` },
               { q: `What does it cost?`, a: "Remote repair starts at $49, no fix = no fee. On-site visits vary by location and issue — you get a quote before any work starts." },
             ].map(({ q, a }, i) => (
               <details key={i} className="group rounded-2xl border border-gray-200 bg-white overflow-hidden">
@@ -221,8 +220,8 @@ export default function LocationPage({ params }: Props) {
         <div className="max-w-2xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-black mb-4">Get Your Printer Fixed — {loc.city}</h2>
           <p className="text-blue-200 text-lg mb-8">Remote from $49, or matched with a local network technician · No fix = no fee</p>
-          <a href={PHONE_HREF} className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105" style={{ background: "linear-gradient(135deg,#dc2626,#b91c1c)", boxShadow: "0 4px 30px rgba(220,38,38,0.5)" }}>
-            📞 Call {PHONE}
+          <a href={BOOKING_HREF} className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105" style={{ background: "linear-gradient(135deg,#dc2626,#b91c1c)", boxShadow: "0 4px 30px rgba(220,38,38,0.5)" }}>
+            📞 {BOOKING_LABEL}
           </a>
         </div>
       </section>

@@ -4,7 +4,7 @@ import { StickyCTA } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
   title: "Reparación de Impresoras — HP, Canon, Epson",
-  description: "Reparación de impresoras HP, Canon, Epson, Brother. Servicio técnico remoto en español. Errores de tinta, configuración WiFi. Llame: 347-953-1531.",
+  description: "Reparación de impresoras HP, Canon, Epson, Brother. Servicio técnico remoto en español. Errores de tinta, configuración WiFi. Reserve en línea.",
   alternates: { canonical: "https://trinisystem.vercel.app/reparacion-impresoras" },
   keywords: [
     "reparacion de impresoras cerca de mi","impresoras epson","impresoras hp","impresoras canon",
@@ -38,7 +38,7 @@ const schemas = [
       {
         "@type": "Question",
         "name": "¿Cómo arreglo mi impresora HP que no imprime?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Apague la impresora y el router de internet. Desconéctelos por 30 segundos. Vuelva a conectar el router primero y espere 60 segundos. Luego encienda la impresora. Si sigue sin imprimir, llame a Trini System al 347-953-1531 — resolvemos problemas de HP de forma remota en menos de 15 minutos." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Apague la impresora y el router de internet. Desconéctelos por 30 segundos. Vuelva a conectar el router primero y espere 60 segundos. Luego encienda la impresora. Si sigue sin imprimir, reserve una sesión con Trini System en línea — resolvemos problemas de HP de forma remota en menos de 15 minutos." }
       },
       {
         "@type": "Question",
@@ -48,7 +48,7 @@ const schemas = [
       {
         "@type": "Question",
         "name": "¿Ofrecen soporte técnico en español?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Sí. Trini System ofrece soporte técnico remoto completamente en español para impresoras HP, Canon, Epson y Brother, así como para computadoras lentas, eliminación de virus y actualizaciones de GPS Garmin. Llame al 347-953-1531." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Sí. Trini System ofrece soporte técnico remoto completamente en español para impresoras HP, Canon, Epson y Brother, así como para computadoras lentas, eliminación de virus y actualizaciones de GPS Garmin. Reserve en línea." }
       },
     ],
   },
@@ -57,7 +57,7 @@ const schemas = [
     "@type": "Service",
     "name": "Reparación de Impresoras en Español",
     "inLanguage": "es",
-    "provider": { "@type": "LocalBusiness", "name": "Trini System LLC", "telephone": "+13479531531" },
+    "provider": { "@type": "LocalBusiness", "name": "Trini System LLC",},
     "areaServed": "United States",
     "serviceType": "Printer Repair — Spanish Language Support",
     "offers": { "@type": "Offer", "price": "49", "priceCurrency": "USD" },
@@ -72,7 +72,7 @@ export default function ReparacionImprisorasPage() {
       ))}
       <div className="bg-orange-600 text-white py-3 text-center text-sm font-semibold">
         🇪🇸 Soporte en Español — Servicio Remoto, Los 50 Estados ·{" "}
-        <a href="tel:+13479531531" className="underline font-bold">Llame: 347-953-1531</a>
+        <a href="/book" className="underline font-bold">Reserve en línea</a>
       </div>
       {/* Spanish intro section */}
       <section className="py-10 bg-gradient-to-b from-orange-50 to-white border-b border-orange-100">
@@ -88,9 +88,9 @@ export default function ReparacionImprisorasPage() {
             Reparamos impresoras HP, Canon, Epson y Brother de forma remota — sin salir de su casa. Servicio disponible en los 50 estados de EE.UU. <strong>Sin solución = sin pago.</strong>
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="tel:+13479531531"
+            <a href="/book"
               className="flex items-center justify-center gap-2 bg-orange-600 hover:bg-orange-700 text-white font-black text-lg px-8 py-4 rounded-2xl shadow-lg transition-all">
-              📞 Llame: 347-953-1531
+              📞 Reserve en línea
             </a>
           </div>
         </div>

@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 import PremiumServicePage from "@/components/features/PremiumServicePage";
 import { StickyCTA } from "@/components/ui/Button";
-import { PHONE, PHONE_HREF } from "@/lib/utils";
+import { BOOKING_LABEL, BOOKING_HREF } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Virus & Malware Removal — Same Day Remote Fix",
   description:
-    "Pro virus, malware, ransomware & spyware removal. Remote service — we clean your PC while you watch. No data loss. From $49. Call 347-953-1531.",
+    "Pro virus, malware, ransomware & spyware removal. Remote service — we clean your PC while you watch. No data loss. From $49. Book online.",
   alternates: { canonical: "https://trinisystem.vercel.app/virus-removal" },
   openGraph: {
     title: "Virus & Malware Removal — Same Day Remote Fix | Trini System",
-    description: "Pro virus, malware & ransomware removal. Remote service. No data loss. From $49. Call 347-953-1531.",
+    description: "Pro virus, malware & ransomware removal. Remote service. No data loss. From $49. Book online.",
     url: "https://trinisystem.vercel.app/virus-removal",
     type: "website",
   },
@@ -38,24 +38,24 @@ const schemas = [
     "@type": "FAQPage",
     mainEntity: [
       { "@type": "Question", name: "How do I know if my computer has a virus?",
-        acceptedAnswer: { "@type": "Answer", text: "Signs your PC has a virus: sudden extreme slowdown, pop-up ads appearing even without a browser open, browser homepage or search engine changed without permission, antivirus keeps alerting or was turned off, strange emails being sent from your account, or a scary pop-up saying 'Call Microsoft'. If you notice any of these, call Trini System at 347-953-1531 immediately." } },
+        acceptedAnswer: { "@type": "Answer", text: "Signs your PC has a virus: sudden extreme slowdown, pop-up ads appearing even without a browser open, browser homepage or search engine changed without permission, antivirus keeps alerting or was turned off, strange emails being sent from your account, or a scary pop-up saying 'Call Microsoft'. If you notice any of these, book a session with Trini System immediately." } },
       { "@type": "Question", name: "How much does virus removal cost?",
         acceptedAnswer: { "@type": "Answer", text: "Trini System remote virus removal starts at $49 — significantly less than Geek Squad's $149+. We remove all viruses, malware, spyware, and ransomware remotely while you watch. No fix = no fee. We've never charged a customer for a failed removal." } },
       { "@type": "Question", name: "Will virus removal delete my files?",
         acceptedAnswer: { "@type": "Answer", text: "No. Trini System's remote virus removal is designed to preserve all your personal files, photos, and documents. We target and remove only malicious files and programs. In 8+ years and 5,000+ sessions, we have never caused data loss during a virus removal." } },
       { "@type": "Question", name: "That scary pop-up says to call Microsoft — is it real?",
-        acceptedAnswer: { "@type": "Answer", text: "No — it is 100% a scam. Microsoft never shows pop-ups with phone numbers or calls you about viruses. Do NOT call the number. Close your browser (Ctrl+Alt+Delete → Task Manager → End Task on browser). Run Malwarebytes free scan. Call Trini System at 347-953-1531 if it comes back." } },
+        acceptedAnswer: { "@type": "Answer", text: "No — it is 100% a scam. Microsoft never shows pop-ups with phone numbers or calls you about viruses. Do NOT call the number. Close your browser (Ctrl+Alt+Delete → Task Manager → End Task on browser). Run Malwarebytes free scan. book a session with Trini System if it comes back." } },
       { "@type": "Question", name: "What if I was scammed and gave someone remote access?",
-        acceptedAnswer: { "@type": "Answer", text: "Call Trini System at 347-953-1531 immediately. We will connect remotely, check all programs installed by the scammer, remove their remote access software, check for keyloggers, and secure your accounts. Change your email and banking passwords from a different device as soon as possible." } },
+        acceptedAnswer: { "@type": "Answer", text: "book a session with Trini System immediately. We will connect remotely, check all programs installed by the scammer, remove their remote access software, check for keyloggers, and secure your accounts. Change your email and banking passwords from a different device as soon as possible." } },
       { "@type": "Question", name: "What is ransomware and can it be removed?",
-        acceptedAnswer: { "@type": "Answer", text: "Ransomware encrypts your files and demands payment. Do NOT pay. Disconnect from the internet immediately. Call Trini System at 347-953-1531 — we assess ransomware recovery options, remove the ransomware, and help restore files from shadow copies or backups when possible." } },
+        acceptedAnswer: { "@type": "Answer", text: "Ransomware encrypts your files and demands payment. Do NOT pay. Disconnect from the internet immediately. book a session with Trini System — we assess ransomware recovery options, remove the ransomware, and help restore files from shadow copies or backups when possible." } },
     ],
   },
   {
     "@context": "https://schema.org",
     "@type": "Service",
     name: "Virus & Malware Removal Service",
-    provider: { "@type": "LocalBusiness", name: "Trini System LLC", telephone: "+13479531531" },
+    provider: { "@type": "LocalBusiness", name: "Trini System LLC",},
     areaServed: "United States",
     serviceType: "Virus Removal",
     offers: { "@type": "Offer", price: "49", priceCurrency: "USD", description: "Remote virus removal — no fix no fee" },
@@ -118,7 +118,7 @@ export default function VirusRemovalPage() {
           { icon: "🌐", title: "Reset browser settings", detail: "Chrome: Settings → Reset Settings → Restore to defaults. Edge: same path. Firefox: Help → Troubleshooting → Refresh Firefox. This removes hijacked homepages and extensions." },
           { icon: "🔑", title: "Change all important passwords", detail: "From a DIFFERENT device (phone or another computer), change passwords for email, banking, and social media. If a keylogger was installed, your current passwords may be compromised." },
           { icon: "🔒", title: "Enable Windows Defender real-time protection", detail: "Windows Security → Virus & Threat Protection → Manage Settings → turn ON Real-time protection, Cloud protection, and Automatic sample submission." },
-          { icon: "✅", title: "Final scan and verification", detail: "Restart normally (not Safe Mode). Run one more Malwarebytes scan. If clean, you're secure. If threats persist, call us at 347-953-1531 — we'll remove everything remotely." },
+          { icon: "✅", title: "Final scan and verification", detail: "Restart normally (not Safe Mode). Run one more Malwarebytes scan. If clean, you're secure. If threats persist, book online — we'll remove everything remotely." },
         ]}
         reviewsTitle="4.9 Stars · 5,000+ Viruses Removed"
         reviews={[
@@ -130,15 +130,15 @@ export default function VirusRemovalPage() {
         faqTitle="Virus Removal — FAQ"
         faqs={[
           { q: "How do I know if my computer has a virus?", a: "Signs include: sudden extreme slowdown, pop-up ads everywhere, browser homepage changed, antivirus turned off, strange emails sent from your account, or a scary pop-up with a phone number. Act immediately if you notice any of these." },
-          { q: "That pop-up says to call Microsoft — is it real?", a: "No — 100% a scam. Microsoft never shows pop-ups with phone numbers. Force-close your browser (Ctrl+Alt+Delete → Task Manager). Run Malwarebytes scan. Call us at 347-953-1531 if it returns." },
-          { q: "I already called the scam number and gave them access — what now?", a: "Call us immediately at 347-953-1531. We'll find and remove all software they installed, check for keyloggers, and secure your PC. Change passwords from a different device right now." },
+          { q: "That pop-up says to call Microsoft — is it real?", a: "No — 100% a scam. Microsoft never shows pop-ups with phone numbers. Force-close your browser (Ctrl+Alt+Delete → Task Manager). Run Malwarebytes scan. Book online if it returns." },
+          { q: "I already called the scam number and gave them access — what now?", a: "Book a session immediately online. We'll find and remove all software they installed, check for keyloggers, and secure your PC. Change passwords from a different device right now." },
           { q: "Will virus removal delete my photos and documents?", a: "No. In 8+ years and 5,000+ sessions, we have never caused data loss during virus removal. We target only malicious files. Your personal files are completely safe." },
           { q: "How much does virus removal cost?", a: "Remote virus removal starts at $49. No fix = no fee guaranteed. Compare to Geek Squad's $149+. We've never charged for a failed removal." },
         ]}
         ctaTitle="Don't let viruses steal your data"
-        ctaSub="Every minute matters. Call now — we answer immediately, 24/7."
-        ctaPrimaryLabel={`Call ${PHONE} — We Answer 24/7`}
-        ctaPrimaryHref={PHONE_HREF}
+        ctaSub="Every minute matters. Book a session now."
+        ctaPrimaryLabel={`${BOOKING_LABEL} — Book 24/7`}
+        ctaPrimaryHref={BOOKING_HREF}
       />
 
       <StickyCTA />

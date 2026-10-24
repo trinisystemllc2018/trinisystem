@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { StickyCTA } from "@/components/ui/Button";
-import { PHONE, PHONE_HREF } from "@/lib/utils";
+import { BOOKING_LABEL, BOOKING_HREF } from "@/lib/utils";
 
 const BASE = "https://trinisystem.vercel.app";
 
@@ -72,7 +72,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `${brandA.name} vs ${brandB.name} Printer — Which to Buy 2026?`,
-    description: `${brandA.name} vs ${brandB.name} printer comparison: reliability, ink cost, repair ease, and which brand is right for you in 2026. Free expert advice — call 347-953-1531.`,
+    description: `${brandA.name} vs ${brandB.name} printer comparison: reliability, ink cost, repair ease, and which brand is right for you in 2026. Free expert advice — book online.`,
     alternates: { canonical: `${BASE}/compare/${params.slug}` },
     keywords: [
       `${a} vs ${b} printer`,
@@ -124,7 +124,7 @@ export default function ComparePage({ params }: Props) {
         name: `Which printer is easier to repair — ${brandA.name} or ${brandB.name}?`,
         acceptedAnswer: {
           "@type": "Answer",
-          text: `Both ${brandA.name} and ${brandB.name} printers can be repaired remotely by Trini System. ${brandA.name}: ${brandA.repairCost}. ${brandB.name}: ${brandB.repairCost}. Most issues with either brand are fixed remotely in under 20 minutes. Call 347-953-1531 for free diagnosis.`,
+          text: `Both ${brandA.name} and ${brandB.name} printers can be repaired remotely by Trini System. ${brandA.name}: ${brandA.repairCost}. ${brandB.name}: ${brandB.repairCost}. Most issues with either brand are fixed remotely in under 20 minutes. Book online for free diagnosis.`,
         },
       },
     ],
@@ -229,10 +229,10 @@ export default function ComparePage({ params }: Props) {
           <h2 className="text-2xl font-black text-white mb-4">Already own one? We repair both.</h2>
           <p className="text-white/55 mb-8">Whether you have a {brandA.name} or {brandB.name} printer, our technicians fix all models remotely. From $49 · No fix = no fee.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <a href={PHONE_HREF}
+            <a href={BOOKING_HREF}
               className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-black text-lg text-black"
               style={{ background: "linear-gradient(135deg,#f59e0b,#fb923c)" }}>
-              📞 {PHONE}
+              📞 {BOOKING_LABEL}
             </a>
           </div>
           <div className="flex flex-wrap justify-center gap-4">

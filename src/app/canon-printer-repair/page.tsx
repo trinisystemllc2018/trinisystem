@@ -6,7 +6,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Canon Printer Repair Near Me — PIXMA & B200 Fix",
   description:
-    "Canon printer repair — fix PIXMA MX922, TR4520, MG3620, imageCLASS B200 & 5100 errors remotely. All 50 states. From $49. Call 347-953-1531.",
+    "Canon printer repair — fix PIXMA MX922, TR4520, MG3620, imageCLASS B200 & 5100 errors remotely. All 50 states. From $49. Book online.",
   keywords: [
     "canon printer repair",
     "canon printer repair near me",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://trinisystem.vercel.app/canon-printer-repair" },
   openGraph: {
     title: "Canon Printer Repair Near Me — PIXMA & B200 Fix | Trini System",
-    description: "Expert Canon printer repair for PIXMA, imageCLASS, MAXIFY. Remote service all 50 states. From $49. Call 347-953-1531.",
+    description: "Expert Canon printer repair for PIXMA, imageCLASS, MAXIFY. Remote service all 50 states. From $49. Book online.",
     url: "https://trinisystem.vercel.app/canon-printer-repair",
     type: "website",
   },
@@ -82,17 +82,17 @@ const schemas = [
       {
         "@type": "Question",
         name: "What is Canon printer error B200 and can it be fixed?",
-        acceptedAnswer: { "@type": "Answer", text: "Canon B200 is a print head overheating error. About 80% of B200 errors are fixed without buying new hardware. Power off the printer, unplug for 15 minutes, slide the cartridge carrier to center, and perform the reset sequence (hold Stop/Reset while pressing Power 5 times). Trini System fixes Canon B200 remotely in under 30 minutes — call 347-953-1531." },
+        acceptedAnswer: { "@type": "Answer", text: "Canon B200 is a print head overheating error. About 80% of B200 errors are fixed without buying new hardware. Power off the printer, unplug for 15 minutes, slide the cartridge carrier to center, and perform the reset sequence (hold Stop/Reset while pressing Power 5 times). Trini System fixes Canon B200 remotely in under 30 minutes — book online." },
       },
       {
         "@type": "Question",
         name: "How do I fix Canon printer error 5100?",
-        acceptedAnswer: { "@type": "Answer", text: "Canon 5100 means a carriage obstruction or paper jam. Power off, open the front cover, remove all paper scraps, check for foreign objects (rubber bands, paper clips), gently slide the cartridge carrier left and right by hand, then power on. If it persists, Trini System diagnoses and fixes 5100 remotely — call 347-953-1531." },
+        acceptedAnswer: { "@type": "Answer", text: "Canon 5100 means a carriage obstruction or paper jam. Power off, open the front cover, remove all paper scraps, check for foreign objects (rubber bands, paper clips), gently slide the cartridge carrier left and right by hand, then power on. If it persists, Trini System diagnoses and fixes 5100 remotely — book online." },
       },
       {
         "@type": "Question",
         name: "Can Canon PIXMA printers be repaired remotely?",
-        acceptedAnswer: { "@type": "Answer", text: "Yes. Trini System provides remote Canon PIXMA repair for MX922, TR4520, TR4722, MG3620, G620, and TR8620. Software, driver, WiFi, scan, and most error code issues are fixed remotely without dropping the printer off anywhere. All 50 US states. Call 347-953-1531." },
+        acceptedAnswer: { "@type": "Answer", text: "Yes. Trini System provides remote Canon PIXMA repair for MX922, TR4520, TR4722, MG3620, G620, and TR8620. Software, driver, WiFi, scan, and most error code issues are fixed remotely without dropping the printer off anywhere. All 50 US states. Book online." },
       },
       {
         "@type": "Question",
@@ -102,12 +102,12 @@ const schemas = [
       {
         "@type": "Question",
         name: "How much does Canon printer repair cost?",
-        acceptedAnswer: { "@type": "Answer", text: "Remote Canon printer repair starts at $49 — about half what Geek Squad charges. Most Canon issues, including B200 and 5100 errors, are resolved in one 30-minute remote session. No fix = no fee guaranteed. Call 347-953-1531." },
+        acceptedAnswer: { "@type": "Answer", text: "Remote Canon printer repair starts at $49 — about half what Geek Squad charges. Most Canon issues, including B200 and 5100 errors, are resolved in one 30-minute remote session. No fix = no fee guaranteed. Book online." },
       },
       {
         "@type": "Question",
         name: "What Canon printer models do you support?",
-        acceptedAnswer: { "@type": "Answer", text: "Trini System supports all Canon printer lines: PIXMA (MX922, TR4520, TR4722, TR8620, MG3620, G620, G7020), imageCLASS (MF644Cdw, MF445dw, LBP6230dw), MAXIFY (MB5420, MB2720, GX7020), and Pro series. Call us for any Canon model." },
+        acceptedAnswer: { "@type": "Answer", text: "Trini System supports all Canon printer lines: PIXMA (MX922, TR4520, TR4722, TR8620, MG3620, G620, G7020), imageCLASS (MF644Cdw, MF445dw, LBP6230dw), MAXIFY (MB5420, MB2720, GX7020), and Pro series. Book a session for any Canon model." },
       },
     ],
   },
@@ -119,7 +119,6 @@ const schemas = [
     provider: {
       "@type": "LocalBusiness",
       name: "Trini System LLC",
-      telephone: "+13479531531",
       address: { "@type": "PostalAddress", streetAddress: "52-09 99th St Apt 8S", addressLocality: "Corona", addressRegion: "NY", postalCode: "11368", addressCountry: "US" },
       aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "47", bestRating: "5" },
     },
@@ -138,7 +137,7 @@ const schemas = [
       { "@type": "HowToStep", position: 1, name: "Power off and unplug", text: "Press the power button to turn off the Canon printer. Unplug from the wall outlet. Wait 15 full minutes — this allows the print head to cool fully." },
       { "@type": "HowToStep", position: 2, name: "Open and center the carriage", text: "Open the front cover. Gently slide the cartridge carrier to the center position by hand. Check for paper scraps or obstructions." },
       { "@type": "HowToStep", position: 3, name: "Reset sequence", text: "Plug back in. Hold the Stop/Reset button. While holding it, press the Power button. Continue holding Stop/Reset and press Power 5 times. Release both." },
-      { "@type": "HowToStep", position: 4, name: "Print test page", text: "Once the printer initializes, print a test page. If B200 is gone, you're done. If it returns, call Trini System at 347-953-1531." },
+      { "@type": "HowToStep", position: 4, name: "Print test page", text: "Once the printer initializes, print a test page. If B200 is gone, you're done. If it returns, book a session with Trini System." },
     ],
   },
 ];
@@ -159,7 +158,7 @@ export default function CanonPrinterRepairPage() {
       {/* Urgency Bar */}
       <div className="bg-gradient-to-r from-red-700 to-red-600 text-white py-3 text-center text-sm font-semibold">
         🖨️ Canon Printer Repair — Remote Service, All 50 States ·{" "}
-        <a href="tel:+13479531531" className="underline font-bold hover:text-red-200">Call 347-953-1531</a>
+        <a href="/book" className="underline font-bold hover:text-red-200">Book online</a>
         {" "}· From $49 · No Fix = No Fee
       </div>
 
@@ -188,8 +187,8 @@ export default function CanonPrinterRepairPage() {
               an average of 25 minutes — from $49. Available 24/7 across all 50 states.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="tel:+13479531531" className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105" style={{ background: "linear-gradient(135deg,#dc2626,#b91c1c)", boxShadow: "0 4px 30px rgba(220,38,38,0.5)" }}>
-                📞 Call Now — 347-953-1531
+              <a href="/book" className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105" style={{ background: "linear-gradient(135deg,#dc2626,#b91c1c)", boxShadow: "0 4px 30px rgba(220,38,38,0.5)" }}>
+                📅 Book Online
               </a>
               <a href="#canon-diagnosis" className="inline-flex items-center justify-center gap-2 bg-white/10 border-2 border-white/30 text-white font-bold py-5 px-8 rounded-2xl text-lg hover:bg-white/20 transition-all">
                 🔧 Diagnose My Canon Free
@@ -257,7 +256,7 @@ export default function CanonPrinterRepairPage() {
               </div>
             ))}
           </div>
-          <p className="text-center text-sm text-gray-400 mt-6">Don&apos;t see your model? <a href="tel:+13479531531" className="text-red-600 font-bold hover:underline">Call us — we repair all Canon models</a></p>
+          <p className="text-center text-sm text-gray-400 mt-6">Don&apos;t see your model? <a href="/book" className="text-red-600 font-bold hover:underline">Book a session — we repair all Canon models</a></p>
         </div>
       </section>
 
@@ -267,7 +266,7 @@ export default function CanonPrinterRepairPage() {
           <div className="text-center mb-10">
             <span className="inline-block text-xs font-black text-red-400 border border-red-700 px-3 py-1.5 rounded-full uppercase tracking-widest mb-4">DIY Guide</span>
             <h2 className="text-3xl md:text-4xl font-black mb-3">Fix Canon B200 — Step by Step</h2>
-            <p className="text-gray-400">80% of Canon B200 errors are fixed with these steps. If yours persists, call us.</p>
+            <p className="text-gray-400">80% of Canon B200 errors are fixed with these steps. If yours persists, book a session.</p>
           </div>
           <ol className="space-y-4">
             {[
@@ -275,7 +274,7 @@ export default function CanonPrinterRepairPage() {
               { step: 2, title: "Open and center the cartridge carrier", detail: "Open the front cover. Gently slide the cartridge carrier to the middle by hand. Check for paper scraps, ink drips, or foreign objects in the print path." },
               { step: 3, title: "Clean cartridge contacts", detail: "Remove all ink cartridges. With a dry, lint-free cloth, gently wipe the gold contacts on each cartridge AND inside the printer. Reseat firmly until they click." },
               { step: 4, title: "Perform reset sequence", detail: "Plug printer back in but DO NOT turn on. Hold the Stop/Reset button. While holding, press the Power button. Keep holding Stop/Reset, press Power 5 times. Release both buttons together." },
-              { step: 5, title: "Print test page", detail: "Once the printer initializes (may take 1–2 minutes), try printing a test page. If B200 is gone, you&apos;re done. If it returns, the print head may have failed — call Trini System and we&apos;ll diagnose remotely before any hardware decisions." },
+              { step: 5, title: "Print test page", detail: "Once the printer initializes (may take 1–2 minutes), try printing a test page. If B200 is gone, you&apos;re done. If it returns, the print head may have failed — book a session with Trini System and we&apos;ll diagnose remotely before any hardware decisions." },
             ].map(({ step, title, detail }) => (
               <li key={step} className="flex items-start gap-5 p-5 rounded-2xl bg-white/5 border border-white/10">
                 <div className="w-10 h-10 rounded-xl bg-red-600 flex items-center justify-center text-base font-black shrink-0">{step}</div>
@@ -288,7 +287,7 @@ export default function CanonPrinterRepairPage() {
           </ol>
           <div className="mt-8 p-5 rounded-2xl bg-red-900/40 border border-red-700/40 text-center">
             <p className="text-white font-bold mb-3">Still showing B200 after all 5 steps?</p>
-            <a href="tel:+13479531531" className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-black py-3 px-6 rounded-xl transition-colors">📞 Call Now — We Fix It in 25 Min</a>
+            <a href="/book" className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-black py-3 px-6 rounded-xl transition-colors">📅 Book Now — We Fix It in 25 Min</a>
           </div>
         </div>
       </section>
@@ -349,7 +348,7 @@ export default function CanonPrinterRepairPage() {
           </div>
           <div className="space-y-4">
             {[
-              { q: "What is Canon B200 error and can it be fixed remotely?", a: "Canon B200 is a print head overheating error. About 80% are fixed without buying a new printer. Power off, unplug for 15 min, center the carriage, and run the Stop/Reset + Power 5x reset sequence. Our technicians fix B200 remotely in 25 minutes — call 347-953-1531." },
+              { q: "What is Canon B200 error and can it be fixed remotely?", a: "Canon B200 is a print head overheating error. About 80% are fixed without buying a new printer. Power off, unplug for 15 min, center the carriage, and run the Stop/Reset + Power 5x reset sequence. Our technicians fix B200 remotely in 25 minutes — book online." },
               { q: "How do I fix Canon error 5100?", a: "Error 5100 means a carriage obstruction. Open the front cover, remove all paper scraps and foreign objects, gently slide the cartridge carrier left and right by hand. If it persists, we diagnose and fix 5100 remotely in 15 minutes." },
               { q: "Why won't my Canon PIXMA print after Windows 11 update?", a: "Windows 11 updates frequently break Canon drivers. We uninstall the corrupted driver, download the latest Master Setup from canon.com, and rebuild the connection. 95% fixed remotely in 20 minutes." },
               { q: "How much does Canon printer repair cost?", a: "Canon printer repair starts at $49 — about half of Geek Squad ($100–$200). Most issues including B200 and 5100 are resolved in one 30-minute remote session. No fix = no fee." },
@@ -407,8 +406,8 @@ export default function CanonPrinterRepairPage() {
           <h2 className="text-3xl md:text-4xl font-black mb-4">Get Your Canon Printer Fixed Today</h2>
           <p className="text-red-200 text-lg mb-8">Remote service · All 50 states · From $49 · No fix = no fee</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:+13479531531" className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105" style={{ background: "linear-gradient(135deg,#dc2626,#b91c1c)", boxShadow: "0 4px 30px rgba(220,38,38,0.5)" }}>
-              📞 Call 347-953-1531
+            <a href="/book" className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105" style={{ background: "linear-gradient(135deg,#dc2626,#b91c1c)", boxShadow: "0 4px 30px rgba(220,38,38,0.5)" }}>
+              📞 Book online
             </a>
             <Link href="/services" className="inline-flex items-center justify-center gap-2 bg-white/10 border-2 border-white/30 text-white font-bold py-5 px-8 rounded-2xl text-lg hover:bg-white/20 transition-all">
               View All Services →

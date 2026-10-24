@@ -102,13 +102,13 @@ export async function requestCallbackAction(
       if (!res.ok) {
         return {
           status: "error",
-          message: "We couldn't reach our team right now. Please call 347-953-1531 directly.",
+          message: "We couldn't reach our team right now. Please book online directly.",
         };
       }
     } catch {
       return {
         status: "error",
-        message: "Network error. Please call 347-953-1531 directly.",
+        message: "Network error. Please book online directly.",
       };
     }
   }
@@ -119,6 +119,6 @@ export async function requestCallbackAction(
 
   return {
     status: "success",
-    message: "Got it! A technician will call you in under 5 minutes.",
+    message: "Got it! Thanks! We received your request and a technician will contact you.",
   };
 }

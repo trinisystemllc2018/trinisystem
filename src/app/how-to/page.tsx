@@ -5,13 +5,12 @@ import { FACEBOOK_PAGES, ALL_FACEBOOK_SLUGS, FB_THEME } from "@/lib/facebook-dat
 import { GARMIN_APPS_PAGES, ALL_GARMIN_APPS_SLUGS, GARMIN_THEME } from "@/lib/garmin-apps-data";
 
 const SITE = "https://trinisystem.vercel.app";
-const PHONE = "+13479531531";
-const PHONE_DISPLAY = "347-953-1531";
+const BOOKING_LABEL = "Book Online";
 
 export const metadata: Metadata = {
   title: "How-To Guides for Seniors — Gmail, Facebook & Garmin Help (Trini System)",
   description:
-    "Free senior-friendly guides for Gmail, Facebook, and Garmin apps. Login problems, account recovery, scams, GPS map updates, watch setup. Call 347-953-1531.",
+    "Free senior-friendly guides for Gmail, Facebook, and Garmin apps. Login problems, account recovery, scams, GPS map updates, watch setup. Book online.",
   alternates: { canonical: `${SITE}/how-to` },
 };
 
@@ -23,9 +22,9 @@ export default function HowToHub() {
   return (
     <main className="min-h-screen" style={{ backgroundColor: "#F8FAFC" }}>
       <div className="sticky top-0 z-40 bg-gray-900 px-4 py-2 text-white text-center font-bold text-base md:text-lg">
-        Need a real person? Call free —{" "}
-        <a href={`tel:${PHONE}`} className="underline">
-          {PHONE_DISPLAY}
+        Need a real person? Book a session —{" "}
+        <a href="/book" className="underline">
+          {BOOKING_LABEL}
         </a>
       </div>
 
@@ -76,13 +75,13 @@ export default function HowToHub() {
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-3">Don't see your problem?</h2>
           <p className="text-lg md:text-xl mb-6 opacity-90">
-            Call a real person. We answer in under 15 minutes. No password ever needed.
+            Book a session with a real technician. No password ever needed.
           </p>
           <a
-            href={`tel:${PHONE}`}
+            href="/book"
             className="inline-block px-8 py-4 rounded-full text-xl md:text-2xl font-bold bg-white text-gray-900"
           >
-            📞 {PHONE_DISPLAY}
+            📞 {BOOKING_LABEL}
           </a>
         </section>
       </div>

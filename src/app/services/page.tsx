@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BRANDS, PHONE_HREF, PHONE } from "@/lib/utils";
+import { BRANDS, BOOKING_HREF, BOOKING_LABEL } from "@/lib/utils";
 import { StickyCTA } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
   title: "Tech Services — HP, Canon, Epson, Brother Repair",
-  description: "Expert remote printer repair for HP, Canon, Epson, Brother. PC repair, GPS updates, virus removal. From $49. All 50 states. Call 347-953-1531.",
+  description: "Expert remote printer repair for HP, Canon, Epson, Brother. PC repair, GPS updates, virus removal. From $49. All 50 states. Book online.",
   alternates: { canonical: "https://trinisystem.vercel.app/services" },
   keywords: ["HP printer repair", "Canon printer support", "Epson printer fix", "Brother printer setup", "printer offline fix", "tech support USA"],
 };
@@ -27,8 +27,8 @@ function ServicesHero() {
               From printer repair to PC optimization to GPS updates — we handle everything remotely across all 50 states. Fast, affordable, and no appointment needed.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
-              <a href={PHONE_HREF} className="flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold text-lg px-7 py-4 rounded-2xl shadow-brand hover:from-blue-700 hover:to-blue-800 transition-all">
-                📞 {PHONE} — Available Now
+              <a href={BOOKING_HREF} className="flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold text-lg px-7 py-4 rounded-2xl shadow-brand hover:from-blue-700 hover:to-blue-800 transition-all">
+                📞 {BOOKING_LABEL} — Available Now
               </a>
               <Link href="/tools" className="flex items-center justify-center gap-2 bg-white text-gray-700 font-semibold text-lg px-7 py-4 rounded-2xl border-2 border-gray-200 hover:border-gray-300 transition-all">
                 Try Free Tools →
@@ -110,7 +110,7 @@ function BrandDetails() {
                 {/* CTA */}
                 <div className="md:w-44 p-6 flex flex-col gap-3 justify-center border-t md:border-t-0 md:border-l border-gray-100">
                   <a
-                    href={PHONE_HREF}
+                    href={BOOKING_HREF}
                     className="flex items-center justify-center gap-1.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white text-sm font-bold py-3 px-4 rounded-2xl shadow-brand hover:from-blue-700 hover:to-blue-800 transition-all"
                   >
                     📞 Get Help
@@ -159,7 +159,7 @@ function OtherServices() {
                 ))}
               </div>
               <a
-                href={PHONE_HREF}
+                href={BOOKING_HREF}
                 className="mt-5 inline-flex items-center gap-2 bg-white text-gray-700 font-semibold text-sm px-4 py-2.5 rounded-xl border border-gray-200 hover:border-blue-300 hover:text-blue-600 transition-all"
               >
                 📞 Get Help →

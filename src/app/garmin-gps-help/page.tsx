@@ -4,12 +4,12 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Garmin GPS Help — Update, Fix, Troubleshoot",
   description:
-    "Garmin GPS help for DriveSmart, Nuvi, eTrex, Forerunner, Fenix & more. Fix Express errors, satellite issues, map updates. Free guide. Call 347-953-1531.",
+    "Garmin GPS help for DriveSmart, Nuvi, eTrex, Forerunner, Fenix & more. Fix Express errors, satellite issues, map updates. Free guide. Book online.",
   alternates: { canonical: "https://trinisystem.vercel.app/garmin-gps-help" },
   openGraph: {
     title: "Garmin GPS Help — Update, Fix, Troubleshoot | Trini System",
     description:
-      "Free Garmin GPS help center. Update guides for every model + real-time issue fixes. Call 347-953-1531.",
+      "Free Garmin GPS help center. Update guides for every model + real-time issue fixes. Book online.",
     url: "https://trinisystem.vercel.app/garmin-gps-help",
     type: "website",
   },
@@ -154,7 +154,6 @@ const schemas = [
     provider: {
       "@type": "LocalBusiness",
       name: "Trini System LLC",
-      telephone: "+13479531531",
       address: {
         "@type": "PostalAddress",
         streetAddress: "52-09 99th St Apt 8S",
@@ -217,9 +216,7 @@ export default function GarminGPSHelpPage() {
       {/* Urgency Bar */}
       <div className="bg-gradient-to-r from-blue-700 to-blue-600 text-white py-3 text-center text-sm font-semibold">
         🗺️ Garmin GPS Help — All Models · 24/7 ·{" "}
-        <a href="tel:+13479531531" className="underline font-bold hover:text-blue-200">
-          347-953-1531
-        </a>{" "}
+        <a href="/book" className="underline font-bold hover:text-blue-200">Book online</a>{" "}
         · From $49
       </div>
 
@@ -275,14 +272,14 @@ export default function GarminGPSHelpPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+13479531531"
+                href="/book"
                 className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105"
                 style={{
                   background: "linear-gradient(135deg,#dc2626,#b91c1c)",
                   boxShadow: "0 4px 30px rgba(220,38,38,0.5)",
                 }}
               >
-                📞 Talk to a Garmin Tech — 347-953-1531
+                📅 Talk to a Garmin Tech — Book Online
               </a>
               <a
                 href="#categories"
@@ -532,14 +529,14 @@ export default function GarminGPSHelpPage() {
             Phone pickup under 5 min · From $49 · No fix = no fee · 24/7
           </p>
           <a
-            href="tel:+13479531531"
+            href="/book"
             className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105"
             style={{
               background: "linear-gradient(135deg,#dc2626,#b91c1c)",
               boxShadow: "0 4px 30px rgba(220,38,38,0.5)",
             }}
           >
-            📞 347-953-1531
+            📅 Book Online
           </a>
         </div>
       </section>

@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { TechER } from "@/components/features/TechER";
 import { StickyCTA } from "@/components/ui/Button";
-import { PHONE, PHONE_HREF } from "@/lib/utils";
+import { BOOKING_LABEL, BOOKING_HREF } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Fix My Printer — Free Diagnostic Tool",
-  description: "Free interactive printer diagnostic — HP, Canon, Epson, Brother. Get an instant fix or call 347-953-1531 for remote tech support from $49.",
+  description: "Free interactive printer diagnostic — HP, Canon, Epson, Brother. Get an instant fix or book online for remote tech support from $49.",
   alternates: { canonical: "https://trinisystem.vercel.app/fix" },
   keywords: [
     "fix printer online","hp printer offline fix","canon printer error b200","epson printer not printing",
@@ -30,15 +30,15 @@ const schemas = [
     "@type": "FAQPage",
     mainEntity: [
       { "@type": "Question", name: "How do I fix my HP printer showing offline?",
-        acceptedAnswer: { "@type": "Answer", text: "Restart your printer and WiFi router. On Windows: Settings → Printers & Scanners → click HP → Open print queue → Printer menu → uncheck 'Use Printer Offline'. If still offline after that, visit 123.hp.com to reinstall the driver. Trini System fixes HP offline errors remotely in 15 minutes — call 347-953-1531." } },
+        acceptedAnswer: { "@type": "Answer", text: "Restart your printer and WiFi router. On Windows: Settings → Printers & Scanners → click HP → Open print queue → Printer menu → uncheck 'Use Printer Offline'. If still offline after that, visit 123.hp.com to reinstall the driver. Trini System fixes HP offline errors remotely in 15 minutes — book online." } },
       { "@type": "Question", name: "What is Canon B200 error and how do I fix it?",
-        acceptedAnswer: { "@type": "Answer", text: "The Canon B200 error indicates a print head issue, but 80% of B200 errors are caused by overheating — not broken hardware. The fix: power off and unplug for 15 minutes, manually center the cartridge carrier, hold Stop/Reset while pressing Power. Trini System resolves B200 errors remotely — call 347-953-1531." } },
+        acceptedAnswer: { "@type": "Answer", text: "The Canon B200 error indicates a print head issue, but 80% of B200 errors are caused by overheating — not broken hardware. The fix: power off and unplug for 15 minutes, manually center the cartridge carrier, hold Stop/Reset while pressing Power. Trini System resolves B200 errors remotely — book online." } },
       { "@type": "Question", name: "Why does my Epson EcoTank show an ink error when tanks are full?",
-        acceptedAnswer: { "@type": "Answer", text: "Epson EcoTank ink errors on full tanks are almost always a sensor calibration issue, not actual ink problems. Run Epson Print and Scan Doctor from epson.com/support, then run Head Cleaning from Epson Utility. Trini System resets Epson ink sensors remotely in 15 minutes — call 347-953-1531." } },
+        acceptedAnswer: { "@type": "Answer", text: "Epson EcoTank ink errors on full tanks are almost always a sensor calibration issue, not actual ink problems. Run Epson Print and Scan Doctor from epson.com/support, then run Head Cleaning from Epson Utility. Trini System resets Epson ink sensors remotely in 15 minutes — book online." } },
       { "@type": "Question", name: "My Brother printer driver is unavailable after Windows 11 update — what do I do?",
-        acceptedAnswer: { "@type": "Answer", text: "Remove the existing driver from Settings → Printers. Download the Full Driver & Software Package directly from support.brother.com (do not use Windows Update drivers). Install via USB first, then switch to wireless. Trini System fixes Brother Windows 11 driver issues remotely — call 347-953-1531." } },
+        acceptedAnswer: { "@type": "Answer", text: "Remove the existing driver from Settings → Printers. Download the Full Driver & Software Package directly from support.brother.com (do not use Windows Update drivers). Install via USB first, then switch to wireless. Trini System fixes Brother Windows 11 driver issues remotely — book online." } },
       { "@type": "Question", name: "How much does remote printer repair cost?",
-        acceptedAnswer: { "@type": "Answer", text: "Trini System remote printer repair starts at $49 — about one-third the cost of Geek Squad. We offer a free diagnosis: if we can't fix your printer, you don't pay. Most printer issues are resolved in under 30 minutes. Call 347-953-1531." } },
+        acceptedAnswer: { "@type": "Answer", text: "Trini System remote printer repair starts at $49 — about one-third the cost of Geek Squad. We offer a free diagnosis: if we can't fix your printer, you don't pay. Most printer issues are resolved in under 30 minutes. Book online." } },
       { "@type": "Question", name: "Can you fix my printer without me bringing it anywhere?",
         acceptedAnswer: { "@type": "Answer", text: "Yes — Trini System fixes printers 100% remotely. We connect to your computer via secure remote session and fix the printer software, drivers, and network settings while you watch. We serve all 50 US states. No travel required, no drop-off needed." } },
     ],
@@ -47,7 +47,7 @@ const schemas = [
     "@context": "https://schema.org",
     "@type": "Service",
     name: "Remote Printer Repair Service",
-    provider: { "@type": "LocalBusiness", name: "Trini System LLC", telephone: "+13479531531" },
+    provider: { "@type": "LocalBusiness", name: "Trini System LLC",},
     areaServed: "United States",
     serviceType: "Printer Repair",
     offers: { "@type": "Offer", price: "49", priceCurrency: "USD", description: "Remote printer repair — no fix no fee" },
@@ -172,7 +172,7 @@ export default function FixPage() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { n: "01", icon: "📞", title: "Call or Use Tool", desc: "Use the free diagnostic above or call us at 347-953-1531. We identify your exact issue in 2 minutes." },
+              { n: "01", icon: "📞", title: "Book or Use Tool", desc: "Use the free diagnostic above or book online. We identify your exact issue in 2 minutes." },
               { n: "02", icon: "🔗", title: "Secure Remote Connect", desc: "We send a simple link. You click it and we can see your screen — you watch everything we do, live." },
               { n: "03", icon: "🔧", title: "We Fix the Driver", desc: "We reinstall the printer driver, fix network settings, clear error codes, and verify the connection." },
               { n: "04", icon: "✅", title: "Test Print & Done", desc: "We run a test page before disconnecting. If it doesn't print, you don't pay. Simple." },
@@ -246,7 +246,7 @@ export default function FixPage() {
           <div className="space-y-4">
             {[
               { q: "How do I fix my HP printer showing offline?", a: "Restart your printer and WiFi router. On Windows: Settings → Printers & Scanners → click HP → Open print queue → Printer menu → uncheck 'Use Printer Offline'. If still offline, visit 123.hp.com to reinstall the driver fresh. Trini System fixes HP offline errors remotely in under 15 minutes." },
-              { q: "What is Canon B200 error?", a: "The Canon B200 error indicates a print head issue, but 80% of B200 errors are overheating — not broken hardware. Power off, unplug for 15 minutes to let it cool, then hold Stop/Reset while pressing Power. Trini System resolves Canon B200 errors remotely — call 347-953-1531." },
+              { q: "What is Canon B200 error?", a: "The Canon B200 error indicates a print head issue, but 80% of B200 errors are overheating — not broken hardware. Power off, unplug for 15 minutes to let it cool, then hold Stop/Reset while pressing Power. Trini System resolves Canon B200 errors remotely — book online." },
               { q: "Why does my Epson EcoTank show ink error with full tanks?", a: "Epson EcoTank ink errors on full tanks are a sensor calibration issue, not actual ink problems. Run Epson Print and Scan Doctor (free at epson.com/support), then Head Cleaning from Epson Utility. We reset Epson ink sensors remotely in 15 minutes." },
               { q: "How much does printer repair cost?", a: "Our remote printer repair starts at $49 — about one-third the cost of Geek Squad ($149+). Free diagnosis included. If we can't fix it, you don't pay." },
               { q: "Do I need to bring my printer somewhere?", a: "No — 100% remote. We connect to your computer via secure remote session and fix your printer's software, drivers, and network settings while you watch from home." },
@@ -267,10 +267,10 @@ export default function FixPage() {
       <section className="py-14 bg-gradient-to-r from-blue-700 to-blue-900 text-white text-center">
         <div className="max-w-3xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-black mb-4">Still not printing?</h2>
-          <p className="text-blue-200 text-lg mb-8">Call us now — average printer fix takes 15 minutes. No fix, no fee.</p>
+          <p className="text-blue-200 text-lg mb-8">Book a session now — average printer fix takes 15 minutes. No fix, no fee.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href={PHONE_HREF} className="flex items-center justify-center gap-2 bg-white text-blue-700 font-black text-lg px-8 py-4 rounded-2xl hover:bg-blue-50 transition-all shadow-xl">
-              📞 Call {PHONE}
+            <a href={BOOKING_HREF} className="flex items-center justify-center gap-2 bg-white text-blue-700 font-black text-lg px-8 py-4 rounded-2xl hover:bg-blue-50 transition-all shadow-xl">
+              📞 {BOOKING_LABEL}
             </a>
             <a href="https://discord.gg/trinisystem" target="_blank" rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-base px-8 py-4 rounded-2xl transition-all">

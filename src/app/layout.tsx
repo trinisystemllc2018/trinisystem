@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: "%s | Trini System",
   },
   description:
-    "Printer offline? PC slow? GPS not updating? Real technicians fix HP, Canon, Epson & Brother printers remotely in minutes. Free diagnosis. Call 347-953-1531.",
+    "Printer offline? PC slow? GPS not updating? Real technicians fix HP, Canon, Epson & Brother printers remotely in minutes. Free diagnosis. Book online.",
   keywords: [
     "printer repair USA", "HP printer offline fix", "Canon printer not printing",
     "Epson printer error", "Brother printer setup", "free computer cleaner",
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: BASE_URL,
     title: "Trini System LLC — Printer Repair & PC Support USA",
-    description: "Expert printer repair & free PC optimizer. HP, Canon, Epson, Brother. All 50 US states. Call 347-953-1531.",
+    description: "Expert printer repair & free PC optimizer. HP, Canon, Epson, Brother. All 50 US states. Book online.",
     siteName: "Trini System LLC",
     images: [
       {
@@ -125,7 +125,6 @@ const localBusinessSchema = {
   "alternateName": ["Trini System", "TriniSystem", "Trini System LLC Tech Support"],
   "description": "Expert remote printer repair & PC support for HP, Canon, Epson, Brother. Free TriniCleaner download. Serving all 50 states from Corona, Queens, NY.",
   "url": BASE_URL,
-  "telephone": "+13479531531",
   "email": "trinisystemllc@gmail.com",
   "foundingDate": "2016",
   "priceRange": "$$",
@@ -252,7 +251,6 @@ const organizationSchema = {
   "logo": `${BASE_URL}/logo.png`,
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+13479531531",
     "contactType": "customer support",
     "areaServed": "US",
     "availableLanguage": ["English", "Spanish"],

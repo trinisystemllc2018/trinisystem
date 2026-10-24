@@ -49,6 +49,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/downloads`,                    lastModified: NOW, changeFrequency: "monthly", priority: 0.75 },
     { url: `${BASE}/about`,                        lastModified: NOW, changeFrequency: "monthly", priority: 0.65 },
     { url: `${BASE}/contact`,                      lastModified: NOW, changeFrequency: "monthly", priority: 0.70 },
+    { url: `${BASE}/book`,                         lastModified: NOW, changeFrequency: "monthly", priority: 0.80 },
     { url: `${BASE}/epson-service-nyc`,            lastModified: NOW, changeFrequency: "weekly",  priority: 0.88 },
     { url: `${BASE}/epson-plotters`,               lastModified: NOW, changeFrequency: "monthly", priority: 0.80 },
     { url: `${BASE}/hp-printer-service`,           lastModified: NOW, changeFrequency: "weekly",  priority: 0.88 },

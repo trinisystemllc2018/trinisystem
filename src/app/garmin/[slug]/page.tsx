@@ -80,7 +80,6 @@ function SeriesPage({ data, slug }: { data: GarminSeries; slug: string }) {
       provider: {
         "@type": "LocalBusiness",
         name: "Trini System LLC",
-        telephone: "+13479531531",
       },
       areaServed: { "@type": "Country", name: "United States" },
       serviceType: `${data.name} Map & Firmware Update`,
@@ -135,9 +134,7 @@ function SeriesPage({ data, slug }: { data: GarminSeries; slug: string }) {
 
       <div className="bg-gradient-to-r from-blue-700 to-blue-600 text-white py-3 text-center text-sm font-semibold">
         🗺️ {data.name} Update Service ·{" "}
-        <a href="tel:+13479531531" className="underline font-bold hover:text-blue-200">
-          347-953-1531
-        </a>{" "}
+        <a href="/book" className="underline font-bold hover:text-blue-200">Book online</a>{" "}
         · From $49 · No Fix = No Fee
       </div>
 
@@ -186,14 +183,14 @@ function SeriesPage({ data, slug }: { data: GarminSeries; slug: string }) {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+13479531531"
+                href="/book"
                 className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105"
                 style={{
                   background: "linear-gradient(135deg,#dc2626,#b91c1c)",
                   boxShadow: "0 4px 30px rgba(220,38,38,0.5)",
                 }}
               >
-                📞 Call Now — 347-953-1531
+                📅 Book Online
               </a>
               <a
                 href="#update-steps"
@@ -218,7 +215,7 @@ function SeriesPage({ data, slug }: { data: GarminSeries; slug: string }) {
             </h2>
             <p className="text-gray-500 max-w-2xl mx-auto">
               Every {data.name} model — current and legacy — supported. Don&apos;t see yours?{" "}
-              <a href="tel:+13479531531" className="text-blue-700 font-bold">Call us.</a>
+              <a href="/book" className="text-blue-700 font-bold">Book a session.</a>
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -349,10 +346,10 @@ function SeriesPage({ data, slug }: { data: GarminSeries; slug: string }) {
           <div className="mt-8 p-5 rounded-2xl bg-blue-900/40 border border-blue-700/40 text-center">
             <p className="text-white font-bold mb-3">Stuck on any step?</p>
             <a
-              href="tel:+13479531531"
+              href="/book"
               className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-black py-3 px-6 rounded-xl transition-colors"
             >
-              📞 Call — We Update It for You · $49
+              📅 Book — We Update It for You · $49
             </a>
           </div>
         </div>
@@ -505,14 +502,14 @@ function SeriesPage({ data, slug }: { data: GarminSeries; slug: string }) {
             {data.estimatedFixCost}
           </p>
           <a
-            href="tel:+13479531531"
+            href="/book"
             className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105"
             style={{
               background: "linear-gradient(135deg,#dc2626,#b91c1c)",
               boxShadow: "0 4px 30px rgba(220,38,38,0.5)",
             }}
           >
-            📞 347-953-1531
+            📅 Book Online
           </a>
         </div>
       </section>
@@ -599,9 +596,7 @@ function ProblemPage({ data, slug }: { data: GarminProblemPage; slug: string }) 
 
       <div className={`${accentBg} text-white py-3 text-center text-sm font-semibold`}>
         🛠️ {data.problemTitle} — Fix Available ·{" "}
-        <a href="tel:+13479531531" className="underline font-bold hover:opacity-80">
-          347-953-1531
-        </a>{" "}
+        <a href="/book" className="underline font-bold hover:opacity-80">Book online</a>{" "}
         · From $49
       </div>
 
@@ -624,14 +619,14 @@ function ProblemPage({ data, slug }: { data: GarminProblemPage; slug: string }) 
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+13479531531"
+                href="/book"
                 className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105"
                 style={{
                   background: "linear-gradient(135deg,#dc2626,#b91c1c)",
                   boxShadow: "0 4px 30px rgba(220,38,38,0.5)",
                 }}
               >
-                📞 Talk to a Tech — 347-953-1531
+                📅 Talk to a Tech — Book Online
               </a>
               <a
                 href="#fix-sequence"
@@ -796,18 +791,18 @@ function ProblemPage({ data, slug }: { data: GarminProblemPage; slug: string }) 
       </section>
 
       {/* WHEN TO CALL US */}
-      <section aria-label="When to Call Us" className="bg-amber-50 py-14 border-y-2 border-amber-200">
+      <section aria-label="When to Book a Session" className="bg-amber-50 py-14 border-y-2 border-amber-200">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <div className="text-4xl mb-4">📞</div>
           <h2 className="text-2xl md:text-3xl font-black text-amber-900 mb-4">
-            When to Call Us Instead
+            When to Book a Session Instead
           </h2>
           <p className="text-base text-amber-900 leading-relaxed mb-6">{data.whenToCallUs}</p>
           <a
-            href="tel:+13479531531"
+            href="/book"
             className="inline-flex items-center gap-2 bg-amber-700 hover:bg-amber-800 text-white font-black py-3 px-6 rounded-xl transition-colors"
           >
-            📞 Call 347-953-1531 — From $49
+            📞 Book online — From $49
           </a>
         </div>
       </section>
@@ -896,14 +891,14 @@ function ProblemPage({ data, slug }: { data: GarminProblemPage; slug: string }) 
             Remote service · From $49 · No fix = no fee
           </p>
           <a
-            href="tel:+13479531531"
+            href="/book"
             className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105"
             style={{
               background: "linear-gradient(135deg,#dc2626,#b91c1c)",
               boxShadow: "0 4px 30px rgba(220,38,38,0.5)",
             }}
           >
-            📞 347-953-1531
+            📅 Book Online
           </a>
         </div>
       </section>

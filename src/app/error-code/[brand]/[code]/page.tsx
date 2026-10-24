@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { StickyCTA } from "@/components/ui/Button";
-import { PHONE, PHONE_HREF } from "@/lib/utils";
+import { BOOKING_LABEL, BOOKING_HREF } from "@/lib/utils";
 import { notFound } from "next/navigation";
 
 const BASE = "https://trinisystem.vercel.app";
@@ -78,7 +78,7 @@ const ERROR_DB: Record<string, Record<string, {
         { step: "Hard power reset", detail: "Hold power button for 30 seconds while unplugged. Plug back in while still holding button, then release." },
         { step: "Print head cleaning", detail: "On printer: Menu → Maintenance → Head Cleaning. Run 2 full cycles." },
         { step: "Reset to factory defaults", detail: "Menu → Setup → Restore Default Settings. Note: this clears WiFi settings." },
-        { step: "Call Trini System", detail: "0x97 often requires a hardware reset sequence that must be performed remotely by a technician. Call 347-953-1531." },
+        { step: "book a session with Trini System", detail: "0x97 often requires a hardware reset sequence that must be performed remotely by a technician. Book online." },
       ],
       severity: "high",
       successRate: 72,
@@ -169,13 +169,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!errorData) {
     return {
       title: `${brandName} Error ${code} Fix`,
-      description: `Fix ${brandName} printer error code ${code}. Expert remote repair. Call 347-953-1531.`,
+      description: `Fix ${brandName} printer error code ${code}. Expert remote repair. Book online.`,
     };
   }
 
   return {
     title: `${errorData.title} | Trini System`,
-    description: `${errorData.meaning} ${errorData.fixes[0].detail.substring(0, 80)}... Expert remote fix. Call 347-953-1531.`,
+    description: `${errorData.meaning} ${errorData.fixes[0].detail.substring(0, 80)}... Expert remote fix. Book online.`,
     alternates: { canonical: `${BASE}/error-code/${brand}/${code}` },
     keywords: [
       `${brandName.toLowerCase()} error ${code}`,
@@ -247,10 +247,10 @@ export default function ErrorCodePage({ params }: Props) {
             </p>
           )}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href={PHONE_HREF}
+            <a href={BOOKING_HREF}
               className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-black text-lg text-black"
               style={{ background: "linear-gradient(135deg,#f59e0b,#fb923c)", boxShadow: "0 0 30px rgba(249,115,22,0.4)" }}>
-              📞 {PHONE} — Fix It Now
+              📞 {BOOKING_LABEL} — Fix It Now
             </a>
           </div>
         </div>
@@ -306,10 +306,10 @@ export default function ErrorCodePage({ params }: Props) {
                 <p className="text-white/55 mb-5">
                   Some {brandName} {code} errors need a deep firmware reset or hardware diagnostic. We fix this daily — remotely in under 20 minutes.
                 </p>
-                <a href={PHONE_HREF}
+                <a href={BOOKING_HREF}
                   className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-black text-lg text-black"
                   style={{ background: "linear-gradient(135deg,#f59e0b,#fb923c)" }}>
-                  📞 {PHONE} — Free Diagnosis
+                  📞 {BOOKING_LABEL} — Free Diagnosis
                 </a>
               </div>
             </div>
@@ -321,15 +321,15 @@ export default function ErrorCodePage({ params }: Props) {
           <div className="max-w-3xl mx-auto text-center">
             <div className="text-5xl mb-6">🔍</div>
             <h2 className="text-2xl font-black text-white mb-4">
-              We fix {brandName} error code {code.toUpperCase()} — call us
+              We fix {brandName} error code {code.toUpperCase()} — book a session
             </h2>
             <p className="text-white/60 text-lg mb-8">
-              Our technicians have seen every {brandName} error code. Call us free and we&apos;ll diagnose it in under 5 minutes.
+              Our technicians have seen every {brandName} error code. Book a session free and we&apos;ll diagnose it in under 5 minutes.
             </p>
-            <a href={PHONE_HREF}
+            <a href={BOOKING_HREF}
               className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-black text-lg text-black"
               style={{ background: "linear-gradient(135deg,#f59e0b,#fb923c)" }}>
-              📞 {PHONE} — Free Diagnosis
+              📞 {BOOKING_LABEL} — Free Diagnosis
             </a>
           </div>
         </section>

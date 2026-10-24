@@ -6,11 +6,11 @@ import { StickyCTA } from "@/components/ui/Button";
 export const metadata: Metadata = {
   title: "Epson Plotters Service & Repair — SureColor Pro",
   description:
-    "Epson plotter service for SureColor T3170, T5170, P5000, P7000, P9000 & F570. Banding, head clean, calibration, color profiles. From $79. Call 347-953-1531.",
+    "Epson plotter service for SureColor T3170, T5170, P5000, P7000, P9000 & F570. Banding, head clean, calibration, color profiles. From $79. Book online.",
   alternates: { canonical: "https://trinisystem.vercel.app/epson-plotters" },
   openGraph: {
     title: "Epson Plotters Service & Repair — SureColor Pro | Trini System",
-    description: "Epson plotter & SureColor repair. Banding, head clean, color setup. From $79. Call 347-953-1531.",
+    description: "Epson plotter & SureColor repair. Banding, head clean, color setup. From $79. Book online.",
     url: "https://trinisystem.vercel.app/epson-plotters",
     type: "website",
   },
@@ -73,7 +73,7 @@ const schemas = [
     "@type": "Service",
     name: "Epson Plotter & SureColor Service",
     description: "Professional repair, calibration, and setup of Epson plotters and SureColor wide-format printers — for architecture firms, photographers, print labs, and apparel shops.",
-    provider: { "@type": "LocalBusiness", name: "Trini System LLC", telephone: "+13479531531" },
+    provider: { "@type": "LocalBusiness", name: "Trini System LLC",},
     areaServed: { "@type": "Country", name: "United States" },
     serviceType: "Wide-Format Plotter Repair",
     offers: { "@type": "Offer", price: "79", priceCurrency: "USD", description: "Starting price for Epson plotter remote service" },
@@ -83,7 +83,7 @@ const schemas = [
     "@type": "FAQPage",
     mainEntity: [
       { "@type": "Question", name: "What Epson plotter models do you service?",
-        acceptedAnswer: { "@type": "Answer", text: "We service the full Epson SureColor line: T-Series CAD plotters (T3170, T5170, T7270), P-Series photo printers (P700, P900, P5000, P7000, P9000), F-Series dye-sublimation (F570, F6470, F9470, F11070), and legacy Stylus Pro models (7900, 9900). Call 347-953-1531." } },
+        acceptedAnswer: { "@type": "Answer", text: "We service the full Epson SureColor line: T-Series CAD plotters (T3170, T5170, T7270), P-Series photo printers (P700, P900, P5000, P7000, P9000), F-Series dye-sublimation (F570, F6470, F9470, F11070), and legacy Stylus Pro models (7900, 9900). Book online." } },
       { "@type": "Question", name: "Can you fix banding on my Epson plotter remotely?",
         acceptedAnswer: { "@type": "Answer", text: "Yes. About 75% of Epson plotter banding is fixed remotely by guided power-clean cycles, head alignment, and paper preset reload. We remote into your control PC and walk through the procedure step-by-step. If the head needs physical service, we recommend the closest Epson-authorized partner." } },
       { "@type": "Question", name: "How much does Epson plotter repair cost?",
@@ -108,7 +108,7 @@ export default function EpsonPlottersPage() {
       {/* Urgency Bar */}
       <div className="bg-gradient-to-r from-cyan-700 to-blue-700 text-white py-3 text-center text-sm font-semibold">
         🖼️ Epson Plotters & SureColor Service ·{" "}
-        <a href="tel:+13479531531" className="underline font-bold hover:text-blue-200">Call 347-953-1531</a>
+        <a href="/book" className="underline font-bold hover:text-blue-200">Book online</a>
         {" "}· From $79
       </div>
 
@@ -137,8 +137,8 @@ export default function EpsonPlottersPage() {
               Trusted by architecture firms, photo studios, and print labs nationwide.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="tel:+13479531531" className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105" style={{ background: "linear-gradient(135deg,#dc2626,#b91c1c)", boxShadow: "0 4px 30px rgba(220,38,38,0.5)" }}>
-                📞 Call Plotter Tech — 347-953-1531
+              <a href="/book" className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105" style={{ background: "linear-gradient(135deg,#dc2626,#b91c1c)", boxShadow: "0 4px 30px rgba(220,38,38,0.5)" }}>
+                📅 Book Online
               </a>
               <a href="#diagnosis" className="inline-flex items-center justify-center gap-2 bg-white/10 border-2 border-white/30 text-white font-bold py-5 px-8 rounded-2xl text-lg hover:bg-white/20 transition-all">
                 🔧 Diagnose My Plotter
@@ -286,14 +286,14 @@ export default function EpsonPlottersPage() {
           </div>
           <div className="space-y-4">
             {[
-              { q: "What Epson plotter models do you service?", a: "Full SureColor line: T3170, T5170, T7270 (CAD); P700, P900, P5000, P7000, P9000 (photo); F570, F6470, F9470, F11070 (dye-sub). Plus discontinued Stylus Pro 7900, 9900, 9890. Call 347-953-1531." },
+              { q: "What Epson plotter models do you service?", a: "Full SureColor line: T3170, T5170, T7270 (CAD); P700, P900, P5000, P7000, P9000 (photo); F570, F6470, F9470, F11070 (dye-sub). Plus discontinued Stylus Pro 7900, 9900, 9890. Book online." },
               { q: "Can banding really be fixed remotely?", a: "Yes — 75% of plotter banding is software/calibration, not hardware. Head-clean cycles, head alignment, paper preset reload, and ICC profile fixes are all remote-friendly. Only physical head failures require on-site service." },
               { q: "Do you support architecture/AEC workflows?", a: "Yes. AutoCAD, Revit, ArchiCAD, Bluebeam — we install plotter drivers correctly for each. We also handle network share configs for multi-architect offices and color-matched output between multiple T-series plotters." },
               { q: "Do you install ICC profiles for photo plotters?", a: "Yes. ICC profile install is routine. We work with Hahnemühle, Canson, Epson Signature Worthy, Red River, and custom-built profiles. We can also help you create profiles if you have an X-Rite i1 or similar spectrophotometer." },
               { q: "How fast is plotter service?", a: "Remote plotter sessions usually 30–60 minutes. On-site service in NYC tri-state is same-day or next-day for hardware-only issues. Phone callback typically under 5 minutes." },
               { q: "How much does plotter repair cost?", a: "Remote: starts at $79 (driver, calibration, banding). Complex jobs $129–$249 (firmware recovery, waste-ink reset, RIP integration). On-site service starts at $149 trip + labor. We quote before any work begins." },
               { q: "Do you handle waste-ink pad resets?", a: "Yes. Waste-ink pad full errors on plotters are reset using the Epson Adjustment Program at firmware level. We&apos;ve done hundreds. Note: if your plotter is past 80,000 page count, we&apos;ll recommend physical pad replacement." },
-              { q: "Do you offer maintenance contracts?", a: "Yes. Quarterly maintenance contracts for architecture firms and print shops include head cleaning, alignment verification, firmware updates, and priority callback. Pricing scales with plotter count. Email or call for quote." },
+              { q: "Do you offer maintenance contracts?", a: "Yes. Quarterly maintenance contracts for architecture firms and print shops include head cleaning, alignment verification, firmware updates, and priority callback. Pricing scales with plotter count. Email or book online for a quote." },
             ].map(({ q, a }, i) => (
               <details key={i} className="group rounded-2xl border border-gray-100 bg-gray-50 overflow-hidden">
                 <summary className="flex items-center justify-between p-5 cursor-pointer font-black text-gray-900 hover:text-cyan-700 transition-colors list-none">
@@ -314,8 +314,8 @@ export default function EpsonPlottersPage() {
           <h2 className="text-3xl md:text-4xl font-black mb-4">Get Your Epson Plotter Working</h2>
           <p className="text-cyan-200 text-lg mb-8">SureColor · Stylus Pro · CAD · Photo · Dye-Sub · Production</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:+13479531531" className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105" style={{ background: "linear-gradient(135deg,#dc2626,#b91c1c)", boxShadow: "0 4px 30px rgba(220,38,38,0.5)" }}>
-              📞 347-953-1531
+            <a href="/book" className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105" style={{ background: "linear-gradient(135deg,#dc2626,#b91c1c)", boxShadow: "0 4px 30px rgba(220,38,38,0.5)" }}>
+              📅 Book Online
             </a>
             <Link href="/epson-printer-repair" className="inline-flex items-center justify-center gap-2 bg-white/10 border-2 border-white/30 text-white font-bold py-5 px-8 rounded-2xl text-lg hover:bg-white/20 transition-all">
               All Epson Models →

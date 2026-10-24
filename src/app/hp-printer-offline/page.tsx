@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { StickyCTA } from "@/components/ui/Button";
-import { PHONE, PHONE_HREF } from "@/lib/utils";
+import { BOOKING_LABEL, BOOKING_HREF } from "@/lib/utils";
 
 // ISR — page revalidates every 1 hour, so FAQ updates appear without redeploy
 export const revalidate = 3600;
@@ -9,7 +9,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "HP Printer Offline Fix — Works in 5 Minutes",
   description:
-    "HP printer showing offline? Fix it in minutes: restart spooler, clear offline flag, reinstall driver. Free guide + 24/7 expert help. Call 347-953-1531.",
+    "HP printer showing offline? Fix it in minutes: restart spooler, clear offline flag, reinstall driver. Free guide + 24/7 expert help. Book online.",
   keywords: [
     "hp printer offline","fix hp printer offline","hp printer says offline",
     "hp printer offline windows 10","hp printer offline windows 11",
@@ -68,12 +68,12 @@ const schemas = [
       {
         "@type": "Question",
         name: "My HP printer shows offline but is connected to WiFi — why?",
-        acceptedAnswer: { "@type": "Answer", text: "Windows lost the communication path even though the printer is on WiFi. Remove the HP printer from Printers & Scanners and re-add it. If that fails, call us at 347-953-1531 — we fix this remotely in under 10 minutes." },
+        acceptedAnswer: { "@type": "Answer", text: "Windows lost the communication path even though the printer is on WiFi. Remove the HP printer from Printers & Scanners and re-add it. If that fails, book online — we fix this remotely in under 10 minutes." },
       },
       {
         "@type": "Question",
         name: "Is there a free tool to fix HP printer offline?",
-        acceptedAnswer: { "@type": "Answer", text: "Yes — HP Print and Scan Doctor (free at support.hp.com). Run it and it auto-fixes most HP offline errors. If it can't fix it, call Trini System at 347-953-1531 for free diagnosis." },
+        acceptedAnswer: { "@type": "Answer", text: "Yes — HP Print and Scan Doctor (free at support.hp.com). Run it and it auto-fixes most HP offline errors. If it can't fix it, book a session with Trini System for free diagnosis." },
       },
     ],
   },
@@ -94,8 +94,8 @@ const STEPS = [
 
 const FAQS = [
   { q: "Why does my HP printer keep going offline?", a: "Most common causes: WiFi router IP address change (fix: restart router), Windows Print Spooler error (fix: restart the service in services.msc), or the 'Use Printer Offline' flag set accidentally. A router restart fixes 70% of cases in under 2 minutes." },
-  { q: "HP printer shows offline but IS connected to WiFi — why?", a: "The printer is on WiFi but Windows lost the communication path. This happens after Windows Updates or router changes. Remove the printer from Printers & Scanners and re-add it fresh. If that fails, call us — we fix this in under 10 minutes remotely." },
-  { q: "Is there a free HP tool to fix offline errors?", a: "Yes — HP Print and Scan Doctor (free at support.hp.com). It auto-detects and fixes most offline errors. If it can't fix it, call Trini System for free diagnosis at 347-953-1531." },
+  { q: "HP printer shows offline but IS connected to WiFi — why?", a: "The printer is on WiFi but Windows lost the communication path. This happens after Windows Updates or router changes. Remove the printer from Printers & Scanners and re-add it fresh. If that fails, book a session — we fix this in under 10 minutes remotely." },
+  { q: "Is there a free HP tool to fix offline errors?", a: "Yes — HP Print and Scan Doctor (free at support.hp.com). It auto-detects and fixes most offline errors. If it can't fix it, book a free diagnosis with Trini System online." },
   { q: "How do I fix HP printer offline on Windows 11?", a: "Settings → Bluetooth & Devices → Printers & Scanners → click HP → More device and printer settings → right-click → See what's printing → Printer menu → uncheck 'Use Printer Offline'. Also restart Print Spooler in services.msc." },
 ];
 
@@ -125,10 +125,10 @@ export default function HPPrinterOfflinePage() {
             Still offline? We fix it remotely while you watch.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href={PHONE_HREF}
+            <a href={BOOKING_HREF}
               className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-black text-lg text-black"
               style={{ background: "linear-gradient(135deg,#f59e0b,#fb923c)", boxShadow: "0 0 30px rgba(249,115,22,0.4)" }}>
-              📞 {PHONE} — Free Help
+              📞 {BOOKING_LABEL} — Free Help
             </a>
             <a href="#fix-steps"
               className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-black text-lg text-white"
@@ -192,10 +192,10 @@ export default function HPPrinterOfflinePage() {
             <p className="text-white/60 mb-6 max-w-xl mx-auto">
               Some HP errors need a deeper driver fix or Windows registry repair. We fix these daily — remotely, while you watch.
             </p>
-            <a href={PHONE_HREF}
+            <a href={BOOKING_HREF}
               className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-black text-lg text-black"
               style={{ background: "linear-gradient(135deg,#f59e0b,#fb923c)" }}>
-              📞 Call Free — {PHONE}
+              📅 Book Free — {BOOKING_LABEL}
             </a>
             <div className="text-white/30 text-sm mt-3 font-mono">No fix = no charge · Remote · Under 15 min</div>
           </div>

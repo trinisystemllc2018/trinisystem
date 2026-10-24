@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Phone, CalendarClock, Map, Globe, Zap, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
-import { PHONE, PHONE_HREF, MAPS_URL, OFFICIAL_SITE, DOWNLOAD_URL } from "@/lib/utils";
+import { MessageCircle, Phone, CalendarClock, Map, Globe, Zap, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import { BOOKING_LABEL, BOOKING_HREF, MAPS_URL, OFFICIAL_SITE, DOWNLOAD_URL } from "@/lib/utils";
 
 type Status = "idle" | "loading" | "ok" | "error";
 
@@ -36,7 +36,7 @@ export default function ContactPage() {
   const labelCls = "block text-xs font-bold uppercase tracking-wide t-muted mb-1.5";
 
   const methods = [
-    { Icon: Phone, title: "Call or text", sub: "Fastest — talk to a tech in seconds", action: { label: PHONE, href: PHONE_HREF }, badge: "24/7" },
+    { Icon: MessageCircle, title: "Chat & book", sub: "Ask our AI assistant and request a session", action: { label: BOOKING_LABEL, href: BOOKING_HREF }, badge: "Fastest" },
     { Icon: CalendarClock, title: "Request a callback", sub: "Leave your number and we'll call you", action: { label: "Use the form below", href: "#form" }, badge: "Popular" },
     { Icon: Map, title: "Service area map", sub: "See where we cover on-site visits", action: { label: "View coverage map", href: MAPS_URL }, badge: "All 50 states" },
     { Icon: Globe, title: "Official Trini System site", sub: "Our main website and info pages", action: { label: "Visit official site", href: OFFICIAL_SITE }, badge: "USA & Canada" },
@@ -53,7 +53,7 @@ export default function ContactPage() {
             <span className="block text-gradient-gold">right now.</span>
           </h1>
           <p className="text-xl t-muted max-w-xl mx-auto">
-            A real technician picks up — not a bot. Tell us what&apos;s wrong and we&apos;ll get on it.
+            A real technician follows up on every request. Tell us what&apos;s wrong and we&apos;ll get on it.
           </p>
         </div>
 
@@ -113,8 +113,8 @@ export default function ContactPage() {
                   className="flex flex-col items-center justify-center py-12 text-center">
                   <CheckCircle2 size={64} style={{ color: "#10b981" }} />
                   <h3 className="text-xl font-black t-text mt-4 mb-2">Message sent</h3>
-                  <p className="t-muted mb-6">We&apos;ll be in touch shortly. For urgent help, call{" "}
-                    <a href={PHONE_HREF} className="font-semibold" style={{ color: "var(--primary)" }}>{PHONE}</a>
+                  <p className="t-muted mb-6">We&apos;ll be in touch shortly. For a faster start, use our booking assistant:{" "}
+                    <a href={BOOKING_HREF} className="font-semibold" style={{ color: "var(--primary)" }}>{BOOKING_LABEL}</a>
                   </p>
                   <button onClick={reset} className="text-sm t-muted underline hover:opacity-80">Send another message</button>
                 </motion.div>
@@ -123,8 +123,8 @@ export default function ContactPage() {
                   {status === "error" && (
                     <div className="flex items-start gap-3 p-3 rounded-2xl" style={{ background: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.4)" }}>
                       <AlertCircle size={18} style={{ color: "var(--primary-2)" }} className="mt-0.5 shrink-0" />
-                      <p className="text-sm t-text">We couldn&apos;t send that — please try again, or call us at{" "}
-                        <a href={PHONE_HREF} className="font-bold" style={{ color: "var(--primary)" }}>{PHONE}</a>.
+                      <p className="text-sm t-text">We couldn&apos;t send that — please try again, or use our booking assistant:{" "}
+                        <a href={BOOKING_HREF} className="font-bold" style={{ color: "var(--primary)" }}>{BOOKING_LABEL}</a>.
                       </p>
                     </div>
                   )}
@@ -183,7 +183,7 @@ export default function ContactPage() {
                   </button>
 
                   <p className="text-center text-xs t-faint">
-                    Prefer to talk? Call <a href={PHONE_HREF} className="font-semibold" style={{ color: "var(--primary)" }}>{PHONE}</a> · available 24/7
+                    Prefer to chat? Use our <a href={BOOKING_HREF} className="font-semibold" style={{ color: "var(--primary)" }}>{BOOKING_LABEL}</a> assistant
                   </p>
                 </motion.form>
               )}

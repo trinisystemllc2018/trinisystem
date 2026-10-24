@@ -6,7 +6,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Epson Printer Repair Near Me — EcoTank Fixed",
   description:
-    "Epson printer repair — fix EcoTank ET-2720, ET-4760, WorkForce WF-7720 ink errors, nozzle clogs, offline issues remotely. From $49. Call 347-953-1531.",
+    "Epson printer repair — fix EcoTank ET-2720, ET-4760, WorkForce WF-7720 ink errors, nozzle clogs, offline issues remotely. From $49. Book online.",
   keywords: [
     "epson printer repair",
     "epson printer repair near me",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://trinisystem.vercel.app/epson-printer-repair" },
   openGraph: {
     title: "Epson Printer Repair Near Me — Fixed in 15 Min | Trini System",
-    description: "Expert Epson repair for EcoTank, WorkForce, Expression printers. Remote service all 50 states. From $49. Call 347-953-1531.",
+    description: "Expert Epson repair for EcoTank, WorkForce, Expression printers. Remote service all 50 states. From $49. Book online.",
     url: "https://trinisystem.vercel.app/epson-printer-repair",
     type: "website",
   },
@@ -64,12 +64,12 @@ const schemas = [
       {
         "@type": "Question",
         name: "Why does my Epson EcoTank show an ink error even when the tanks are full?",
-        acceptedAnswer: { "@type": "Answer", text: "Epson EcoTank ink errors are almost always a sensor or firmware issue, not a real ink problem. Trini System can reset the ink sensor remotely in under 15 minutes using the Epson Adjustment Program. No need to replace the printer or any parts. Call 347-953-1531." },
+        acceptedAnswer: { "@type": "Answer", text: "Epson EcoTank ink errors are almost always a sensor or firmware issue, not a real ink problem. Trini System can reset the ink sensor remotely in under 15 minutes using the Epson Adjustment Program. No need to replace the printer or any parts. Book online." },
       },
       {
         "@type": "Question",
         name: "How do I fix Epson printer showing offline?",
-        acceptedAnswer: { "@type": "Answer", text: "Restart both the Epson printer and your WiFi router. On the printer, press the WiFi button and run Wireless Setup Wizard. On your computer, remove the printer and reinstall using Epson Connect Printer Setup Utility from epson.com/support. Trini System fixes Epson offline errors remotely across all 50 states. Call 347-953-1531." },
+        acceptedAnswer: { "@type": "Answer", text: "Restart both the Epson printer and your WiFi router. On the printer, press the WiFi button and run Wireless Setup Wizard. On your computer, remove the printer and reinstall using Epson Connect Printer Setup Utility from epson.com/support. Trini System fixes Epson offline errors remotely across all 50 states. Book online." },
       },
       {
         "@type": "Question",
@@ -79,12 +79,12 @@ const schemas = [
       {
         "@type": "Question",
         name: "Can Epson nozzle clogs be fixed remotely?",
-        acceptedAnswer: { "@type": "Answer", text: "Yes. Most Epson nozzle clogs are resolved remotely by running Epson head cleaning 2–3 cycles via the printer utility on your PC. Stubborn clogs are cleared using the Epson Adjustment Program. 90%+ of nozzle clog cases are fixed without hardware replacement. Call 347-953-1531." },
+        acceptedAnswer: { "@type": "Answer", text: "Yes. Most Epson nozzle clogs are resolved remotely by running Epson head cleaning 2–3 cycles via the printer utility on your PC. Stubborn clogs are cleared using the Epson Adjustment Program. 90%+ of nozzle clog cases are fixed without hardware replacement. Book online." },
       },
       {
         "@type": "Question",
         name: "How do I connect my Epson printer to WiFi?",
-        acceptedAnswer: { "@type": "Answer", text: "On your Epson printer, go to Settings → Wi-Fi Setup → Wi-Fi Setup Wizard. Select your network and enter your WiFi password. If setup fails, download Epson Connect Printer Setup Utility from epson.com/support. Trini System provides Epson WiFi setup help remotely — call 347-953-1531." },
+        acceptedAnswer: { "@type": "Answer", text: "On your Epson printer, go to Settings → Wi-Fi Setup → Wi-Fi Setup Wizard. Select your network and enter your WiFi password. If setup fails, download Epson Connect Printer Setup Utility from epson.com/support. Trini System provides Epson WiFi setup help remotely — book online." },
       },
     ],
   },
@@ -96,7 +96,6 @@ const schemas = [
     provider: {
       "@type": "LocalBusiness",
       name: "Trini System LLC",
-      telephone: "+13479531531",
       address: { "@type": "PostalAddress", streetAddress: "52-09 99th St Apt 8S", addressLocality: "Corona", addressRegion: "NY", postalCode: "11368", addressCountry: "US" },
       aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "47", bestRating: "5" },
     },
@@ -150,7 +149,7 @@ export default function EpsonPrinterRepairPage() {
       {/* Urgency Bar */}
       <div className="bg-gradient-to-r from-sky-700 to-cyan-600 text-white py-3 text-center text-sm font-semibold">
         🖨️ Epson Printer Repair — Remote Service, All 50 States ·{" "}
-        <a href="tel:+13479531531" className="underline font-bold hover:text-sky-200">Call 347-953-1531</a>
+        <a href="/book" className="underline font-bold hover:text-sky-200">Book online</a>
         {" "}· From $49 · No Fix = No Fee
       </div>
 
@@ -179,8 +178,8 @@ export default function EpsonPrinterRepairPage() {
               you watch — in an average of 23 minutes, from $49. Same-day service, all 50 states.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="tel:+13479531531" className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105" style={{ background: "linear-gradient(135deg,#dc2626,#b91c1c)", boxShadow: "0 4px 30px rgba(220,38,38,0.5)" }}>
-                📞 Call Now — 347-953-1531
+              <a href="/book" className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105" style={{ background: "linear-gradient(135deg,#dc2626,#b91c1c)", boxShadow: "0 4px 30px rgba(220,38,38,0.5)" }}>
+                📅 Book Online
               </a>
               <a href="#diagnosis-tool" className="inline-flex items-center justify-center gap-2 bg-white/10 border-2 border-white/30 text-white font-bold py-5 px-8 rounded-2xl text-lg hover:bg-white/20 transition-all">
                 🔧 Diagnose My Epson Free
@@ -248,7 +247,7 @@ export default function EpsonPrinterRepairPage() {
               </div>
             ))}
           </div>
-          <p className="text-center text-sm text-gray-400 mt-6">Don&apos;t see your model? <a href="tel:+13479531531" className="text-sky-600 font-bold hover:underline">Call us — we repair all Epson models</a></p>
+          <p className="text-center text-sm text-gray-400 mt-6">Don&apos;t see your model? <a href="/book" className="text-sky-600 font-bold hover:underline">Book a session — we repair all Epson models</a></p>
         </div>
       </section>
 
@@ -264,7 +263,7 @@ export default function EpsonPrinterRepairPage() {
               { icon: "💰", title: "Half the Price of Geek Squad", body: "Epson repair starts at $49. Geek Squad charges $100–$200+ for the same remote session. No fix = no fee — you only pay when your printer works." },
               { icon: "🔒", title: "Epson Expert Knowledge", body: "Our techs have resolved 1,000+ Epson EcoTank and WorkForce issues. We use the official Epson Adjustment Program — the same tool Epson service centers use." },
               { icon: "🇺🇸", title: "Serving All 50 States", body: "Based in Queens, NY but available remotely nationwide. We connect via secure remote desktop and fix your Epson while you watch." },
-              { icon: "📞", title: "Available 24/7", body: "Printers break at the worst times. We're available every day of the year — weekends and holidays included. Call 347-953-1531 any time." },
+              { icon: "📞", title: "Available 24/7", body: "Printers break at the worst times. We're available every day of the year — weekends and holidays included. Book online any time." },
               { icon: "🔄", title: "No Fix = No Fee Guarantee", body: "We only charge when your Epson printer is fully working. No hidden fees, no diagnostic charges. If we can't fix it, you owe us nothing." },
             ].map(({ icon, title, body }) => (
               <div key={title} className="p-6 rounded-2xl bg-gray-50 border border-gray-100 hover:border-sky-200 hover:bg-sky-50/30 transition-all">
@@ -283,7 +282,7 @@ export default function EpsonPrinterRepairPage() {
           <div className="text-center mb-10">
             <span className="inline-block text-xs font-black text-sky-400 border border-sky-700 px-3 py-1.5 rounded-full uppercase tracking-widest mb-4">DIY Guide</span>
             <h2 className="text-3xl md:text-4xl font-black mb-3">Fix Epson Printer Offline — Step by Step</h2>
-            <p className="text-gray-400">Try this first. If it doesn&apos;t work, call us for a remote fix in minutes.</p>
+            <p className="text-gray-400">Try this first. If it doesn&apos;t work, book a session for a remote fix in minutes.</p>
           </div>
           <ol className="space-y-4">
             {[
@@ -304,7 +303,7 @@ export default function EpsonPrinterRepairPage() {
           </ol>
           <div className="mt-8 p-5 rounded-2xl bg-red-900/40 border border-red-700/40 text-center">
             <p className="text-white font-bold mb-3">Still offline after these steps?</p>
-            <a href="tel:+13479531531" className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-black py-3 px-6 rounded-xl transition-colors">📞 Call Now — We Fix It in 15 Min</a>
+            <a href="/book" className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-black py-3 px-6 rounded-xl transition-colors">📅 Book Now — We Fix It in 15 Min</a>
           </div>
         </div>
       </section>
@@ -317,10 +316,10 @@ export default function EpsonPrinterRepairPage() {
           </div>
           <div className="space-y-4">
             {[
-              { q: "Why does my Epson EcoTank show an ink error even when the tanks are full?", a: "This is the #1 Epson EcoTank complaint. The tanks are full but a sensor misreads them as empty. Trini System resets this sensor remotely using the Epson Adjustment Program in under 15 minutes — no parts replacement needed. Call 347-953-1531." },
+              { q: "Why does my Epson EcoTank show an ink error even when the tanks are full?", a: "This is the #1 Epson EcoTank complaint. The tanks are full but a sensor misreads them as empty. Trini System resets this sensor remotely using the Epson Adjustment Program in under 15 minutes — no parts replacement needed. Book online." },
               { q: "Can Epson nozzle clogs be fixed without buying a new printer?", a: "Yes — 90%+ of Epson nozzle clogs are fixable without replacing parts. We run Epson's head cleaning utility remotely 2–3 times. Stubborn clogs are cleared using the Adjustment Program's deep-clean cycle." },
               { q: "How much does remote Epson printer repair cost?", a: "Remote Epson repair starts at $49 — about half the cost of Geek Squad ($100–$200). Most Epson issues are resolved in a single 30-minute remote session. No fix = no fee, no exceptions." },
-              { q: "What Epson models does Trini System support?", a: "We support all current Epson models: full EcoTank lineup (ET-2720, ET-4760, ET-3850, ET-2800, ET-16650), WorkForce series (WF-7720, WF-2930, WF-3820), and Expression series. Call us even if your model isn't listed." },
+              { q: "What Epson models does Trini System support?", a: "We support all current Epson models: full EcoTank lineup (ET-2720, ET-4760, ET-3850, ET-2800, ET-16650), WorkForce series (WF-7720, WF-2930, WF-3820), and Expression series. Book a session even if your model isn't listed." },
               { q: "How do I connect my Epson EcoTank to WiFi?", a: "On your EcoTank: press Home → Settings → Wi-Fi Setup → Wi-Fi Setup Wizard → select your network → enter WiFi password. If it fails, download Epson Connect Printer Setup Utility from epson.com/support. We also help remotely in 10 minutes." },
             ].map(({ q, a }, i) => (
               <details key={i} className="group rounded-2xl border border-gray-100 bg-gray-50 overflow-hidden">
@@ -374,8 +373,8 @@ export default function EpsonPrinterRepairPage() {
           <h2 className="text-3xl md:text-4xl font-black mb-4">Get Your Epson Printer Fixed Today</h2>
           <p className="text-blue-200 text-lg mb-8">Remote service · All 50 states · From $49 · No fix = no fee</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:+13479531531" className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105" style={{ background: "linear-gradient(135deg,#dc2626,#b91c1c)", boxShadow: "0 4px 30px rgba(220,38,38,0.5)" }}>
-              📞 Call 347-953-1531
+            <a href="/book" className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105" style={{ background: "linear-gradient(135deg,#dc2626,#b91c1c)", boxShadow: "0 4px 30px rgba(220,38,38,0.5)" }}>
+              📞 Book online
             </a>
             <Link href="/services" className="inline-flex items-center justify-center gap-2 bg-white/10 border-2 border-white/30 text-white font-bold py-5 px-8 rounded-2xl text-lg hover:bg-white/20 transition-all">
               View All Services →

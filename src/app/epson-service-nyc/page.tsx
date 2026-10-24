@@ -6,11 +6,11 @@ import { StickyCTA } from "@/components/ui/Button";
 export const metadata: Metadata = {
   title: "Epson Service NYC — EcoTank, WorkForce Repair",
   description:
-    "Epson service NYC — fast remote repair for EcoTank, WorkForce, SureColor & plotters in Manhattan, Queens, Brooklyn, Bronx. From $49. Call 347-953-1531.",
+    "Epson service NYC — fast remote repair for EcoTank, WorkForce, SureColor & plotters in Manhattan, Queens, Brooklyn, Bronx. From $49. Book online.",
   alternates: { canonical: "https://trinisystem.vercel.app/epson-service-nyc" },
   openGraph: {
     title: "Epson Service NYC — EcoTank, WorkForce Repair | Trini System",
-    description: "Epson printer & plotter service across NYC. Remote repair in 15 min. From $49. Call 347-953-1531.",
+    description: "Epson printer & plotter service across NYC. Remote repair in 15 min. From $49. Book online.",
     url: "https://trinisystem.vercel.app/epson-service-nyc",
     type: "website",
   },
@@ -74,7 +74,6 @@ const schemas = [
     "@id": "https://trinisystem.vercel.app/epson-service-nyc#business",
     name: "Trini System LLC — Epson Service NYC",
     image: "https://trinisystem.vercel.app/og-image.png",
-    telephone: "+13479531531",
     url: "https://trinisystem.vercel.app/epson-service-nyc",
     priceRange: "$$",
     address: {
@@ -101,7 +100,7 @@ const schemas = [
     "@type": "Service",
     name: "Epson Printer Service in New York City",
     description: "Remote and on-site Epson printer service across the five boroughs of NYC. EcoTank, WorkForce, SureColor, and plotter repair.",
-    provider: { "@type": "LocalBusiness", name: "Trini System LLC", telephone: "+13479531531" },
+    provider: { "@type": "LocalBusiness", name: "Trini System LLC",},
     areaServed: { "@type": "City", name: "New York City" },
     serviceType: "Epson Printer Repair",
     offers: { "@type": "Offer", price: "49", priceCurrency: "USD" },
@@ -113,7 +112,7 @@ const schemas = [
       { "@type": "Question", name: "Do you offer Epson service in Manhattan?",
         acceptedAnswer: { "@type": "Answer", text: "Yes. We provide Epson printer service to all of Manhattan — Midtown, FiDi, Upper East Side, Upper West Side, Harlem, Chelsea, SoHo, Tribeca, and beyond. Most issues are fixed remotely in 15–25 minutes. On-site visits are available for hardware-only issues." } },
       { "@type": "Question", name: "Do you fix Epson plotters in NYC?",
-        acceptedAnswer: { "@type": "Answer", text: "Yes. We service Epson SureColor plotters (T3170, T5170, P5000, P7000, P9000, F570, F9470) for architects, photographers, and print shops across NYC. Plotter calibration, head cleaning, and color profile setup are routine for our team. Call 347-953-1531." } },
+        acceptedAnswer: { "@type": "Answer", text: "Yes. We service Epson SureColor plotters (T3170, T5170, P5000, P7000, P9000, F570, F9470) for architects, photographers, and print shops across NYC. Plotter calibration, head cleaning, and color profile setup are routine for our team. Book online." } },
       { "@type": "Question", name: "How fast is Epson service in NYC?",
         acceptedAnswer: { "@type": "Answer", text: "Remote Epson service in NYC is typically completed in 15–25 minutes once we connect. On-site visits within Queens or Manhattan can usually be scheduled same-day or next-day. Average phone callback is under 5 minutes." } },
       { "@type": "Question", name: "How much does Epson service cost in NYC?",
@@ -134,7 +133,7 @@ export default function EpsonServiceNYCPage() {
       {/* Urgency Bar */}
       <div className="bg-gradient-to-r from-blue-700 to-blue-600 text-white py-3 text-center text-sm font-semibold">
         🗽 Epson Service NYC — All 5 Boroughs ·{" "}
-        <a href="tel:+13479531531" className="underline font-bold hover:text-blue-200">Call 347-953-1531</a>
+        <a href="/book" className="underline font-bold hover:text-blue-200">Book online</a>
         {" "}· Same Day · From $49
       </div>
 
@@ -162,8 +161,8 @@ export default function EpsonServiceNYCPage() {
               2016. Remote repair in 15 minutes — on-site visits available for hardware issues. From $49.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="tel:+13479531531" className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105" style={{ background: "linear-gradient(135deg,#dc2626,#b91c1c)", boxShadow: "0 4px 30px rgba(220,38,38,0.5)" }}>
-                📞 Call NYC Office — 347-953-1531
+              <a href="/book" className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105" style={{ background: "linear-gradient(135deg,#dc2626,#b91c1c)", boxShadow: "0 4px 30px rgba(220,38,38,0.5)" }}>
+                📅 Book Online
               </a>
               <a href="#diagnosis" className="inline-flex items-center justify-center gap-2 bg-white/10 border-2 border-white/30 text-white font-bold py-5 px-8 rounded-2xl text-lg hover:bg-white/20 transition-all">
                 🔧 Free Diagnosis
@@ -260,7 +259,7 @@ export default function EpsonServiceNYCPage() {
           </div>
           <div className="grid md:grid-cols-4 gap-4">
             {[
-              { step: 1, icon: "📞", title: "Call NYC office", detail: "Dial 347-953-1531. NYC line picks up in under 5 min, 24/7. Hablamos español." },
+              { step: 1, icon: "📞", title: "Book online", detail: "Use our booking assistant to request a session. Hablamos español." },
               { step: 2, icon: "🔍", title: "Free diagnosis", detail: "Describe your Epson issue. We confirm if remote fix works (93% of cases) or schedule on-site." },
               { step: 3, icon: "💻", title: "Remote OR on-site", detail: "Software issues — secure remote session. Hardware issues — on-site visit in Queens, Manhattan, Brooklyn, BX, SI." },
               { step: 4, icon: "✅", title: "Pay only when fixed", detail: "Remote starts at $49. On-site labor priced before work begins. No fix = no fee." },
@@ -316,7 +315,7 @@ export default function EpsonServiceNYCPage() {
               { q: "Do you charge an NYC trip fee?", a: "Remote Epson service is flat $49 — no trip fee. On-site visits within NYC start at $79 trip fee + labor (which is quoted before any work begins). Plotter on-site service starts at $149." },
               { q: "What's the most common Epson issue in NYC?", a: "Top three calls in 2025: (1) EcoTank ink system errors on full tanks (sensor calibration), (2) WorkForce WiFi setup after building router changes, (3) SureColor plotter banding fixes for photographers and architects." },
               { q: "Can you set up a new Epson printer for our NYC office?", a: "Yes. We do new Epson printer installation, network configuration (AD/domain join, Mac and Windows users), driver deployment, scan-to-email setup, and user training. Most office setups complete in one 45–60 minute session." },
-              { q: "Do you support Spanish-speaking customers?", a: "Sí. Hablamos español. Servicio técnico de impresoras Epson en español para todo NYC. Llame al 347-953-1531." },
+              { q: "Do you support Spanish-speaking customers?", a: "Sí. Hablamos español. Servicio técnico de impresoras Epson en español para todo NYC. Reserve en línea." },
             ].map(({ q, a }, i) => (
               <details key={i} className="group rounded-2xl border border-gray-100 bg-white overflow-hidden">
                 <summary className="flex items-center justify-between p-5 cursor-pointer font-black text-gray-900 hover:text-blue-700 transition-colors list-none">
@@ -354,8 +353,8 @@ export default function EpsonServiceNYCPage() {
           <h2 className="text-3xl md:text-4xl font-black mb-4">NYC Epson Service Today</h2>
           <p className="text-blue-200 text-lg mb-8">All 5 boroughs · Remote in 15 min · From $49 · No fix = no fee</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:+13479531531" className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105" style={{ background: "linear-gradient(135deg,#dc2626,#b91c1c)", boxShadow: "0 4px 30px rgba(220,38,38,0.5)" }}>
-              📞 347-953-1531
+            <a href="/book" className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105" style={{ background: "linear-gradient(135deg,#dc2626,#b91c1c)", boxShadow: "0 4px 30px rgba(220,38,38,0.5)" }}>
+              📅 Book Online
             </a>
             <Link href="/epson-printer-repair" className="inline-flex items-center justify-center gap-2 bg-white/10 border-2 border-white/30 text-white font-bold py-5 px-8 rounded-2xl text-lg hover:bg-white/20 transition-all">
               All Epson Models →

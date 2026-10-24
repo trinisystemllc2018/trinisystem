@@ -4,7 +4,7 @@ import { StickyCTA } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
   title: "About Us — Trini System LLC, Corona NY",
-  description: "Trini System LLC — remote tech support since 2016 from Corona, Queens NY. Serving all 50 states. HP, Canon, Epson, Brother repair. Call 347-953-1531.",
+  description: "Trini System LLC — remote tech support since 2016 from Corona, Queens NY. Serving all 50 states. HP, Canon, Epson, Brother repair. Book online.",
   alternates: { canonical: "https://trinisystem.vercel.app/about" },
   keywords: [
     "trini system llc","tech support company new york","printer repair queens ny",
@@ -13,8 +13,8 @@ export const metadata: Metadata = {
   ],
 };
 
-const PHONE_HREF = "tel:+13479531531";
-const PHONE = "347-953-1531";
+const BOOKING_HREF = "/book";
+const BOOKING_LABEL = "Book Online";
 
 const schemas = [
   {
@@ -35,7 +35,6 @@ const schemas = [
       "@type": "LocalBusiness",
       "name": "Trini System LLC",
       "foundingDate": "2016",
-      "telephone": "+13479531531",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "52-09 99th St Apt 8S",
@@ -92,8 +91,8 @@ export default function AboutPage() {
               <address className="not-italic bg-white rounded-2xl border border-gray-100 shadow-soft p-5 space-y-2 mb-6">
                 <p className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-3">Our Location</p>
                 <p className="text-gray-700 font-semibold">📍 52-09 99th St Apt 8S, Corona, NY 11368</p>
-                <a href={PHONE_HREF} className="block text-blue-600 font-black text-lg hover:text-blue-800 transition-colors">
-                  📞 {PHONE}
+                <a href={BOOKING_HREF} className="block text-blue-600 font-black text-lg hover:text-blue-800 transition-colors">
+                  📞 {BOOKING_LABEL}
                 </a>
                 <a href="mailto:trinisystemllc@gmail.com" className="block text-gray-500 text-sm hover:text-blue-600 transition-colors">
                   ✉️ trinisystemllc@gmail.com
@@ -101,9 +100,9 @@ export default function AboutPage() {
                 <p className="text-xs text-gray-400">Available 24/7 · Remote service all 50 states</p>
               </address>
               <div className="flex gap-3">
-                <a href={PHONE_HREF}
+                <a href={BOOKING_HREF}
                   className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-2xl transition-all">
-                  📞 Call Now
+                  📅 Book Now
                 </a>
                 <Link href="/comparison"
                   className="flex items-center gap-2 bg-white text-gray-700 font-semibold px-6 py-3 rounded-2xl border-2 border-gray-200 hover:border-blue-300 transition-all">
@@ -190,9 +189,9 @@ export default function AboutPage() {
               className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-2xl transition-all">
               📊 See Full Comparison →
             </Link>
-            <a href={PHONE_HREF}
+            <a href={BOOKING_HREF}
               className="inline-flex items-center justify-center gap-2 bg-white text-blue-600 font-bold px-8 py-4 rounded-2xl border-2 border-blue-200 hover:border-blue-400 transition-all">
-              📞 {PHONE}
+              📞 {BOOKING_LABEL}
             </a>
           </div>
         </div>

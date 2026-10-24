@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { StickyCTA } from "@/components/ui/Button";
-import { PHONE, PHONE_HREF } from "@/lib/utils";
+import { BOOKING_LABEL, BOOKING_HREF } from "@/lib/utils";
 
 // ISR — page revalidates every 1 hour, so FAQ updates appear without redeploy
 export const revalidate = 3600;
@@ -9,7 +9,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Brother Printer Repair — MFC, HL, DCP Series",
   description:
-    "Brother printer not printing? Fix MFC-L2710DW, HL-L2350DW, DCP drivers, AirPrint, Windows 11 issues. Remote repair from $49. Call 347-953-1531.",
+    "Brother printer not printing? Fix MFC-L2710DW, HL-L2350DW, DCP drivers, AirPrint, Windows 11 issues. Remote repair from $49. Book online.",
   keywords: [
     "brother printer repair","brother printer not printing","brother printer offline",
     "brother printer driver unavailable","brother mfc repair","brother hl printer fix",
@@ -38,12 +38,12 @@ const schemas = [
       {
         "@type": "Question",
         name: "How do I fix 'Brother printer driver unavailable' in Windows 11?",
-        acceptedAnswer: { "@type": "Answer", text: "Windows 11 often marks Brother drivers as unavailable after updates. Fix: Device Manager → Printers → right-click Brother printer → Uninstall device (check 'Delete driver'). Then go to support.brother.com, download the latest full driver package for your exact model and Windows 11, run the installer. This fixes 95% of Brother driver errors. If it fails, call Trini System at 347-953-1531 — we fix Brother driver issues remotely in under 20 minutes." },
+        acceptedAnswer: { "@type": "Answer", text: "Windows 11 often marks Brother drivers as unavailable after updates. Fix: Device Manager → Printers → right-click Brother printer → Uninstall device (check 'Delete driver'). Then go to support.brother.com, download the latest full driver package for your exact model and Windows 11, run the installer. This fixes 95% of Brother driver errors. If it fails, book a session with Trini System — we fix Brother driver issues remotely in under 20 minutes." },
       },
       {
         "@type": "Question",
         name: "Why is my Brother printer offline?",
-        acceptedAnswer: { "@type": "Answer", text: "Brother printers go offline for the same reasons as HP: WiFi IP change, Print Spooler crash, or the 'Use Printer Offline' flag. Fix: restart the printer and router, then in Windows Settings → Printers & Scanners → click Brother printer → Open print queue → Printer menu → uncheck 'Use Printer Offline'. If still offline after this, call 347-953-1531." },
+        acceptedAnswer: { "@type": "Answer", text: "Brother printers go offline for the same reasons as HP: WiFi IP change, Print Spooler crash, or the 'Use Printer Offline' flag. Fix: restart the printer and router, then in Windows Settings → Printers & Scanners → click Brother printer → Open print queue → Printer menu → uncheck 'Use Printer Offline'. If still offline after this, book online." },
       },
       {
         "@type": "Question",
@@ -98,10 +98,10 @@ export default function BrotherPrinterRepairPage() {
             Driver errors, offline issues, AirPrint, Windows 11 — fixed while you watch.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <a href={PHONE_HREF}
+            <a href={BOOKING_HREF}
               className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-black text-lg text-black"
               style={{ background: "linear-gradient(135deg,#f59e0b,#fb923c)", boxShadow: "0 0 30px rgba(249,115,22,0.4)" }}>
-              📞 {PHONE} — Call Free
+              📞 {BOOKING_LABEL} — Book Free
             </a>
           </div>
           <div className="flex flex-wrap justify-center gap-4 text-sm text-white/40 font-mono">
@@ -159,11 +159,11 @@ export default function BrotherPrinterRepairPage() {
           <div className="mt-10 rounded-2xl p-8 text-center"
             style={{ background: "rgba(249,115,22,0.1)", border: "1px solid rgba(249,115,22,0.25)" }}>
             <h3 className="text-white font-black text-xl mb-3">Don&apos;t want to do it yourself?</h3>
-            <p className="text-white/55 mb-5">We&apos;ve fixed thousands of Brother printers remotely. Call us and we&apos;ll have it working in under 20 minutes.</p>
-            <a href={PHONE_HREF}
+            <p className="text-white/55 mb-5">We&apos;ve fixed thousands of Brother printers remotely. Book a session and we&apos;ll have it working in under 20 minutes.</p>
+            <a href={BOOKING_HREF}
               className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-black text-lg text-black"
               style={{ background: "linear-gradient(135deg,#f59e0b,#fb923c)" }}>
-              📞 {PHONE}
+              📞 {BOOKING_LABEL}
             </a>
           </div>
         </div>

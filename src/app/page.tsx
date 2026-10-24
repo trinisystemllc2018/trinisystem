@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { PHONE, PHONE_HREF } from "@/lib/utils";
+import { BOOKING_LABEL, BOOKING_HREF } from "@/lib/utils";
 import { HeroSearchIsland } from "@/components/sections/HeroSearchIsland";
 import { SplineHeroBackground } from "@/components/sections/SplineHeroBackground";
 import { ScrollRevealClient } from "@/components/sections/ScrollRevealClient";
@@ -52,7 +52,7 @@ const TICKER_ITEMS = [
   "⭐ 4.9 Google Rating",
   "🛡️ No Fix = No Fee",
   "🌎 All 50 US States",
-  "📞 24/7 Live Support",
+  "💬 24/7 Booking Assistant",
   "🔒 Never Asks Passwords",
   "⚡ Under 15 Min Response",
   "👴 Senior-Friendly",
@@ -84,7 +84,7 @@ export default function Home() {
           <div className="animate-fade-up flex justify-center mb-8">
             <div className="glass-card inline-flex items-center gap-3 rounded-full px-5 py-2.5 text-xs font-mono tracking-widest uppercase">
               <span className="pulse-dot" aria-hidden="true" />
-              <span className="t-muted">Technician Available Now · {PHONE}</span>
+              <span className="t-muted">Booking assistant online · {BOOKING_LABEL}</span>
             </div>
           </div>
 
@@ -104,14 +104,14 @@ export default function Home() {
 
           {/* Primary CTAs */}
           <div className="animate-fade-up delay-300 flex flex-col sm:flex-row gap-4 justify-center mb-10">
-            <a href={PHONE_HREF}
+            <a href={BOOKING_HREF}
               className="cta-glow-ring touch-target flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-black text-lg text-black transition-all hover:scale-105 active:scale-95"
               style={{ background: "linear-gradient(135deg, #f97316 0%, #ef4444 100%)", boxShadow: "0 8px 32px rgba(239,68,68,0.5)" }}>
               <span className="relative flex h-3 w-3" aria-hidden="true">
                 <span className="hidden md:block animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75" />
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500" />
               </span>
-              📞 {PHONE} — Call Free
+              📞 {BOOKING_LABEL} — Book Free
             </a>
             <Link href="/how-to"
               className="glass-card touch-target flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-black text-lg t-text transition-all hover:scale-105 active:scale-95 hover:bg-white/10">
@@ -212,7 +212,7 @@ export default function Home() {
       {/* ══ Hidden H1 for additional SEO context ══ */}
       <div className="sr-only">
         <h2>Trini System LLC — Senior-Friendly Tech Support USA</h2>
-        <p>Trini System LLC provides expert remote tech support for seniors across all 50 US states. We fix HP, Canon, Epson, and Brother printers, slow Windows computers, Garmin GPS devices, Gmail login problems, and Facebook account recovery. Free first call. Call 347-953-1531.</p>
+        <p>Trini System LLC provides expert remote tech support for seniors across all 50 US states. We fix HP, Canon, Epson, and Brother printers, slow Windows computers, Garmin GPS devices, Gmail login problems, and Facebook account recovery. Free first call. Book online.</p>
       </div>
 
       {/* Scroll reveal observer — runs at idle */}

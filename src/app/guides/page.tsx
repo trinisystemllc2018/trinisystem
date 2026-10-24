@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PHONE_HREF } from "@/lib/utils";
+import { BOOKING_HREF } from "@/lib/utils";
 import { StickyCTA } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
   title: "Printer Setup & Repair Guides — Step by Step",
-  description: "Free step-by-step guides for HP DeskJet 4155e setup, Canon PIXMA WiFi, Epson EcoTank ink reset, Brother driver install, and Windows PC repair. Stuck? Call 347-953-1531.",
+  description: "Free step-by-step guides for HP DeskJet 4155e setup, Canon PIXMA WiFi, Epson EcoTank ink reset, Brother driver install, and Windows PC repair. Stuck? Book online.",
   alternates: { canonical: "https://trinisystem.vercel.app/guides" },
 };
 
@@ -96,7 +96,7 @@ export default function GuidesPage() {
           </p>
           <p className="text-gray-500">
             Prefer live help?{" "}
-            <a href={PHONE_HREF} className="text-blue-600 font-semibold hover:underline">Call 347-953-1531</a>{" "}
+            <a href={BOOKING_HREF} className="text-blue-600 font-semibold hover:underline">Book online</a>{" "}
             and a real technician will walk you through it.
           </p>
         </div>
@@ -141,7 +141,7 @@ export default function GuidesPage() {
                           Read Guide →
                         </Link>
                         <a
-                          href={PHONE_HREF}
+                          href={BOOKING_HREF}
                           className="flex items-center justify-center text-gray-500 hover:text-blue-600 text-sm font-medium py-2.5 px-3 rounded-xl border border-gray-200 hover:border-blue-300 transition-all"
                           title="Get live help"
                         >
@@ -163,12 +163,12 @@ export default function GuidesPage() {
           <h2 className="text-2xl md:text-3xl font-black text-white mb-3">
             Still stuck after reading the guide?
           </h2>
-          <p className="text-blue-200 mb-6 text-lg">Call us and we&apos;ll fix it remotely while you watch — no extra charge beyond our normal rates.</p>
+          <p className="text-blue-200 mb-6 text-lg">Book a session and we&apos;ll fix it remotely while you watch — no extra charge beyond our normal rates.</p>
           <a
-            href={PHONE_HREF}
+            href={BOOKING_HREF}
             className="inline-flex items-center gap-2 bg-white text-blue-700 font-black text-lg px-8 py-4 rounded-2xl shadow-xl hover:shadow-2xl hover:bg-blue-50 transition-all"
           >
-            📞 Call 347-953-1531 — We&apos;ll Fix It Live
+            📞 Book online — We&apos;ll Fix It Live
           </a>
         </div>
       </section>

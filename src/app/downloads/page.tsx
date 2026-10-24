@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { DOWNLOAD_URL, PHONE_HREF } from "@/lib/utils";
+import { DOWNLOAD_URL, BOOKING_HREF } from "@/lib/utils";
 import { StickyCTA } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
   title: "Free Downloads — TriniCleaner PC Optimizer",
-  description: "Download TriniCleaner free — Windows PC optimizer that removes junk files, fixes registry errors, and speeds up your computer. Need a hand? Call 347-953-1531.",
+  description: "Download TriniCleaner free — Windows PC optimizer that removes junk files, fixes registry errors, and speeds up your computer. Need a hand? Book online.",
   alternates: { canonical: "https://trinisystem.vercel.app/downloads" },
 };
 
@@ -96,7 +96,7 @@ export default function DownloadsPage() {
                   <span className="text-2xl">⬇</span> Download TriniCleaner.exe
                 </a>
                 <a
-                  href={PHONE_HREF}
+                  href={BOOKING_HREF}
                   className="flex items-center justify-center gap-2 bg-white text-gray-700 font-semibold text-base py-5 px-6 rounded-2xl border-2 border-gray-200 hover:border-gray-300 transition-all"
                 >
                   📞 Need Install Help?

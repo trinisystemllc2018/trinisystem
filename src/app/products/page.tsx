@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { DOWNLOAD_URL, PHONE_HREF } from "@/lib/utils";
+import { DOWNLOAD_URL, BOOKING_HREF } from "@/lib/utils";
 import { DownloadAssistant } from "@/components/features/DownloadAssistant";
 import { LiveStatusDashboard } from "@/components/features/LiveStatusDashboard";
 import { StickyCTA } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
   title: "TriniCleaner — Free Windows PC Optimizer",
-  description: "Download TriniCleaner free — removes junk files, fixes registry errors, speeds up boot time. Works on Windows 7, 8, 10 and 11. Need help installing it? Call 347-953-1531.",
+  description: "Download TriniCleaner free — removes junk files, fixes registry errors, speeds up boot time. Works on Windows 7, 8, 10 and 11. Need help installing it? Book online.",
   alternates: { canonical: "https://trinisystem.vercel.app/products" },
   keywords: ["free computer cleaner", "make computer faster", "free PC optimizer", "Windows junk remover", "free registry cleaner", "TriniCleaner download"],
 };
@@ -37,7 +37,7 @@ function ProductHero() {
                 <span className="text-2xl">⬇</span> Download Free
               </a>
               <a
-                href={PHONE_HREF}
+                href={BOOKING_HREF}
                 className="flex items-center justify-center gap-2 bg-white text-gray-700 font-semibold text-lg px-8 py-5 rounded-2xl border-2 border-gray-200 hover:border-gray-300 transition-all"
               >
                 📞 Need Install Help?
@@ -85,7 +85,7 @@ function CompareTable() {
     { feature: "Browser Cache Clean", trini: "✓ All browsers", ccleaner: "✓",      clean: "✓",      geek: "✗" },
     { feature: "No Subscription",     trini: "✓ Forever free", ccleaner: "✗ $29/yr",clean: "✗ $40/yr",geek: "✗ $99–$299" },
     { feature: "Works Offline",       trini: "✓ Yes",          ccleaner: "✓",      clean: "✓",      geek: "✗ Needs visit" },
-    { feature: "Live Tech Support",   trini: "✓ Call us",      ccleaner: "✗",      clean: "✗",      geek: "✓ Extra fee" },
+    { feature: "Live Tech Support",   trini: "✓ Book a session",      ccleaner: "✗",      clean: "✗",      geek: "✓ Extra fee" },
     { feature: "Price",               trini: "$0 — Free",      ccleaner: "$29/year",clean: "$39/year",geek: "$99–$299" },
   ];
 

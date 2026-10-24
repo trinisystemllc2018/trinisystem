@@ -7,11 +7,11 @@ import { ALL_LOCATION_SLUGS } from "@/lib/locations-data";
 export const metadata: Metadata = {
   title: "Printer Repair Near Me — Same Day Remote Fix",
   description:
-    "Printer repair near me — fix HP, Canon, Epson & Brother printers remotely in 15 minutes. All 50 states. From $49. No fix = no fee. Call 347-953-1531.",
+    "Printer repair near me — fix HP, Canon, Epson & Brother printers remotely in 15 minutes. All 50 states. From $49. No fix = no fee. Book online.",
   alternates: { canonical: "https://trinisystem.vercel.app/printer-repair-near-me" },
   openGraph: {
     title: "Printer Repair Near Me — Same Day Remote Fix | Trini System",
-    description: "Fix HP, Canon, Epson & Brother printers remotely. Same day. From $49. Call 347-953-1531.",
+    description: "Fix HP, Canon, Epson & Brother printers remotely. Same day. From $49. Book online.",
     url: "https://trinisystem.vercel.app/printer-repair-near-me",
     type: "website",
   },
@@ -88,7 +88,6 @@ const schemas = [
     "@id": "https://trinisystem.vercel.app/printer-repair-near-me#business",
     name: "Trini System LLC — Printer Repair",
     image: "https://trinisystem.vercel.app/og-image.png",
-    telephone: "+13479531531",
     url: "https://trinisystem.vercel.app/printer-repair-near-me",
     priceRange: "$$",
     address: {
@@ -114,7 +113,7 @@ const schemas = [
     "@type": "Service",
     name: "Printer Repair Service Near Me",
     description: "Same-day remote printer repair for HP, Canon, Epson, and Brother printers. Available 24/7 across all 50 US states.",
-    provider: { "@type": "LocalBusiness", name: "Trini System LLC", telephone: "+13479531531" },
+    provider: { "@type": "LocalBusiness", name: "Trini System LLC",},
     areaServed: { "@type": "Country", name: "United States" },
     serviceType: "Printer Repair",
     offers: { "@type": "Offer", price: "49", priceCurrency: "USD", description: "Remote printer repair starting at $49 — no fix no fee" },
@@ -124,17 +123,17 @@ const schemas = [
     "@type": "FAQPage",
     mainEntity: [
       { "@type": "Question", name: "Where can I find printer repair near me?",
-        acceptedAnswer: { "@type": "Answer", text: "Trini System LLC offers remote printer repair near you — wherever you live in the United States. Because the service is 100% remote, there's no need to find a local shop, drop off your printer, or wait for an appointment. Call 347-953-1531 and we'll connect to your computer in minutes." } },
+        acceptedAnswer: { "@type": "Answer", text: "Trini System LLC offers remote printer repair near you — wherever you live in the United States. Because the service is 100% remote, there's no need to find a local shop, drop off your printer, or wait for an appointment. Book online and we'll connect to your computer in minutes." } },
       { "@type": "Question", name: "How much does printer repair cost near me?",
         acceptedAnswer: { "@type": "Answer", text: "Most local printer repair shops charge $80–$200 plus drop-off and pickup. Trini System remote printer repair starts at $49 — about half the cost. No fix = no fee guaranteed. Compare to Geek Squad's $149+ minimum." } },
       { "@type": "Question", name: "Do you offer same-day printer repair near me?",
-        acceptedAnswer: { "@type": "Answer", text: "Yes. Same-day printer repair is available 24/7. Most printer issues — offline errors, WiFi problems, driver issues, error codes — are fixed remotely in 15–25 minutes from the time you call. No appointment, no waiting." } },
+        acceptedAnswer: { "@type": "Answer", text: "Yes. Same-day printer repair is available 24/7. Most printer issues — offline errors, WiFi problems, driver issues, error codes — are fixed remotely in 15–25 minutes from the start of your session. No appointment, no waiting." } },
       { "@type": "Question", name: "Which printer brands do you repair?",
         acceptedAnswer: { "@type": "Answer", text: "We repair HP (DeskJet, OfficeJet Pro, ENVY, LaserJet), Canon (PIXMA, imageCLASS, MAXIFY), Epson (EcoTank, WorkForce, Expression), and Brother (MFC, HL, DCP). Plus Lexmark, Xerox, Samsung, and Kyocera for business clients." } },
       { "@type": "Question", name: "Can you fix my printer if I don't live in New York?",
         acceptedAnswer: { "@type": "Answer", text: "Yes. We're based in Corona, Queens NY but provide remote service across all 50 US states. Distance doesn't matter for remote repair — we connect to your computer and fix the printer software, drivers, and network settings while you watch." } },
       { "@type": "Question", name: "How does remote printer repair work?",
-        acceptedAnswer: { "@type": "Answer", text: "1) Call 347-953-1531. 2) We diagnose your issue free over the phone. 3) If it needs hands-on work, we send a one-time secure remote-access link. 4) Our tech connects to your computer (you watch the entire time). 5) Issue fixed in 15–25 min average. 6) You only pay if it's working." } },
+        acceptedAnswer: { "@type": "Answer", text: "1) Book online. 2) We diagnose your issue free, remotely. 3) If it needs hands-on work, we send a one-time secure remote-access link. 4) Our tech connects to your computer (you watch the entire time). 5) Issue fixed in 15–25 min average. 6) You only pay if it's working." } },
     ],
   },
 ];
@@ -149,7 +148,7 @@ export default function PrinterRepairNearMePage() {
       {/* Urgency Bar */}
       <div className="bg-gradient-to-r from-blue-700 to-blue-600 text-white py-3 text-center text-sm font-semibold">
         🖨️ Printer Repair Near Me — Available Now in All 50 States ·{" "}
-        <a href="tel:+13479531531" className="underline font-bold hover:text-blue-200">Call 347-953-1531</a>
+        <a href="/book" className="underline font-bold hover:text-blue-200">Book online</a>
         {" "}· Same Day · From $49
       </div>
 
@@ -177,8 +176,8 @@ export default function PrinterRepairNearMePage() {
               anywhere in the USA — usually in under 15 minutes. No drop-off, no appointment, no wait.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="tel:+13479531531" className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105" style={{ background: "linear-gradient(135deg,#dc2626,#b91c1c)", boxShadow: "0 4px 30px rgba(220,38,38,0.5)" }}>
-                📞 Call Now — 347-953-1531
+              <a href="/book" className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105" style={{ background: "linear-gradient(135deg,#dc2626,#b91c1c)", boxShadow: "0 4px 30px rgba(220,38,38,0.5)" }}>
+                📅 Book Online
               </a>
               <a href="#diagnosis" className="inline-flex items-center justify-center gap-2 bg-white/10 border-2 border-white/30 text-white font-bold py-5 px-8 rounded-2xl text-lg hover:bg-white/20 transition-all">
                 🔧 Free Diagnosis Tool
@@ -306,7 +305,7 @@ export default function PrinterRepairNearMePage() {
             })}
           </div>
           <p className="text-center text-sm text-blue-300 mt-8">
-            Don&apos;t see your city? <a href="tel:+13479531531" className="text-white font-bold underline hover:text-blue-200">Call us</a> — we serve all 50 states.
+            Don&apos;t see your city? <a href="/book" className="text-white font-bold underline hover:text-blue-200">Book a session</a> — we serve all 50 states.
           </p>
         </div>
       </section>
@@ -328,8 +327,8 @@ export default function PrinterRepairNearMePage() {
           </div>
           <div className="text-center">
             <p className="text-sm text-gray-500 mb-4">All NYC residents get the same remote service — no in-person visits required.</p>
-            <a href="tel:+13479531531" className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-black py-3 px-6 rounded-xl transition-colors">
-              📞 Call NYC Office — 347-953-1531
+            <a href="/book" className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-black py-3 px-6 rounded-xl transition-colors">
+              📅 Book Online
             </a>
           </div>
         </div>
@@ -344,7 +343,7 @@ export default function PrinterRepairNearMePage() {
           </div>
           <div className="grid md:grid-cols-4 gap-4">
             {[
-              { step: 1, icon: "📞", title: "Call us free", detail: "Dial 347-953-1531 or use the form. Avg pick-up time: under 5 minutes. No automated phone tree." },
+              { step: 1, icon: "📞", title: "Book a session free", detail: "Book online or use the form. Avg pick-up time: under 5 minutes. No automated phone tree." },
               { step: 2, icon: "🔍", title: "Free phone diagnosis", detail: "Tell us your printer brand and what's happening. We confirm if it's something we can fix remotely (93% of cases)." },
               { step: 3, icon: "💻", title: "Secure remote session", detail: "We send a one-time link. You click it, we connect to your screen. You watch every step we take." },
               { step: 4, icon: "✅", title: "Pay only when fixed", detail: "Once your printer is working, we send a payment link starting at $49. No fix = no fee guaranteed." },
@@ -397,14 +396,14 @@ export default function PrinterRepairNearMePage() {
           </div>
           <div className="space-y-4">
             {[
-              { q: "Where can I find printer repair near me?", a: "Trini System LLC offers remote printer repair to anyone in the United States. Because the service is 100% remote, you don't need to find a local shop — we connect to your computer and fix the printer from wherever you are. Call 347-953-1531." },
+              { q: "Where can I find printer repair near me?", a: "Trini System LLC offers remote printer repair to anyone in the United States. Because the service is 100% remote, you don't need to find a local shop — we connect to your computer and fix the printer from wherever you are. Book online." },
               { q: "How much does printer repair cost?", a: "Local shops typically charge $80–$200 plus drop-off. Trini System remote printer repair starts at $49 — about half. Geek Squad starts at $149. We have a no fix = no fee guarantee." },
               { q: "Can you really fix a printer without seeing it?", a: "Yes — about 93% of printer issues are software, driver, or network related. Things like offline errors, WiFi setup, print queue, driver corruption, error codes (Canon B200, HP OXc19a0035, Epson ink errors), and Windows compatibility issues are all software problems we fix remotely." },
-              { q: "Do you offer same-day printer repair?", a: "Yes. Same-day printer repair is available 24/7 — including evenings and weekends. Most printer issues are fixed in 15–25 minutes from the time you call. No appointment needed." },
+              { q: "Do you offer same-day printer repair?", a: "Yes. Same-day printer repair is available 24/7 — including evenings and weekends. Most printer issues are fixed in 15–25 minutes from the start of your session. No appointment needed." },
               { q: "Which printer brands do you fix near me?", a: "All major brands: HP (DeskJet, OfficeJet, ENVY, LaserJet), Canon (PIXMA, imageCLASS, MAXIFY), Epson (EcoTank, WorkForce, Expression), Brother (MFC, HL, DCP), plus Lexmark, Xerox, Samsung, and Kyocera for business clients." },
               { q: "What if my printer needs a hardware repair?", a: "If we determine your issue is genuinely hardware (broken print head, motor failure, etc.) we'll tell you immediately and you pay nothing. We'll recommend the closest authorized service center for your brand." },
               { q: "Is remote printer repair safe?", a: "Yes. We use one-time secure remote-access sessions (similar to what Microsoft and Apple use). You can see everything we do on your screen, and the connection is closed automatically when the session ends. We never install permanent software." },
-              { q: "Do you serve my city?", a: "We serve all 50 US states. Whether you're in New York, Los Angeles, Chicago, Houston, or anywhere else — distance doesn't matter for remote repair. Call 347-953-1531 to confirm." },
+              { q: "Do you serve my city?", a: "We serve all 50 US states. Whether you're in New York, Los Angeles, Chicago, Houston, or anywhere else — distance doesn't matter for remote repair. Book online to confirm." },
             ].map(({ q, a }, i) => (
               <details key={i} className="group rounded-2xl border border-gray-100 bg-white overflow-hidden">
                 <summary className="flex items-center justify-between p-5 cursor-pointer font-black text-gray-900 hover:text-blue-700 transition-colors list-none">
@@ -425,8 +424,8 @@ export default function PrinterRepairNearMePage() {
           <h2 className="text-3xl md:text-4xl font-black mb-4">Get Your Printer Fixed Today</h2>
           <p className="text-blue-200 text-lg mb-8">Remote service · All 50 states · From $49 · No fix = no fee</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:+13479531531" className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105" style={{ background: "linear-gradient(135deg,#dc2626,#b91c1c)", boxShadow: "0 4px 30px rgba(220,38,38,0.5)" }}>
-              📞 Call 347-953-1531
+            <a href="/book" className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105" style={{ background: "linear-gradient(135deg,#dc2626,#b91c1c)", boxShadow: "0 4px 30px rgba(220,38,38,0.5)" }}>
+              📞 Book online
             </a>
             <Link href="/services" className="inline-flex items-center justify-center gap-2 bg-white/10 border-2 border-white/30 text-white font-bold py-5 px-8 rounded-2xl text-lg hover:bg-white/20 transition-all">
               View All Services →

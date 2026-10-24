@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { StickyCTA } from "@/components/ui/Button";
-import { PHONE, PHONE_HREF } from "@/lib/utils";
+import { BOOKING_LABEL, BOOKING_HREF } from "@/lib/utils";
 
 // ISR — page revalidates every 1 hour, so FAQ updates appear without redeploy
 export const revalidate = 3600;
@@ -9,7 +9,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Printer Won't Print — Fix Any Brand in Minutes",
   description:
-    "Printer not printing? Fix HP, Canon, Epson, Brother — clear print queue, restart spooler, update drivers. Free guide + expert remote help. Call 347-953-1531.",
+    "Printer not printing? Fix HP, Canon, Epson, Brother — clear print queue, restart spooler, update drivers. Free guide + expert remote help. Book online.",
   keywords: [
     "printer wont print","printer not printing","printer won't print anything",
     "my printer won't print","printer not working","why won't my printer print",
@@ -62,7 +62,7 @@ const schemas = [
       {
         "@type": "Question",
         name: "Printer is online but still won't print — what do I do?",
-        acceptedAnswer: { "@type": "Answer", text: "If the printer shows Online but won't print: 1) Check it has paper and ink. 2) Clear the print queue. 3) Restart Print Spooler. 4) Make sure it's set as default printer. 5) Print a test page from the printer itself (not from Windows) — if the test page prints, the issue is Windows-side. Call Trini System at 347-953-1531 for a free diagnosis." },
+        acceptedAnswer: { "@type": "Answer", text: "If the printer shows Online but won't print: 1) Check it has paper and ink. 2) Clear the print queue. 3) Restart Print Spooler. 4) Make sure it's set as default printer. 5) Print a test page from the printer itself (not from Windows) — if the test page prints, the issue is Windows-side. book a session with Trini System for a free diagnosis." },
       },
     ],
   },
@@ -122,10 +122,10 @@ export default function PrinterWontPrintPage() {
             5 steps, 8 minutes, no tech knowledge needed.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href={PHONE_HREF}
+            <a href={BOOKING_HREF}
               className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-black text-lg text-black"
               style={{ background: "linear-gradient(135deg,#f59e0b,#fb923c)", boxShadow: "0 0 30px rgba(249,115,22,0.4)" }}>
-              📞 {PHONE} — Call Free
+              📞 {BOOKING_LABEL} — Book Free
             </a>
             <a href="#fix-steps"
               className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-black text-lg text-white"

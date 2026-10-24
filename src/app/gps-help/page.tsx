@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 import PremiumServicePage from "@/components/features/PremiumServicePage";
 import { StickyCTA } from "@/components/ui/Button";
-import { PHONE, PHONE_HREF } from "@/lib/utils";
+import { BOOKING_LABEL, BOOKING_HREF } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "GPS Help — Garmin, TomTom, Magellan Updates",
   description:
-    "Fix your GPS — Garmin map updates, satellite signal issues, Garmin Express errors, TomTom updates. Free guide + remote support. Call 347-953-1531.",
+    "Fix your GPS — Garmin map updates, satellite signal issues, Garmin Express errors, TomTom updates. Free guide + remote support. Book online.",
   alternates: { canonical: "https://trinisystem.vercel.app/gps-help" },
   openGraph: {
     title: "GPS Help — Garmin, TomTom, Magellan Updates | Trini System",
-    description: "Fix your GPS — map updates, satellite issues, Garmin Express errors. Free guide + remote support. Call 347-953-1531.",
+    description: "Fix your GPS — map updates, satellite issues, Garmin Express errors. Free guide + remote support. Book online.",
     url: "https://trinisystem.vercel.app/gps-help",
     type: "website",
   },
@@ -36,13 +36,13 @@ const schemas = [
     "@type": "FAQPage",
     mainEntity: [
       { "@type": "Question", name: "How do I update my Garmin GPS maps?",
-        acceptedAnswer: { "@type": "Answer", text: "Download Garmin Express from garmin.com/express. Connect your Garmin GPS via USB. Sign in with a free Garmin account. Click 'Add Map Updates' and let the download run — it takes 30–90 minutes depending on internet speed. Trini System does Garmin map updates remotely if you need help — call 347-953-1531." } },
+        acceptedAnswer: { "@type": "Answer", text: "Download Garmin Express from garmin.com/express. Connect your Garmin GPS via USB. Sign in with a free Garmin account. Click 'Add Map Updates' and let the download run — it takes 30–90 minutes depending on internet speed. Trini System does Garmin map updates remotely if you need help — book online." } },
       { "@type": "Question", name: "Why is Garmin Express not working or showing errors?",
         acceptedAnswer: { "@type": "Answer", text: "Garmin Express errors are usually caused by an outdated version of Garmin Express, USB connection issues, or Windows firewall blocking the update. Uninstall Garmin Express, download the fresh version from garmin.com/express, and try a different USB port. Trini System fixes Garmin Express errors remotely in 20 minutes." } },
       { "@type": "Question", name: "Why won't my Garmin GPS find satellites?",
-        acceptedAnswer: { "@type": "Answer", text: "GPS satellite issues are usually caused by stale satellite almanac data. Hold the power button for 10 seconds to reset, then take the device outside to an open sky and leave it stationary for 10–15 minutes. Also update the satellite data in Garmin Express. Call Trini System at 347-953-1531 if the issue persists." } },
+        acceptedAnswer: { "@type": "Answer", text: "GPS satellite issues are usually caused by stale satellite almanac data. Hold the power button for 10 seconds to reset, then take the device outside to an open sky and leave it stationary for 10–15 minutes. Also update the satellite data in Garmin Express. book a session with Trini System if the issue persists." } },
       { "@type": "Question", name: "How do I update a TomTom GPS device?",
-        acceptedAnswer: { "@type": "Answer", text: "TomTom GPS devices update via MyDrive Connect on PC/Mac. Download it from tomtom.com/getstarted. Connect your TomTom via USB and sign in to your TomTom account. Any available map updates will appear automatically. Trini System assists with TomTom updates remotely — call 347-953-1531." } },
+        acceptedAnswer: { "@type": "Answer", text: "TomTom GPS devices update via MyDrive Connect on PC/Mac. Download it from tomtom.com/getstarted. Connect your TomTom via USB and sign in to your TomTom account. Any available map updates will appear automatically. Trini System assists with TomTom updates remotely — book online." } },
       { "@type": "Question", name: "Are Garmin map updates free?",
         acceptedAnswer: { "@type": "Answer", text: "Garmin offers one free lifetime map update on most newer devices. Additional updates require a map subscription. Garmin Express itself is free to download. Trini System can check if your device qualifies for free updates and handle the entire process remotely." } },
     ],
@@ -105,7 +105,7 @@ export default function GpsHelpPage() {
           { icon: "⏏️", title: "Safely eject the device", detail: "Click the eject icon in Garmin Express (or safely remove hardware in Windows). Never just yank the USB cable — this can corrupt map data." },
           { icon: "🔌", title: "Disconnect and restart the GPS", detail: "Unplug USB, then power cycle the GPS (hold power 10 seconds, then turn back on). The device will process new maps on first boot — takes 5–10 min." },
           { icon: "📡", title: "Acquire satellite signal outdoors", detail: "Take the GPS outside to open sky. Place it on a flat surface. Wait 5–15 minutes for it to lock onto satellites. First lock after update takes longest." },
-          { icon: "✅", title: "Test navigation — verify maps work", detail: "Enter a destination and start navigation. Verify the map looks updated (new roads, correct addresses). If maps look old, call us at 347-953-1531." },
+          { icon: "✅", title: "Test navigation — verify maps work", detail: "Enter a destination and start navigation. Verify the map looks updated (new roads, correct addresses). If maps look old, book online." },
         ]}
         reviewsTitle="4.9 Stars · 5,000+ GPS Devices Updated"
         reviews={[
@@ -116,7 +116,7 @@ export default function GpsHelpPage() {
         ]}
         faqTitle="GPS Help — FAQ"
         faqs={[
-          { q: "How do I update my Garmin GPS maps?", a: "Download Garmin Express from garmin.com/express. Connect via USB. Sign in with a Garmin account. Click 'Add Map Updates' and let it download (30–90 min). We do Garmin map updates remotely if you need help — call 347-953-1531." },
+          { q: "How do I update my Garmin GPS maps?", a: "Download Garmin Express from garmin.com/express. Connect via USB. Sign in with a Garmin account. Click 'Add Map Updates' and let it download (30–90 min). We do Garmin map updates remotely if you need help — book online." },
           { q: "Why is Garmin Express not working?", a: "Usually caused by outdated version, USB issues, or firewall blocking. Uninstall completely, download fresh from garmin.com/express, try a different USB port. We fix Garmin Express errors remotely in 20 minutes." },
           { q: "Why won't my GPS find satellites?", a: "Stale satellite almanac data is the most common cause. Hold power 10 seconds to reset, go outside to open sky, wait 10–15 min. Also update satellite data in Garmin Express." },
           { q: "Are Garmin map updates free?", a: "Most newer Garmin devices include one free lifetime map update. Garmin Express itself is always free. We can check if your device qualifies and handle the entire update remotely." },
@@ -124,8 +124,8 @@ export default function GpsHelpPage() {
         ]}
         ctaTitle="GPS still not updating?"
         ctaSub="We connect remotely and do the entire update for you while you watch."
-        ctaPrimaryLabel={`Call ${PHONE}`}
-        ctaPrimaryHref={PHONE_HREF}
+        ctaPrimaryLabel={`${BOOKING_LABEL}`}
+        ctaPrimaryHref={BOOKING_HREF}
       />
 
       <StickyCTA />

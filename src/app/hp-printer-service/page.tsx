@@ -4,13 +4,13 @@ import { TechER } from "@/components/features/TechER";
 import { StickyCTA } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "HP Printer Service & Support — Phone & Remote",
+  title: "HP Printer Service & Support — Remote",
   description:
-    "HP printer service & support phone number. Fix HP DeskJet, OfficeJet, ENVY, LaserJet remotely. From $49. No fix = no fee. Call 347-953-1531 — 24/7.",
+    "HP printer service & support phone number. Fix HP DeskJet, OfficeJet, ENVY, LaserJet remotely. From $49. No fix = no fee. Book online — 24/7.",
   alternates: { canonical: "https://trinisystem.vercel.app/hp-printer-service" },
   openGraph: {
-    title: "HP Printer Service & Support — Phone & Remote | Trini System",
-    description: "HP printer service & support — call 347-953-1531 for remote fix in 15 min. From $49.",
+    title: "HP Printer Service & Support — Remote | Trini System",
+    description: "HP printer service & support — book online for remote fix in 15 min. From $49.",
     url: "https://trinisystem.vercel.app/hp-printer-service",
     type: "website",
   },
@@ -85,7 +85,7 @@ const SERVICE_TYPES = [
 ];
 
 const HP_SUPPORT_HOURS = [
-  { day: "Monday – Friday", hours: "24 hours", note: "Live answer in under 5 min" },
+  { day: "Monday – Friday", hours: "24 hours", note: "Book online any time" },
   { day: "Saturday", hours: "24 hours", note: "No reduced hours" },
   { day: "Sunday", hours: "24 hours", note: "Holiday support included" },
 ];
@@ -115,7 +115,7 @@ const schemas = [
     "@type": "Service",
     name: "HP Printer Service & Support",
     description: "Independent HP printer service and support — phone, remote, on-site. Fast 5-minute callback, average 15-minute fix, $49 flat rate. All HP DeskJet, OfficeJet, ENVY, and LaserJet models.",
-    provider: { "@type": "LocalBusiness", name: "Trini System LLC", telephone: "+13479531531" },
+    provider: { "@type": "LocalBusiness", name: "Trini System LLC",},
     areaServed: { "@type": "Country", name: "United States" },
     serviceType: "HP Printer Repair Service",
     offers: { "@type": "Offer", price: "49", priceCurrency: "USD", description: "Flat $49 starting price for HP printer service. No fix = no fee." },
@@ -130,7 +130,6 @@ const schemas = [
     "@context": "https://schema.org",
     "@type": "ContactPoint",
     "@id": "https://trinisystem.vercel.app/hp-printer-service#contact",
-    telephone: "+13479531531",
     contactType: "HP printer customer support",
     areaServed: "US",
     availableLanguage: ["English", "Spanish"],
@@ -140,17 +139,17 @@ const schemas = [
     "@type": "FAQPage",
     mainEntity: [
       { "@type": "Question", name: "What's the HP printer support phone number?",
-        acceptedAnswer: { "@type": "Answer", text: "For independent HP printer service, call Trini System LLC at 347-953-1531. We're an independent HP printer repair provider — not affiliated with HP Inc. — but we have 8 years of experience servicing HP DeskJet, OfficeJet, ENVY, and LaserJet models. For warranty-covered service, contact HP directly at 1-800-474-6836." } },
+        acceptedAnswer: { "@type": "Answer", text: "For independent HP printer service, book a session with Trini System online. We're an independent HP printer repair provider — not affiliated with HP Inc. — but we have 8 years of experience servicing HP DeskJet, OfficeJet, ENVY, and LaserJet models. For warranty-covered service, contact HP directly at 1-800-474-6836." } },
       { "@type": "Question", name: "Is Trini System an authorized HP service center?",
         acceptedAnswer: { "@type": "Answer", text: "No — Trini System LLC is an independent HP repair provider, not an authorized HP service center. This means we can service printers regardless of warranty status (in or out of warranty), at lower prices, with faster turnaround. For warranty service on covered defects, contact HP directly." } },
       { "@type": "Question", name: "How does HP printer service work?",
-        acceptedAnswer: { "@type": "Answer", text: "1) Call 347-953-1531 free. 2) We diagnose your HP issue over the phone. 3) For software/driver/network issues (93% of cases), we connect remotely and fix while you watch. 4) For hardware failures, we recommend the closest authorized parts source. You only pay if your HP printer is fixed — $49 flat for most jobs." } },
+        acceptedAnswer: { "@type": "Answer", text: "1) Book online free. 2) We diagnose your HP issue remotely. 3) For software/driver/network issues (93% of cases), we connect remotely and fix while you watch. 4) For hardware failures, we recommend the closest authorized parts source. You only pay if your HP printer is fixed — $49 flat for most jobs." } },
       { "@type": "Question", name: "Do you service HP printers under warranty?",
         acceptedAnswer: { "@type": "Answer", text: "Yes — we service HP printers regardless of warranty status. However, if your issue is covered by HP's warranty (typically a hardware defect), you may want to contact HP first for free service. Software, driver, and network issues are usually NOT covered by HP warranty and are exactly what we excel at fixing fast." } },
       { "@type": "Question", name: "How much is HP printer service near me?",
         acceptedAnswer: { "@type": "Answer", text: "Trini System remote HP service starts at $49 flat. Local repair shops typically charge $80–$200 plus drop-off. HP authorized repair (out-of-warranty) often quotes $150–$250 plus shipping. We're significantly cheaper for the same fix on software, driver, network, and most error code issues." } },
       { "@type": "Question", name: "What HP models do you service?",
-        acceptedAnswer: { "@type": "Answer", text: "All current HP models: DeskJet (4155e, 2755e, 3755, 4255e), ENVY (6055e, 6455e, 7955e), OfficeJet Pro (9015e, 9025e, 8710), LaserJet (M404n, M454dw, Pro M404dn), plus older HP DeskJet, OfficeJet, ENVY, and LaserJet models. Call 347-953-1531." } },
+        acceptedAnswer: { "@type": "Answer", text: "All current HP models: DeskJet (4155e, 2755e, 3755, 4255e), ENVY (6055e, 6455e, 7955e), OfficeJet Pro (9015e, 9025e, 8710), LaserJet (M404n, M454dw, Pro M404dn), plus older HP DeskJet, OfficeJet, ENVY, and LaserJet models. Book online." } },
     ],
   },
 ];
@@ -165,7 +164,7 @@ export default function HPPrinterServicePage() {
       {/* Urgency Bar */}
       <div className="bg-gradient-to-r from-blue-700 to-blue-600 text-white py-3 text-center text-sm font-semibold">
         🖨️ HP Printer Service — Independent · 24/7 ·{" "}
-        <a href="tel:+13479531531" className="underline font-bold hover:text-blue-200">347-953-1531</a>
+        <a href="/book" className="underline font-bold hover:text-blue-200">Book online</a>
         {" "}· From $49
       </div>
 
@@ -194,8 +193,8 @@ export default function HPPrinterServicePage() {
               All HP DeskJet, OfficeJet, ENVY, and LaserJet models. From $49.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="tel:+13479531531" className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105" style={{ background: "linear-gradient(135deg,#dc2626,#b91c1c)", boxShadow: "0 4px 30px rgba(220,38,38,0.5)" }}>
-                📞 HP Service — 347-953-1531
+              <a href="/book" className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105" style={{ background: "linear-gradient(135deg,#dc2626,#b91c1c)", boxShadow: "0 4px 30px rgba(220,38,38,0.5)" }}>
+                📅 HP Service — Book Online
               </a>
               <a href="#diagnosis" className="inline-flex items-center justify-center gap-2 bg-white/10 border-2 border-white/30 text-white font-bold py-5 px-8 rounded-2xl text-lg hover:bg-white/20 transition-all">
                 🔧 Free Diagnosis
@@ -219,7 +218,7 @@ export default function HPPrinterServicePage() {
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-3">Every Type of HP Printer Service</h2>
-            <p className="text-gray-500 max-w-2xl mx-auto">Pick the service category that matches your HP issue. Or just call us — we&apos;ll figure it out together.</p>
+            <p className="text-gray-500 max-w-2xl mx-auto">Pick the service category that matches your HP issue. Or just book a session — we&apos;ll figure it out together.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {SERVICE_TYPES.map(({ title, icon, desc, duration, price, examples }) => (
@@ -267,8 +266,8 @@ export default function HPPrinterServicePage() {
             ))}
           </div>
           <div className="mt-6 text-center">
-            <a href="tel:+13479531531" className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-black py-3 px-6 rounded-xl transition-colors">
-              📞 Call HP Service — 347-953-1531
+            <a href="/book" className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-black py-3 px-6 rounded-xl transition-colors">
+              📅 Book Online
             </a>
           </div>
         </div>
@@ -341,14 +340,14 @@ export default function HPPrinterServicePage() {
           </div>
           <div className="space-y-4">
             {[
-              { q: "What is the HP printer support phone number?", a: "For independent HP printer service: Trini System at 347-953-1531 (live answer in under 5 minutes, 24/7, $49 flat). For HP&apos;s official support (warranty-covered): 1-800-474-6836. For software/driver/network HP issues, we&apos;re typically faster and cheaper than HP&apos;s official line." },
+              { q: "How do I contact independent HP printer support?", a: "For independent HP printer service: Trini System — book online ($49 flat). For HP&apos;s official support (warranty-covered): 1-800-474-6836. For software/driver/network HP issues, we&apos;re typically faster and cheaper than HP&apos;s official line." },
               { q: "Is Trini System an authorized HP service center?", a: "No — we&apos;re an independent HP repair provider, not an authorized service center. This is a feature, not a bug: we service HP printers regardless of warranty status, faster, and at lower cost. For warranty-covered hardware defects, contact HP directly first." },
               { q: "Can I get HP printer service near me?", a: "Yes — we provide remote HP service to customers in all 50 US states. Because the work is done remotely, you don&apos;t need a local shop. We connect to your computer, fix the HP issue, and you watch every step. From $49." },
               { q: "How fast is HP service?", a: "Phone pickup: under 5 minutes. Average fix time once we&apos;re connected: 15 minutes for HP DeskJet/ENVY offline issues, 25 minutes for OfficeJet Pro WiFi issues, 20 minutes for LaserJet driver problems. Same-day every time." },
-              { q: "What HP models do you service?", a: "Current models: DeskJet 4155e, 2755e, 3755, 4255e; ENVY 6055e, 6455e, 7955e; OfficeJet Pro 9015e, 9025e, 8710; LaserJet M404n, M454dw, Pro M404dn. Plus older HP DeskJet, OfficeJet, ENVY, and LaserJet models. Call us for any HP." },
+              { q: "What HP models do you service?", a: "Current models: DeskJet 4155e, 2755e, 3755, 4255e; ENVY 6055e, 6455e, 7955e; OfficeJet Pro 9015e, 9025e, 8710; LaserJet M404n, M454dw, Pro M404dn. Plus older HP DeskJet, OfficeJet, ENVY, and LaserJet models. Book a session for any HP." },
               { q: "Will my HP warranty be voided if I use Trini System?", a: "No. We do not perform any work that voids HP warranties — we only do software, driver, network, and configuration work that the user could perform themselves. We never modify firmware in ways HP prohibits, and we never replace parts." },
               { q: "Do you fix HP error OXc19a0035 remotely?", a: "Yes. HP error OXc19a0035 is an ink system failure. We walk you through cartridge removal, contact cleaning, and the proper reseat sequence. About 80% are fixed remotely without any new parts. For genuine hardware failures, we&apos;ll diagnose and recommend HP&apos;s authorized service." },
-              { q: "Do you offer Spanish-language HP service?", a: "Sí. Hablamos español. Servicio técnico de impresoras HP en español, todos los modelos. Llame al 347-953-1531." },
+              { q: "Do you offer Spanish-language HP service?", a: "Sí. Hablamos español. Servicio técnico de impresoras HP en español, todos los modelos. Reserve en línea." },
             ].map(({ q, a }, i) => (
               <details key={i} className="group rounded-2xl border border-gray-100 bg-gray-50 overflow-hidden">
                 <summary className="flex items-center justify-between p-5 cursor-pointer font-black text-gray-900 hover:text-blue-700 transition-colors list-none">
@@ -381,9 +380,9 @@ export default function HPPrinterServicePage() {
         <div className="max-w-2xl mx-auto px-4">
           <div className="text-5xl mb-5">🖨️</div>
           <h2 className="text-3xl md:text-4xl font-black mb-4">HP Printer Service Now</h2>
-          <p className="text-blue-200 text-lg mb-8">Live answer · 5-min callback · From $49 · 24/7 · No fix = no fee</p>
-          <a href="tel:+13479531531" className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105" style={{ background: "linear-gradient(135deg,#dc2626,#b91c1c)", boxShadow: "0 4px 30px rgba(220,38,38,0.5)" }}>
-            📞 347-953-1531
+          <p className="text-blue-200 text-lg mb-8">Book online · From $49 · No fix = no fee</p>
+          <a href="/book" className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105" style={{ background: "linear-gradient(135deg,#dc2626,#b91c1c)", boxShadow: "0 4px 30px rgba(220,38,38,0.5)" }}>
+            📅 Book Online
           </a>
         </div>
       </section>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { PHONE, PHONE_HREF } from "@/lib/utils";
+import { BOOKING_LABEL, BOOKING_HREF } from "@/lib/utils";
 import { PRINTER_BRANDS, PRINTER_PROBLEMS, type BrandKey, type ProblemKey } from "@/lib/seo-data";
 
 /* ─────────────────────────────────────────────────────────────
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   // Keep title compact - 50ish chars before " | Trini System" (16 char) suffix
   const title = `${brand.name} ${problem.title} — Fix It Fast`;
-  const description = `Fix ${brand.name} printer ${problem.title.toLowerCase()} fast. ${problem.summary.slice(0, 90)}... Call 347-953-1531 free.`;
+  const description = `Fix ${brand.name} printer ${problem.title.toLowerCase()} fast. ${problem.summary.slice(0, 90)}... Book online free.`;
   const url = `https://trinisystem.vercel.app/fix-printer/${params.brand}/${params.problem}`;
 
   return {
@@ -88,7 +88,7 @@ export default function FixPrinterPage({ params }: Props) {
       {/* Brand bar */}
       <div className="py-2 text-center text-sm font-semibold text-white" style={{ background: brand.color }}>
         {brand.name} Printer Support — Remote Fix, All 50 States ·{" "}
-        <a href={PHONE_HREF} className="underline">Call {PHONE}</a>
+        <a href={BOOKING_HREF} className="underline">{BOOKING_LABEL}</a>
       </div>
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
@@ -124,7 +124,7 @@ export default function FixPrinterPage({ params }: Props) {
         {/* Answer block — optimized for LLM extraction */}
         <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5 mb-8">
           <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2">Quick Answer</p>
-          <p className="text-gray-800 text-sm leading-relaxed font-medium">{problem.summary} Follow the steps below or call <a href={PHONE_HREF} className="text-blue-600 font-bold">{PHONE}</a> for free remote help.</p>
+          <p className="text-gray-800 text-sm leading-relaxed font-medium">{problem.summary} Follow the steps below or <a href={BOOKING_HREF} className="text-blue-600 font-bold">{BOOKING_LABEL}</a> for free remote help.</p>
         </div>
 
         {/* Steps */}
@@ -149,9 +149,9 @@ export default function FixPrinterPage({ params }: Props) {
         <div className="bg-gray-900 rounded-2xl p-6 text-white text-center mb-10">
           <h3 className="font-black text-xl mb-2">Still not working?</h3>
           <p className="text-gray-300 text-sm mb-4">We fix {brand.name} printer {problem.title.toLowerCase()} remotely — usually in under 30 minutes. Free diagnosis, no fix = no fee.</p>
-          <a href={PHONE_HREF}
+          <a href={BOOKING_HREF}
             className="inline-flex items-center gap-2 bg-white text-gray-900 font-black px-8 py-4 rounded-xl hover:bg-gray-100 transition-colors text-lg">
-            📞 Call {PHONE} — Free Fix
+            📞 {BOOKING_LABEL} — Free Fix
           </a>
         </div>
 

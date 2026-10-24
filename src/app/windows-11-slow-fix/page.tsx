@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { StickyCTA } from "@/components/ui/Button";
-import { PHONE, PHONE_HREF, DOWNLOAD_URL } from "@/lib/utils";
+import { BOOKING_LABEL, BOOKING_HREF, DOWNLOAD_URL } from "@/lib/utils";
 
 // ISR — page revalidates every 1 hour, so FAQ updates appear without redeploy
 export const revalidate = 3600;
@@ -9,7 +9,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Windows 11 Running Slow — 10 Proven Fixes",
   description:
-    "Windows 11 slow? Disable startup apps, clear temp files, adjust power plan, update drivers. Free TriniCleaner speeds up any PC. Call 347-953-1531.",
+    "Windows 11 slow? Disable startup apps, clear temp files, adjust power plan, update drivers. Free TriniCleaner speeds up any PC. Book online.",
   keywords: [
     "windows 11 slow","windows 11 running slow","why is my windows 11 so slow",
     "speed up windows 11","windows 11 slow fix","windows 11 performance fix",
@@ -62,7 +62,7 @@ const schemas = [
       {
         "@type": "Question",
         name: "Windows 11 slowed down after an update — how do I fix it?",
-        acceptedAnswer: { "@type": "Answer", text: "Post-update slowness is usually caused by background indexing (wait 30 minutes after the update completes) or driver conflicts. Fix: Settings → Windows Update → Advanced options → Optional updates — install all driver updates. If still slow after 30 minutes, call Trini System at 347-953-1531 — we fix post-update slowness remotely." },
+        acceptedAnswer: { "@type": "Answer", text: "Post-update slowness is usually caused by background indexing (wait 30 minutes after the update completes) or driver conflicts. Fix: Settings → Windows Update → Advanced options → Optional updates — install all driver updates. If still slow after 30 minutes, book a session with Trini System — we fix post-update slowness remotely." },
       },
     ],
   },
@@ -106,7 +106,7 @@ const FIXES = [
   },
   {
     num: "08", icon: "🛡️", title: "Check for Malware", color: "#ec4899", impact: "VARIES",
-    detail: "Windows Security → Virus & threat protection → Quick scan. Malware is a common hidden cause of slowness. If Windows Security finds nothing but the PC is still slow, call Trini System — we run deeper scans that catch malware Windows Security misses.",
+    detail: "Windows Security → Virus & threat protection → Quick scan. Malware is a common hidden cause of slowness. If Windows Security finds nothing but the PC is still slow, book a session with Trini System — we run deeper scans that catch malware Windows Security misses.",
     time: "5 min",
   },
 ];
@@ -142,10 +142,10 @@ export default function Windows11SlowFixPage() {
               style={{ background: "linear-gradient(135deg,#10b981,#34d399)", boxShadow: "0 0 30px rgba(16,185,129,0.4)" }}>
               ⚡ Free TriniCleaner Download
             </a>
-            <a href={PHONE_HREF}
+            <a href={BOOKING_HREF}
               className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-black text-lg text-white"
               style={{ background: "rgba(255,255,255,0.07)", border: "2px solid rgba(255,255,255,0.15)" }}>
-              📞 {PHONE} — Call for Help
+              📞 {BOOKING_LABEL} — Get Help
             </a>
           </div>
         </div>
@@ -225,10 +225,10 @@ export default function Windows11SlowFixPage() {
             We diagnose and fix remotely in under 30 minutes.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href={PHONE_HREF}
+            <a href={BOOKING_HREF}
               className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-black text-lg text-black"
               style={{ background: "linear-gradient(135deg,#f59e0b,#fb923c)" }}>
-              📞 Call Free — {PHONE}
+              📅 Book Free — {BOOKING_LABEL}
             </a>
             <Link href="/computer-help"
               className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-black text-lg text-white"

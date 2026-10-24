@@ -4,7 +4,7 @@ import { StickyCTA } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
   title: "Trini System vs Geek Squad — Compare 2026",
-  description: "Compare Trini System vs Geek Squad: price, wait time, remote vs in-store. Remote tech support from $49 — no appointment needed. Call 347-953-1531.",
+  description: "Compare Trini System vs Geek Squad: price, wait time, remote vs in-store. Remote tech support from $49 — no appointment needed. Book online.",
   alternates: { canonical: "https://trinisystem.vercel.app/comparison" },
   keywords: [
     "trini system vs geek squad","geek squad alternative","cheap tech support","geek squad price comparison",
@@ -13,8 +13,8 @@ export const metadata: Metadata = {
   ],
 };
 
-const PHONE_HREF = "tel:+13479531531";
-const PHONE = "347-953-1531";
+const BOOKING_HREF = "/book";
+const BOOKING_LABEL = "Book Online";
 
 const schemas = [
   {
@@ -100,7 +100,7 @@ export default function ComparisonPage() {
 
       <div className="bg-blue-700 text-white py-3 text-center text-sm font-semibold">
         💰 50% Less Than Geek Squad · No Appointment · 24/7 Remote ·{" "}
-        <a href={PHONE_HREF} className="underline font-bold">Call {PHONE}</a>
+        <a href={BOOKING_HREF} className="underline font-bold">{BOOKING_LABEL}</a>
       </div>
 
       {/* Hero */}
@@ -116,9 +116,9 @@ export default function ComparisonPage() {
           <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
             Same-day remote service at half the price — without leaving your home. Here&apos;s exactly how we compare.
           </p>
-          <a href={PHONE_HREF}
+          <a href={BOOKING_HREF}
             className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-black text-xl px-10 py-5 rounded-2xl shadow-lg hover:from-blue-700 hover:to-blue-800 transition-all">
-            📞 {PHONE} — Try Us Free First
+            📞 {BOOKING_LABEL} — Try Us Free First
           </a>
         </div>
       </section>
@@ -187,9 +187,9 @@ export default function ComparisonPage() {
             ))}
           </div>
           <div className="mt-10 text-center">
-            <a href={PHONE_HREF}
+            <a href={BOOKING_HREF}
               className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-black text-xl px-10 py-5 rounded-2xl shadow-brand hover:from-blue-700 hover:to-blue-800 transition-all">
-              📞 Call {PHONE} — Get the Better Deal
+              📞 {BOOKING_LABEL} — Get the Better Deal
             </a>
             <p className="text-gray-500 text-sm mt-4">No fix = no fee · Remote · All 50 states · Est. 2016</p>
           </div>

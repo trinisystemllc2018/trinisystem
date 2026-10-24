@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   // 50 chars + " | Trini System" (16) = 66 — at Bing limit
   title: "HP Printer Repair Near Me — DeskJet, OfficeJet",
   description:
-    "HP printer repair — fix HP DeskJet 4155e, 2755e, OfficeJet Pro, LaserJet, ENVY offline & error OXc19a0035 remotely. From $49. Call 347-953-1531.",
+    "HP printer repair — fix HP DeskJet 4155e, 2755e, OfficeJet Pro, LaserJet, ENVY offline & error OXc19a0035 remotely. From $49. Book online.",
   keywords: [
     "hp printer repair",
     "hp printer repair near me",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://trinisystem.vercel.app/hp-printer-repair" },
   openGraph: {
     title: "HP Printer Repair Near Me — Fixed Fast | Trini System",
-    description: "Expert HP printer repair for DeskJet, OfficeJet Pro, ENVY, LaserJet. Remote service all 50 states. From $49. Call 347-953-1531.",
+    description: "Expert HP printer repair for DeskJet, OfficeJet Pro, ENVY, LaserJet. Remote service all 50 states. From $49. Book online.",
     url: "https://trinisystem.vercel.app/hp-printer-repair",
     type: "website",
   },
@@ -65,32 +65,32 @@ const schemas = [
       {
         "@type": "Question",
         name: "How do I fix my HP printer showing offline?",
-        acceptedAnswer: { "@type": "Answer", text: "Turn off both the HP printer and your WiFi router. Unplug both from the wall for 30 seconds. Plug the router back in first and wait 60 seconds. Power on the HP printer. On Windows, go to Settings > Printers & Scanners, click your HP printer, open the print queue, click the Printer menu and uncheck 'Use Printer Offline'. If it persists, call Trini System at 347-953-1531 — we fix HP offline errors remotely in under 15 minutes." },
+        acceptedAnswer: { "@type": "Answer", text: "Turn off both the HP printer and your WiFi router. Unplug both from the wall for 30 seconds. Plug the router back in first and wait 60 seconds. Power on the HP printer. On Windows, go to Settings > Printers & Scanners, click your HP printer, open the print queue, click the Printer menu and uncheck 'Use Printer Offline'. If it persists, book a session with Trini System — we fix HP offline errors remotely in under 15 minutes." },
       },
       {
         "@type": "Question",
         name: "What is HP printer error code OXc19a0035?",
-        acceptedAnswer: { "@type": "Answer", text: "Error OXc19a0035 is an ink system failure on HP printers. Turn the printer fully off, remove all ink cartridges, wait 60 seconds, reinstall them firmly until they click, and power on. If the error returns, Trini System resolves this remotely without hardware replacement in most cases. Call 347-953-1531." },
+        acceptedAnswer: { "@type": "Answer", text: "Error OXc19a0035 is an ink system failure on HP printers. Turn the printer fully off, remove all ink cartridges, wait 60 seconds, reinstall them firmly until they click, and power on. If the error returns, Trini System resolves this remotely without hardware replacement in most cases. Book online." },
       },
       {
         "@type": "Question",
         name: "How much does HP printer repair cost at Trini System?",
-        acceptedAnswer: { "@type": "Answer", text: "Remote HP printer repair starts at $49 — about 50% less than Geek Squad. Most HP issues are fixed remotely in under 30 minutes. No fix = no fee guaranteed. Call 347-953-1531." },
+        acceptedAnswer: { "@type": "Answer", text: "Remote HP printer repair starts at $49 — about 50% less than Geek Squad. Most HP issues are fixed remotely in under 30 minutes. No fix = no fee guaranteed. Book online." },
       },
       {
         "@type": "Question",
         name: "Can HP LaserJet printers be repaired remotely?",
-        acceptedAnswer: { "@type": "Answer", text: "Yes. HP LaserJet driver issues, offline errors, print queue problems, and firmware errors can all be resolved remotely. Our technicians have resolved hundreds of HP LaserJet M404n, Pro M404dn, and LaserJet Pro M454dw issues remotely. Call 347-953-1531." },
+        acceptedAnswer: { "@type": "Answer", text: "Yes. HP LaserJet driver issues, offline errors, print queue problems, and firmware errors can all be resolved remotely. Our technicians have resolved hundreds of HP LaserJet M404n, Pro M404dn, and LaserJet Pro M454dw issues remotely. Book online." },
       },
       {
         "@type": "Question",
         name: "Why won't my HP DeskJet connect to WiFi?",
-        acceptedAnswer: { "@type": "Answer", text: "HP DeskJet WiFi issues are usually caused by a stale IP address or a router channel conflict. Restart both the printer and router. On the printer, hold the Wireless button until the light blinks, then press the WPS button on your router within 2 minutes. If that fails, download HP Smart app and run wireless setup from scratch. Trini System fixes HP WiFi remotely in 15 minutes — call 347-953-1531." },
+        acceptedAnswer: { "@type": "Answer", text: "HP DeskJet WiFi issues are usually caused by a stale IP address or a router channel conflict. Restart both the printer and router. On the printer, hold the Wireless button until the light blinks, then press the WPS button on your router within 2 minutes. If that fails, download HP Smart app and run wireless setup from scratch. Trini System fixes HP WiFi remotely in 15 minutes — book online." },
       },
       {
         "@type": "Question",
         name: "What HP printer models do you support?",
-        acceptedAnswer: { "@type": "Answer", text: "Trini System supports all HP printer models including DeskJet (4155e, 2755e, 3755, 4255e), ENVY (6055e, 6455e, 7955e), OfficeJet Pro (9015e, 9025e, 8710), and LaserJet (M404n, M454dw, Pro M404dn). Call us for any HP model not listed." },
+        acceptedAnswer: { "@type": "Answer", text: "Trini System supports all HP printer models including DeskJet (4155e, 2755e, 3755, 4255e), ENVY (6055e, 6455e, 7955e), OfficeJet Pro (9015e, 9025e, 8710), and LaserJet (M404n, M454dw, Pro M404dn). Book a session for any HP model not listed." },
       },
     ],
   },
@@ -102,7 +102,6 @@ const schemas = [
     provider: {
       "@type": "LocalBusiness",
       name: "Trini System LLC",
-      telephone: "+13479531531",
       address: { "@type": "PostalAddress", streetAddress: "52-09 99th St Apt 8S", addressLocality: "Corona", addressRegion: "NY", postalCode: "11368", addressCountry: "US" },
       aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "47", bestRating: "5" },
     },
@@ -171,7 +170,7 @@ export default function HPPrinterRepairPage() {
       {/* Urgency Bar */}
       <div className="bg-gradient-to-r from-blue-700 to-blue-600 text-white py-3 text-center text-sm font-semibold">
         🖨️ HP Printer Repair — Remote Service, All 50 States ·{" "}
-        <a href="tel:+13479531531" className="underline font-bold hover:text-blue-200">Call 347-953-1531</a>
+        <a href="/book" className="underline font-bold hover:text-blue-200">Book online</a>
         {" "}· From $49 · No Fix = No Fee
       </div>
 
@@ -200,8 +199,8 @@ export default function HPPrinterRepairPage() {
               an average of 20 minutes — from $49. Available 24/7 across all 50 states.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="tel:+13479531531" className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105" style={{ background: "linear-gradient(135deg,#dc2626,#b91c1c)", boxShadow: "0 4px 30px rgba(220,38,38,0.5)" }}>
-                📞 Call Now — 347-953-1531
+              <a href="/book" className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105" style={{ background: "linear-gradient(135deg,#dc2626,#b91c1c)", boxShadow: "0 4px 30px rgba(220,38,38,0.5)" }}>
+                📅 Book Online
               </a>
               <a href="#hp-diagnosis" className="inline-flex items-center justify-center gap-2 bg-white/10 border-2 border-white/30 text-white font-bold py-5 px-8 rounded-2xl text-lg hover:bg-white/20 transition-all">
                 🔧 Diagnose My HP Free
@@ -269,7 +268,7 @@ export default function HPPrinterRepairPage() {
               </div>
             ))}
           </div>
-          <p className="text-center text-sm text-gray-400 mt-6">Don&apos;t see your model? <a href="tel:+13479531531" className="text-blue-600 font-bold hover:underline">Call us — we repair all HP models</a></p>
+          <p className="text-center text-sm text-gray-400 mt-6">Don&apos;t see your model? <a href="/book" className="text-blue-600 font-bold hover:underline">Book a session — we repair all HP models</a></p>
         </div>
       </section>
 
@@ -307,7 +306,7 @@ export default function HPPrinterRepairPage() {
           <div className="text-center mb-10">
             <span className="inline-block text-xs font-black text-blue-400 border border-blue-700 px-3 py-1.5 rounded-full uppercase tracking-widest mb-4">DIY Guide</span>
             <h2 className="text-3xl md:text-4xl font-black mb-3">Fix HP Printer Offline — Step by Step</h2>
-            <p className="text-gray-400">94% of HP offline errors are fixed with these steps. If yours persists, call us.</p>
+            <p className="text-gray-400">94% of HP offline errors are fixed with these steps. If yours persists, book a session.</p>
           </div>
           <ol className="space-y-4">
             {[
@@ -328,7 +327,7 @@ export default function HPPrinterRepairPage() {
           </ol>
           <div className="mt-8 p-5 rounded-2xl bg-red-900/40 border border-red-700/40 text-center">
             <p className="text-white font-bold mb-3">Still showing offline after all 5 steps?</p>
-            <a href="tel:+13479531531" className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-black py-3 px-6 rounded-xl transition-colors">📞 Call Now — We Fix It in 15 Min</a>
+            <a href="/book" className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-black py-3 px-6 rounded-xl transition-colors">📅 Book Now — We Fix It in 15 Min</a>
           </div>
         </div>
       </section>
@@ -360,8 +359,8 @@ export default function HPPrinterRepairPage() {
           </div>
           <div className="space-y-4">
             {[
-              { q: "How do I fix my HP printer showing offline?", a: "Restart both your HP printer and WiFi router. In Windows Settings → Printers & Scanners, open the print queue and uncheck 'Use Printer Offline' from the Printer menu. If still offline, reinstall via HP Smart at 123.hp.com. Trini System fixes HP offline errors remotely in 15 minutes — call 347-953-1531." },
-              { q: "What is HP printer error OXc19a0035 and how do I fix it?", a: "Error OXc19a0035 is an ink system failure. Remove all ink cartridges, wait 60 seconds, reinstall firmly until they click. If the error persists, our technicians resolve this remotely in about 20 minutes without hardware replacement. Call 347-953-1531." },
+              { q: "How do I fix my HP printer showing offline?", a: "Restart both your HP printer and WiFi router. In Windows Settings → Printers & Scanners, open the print queue and uncheck 'Use Printer Offline' from the Printer menu. If still offline, reinstall via HP Smart at 123.hp.com. Trini System fixes HP offline errors remotely in 15 minutes — book online." },
+              { q: "What is HP printer error OXc19a0035 and how do I fix it?", a: "Error OXc19a0035 is an ink system failure. Remove all ink cartridges, wait 60 seconds, reinstall firmly until they click. If the error persists, our technicians resolve this remotely in about 20 minutes without hardware replacement. Book online." },
               { q: "Why won't my HP DeskJet connect to WiFi?", a: "HP DeskJet WiFi failures usually stem from a stale IP address or router channel conflict. Restart both devices. On the printer, hold the Wireless button until blinking, then press your router's WPS button within 2 minutes. Alternatively, use HP Smart app to run a fresh wireless setup. We fix this remotely in 15 minutes." },
               { q: "How much does HP printer repair cost?", a: "HP printer repair starts at $49 — approximately 50% less than Geek Squad ($100–$200). Most HP issues are resolved in one 30-minute session. No fix = no fee. You only pay when your HP printer is fully working." },
               { q: "Can HP LaserJet issues be fixed remotely?", a: "Yes. HP LaserJet driver errors, offline issues, firmware problems, and print queue issues are all fixed remotely. We've resolved hundreds of HP LaserJet M404n, Pro M454dw, and M210dw issues without the customer dropping off any hardware." },
@@ -417,8 +416,8 @@ export default function HPPrinterRepairPage() {
           <h2 className="text-3xl md:text-4xl font-black mb-4">Get Your HP Printer Fixed Today</h2>
           <p className="text-blue-200 text-lg mb-8">Remote service · All 50 states · From $49 · No fix = no fee</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:+13479531531" className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105" style={{ background: "linear-gradient(135deg,#dc2626,#b91c1c)", boxShadow: "0 4px 30px rgba(220,38,38,0.5)" }}>
-              📞 Call 347-953-1531
+            <a href="/book" className="inline-flex items-center justify-center gap-2 text-white font-black py-5 px-8 rounded-2xl text-lg transition-all hover:scale-105" style={{ background: "linear-gradient(135deg,#dc2626,#b91c1c)", boxShadow: "0 4px 30px rgba(220,38,38,0.5)" }}>
+              📞 Book online
             </a>
             <Link href="/services" className="inline-flex items-center justify-center gap-2 bg-white/10 border-2 border-white/30 text-white font-bold py-5 px-8 rounded-2xl text-lg hover:bg-white/20 transition-all">
               View All Services →

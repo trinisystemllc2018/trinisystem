@@ -17,8 +17,7 @@ import { GARMIN_APPS_PAGES, ALL_GARMIN_APPS_SLUGS, GARMIN_THEME, type GarminPage
 ═══════════════════════════════════════════════════════════════════ */
 
 const SITE = "https://trinisystem.vercel.app";
-const PHONE = "+13479531531";
-const PHONE_DISPLAY = "347-953-1531";
+const BOOKING_LABEL = "Book Online";
 
 type Brand = "gmail" | "facebook" | "garmin";
 type AnyPage = GmailPage | FacebookPage | GarminPage;
@@ -266,7 +265,6 @@ export default function HelpPage({ params }: Props) {
     provider: {
       "@type": "Organization",
       name: "Trini System",
-      telephone: PHONE,
       url: SITE,
     },
     areaServed: { "@type": "Country", name: "United States" },
@@ -297,14 +295,14 @@ export default function HelpPage({ params }: Props) {
         />
       ))}
 
-      {/* TOP STICKY PHONE CTA */}
+      {/* TOP STICKY BOOKING_LABEL CTA */}
       <div
         className="sticky top-0 z-40 px-4 py-2 text-white text-center font-bold text-base md:text-lg"
         style={{ backgroundColor: theme.primary }}
       >
-        Stuck? Call a real person free —{" "}
-        <a href={`tel:${PHONE}`} className="underline">
-          {PHONE_DISPLAY}
+        Stuck? Book a session —{" "}
+        <a href="/book" className="underline">
+          {BOOKING_LABEL}
         </a>
       </div>
 
@@ -554,16 +552,16 @@ export default function HelpPage({ params }: Props) {
           className="rounded-2xl p-6 md:p-8 text-center mb-8"
           style={{ backgroundColor: theme.primary, color: "white" }}
         >
-          <h2 className="text-2xl md:text-3xl font-bold mb-3">Still stuck? Call a real person.</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-3">Still stuck? Book a session with a real technician.</h2>
           <p className="text-lg mb-5 opacity-95">
-            We answer in under 15 minutes. We never ask for your password. Help is free for under-15-minute calls.
+            We never ask for your password. Help is free for under-15-minute calls.
           </p>
           <a
-            href={`tel:${PHONE}`}
+            href="/book"
             className="inline-block px-8 py-4 rounded-full text-xl md:text-2xl font-bold bg-white"
             style={{ color: theme.primary }}
           >
-            📞 {PHONE_DISPLAY}
+            📞 {BOOKING_LABEL}
           </a>
         </section>
 

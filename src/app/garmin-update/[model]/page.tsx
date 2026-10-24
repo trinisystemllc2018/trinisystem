@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { PHONE, PHONE_HREF } from "@/lib/utils";
+import { BOOKING_LABEL, BOOKING_HREF } from "@/lib/utils";
 import { GARMIN_MODELS, type GarminKey } from "@/lib/seo-data";
 
 interface Props { params: { model: string } }
@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const model = GARMIN_MODELS[params.model as GarminKey];
   if (!model) return {};
   const title = `Garmin ${model.name} Map Update Guide`;
-  const description = `Update maps on Garmin ${model.name} step-by-step with Garmin Express. Free guide. Call 347-953-1531 — we update your GPS remotely.`;
+  const description = `Update maps on Garmin ${model.name} step-by-step with Garmin Express. Free guide. Book online — we update your GPS remotely.`;
   const url = `https://trinisystem.vercel.app/garmin-update/${params.model}`;
   return {
     title,
@@ -57,7 +57,7 @@ export default function GarminUpdatePage({ params }: Props) {
 
       <div className="bg-amber-600 text-white py-2 text-center text-sm font-semibold">
         🗺️ Garmin {model.name} Map Update — Remote Help Available ·{" "}
-        <a href={PHONE_HREF} className="underline">Call {PHONE}</a>
+        <a href={BOOKING_HREF} className="underline">{BOOKING_LABEL}</a>
       </div>
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
@@ -109,9 +109,9 @@ export default function GarminUpdatePage({ params }: Props) {
         <div className="bg-gray-900 rounded-2xl p-6 text-white text-center mb-8">
           <h3 className="font-black text-xl mb-2">Garmin update stuck or not working?</h3>
           <p className="text-gray-300 text-sm mb-4">We update Garmin GPS devices remotely while you watch — every model, including {model.name}. Free diagnosis.</p>
-          <a href={PHONE_HREF}
+          <a href={BOOKING_HREF}
             className="inline-flex items-center gap-2 bg-white text-gray-900 font-black px-8 py-4 rounded-xl text-lg hover:bg-gray-100 transition-colors">
-            📞 Call {PHONE}
+            📞 {BOOKING_LABEL}
           </a>
         </div>
 
