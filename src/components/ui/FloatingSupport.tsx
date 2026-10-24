@@ -4,13 +4,16 @@ import Link from "next/link";
 import { MessageCircle, X, CalendarClock, Zap, BookOpen, ArrowRight } from "lucide-react";
 import { BOOKING_HREF, DOWNLOAD_URL } from "@/lib/utils";
 import { CallbackButton } from "@/components/ui/CallbackModal";
+import { TriniBotChat } from "@/components/features/TriniBotChat";
 
 /** Single support entry point — lives in the coordinated FAB stack. */
 export function FloatingSupport() {
   const [open, setOpen] = useState(false);
+  const [chatOpen, setChatOpen] = useState(false);
 
   return (
     <div className="tx-fab-support flex flex-col items-end gap-3">
+      <TriniBotChat open={chatOpen} onClose={() => setChatOpen(false)} />
       {/* Panel opens above the button */}
       <div
         className="w-72 rounded-3xl overflow-hidden t-surface"
@@ -39,6 +42,20 @@ export function FloatingSupport() {
 
         <div className="p-4 space-y-2">
           <p className="t-muted text-sm px-1 pb-2">Pick the fastest way to get help:</p>
+
+          <button
+            type="button"
+            onClick={() => { setChatOpen(true); setOpen(false); }}
+            className="flex items-center gap-3 p-3 rounded-2xl w-full text-left transition-colors"
+            style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
+          >
+            <MessageCircle size={20} style={{ color: "var(--accent)" }} />
+            <div className="flex-1">
+              <p className="text-sm font-bold t-text">Ask Trini Bot</p>
+              <p className="text-xs t-faint">AI help for PC, printer &amp; GPS problems</p>
+            </div>
+            <ArrowRight size={16} className="t-faint" />
+          </button>
 
           <Link href={BOOKING_HREF} className="flex items-center gap-3 p-3 rounded-2xl transition-colors"
             style={{ background: "var(--primary-soft)", border: "1px solid var(--border-strong)" }}>
