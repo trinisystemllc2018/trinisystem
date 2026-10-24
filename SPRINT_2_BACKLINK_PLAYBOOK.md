@@ -84,7 +84,7 @@ This is the highest-volume Garmin watch query. Write a 600-word Google Sites pos
 1. Top: *"For complete Forerunner update steps including 245, 255, 265, 955, and 965 models, see our [full Forerunner update guide](https://trinisystem.vercel.app/garmin/forerunner-update)."*
 2. Mid-content: *"If sync is failing, see our [WiFi sync troubleshooting](https://trinisystem.vercel.app/garmin/wifi-sync-not-working) guide."*
 3. Mid-content: *"For Express problems, read [Garmin Express not working](https://trinisystem.vercel.app/garmin/express-not-working)."*
-4. Bottom: *"Need help? Visit [Trini System Garmin Help](https://trinisystem.vercel.app/garmin-gps-help) or call 347-953-1531."*
+4. Bottom: *"Need help? Visit [Trini System Garmin Help](https://trinisystem.vercel.app/garmin-gps-help) or call[phone number removed]."*
 
 ### New Post 2: "Garmin Fenix 7 Battery Drain Fix — 2026 Guide"
 
